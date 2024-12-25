@@ -163,4 +163,21 @@
   </div>
 </div>
 
+<div>
+  <div class="w-90 mx-auto">
+    Key exhibitors at Big 5 Construct Egypt 2025
+    <div>Some tags before</div>
+    <owl-carousel-o [options]="customOptions">
+  
+      <ng-container *ngFor="let slide of slidesStore">
+        <ng-template carouselSlide [id]="slide.id">
+          <img [src]="slide.src" [alt]="slide.alt" [title]="slide.title">
+        </ng-template>
+      </ng-container>
+  
+    </owl-carousel-o>
+    <div>Some tags after</div>
+  </div>
+</div>
+
 <router-outlet></router-outlet>
