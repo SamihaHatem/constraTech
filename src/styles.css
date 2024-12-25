@@ -1,1 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.w-90 {
+    width: 90%;
+}
+
+.text-end {
+    text-align: end;
+}
+
+.justify-items-end {
+    justify-items: end;
+}
+
+.ff-cursive {
+    font-family: cursive;
+}
+
+.bt-white {
+    border-top: 1px solid white;
+}
+
+.bb-white {
+    border-bottom: 1px solid white;
+}
+
+.bl-white {
+    border-left: 1px solid white;
+}
+
+.br-white {
+    border-right: 1px solid white;
+}

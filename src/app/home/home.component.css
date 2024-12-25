@@ -1,7 +1,3 @@
-.w-90 {
-    width: 90%;
-}
-
 .section-1 {
     background-color: #394577;
 }
@@ -11,36 +7,6 @@
     font-family: Inter, sans-serif;
     font-weight: 500;
     cursor: pointer;
-}
-
-.text-end {
-    text-align: end;
-}
-
-.section-2 .date {
-    font-size: 1.125rem;
-    letter-spacing: .022rem;
-    font-family: Inter;
-    color: black;
-}
-
-.section-2 .time,
-.section-2 .location {
-    font-weight: 500;
-    line-height: 1.375rem;
-    color: black;
-}
-
-.justify-items-end {
-    justify-items: end;
-}
-
-.bg-gray {
-    background-color: #e5e3e3;
-}
-
-nav ul {
-    list-style: none;
 }
 
 .banner {
@@ -54,20 +20,72 @@ nav ul {
 }
 
 .banner-child .content {
-    background-color: rgba(0, 0, 0, 0.441);
+    background-color: #000000cc;
     font-weight: 600;
     letter-spacing: .32px;
     line-height: 1.187rem;
 }
 
-.bg-green{
+.bg-green {
     background-color: green;
 }
 
-.banner{
+.banner {
     overflow: hidden;
 }
 
-.banner-child .content2{
+.banner-child .content2 {
     background-color: #328b09;
+}
+
+/** Mat Menu Style */
+/* ::ng-deep.cdk-overlay-connected-position-bounding-box {
+    left: 3% !important;
+    right: 3% !important;
+}
+
+::ng-deep.mat-mdc-menu-panel {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+::ng-deep.cdk-overlay-pane {
+    width: 100% !important;
+}
+
+::ng-deep.mat-mdc-menu-content {
+    background-color: rgba(0, 0, 0, 0.927);
+}
+
+::ng-deep.cdk-overlay-connected-position-bounding-box {
+    top: 0 !important;
+} */
+
+
+.bg-custom-black {
+    background-color: rgb(0 0 0 / 89%);
+}
+
+::ng-deep.modal-content {
+    background-color: transparent;
+}
+
+::ng-deep.btn-close {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e");
+}
+
+
+.banner-child .content .link:hover i {
+    margin-left: 10px;
+}
+
+.banner-child .content .link {
+    cursor: pointer;
+    font-family: 'Inter';
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.banner-child .content .link i {
+    transition: all 0.2s ease-in-out;
 }

@@ -5,6 +5,7 @@ import { FormsRoutingModule } from './forms-routing.module';
 import { VisitorComponent } from './component/visitor/visitor.component';
 import { SpeakerComponent } from './component/speaker/speaker.component';
 import { ExhibitorComponent } from './component/exhibitor/exhibitor.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ExhibitorComponent } from './component/exhibitor/exhibitor.component';
   ],
   imports: [
     CommonModule,
-    FormsRoutingModule
+    FormsRoutingModule,
+    SharedModule
   ]
 })
 export class FormsModule { }

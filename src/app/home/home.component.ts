@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, TemplateRef, ViewChild } from '@angular/core';
+import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
@@ -7,6 +8,18 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements AfterViewInit {
+
+  constructor(private modalServices: NgbModal, config: NgbModalConfig,) {
+    config.backdrop = 'static';
+    config.keyboard = false;
+    config.size = 'lg'
+  }
+
+  openModal(content: TemplateRef<any>) {
+    this.modalServices.open(content,{
+      
+    })
+  }
 
   customOptions: OwlOptions = {
     loop: true,

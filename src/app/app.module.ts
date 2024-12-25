@@ -8,11 +8,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { FormsModule as customFormsModule } from './Modules/forms/forms.module';
 import { HomeComponent } from './home/home.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SharedModule } from './Modules/shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -21,7 +25,11 @@ import { HomeComponent } from './home/home.component';
     BrowserAnimationsModule,
     RouterModule,
     AppRoutingModule,
-    customFormsModule
+    customFormsModule,
+    MatMenuModule,
+    MatButtonModule,
+    NgbModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
