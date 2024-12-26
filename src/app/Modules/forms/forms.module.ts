@@ -6,13 +6,15 @@ import { VisitorComponent } from './component/visitor/visitor.component';
 import { SpeakerComponent } from './component/speaker/speaker.component';
 import { ExhibitorComponent } from './component/exhibitor/exhibitor.component';
 import { SharedModule } from '../shared/shared.module';
+import { LoginComponent } from './component/login/login.component';
 
 
 @NgModule({
   declarations: [
     VisitorComponent,
     SpeakerComponent,
-    ExhibitorComponent
+    ExhibitorComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,85 @@
+<body>
+    <mat-toolbar class="texture-bg2 red-bg px-0" [class.justify-content-between]="!authenticated">
+        <div class="h-100 bg-white d-flex px-4" routerLink="/home" style="cursor: pointer;">
+            <img src="../../../../../assets/images/LOGO1.jpg" alt="" class="h-100 img2" *ngIf="isCollapsed">
+            <img src="../../../../../assets/images/LOGO1.jpg" alt="" class="h-100" *ngIf="!isCollapsed">
+        </div>
+        <button mat-icon-button aria-label="Menu icon" (click)="toggleMenu()" *ngIf="authenticated">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <div class="profile px-2" *ngIf="authenticated">
+            <button class="fs-small m-0 p-0" mat-icon-button [matMenuTriggerFor]="menu">
+                <i class="fa-regular fa-user"></i>
+            </button>
+            <mat-menu #menu="matMenu" id="menu-id">
+                <a class="p-0 m-0 my-1 h-100 d-block px-1 text-center item1" mat-menu-item>
+                    <div>
+                        <img style="width: 50px; height: 50px;" src="../../../../../assets/images/profile.jpg">
+                    </div>
+                    <p style="font-weight: 500;" class="px-1 p-0 m-0" id="mat-item-cutom">{{user?.username}}
+                    </p>
+                </a>
+
+                <a class="p-0 m-0 my-1 h-100 d-block px-1 item1" mat-menu-item routerLink="/profile">
+                    <p style="font-weight: 500;" class="px-1 p-0 m-0" id="mat-item-cutom">profile</p>
+                </a>
+
+                <a class="p-0 m-0 my-1 h-100 d-block px-1 item1" mat-menu-item>
+                    <p style="font-weight: 500;" class="px-1 p-0 m-0" id="mat-item-cutom" (click)="onLogout()">Logout
+                    </p>
+                </a>
+            </mat-menu>
+        </div>
+    </mat-toolbar>
+
+    <mat-sidenav-container autosize="true" *ngIf="authenticated">
+        <mat-sidenav class="bg-cutom-dark texture-bg" [ngClass]="!isCollapsed ? 'expanded' : ''"
+            [style.width]="!isMobile && !isCollapsed? '200px' : ''" [mode]="isMobile ? 'over' : 'side'"
+            [opened]="isMobile ? 'false' : 'true'">
+            <mat-nav-list class="py-0">
+
+                <!-- Home -->
+                <a [ngClass]="currentUrl.includes('home') ? 'selectedItem' : ''" mat-list-item
+                    (click)="navigate('home')">
+                    <span class="entry">
+                        <div class="w-25"> <i class="fa-solid fa-chart-line"></i></div>
+                        <span class="w-75 pe-2" *ngIf="!isCollapsed">Home</span>
+                    </span>
+                </a>
+
+                <!-- Fines Conatiner -->
+                <!-- <ng-container *ngIf="finesRoles.includes(user.role)">
+            <a *ngIf="['QA Manager', 'QA Employee', 'Service Agent' , 'Operation Employee' , 'Operation Manager'].includes(user.role)"
+              [ngClass]="currentUrl.includes('fines/all') ? 'selectedItem' : ''" mat-list-item
+              (click)="navigate('fines/all')">
+              <span class="entry">
+                <div class="w-25"> <i class="fa-solid fa-file-invoice"></i></div>
+                <span class="w-75 pe-2" *ngIf="!isCollapsed" [ngClass]="user.lang == 'ar' ? 'fs-18-5':'' ">{{"FINES" |
+                  translate}} </span>
+              </span>
+            </a>
+  
+            <a [ngClass]="currentUrl.includes('fines/petitions') ? 'selectedItem' : ''" mat-list-item
+              (click)="navigate('fines/petitions')"
+              *ngIf="['QA Manager', 'Service Agent' ,'Operation Manager', 'Operation Employee'].includes(user.role)">
+              <span class="entry">
+                <div class="w-25"><i class="fas fa-file-alt"></i></div>
+                <span class="w-75 pe-2" *ngIf="!isCollapsed" [ngClass]="user.lang == 'ar' ? 'fs-18-5':'' ">{{"PETITIONS" |
+                  translate}}</span>
+              </span>
+            </a>
+          </ng-container>
+   -->
+
+            </mat-nav-list>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <div class="h-100" style="overflow: auto;">
+                <router-outlet></router-outlet>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+
+    <router-outlet *ngIf="!authenticated"></router-outlet>
+</body>

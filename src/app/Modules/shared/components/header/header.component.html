@@ -1,36 +1,132 @@
 <section class="section-2">
-    <div class="w-90 mx-auto">
-      <div class="d-flex">
-        <div class="w-50 d-flex">
-          <div class="w-50">
-            <img style="max-width: 100%;" src="../assets/images/o_bg-remover-gen_2qhiLVeeY8noWoL9fiuSzfl9rdp.png"
-              alt="constraTech logo">
-          </div>
-          <div class="w-50 align-content-center">
-            <p class="m-0 p-0 h6 date">17 - 19 June 2025</p>
-            <p class="m-0 p-0 time">11 AM - 7 PM</p>
-            <p class="m-0 p-0 location"> Egypt International Exhibition Center (EIEC)</p>
-          </div>
+  <div class="w-90 mx-auto">
+    <div class="d-flex">
+      <div class="w-50 d-flex">
+        <div class="w-50">
+          <img style="max-width: 100%;" src="../assets/images/o_bg-remover-gen_2qhiLVeeY8noWoL9fiuSzfl9rdp.png"
+            alt="constraTech logo">
         </div>
-  
-        <div class="w-50 justify-items-end">
-          <div class="w-75 d-flex">
-            <div class="w-25 img-container">
-              <img style="max-width: 100%;" src="../assets/images/img-1.jpg"
-                alt="وزارة الاسكان والمرافق والمجتمعات العمرانية">
-            </div>
-            <div class="w-25 img-container">
-              <img style="max-width: 100%;" src="../assets/images/img-2.jpg" alt="وزارة التجارة والصناعة">
-            </div>
-            <div class="w-25 img-container">
-              <img style="max-width: 100%;" src="../assets/images/img-3.jpg" alt="Egyption Engineers syndicate">
-            </div>
-            <div class="w-25 img-container">
-              <img style="max-width: 100%;" src="../assets/images/img-4.jpg" alt="Industrial Modernisation center">
-            </div>
-          </div>
+        <div class="w-50 align-content-center" *ngIf="!isMobile">
+          <p class="m-0 p-0 h6 date">17 - 19 June 2025</p>
+          <p class="m-0 p-0 time">11 AM - 7 PM</p>
+          <p class="m-0 p-0 location"> Egypt International Exhibition Center (EIEC)</p>
         </div>
       </div>
+
+      <div class="w-50 justify-items-end">
+        <div class="w-75 d-flex" *ngIf="!isMobile">
+          <div class="w-25 img-container">
+            <img style="max-width: 100%;" src="../assets/images/img-1.jpg"
+              alt="وزارة الاسكان والمرافق والمجتمعات العمرانية">
+          </div>
+          <div class="w-25 img-container">
+            <img style="max-width: 100%;" src="../assets/images/img-2.jpg" alt="وزارة التجارة والصناعة">
+          </div>
+          <div class="w-25 img-container">
+            <img style="max-width: 100%;" src="../assets/images/img-3.jpg" alt="Egyption Engineers syndicate">
+          </div>
+          <div class="w-25 img-container">
+            <img style="max-width: 100%;" src="../assets/images/img-4.jpg" alt="Industrial Modernisation center">
+          </div>
+        </div>
+
+        <nav *ngIf="isMobile" class="navbar navbar-expand-lg bg-body-tertiary bg-gray">
+          <div class="container-fluid w-90 mx-auto py-2 justify-content-end">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="d-flex justify-content-between navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="p-1">
+                  <div class="dropdown">
+                    <button class="btn dropdown-toggle p-0" type="button" data-bs-toggle="dropdown"
+                      aria-expanded="false">
+                      EXHIBIT
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Why Egypt</a></li>
+                      <li><a class="dropdown-item" href="#">Sponsorship</a></li>
+                      <li><a class="dropdown-item" href="#">2025 Exhibitor List</a></li>
+                      <li><a class="dropdown-item" href="#">2024/2023 Exhibitor List</a></li>
+                    </ul>
+                  </div>
+                </li>
+
+                <li class="p-1">
+                  <div class="dropdown">
+                    <button class="btn dropdown-toggle p-0" type="button" data-bs-toggle="dropdown"
+                      aria-expanded="false">
+                      VISIT
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Why Egypt</a></li>
+                      <li><a class="dropdown-item" href="#">Registration</a></li>
+                    </ul>
+                  </div>
+                </li>
+
+                <li class="align-content-center p-1">
+                  <a>2024 Exhibitors List</a>
+                </li>
+
+                <li class="p-1">
+                  <div class="dropdown">
+                    <button class="btn dropdown-toggle p-0" type="button" data-bs-toggle="dropdown"
+                      aria-expanded="false">
+                      SPEAKERS
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Registration</a></li>
+                      <li><a class="dropdown-item" href="#">Speakers List</a></li>
+                    </ul>
+                  </div>
+                </li>
+
+                <li class="p-1">
+                  <div class="dropdown">
+                    <button class="btn dropdown-toggle p-0" type="button" data-bs-toggle="dropdown"
+                      aria-expanded="false">
+                      Features
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">CONFERENCE</a></li>
+                      <li><a class="dropdown-item" href="#">EXHIBITION</a></li>
+                      <li><a class="dropdown-item" href="#">WORKSHOP</a></li>
+                      <li><a class="dropdown-item" href="#">SPEAKERS</a></li>
+                    </ul>
+                  </div>
+                </li>
+
+                <li class="p-1">
+                  <div class="dropdown">
+                    <button class="btn dropdown-toggle p-0" type="button" data-bs-toggle="dropdown"
+                      aria-expanded="false">
+                      2025 Sponsors
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                  </div>
+                </li>
+
+                <div>
+                  <a class="mx-3" target="_blank" href="https://www.facebook.com/ConstraTechsummit"><i
+                      class="fa-brands fa-facebook-f"></i></a>
+                  <a class="mx-3" target="_blank" href="https://www.linkedin.com/company/constratechsummit/"><i
+                      class="fa-brands fa-linkedin-in"></i></a>
+                  <a class="mx-3" target="_blank" href="https://www.youtube.com/@Constratechsummit/video"><i
+                      class="fa-brands fa-youtube"></i></a>
+                </div>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
     </div>
-  
-  </section>
+  </div>
+
+</section>

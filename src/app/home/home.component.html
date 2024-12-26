@@ -1,12 +1,12 @@
 <section class="py-3 section-1">
   <div class="w-90 mx-auto">
-    <div class="d-flex">
-      <div class="w-50">
+    <div class="d-flex" [class.justify-content-center]="isMobile">
+      <div [class.w-50]="!isMobile">
         <span class="text-white" (click)="openModal(constructionPortfolioContent)">
           CONSTRUCTION PORTFOLIO OF EVENTS <i class="fa-solid fa-caret-down"></i>
         </span>
       </div>
-      <div class="w-50 text-end">
+      <div class="w-50 text-end" [class.d-none]="isMobile">
         <a class="mx-3" target="_blank" href="https://www.facebook.com/ConstraTechsummit"><i
             class="fa-brands fa-facebook-f text-white"></i></a>
         <a class="mx-3" target="_blank" href="https://www.linkedin.com/company/constratechsummit/"><i

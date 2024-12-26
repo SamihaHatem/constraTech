@@ -1,25 +1,18 @@
-import { AfterViewInit, Component, TemplateRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements AfterViewInit {
+export class HomeComponent implements AfterViewInit, OnInit {
 
-  constructor(private modalServices: NgbModal, config: NgbModalConfig,) {
-    config.backdrop = 'static';
-    config.keyboard = false;
-    config.size = 'lg'
-  }
-
-  openModal(content: TemplateRef<any>) {
-    this.modalServices.open(content,{
-      
-    })
-  }
+  isMobile = true;
+  @ViewChild('videoPlayer') videoPlayer: any;
+  autoPlayFlag = true;
 
   customOptions: OwlOptions = {
     loop: true,
@@ -47,13 +40,30 @@ export class HomeComponent implements AfterViewInit {
     nav: true
   }
 
-  @ViewChild('videoPlayer') videoPlayer: any;
-  autoPlayFlag = true;
+  constructor(private modalServices: NgbModal, config: NgbModalConfig, private observer: BreakpointObserver,) {
+    config.backdrop = 'static';
+    config.keyboard = false;
+    config.size = 'lg'
+  }
+
+
+  openModal(content: TemplateRef<any>) {
+    this.modalServices.open(content)
+  }
+
+  ngOnInit(): void {
+    this.observer.observe(['(max-width: 800px)']).subscribe((screenSize) => {
+      if (screenSize.matches) {
+        this.isMobile = true;
+      } else {
+        this.isMobile = false;
+      }
+    });
+  }
 
   ngAfterViewInit() {
-    // Check if video is muted and play it
     const videoElement = this.videoPlayer.nativeElement;
-    videoElement.muted = true; // Ensure video is muted
-    videoElement.play();       // Trigger autoplay
+    videoElement.muted = true; 
+    videoElement.play();       
   }
 }

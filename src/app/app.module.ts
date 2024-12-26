@@ -12,6 +12,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from './Modules/shared/shared.module';
+import { CmsModule } from './Modules/cms/cms.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { SharedModule } from './Modules/shared/shared.module';
     MatMenuModule,
     MatButtonModule,
     NgbModule,
-    SharedModule
+    SharedModule,
+    CmsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
