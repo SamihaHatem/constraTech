@@ -1,8 +1,9 @@
 <body>
     <mat-toolbar class="texture-bg2 red-bg px-0" [class.justify-content-between]="!authenticated">
-        <div class="h-100 bg-white d-flex px-4" routerLink="/home" style="cursor: pointer;">
-            <img src="../../../../../assets/images/LOGO1.jpg" alt="" class="h-100 img2" *ngIf="isCollapsed">
-            <img src="../../../../../assets/images/LOGO1.jpg" alt="" class="h-100" *ngIf="!isCollapsed">
+        <div class="h-100 bg-white d-flex " routerLink="/admin/home" style="cursor: pointer;">
+            <img src="../../../../../assets/images/logo-short-removebg-preview (1).png" alt="" class="h-100 p-2 m-0"
+                *ngIf="isCollapsed">
+            <img src="../../../../../assets/images/LOGO1.jpg" alt="" class="h-100 px-4 mx-1" *ngIf="!isCollapsed">
         </div>
         <button mat-icon-button aria-label="Menu icon" (click)="toggleMenu()" *ngIf="authenticated">
             <mat-icon>menu</mat-icon>
@@ -39,11 +40,48 @@
             <mat-nav-list class="py-0">
 
                 <!-- Home -->
+                <a [ngClass]="currentUrl.includes('admin/home') ? 'selectedItem' : ''" mat-list-item
+                    (click)="navigate('admin/home')">
+                    <span class="entry">
+                        <div class="w-25"> <i class="fa-solid fa-house"></i></div>
+                        <span class="w-75 pe-2" *ngIf="!isCollapsed">HOME</span>
+                    </span>
+                </a>
+
+                <!-- Gallery -->
+                <a [ngClass]="currentUrl.includes('admin/gallery') ? 'selectedItem' : ''" mat-list-item
+                    (click)="navigate('admin/gallery')">
+                    <span class="entry">
+                        <div class="w-25"> <i class="fa-regular fa-image"></i> </div>
+                        <span class="w-75 pe-2" *ngIf="!isCollapsed">GALLERY</span>
+                    </span>
+                </a>
+
+                <!-- Exhibitors and Sponsors -->
+                <a [ngClass]="currentUrl.includes('admin/sponsors') ? 'selectedItem' : ''" mat-list-item
+                    (click)="navigate('admin/sponsors')">
+                    <span class="entry">
+                        <div class="w-25"> <i class="fa-regular fa-handshake"></i> </div>
+                        <span class="w-75 pe-2" *ngIf="!isCollapsed">SPONSORS</span>
+                    </span>
+                </a>
+
+                <!-- Speakers -->
+                <a [ngClass]="currentUrl.includes('admin/speakers') ? 'selectedItem' : ''" mat-list-item
+                    (click)="navigate('admin/speakers')">
+                    <span class="entry">
+                        <div class="w-25"> <i class="fa-solid fa-microphone"></i> </div>
+                        <span class="w-75 pe-2" *ngIf="!isCollapsed">SPEAKERS</span>
+                    </span>
+                </a>
+
+
+                <!-- Website -->
                 <a [ngClass]="currentUrl.includes('home') ? 'selectedItem' : ''" mat-list-item
                     (click)="navigate('home')">
                     <span class="entry">
-                        <div class="w-25"> <i class="fa-solid fa-chart-line"></i></div>
-                        <span class="w-75 pe-2" *ngIf="!isCollapsed">Home</span>
+                        <div class="w-25"> <i class="fa-solid fa-globe"></i> </div>
+                        <span class="w-75 pe-2" *ngIf="!isCollapsed">WEBSITE</span>
                     </span>
                 </a>
 
@@ -77,9 +115,8 @@
         <mat-sidenav-content>
             <div class="h-100" style="overflow: auto;">
                 <router-outlet></router-outlet>
+
             </div>
         </mat-sidenav-content>
     </mat-sidenav-container>
-
-    <router-outlet *ngIf="!authenticated"></router-outlet>
 </body>

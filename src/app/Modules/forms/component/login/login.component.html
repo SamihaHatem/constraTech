@@ -1,1 +1,48 @@
-<app-header></app-header>
+<div class="vh-100">
+</div>
+<div class="row h-100 w-100 p-5">
+    <div class="col-md-8 col-sm-0 bg-img align-content-center p-0">
+        <div class="content">
+            <div class="h-50">
+                <img class="w-25 cursor-pointer" routerLink="/home" src="../../../../../assets/images/logo-white.png" alt="">
+            </div>
+            <div class="h-50">
+                <h2 class="text-white text-center py-1 px-2">construction technology summit</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 col-sm-12 bg-white">
+        <div class="p-5 w-100 h-100">
+            <div class="w-100 h-100 align-content-center">
+                <p class="text-center">
+                    <span class="h2">
+                        Login
+                    </span>
+                </p>
+                <div>
+                    <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
+                        <p class="text-white h4 aref-ruqaa-regular">Login</p>
+                        <div class="my-2">
+                            <label for="username" class="form-label">Username:</label>
+                            <input type="text" id="username" name="username" class="form-control" ngModel
+                                #username="ngModel" required>
+                        </div>
+
+                        <div class="my-2">
+                            <label for="password" class="form-label">Password:</label>
+                            <input type="password" id="password" name="password" class="form-control" ngModel
+                                #password="ngModel" required>
+                        </div>
+
+                        <div class="text-center my-3">
+                            <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+                            <div id="login_err"></div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

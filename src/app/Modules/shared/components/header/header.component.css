@@ -11,3 +11,89 @@
     line-height: 1.375rem;
     color: black;
 }
+
+
+
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #1e1c2f;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.mat-expansion-panel:not([class*=mat-elevation-z]) {
+    box-shadow: none !important;
+}
+
+/* .mat-expansion-panel-header {
+    height: fit-content !important;
+} */
+
+::ng-deep.mat-expansion-panel-body{
+    padding: 1rem !important;
+}
+
+.social-media{
+    position: absolute;
+    bottom: 0;
+}
+
+.btn-gray {
+    background-color: #434a42;
+    color: white;
+    border: 1px solid #434a42;
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-green{
+    background-color: #50b946;
+    color: white;
+    border: 1px solid #50b946;
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+}
+
+@media (hover: none) {
+    .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]):hover {
+        background: transparent !important;
+    }
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 14px;
+    }
+}

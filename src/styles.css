@@ -11,7 +11,7 @@ body {
 }
 
 .w-90 {
-    width: 90%;
+    width: 90% !important;
 }
 
 .text-end {
@@ -19,7 +19,7 @@ body {
 }
 
 .justify-items-end {
-    justify-items: end;
+    justify-items: end !important;
 }
 
 .ff-cursive {
@@ -40,4 +40,40 @@ body {
 
 .br-white {
     border-right: 1px solid white;
+}
+
+.b-white {
+    border: 1px solid white;
+}
+
+.fw-400 {
+    font-weight: 400 !important;
+}
+
+.justify-items-center {
+    justify-items: center;
+}
+
+.list-style-none {
+    list-style: none !important;
+}
+
+.fs-small {
+    font-size: small !important;
+}
+
+.place-items-center {
+    place-items: center !important;
+}
+
+.flex-dir-col-rev{
+    flex-direction: column-reverse;
+}
+
+.bb-gray{
+    border-bottom: 1px solid rgb(193, 193, 193);
+}
+
+.cursor-pointer{
+    cursor: pointer;
 }

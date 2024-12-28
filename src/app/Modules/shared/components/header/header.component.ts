@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input, signal } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
-
 
 @Component({
   selector: 'app-header',
@@ -9,9 +8,17 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 })
 export class HeaderComponent {
   isMobile = true;
-  constructor(private observer: BreakpointObserver, ) { }
+  @Input() isScrolled: boolean = false; // Initialize with a default value (optional)
 
-   ngOnInit(): void {
+  readonly panelOpenState = signal(false);
+
+  constructor(private observer: BreakpointObserver,) { }
+
+  scroll_Top() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  ngOnInit(): void {
     this.observer.observe(['(max-width: 800px)']).subscribe((screenSize) => {
       if (screenSize.matches) {
         this.isMobile = true;
@@ -21,4 +28,14 @@ export class HeaderComponent {
     });
   }
 
+
+  isNavOpen = false;
+
+  openNav() {
+    this.isNavOpen = true;
+  }
+
+  closeNav() {
+    this.isNavOpen = false;
+  }
 }

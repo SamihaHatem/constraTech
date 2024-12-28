@@ -1,8 +1,9 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
-import { Router } from 'express';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-home',
@@ -22,7 +23,7 @@ export class HomeComponent {
 
   currentUrl: string = '';
 
-  constructor(private observer: BreakpointObserver) { }
+  constructor(private observer: BreakpointObserver, private router: Router , private userServices:UserService) { }
 
 
   onProfile() {
@@ -31,12 +32,14 @@ export class HomeComponent {
   }
 
   onLogout() {
+    this.userServices.logout()
     this.navigate('login')
   }
 
   navigate(path: string) {
     console.log(path)
     this.currentUrl = path;
+    this.router.navigateByUrl('/' + path)
   }
 
   toggleMenu() {

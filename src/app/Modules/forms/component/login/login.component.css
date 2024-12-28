@@ -1,0 +1,31 @@
+.bg-img {
+    background-image: url('../../../../../assets/images/logintest.jpg');
+    background-size: cover;
+    position: relative;
+}
+
+.vh-100 {
+    background-image: url('../../../../../assets/images/logintest.jpg');
+    background-size: cover;
+    filter: blur(8px) grayscale(100%);
+    position: relative;
+}
+
+.row {
+    position: absolute;
+    top: 0;
+}
+
+.bg-img .content {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000ef;
+}
+
+h2 {
+    width: fit-content;
+    margin: auto;
+    border: 2px solid gold;
+}

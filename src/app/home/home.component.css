@@ -1,5 +1,5 @@
 .section-1 {
-    background-color: #394577;
+    background-color: #171637;
 }
 
 .section-1 span {
@@ -13,18 +13,6 @@
     position: relative;
 }
 
-.banner-child {
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.475);
-    top: 0;
-}
-
-.banner-child .content {
-    background-color: #000000cc;
-    font-weight: 600;
-    letter-spacing: .32px;
-    line-height: 1.187rem;
-}
 
 .bg-green {
     background-color: green;
@@ -34,9 +22,6 @@
     overflow: hidden;
 }
 
-.banner-child .content2 {
-    background-color: #328b09;
-}
 
 /** Mat Menu Style */
 /* ::ng-deep.cdk-overlay-connected-position-bounding-box {
@@ -88,4 +73,188 @@
 
 .banner-child .content .link i {
     transition: all 0.2s ease-in-out;
+}
+
+
+.banner-child {
+    position: absolute;
+    top: 0;
+}
+
+.banner-child .overlay {
+    background-color: rgba(0, 0, 0, 0.333);
+
+}
+
+.banner-child .content {
+    background-color: #0000008f;
+    font-weight: 600;
+    letter-spacing: .32px;
+    line-height: 1.187rem;
+}
+
+.banner-child .content2 {
+    background-color: #328b09;
+}
+
+.my-nav {
+    position: relative;
+    background-color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+.fixed-nav {
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    background-color: #171637;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-green {
+    background-color: #50b946;
+    color: white;
+    border: 1px solid #50b946;
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-green:hover {
+    background-color: white;
+    color: #50b946;
+}
+
+
+.btn-gray {
+    background-color: #434a42;
+    color: white;
+    border: 1px solid #434a42;
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-gray:hover {
+    background-color: white;
+    color: #434a42;
+}
+
+
+.custom-icon {
+    width: fit-content;
+    margin: 0;
+    padding: 10px;
+    background: green;
+    color: white;
+    clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+}
+
+
+.reason-title {
+    color: #323c41;
+    font-size: 1.375rem;
+    font-weight: 500;
+}
+
+.video-img-container {
+    position: relative;
+}
+
+.video-img-container .child {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background: #00000094;
+}
+
+.video-img-container .child i {
+    color: #ff895d;
+    font-size: xx-large;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.video-img-container .child:hover i {
+    transform: scale(2)
+}
+
+.video-img-text {
+    position: absolute;
+    bottom: 0;
+    background-color: #ff895d59;
+}
+
+.top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+}
+
+.top-btn button {
+    background-color: #50b946;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 0;
+    box-shadow: 0px 0px 4px 1px gray;
+    transition: all 0.2s ease-in-out;
+}
+
+
+.top-btn button:hover {
+    background-color: #44973c;
+}
+
+.video-section {
+    position: relative;
+}
+
+.video-section #myVideo {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.img-highlight-container {
+    overflow: hidden;
+}
+
+.img-highlight-container img {
+    transition: all 0.3s ease-in-out;
+}
+
+.img-highlight-container:hover img {
+    transform: scale(1.2);
+}
+
+.sponsors-img-container {
+    border-radius: 50%;
+    border: 1px solid rgb(222, 222, 222);
+    width: 100px;
+    height: 100px;
+}
+
+footer{
+    background-color: #6c8393;
+    background-image: url('../../assets/images/output-onlinepngtools1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+}
+
+footer .title{
+    color: #033244;
+    font-weight: 700;
+    font-size: 25px;
+}
+
+
+footer button{
+    color: white;
+    border: 0;
+    background: #033244;
+    box-shadow: 1px 1px 3px 3px #2c2c2c36;
 }

@@ -13,6 +13,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from './Modules/shared/shared.module';
 import { CmsModule } from './Modules/cms/cms.module';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { StoreModule } from '@ngrx/store';
+import { HttpClientModule } from '@angular/common/http';
+import { loginUserReducer } from './store/reducers/user.reduer';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,10 @@ import { CmsModule } from './Modules/cms/cms.module';
     MatButtonModule,
     NgbModule,
     SharedModule,
-    CmsModule
+    CmsModule,
+    MatGridListModule,
+    HttpClientModule,
+    StoreModule.forRoot({ user: loginUserReducer }),
   ],
   providers: [],
   bootstrap: [AppComponent]

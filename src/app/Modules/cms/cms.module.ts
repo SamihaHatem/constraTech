@@ -18,10 +18,18 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { GalleryComponent } from './components/gallery/gallery.component';
+import { SponsorsComponent } from './components/sponsors/sponsors.component';
+import { SpeakersComponent } from './components/speakers/speakers.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    GalleryComponent,
+    SponsorsComponent,
+    SpeakersComponent,
+    AdminComponent
   ],
   imports: [
     CommonModule,

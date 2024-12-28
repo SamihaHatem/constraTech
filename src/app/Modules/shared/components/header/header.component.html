@@ -3,128 +3,157 @@
     <div class="d-flex">
       <div class="w-50 d-flex">
         <div class="w-50">
-          <img style="max-width: 100%;" src="../assets/images/o_bg-remover-gen_2qhiLVeeY8noWoL9fiuSzfl9rdp.png"
-            alt="constraTech logo">
+          <img routerLink="/home" style="max-width: 100%;" class="cursor-pointer" [ngClass]="{ 'd-none' : isScrolled }"
+            src="../assets/images/o_bg-remover-gen_2qhiLVeeY8noWoL9fiuSzfl9rdp.png" alt="constraTech logo">
+
+          <img routerLink="/home" (click)="scroll_Top()" [ngClass]="{ 'd-none' : !isScrolled }" class="m-2 cursor-pointer" style="max-width: 75%;"
+            src="../../../../../assets/images/Logo.png" alt="constraTech logo">
         </div>
-        <div class="w-50 align-content-center" *ngIf="!isMobile">
-          <p class="m-0 p-0 h6 date">17 - 19 June 2025</p>
-          <p class="m-0 p-0 time">11 AM - 7 PM</p>
-          <p class="m-0 p-0 location"> Egypt International Exhibition Center (EIEC)</p>
+        <div class="w-50 align-content-center" [ngClass]="{ 'd-none' : isMobile }">
+          <p class="m-0 p-0 h6 date" [ngClass]="{ 'text-white fw-400': isScrolled }">18 - 19 June 2025</p>
+          <p class="m-0 p-0 time" [ngClass]="{ 'text-white fw-400': isScrolled }">11 AM - 7 PM</p>
+          <p class="m-0 p-0 location" [ngClass]="{ 'text-white fw-400': isScrolled }"> Egypt International Exhibition
+            Center
+            (EIEC)</p>
         </div>
       </div>
 
-      <div class="w-50 justify-items-end">
-        <div class="w-75 d-flex" *ngIf="!isMobile">
-          <div class="w-25 img-container">
-            <img style="max-width: 100%;" src="../assets/images/img-1.jpg"
+      <div class="w-50 justify-items-end align-content-center">
+        <div class="w-75 d-flex" [ngClass]="{ 'd-none' : isMobile }">
+          <div class="w-25 img-container" *ngIf="!isScrolled">
+            <img style="max-width: 100%;" src="../../../../../assets/images/img-1-removebg-preview.png"
               alt="وزارة الاسكان والمرافق والمجتمعات العمرانية">
           </div>
-          <div class="w-25 img-container">
-            <img style="max-width: 100%;" src="../assets/images/img-2.jpg" alt="وزارة التجارة والصناعة">
+          <div class="w-25 img-container" *ngIf="!isScrolled">
+            <img style="max-width: 100%;" src="../../../../../assets/images/img-2-removebg-preview.png"
+              alt="وزارة التجارة والصناعة">
           </div>
-          <div class="w-25 img-container">
-            <img style="max-width: 100%;" src="../assets/images/img-3.jpg" alt="Egyption Engineers syndicate">
+          <div class="w-25 img-container" *ngIf="!isScrolled">
+            <img style="max-width: 100%;" src="../../../../../assets/images/img-3-removebg-preview.png"
+              alt="Egyption Engineers syndicate">
           </div>
-          <div class="w-25 img-container">
-            <img style="max-width: 100%;" src="../assets/images/img-4.jpg" alt="Industrial Modernisation center">
+          <div class="w-25 img-container" *ngIf="!isScrolled">
+            <img style="max-width: 100%;" src="../../../../../assets/images/img-4-removebg-preview.png"
+              alt="Industrial Modernisation center">
           </div>
         </div>
 
-        <nav *ngIf="isMobile" class="navbar navbar-expand-lg bg-body-tertiary bg-gray">
-          <div class="container-fluid w-90 mx-auto py-2 justify-content-end">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-              aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="d-flex justify-content-between navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="p-1">
-                  <div class="dropdown">
-                    <button class="btn dropdown-toggle p-0" type="button" data-bs-toggle="dropdown"
-                      aria-expanded="false">
-                      EXHIBIT
-                    </button>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Why Egypt</a></li>
-                      <li><a class="dropdown-item" href="#">Sponsorship</a></li>
-                      <li><a class="dropdown-item" href="#">2025 Exhibitor List</a></li>
-                      <li><a class="dropdown-item" href="#">2024/2023 Exhibitor List</a></li>
-                    </ul>
-                  </div>
-                </li>
+        <nav *ngIf="isMobile">
+          <div id="mySidenav" class="sidenav" [style.width]="isNavOpen ? '100%' : '0'">
+            <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+            <a class="text-white">
+              <mat-accordion [multi]="false">
+                <mat-expansion-panel hideToggle class="bg-transparent">
+                  <mat-expansion-panel-header class="p-0">
+                    <mat-panel-title class="text-white"> Exhibit<i class="fa-solid fa-angle-down mx-2"></i>
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <ul class="list-style-none p-0 m-0">
+                    <li><a class="p-0 text-white fs-small py-1" href="#">Why Egypt</a></li>
+                    <li><a class="p-0 text-white fs-small py-1" href="#">Sponsorship</a></li>
+                    <li><a class="p-0 text-white fs-small py-1" href="#">2025 Exhibitor List</a></li>
+                    <li><a class="p-0 text-white fs-small py-1" href="#">2024/2023 Exhibitor List</a></li>
+                  </ul>
+                </mat-expansion-panel>
+                <mat-expansion-panel hideToggle class="bg-transparent">
+                  <mat-expansion-panel-header class="p-0">
+                    <mat-panel-title class="text-white"> VISIT <i class="fa-solid fa-angle-down mx-2"></i>
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <ul class="list-style-none p-0 m-0">
+                    <li><a class="p-0 text-white fs-small py-1" href="#">Why Egypt</a></li>
+                    <li><a class="p-0 text-white fs-small py-1" href="#">Registration</a></li>
+                  </ul>
+                </mat-expansion-panel>
 
-                <li class="p-1">
-                  <div class="dropdown">
-                    <button class="btn dropdown-toggle p-0" type="button" data-bs-toggle="dropdown"
-                      aria-expanded="false">
-                      VISIT
-                    </button>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Why Egypt</a></li>
-                      <li><a class="dropdown-item" href="#">Registration</a></li>
-                    </ul>
-                  </div>
-                </li>
+                <mat-expansion-panel hideToggle class="bg-transparent">
+                  <mat-expansion-panel-header class="p-0">
+                    <mat-panel-title class="text-white"> SPEAKERS <i class="fa-solid fa-angle-down mx-2"></i>
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <ul class="list-style-none p-0 m-0">
+                    <li><a class="p-0 text-white fs-small py-1" href="#">Why Egypt</a></li>
+                    <li><a class="p-0 text-white fs-small py-1" href="#">Registration</a></li>
+                    <li><a class="p-0 text-white fs-small py-1" href="#">Speakers List</a></li>
+                  </ul>
+                </mat-expansion-panel>
 
-                <li class="align-content-center p-1">
-                  <a>2024 Exhibitors List</a>
-                </li>
+                <mat-expansion-panel hideToggle class="bg-transparent">
+                  <mat-expansion-panel-header class="p-0">
+                    <mat-panel-title class="text-white"> Features <i class="fa-solid fa-angle-down mx-2"></i>
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <ul class="list-style-none p-0 m-0">
+                    <li><a class="p-0 text-white fs-small py-1" href="#">CONFERENCE</a></li>
+                    <li><a class="p-0 text-white fs-small py-1" href="#">EXHIBITION</a></li>
+                    <li><a class="p-0 text-white fs-small py-1" href="#">WORKSHOP</a></li>
+                    <li><a class="p-0 text-white fs-small py-1" href="#">SPEAKERS</a></li>
+                  </ul>
+                </mat-expansion-panel>
 
-                <li class="p-1">
-                  <div class="dropdown">
-                    <button class="btn dropdown-toggle p-0" type="button" data-bs-toggle="dropdown"
-                      aria-expanded="false">
-                      SPEAKERS
-                    </button>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Registration</a></li>
-                      <li><a class="dropdown-item" href="#">Speakers List</a></li>
-                    </ul>
-                  </div>
-                </li>
+                <mat-expansion-panel hideToggle class="bg-transparent">
+                  <mat-expansion-panel-header class="p-0">
+                    <mat-panel-title class="text-white"> 2025 Sponsors <i class="fa-solid fa-angle-down mx-2"></i>
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <ul class="list-style-none p-0 m-0">
+                    <li><a class="p-0 text-white fs-small py-1" href="#">Action</a></li>
+                  </ul>
+                </mat-expansion-panel>
+              </mat-accordion>
+            </a>
 
-                <li class="p-1">
-                  <div class="dropdown">
-                    <button class="btn dropdown-toggle p-0" type="button" data-bs-toggle="dropdown"
-                      aria-expanded="false">
-                      Features
-                    </button>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">CONFERENCE</a></li>
-                      <li><a class="dropdown-item" href="#">EXHIBITION</a></li>
-                      <li><a class="dropdown-item" href="#">WORKSHOP</a></li>
-                      <li><a class="dropdown-item" href="#">SPEAKERS</a></li>
-                    </ul>
-                  </div>
-                </li>
+            <a class="text-white">2024 Exhibitors List</a>
 
-                <li class="p-1">
-                  <div class="dropdown">
-                    <button class="btn dropdown-toggle p-0" type="button" data-bs-toggle="dropdown"
-                      aria-expanded="false">
-                      2025 Sponsors
-                    </button>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                  </div>
-                </li>
+            <div class=" social-media w-100">
+              <div class="">
+                <button>Download Sales Brochure</button>
+              </div>
+              <div>
+                <button>Enquire to Exhibit</button>
+              </div>
+              <div class="d-flex justify-content-center">
+                <a class="p-2 text-white" target="_blank" href="https://www.facebook.com/ConstraTechsummit"><i
+                    class="fa-brands fa-facebook-f"></i></a>
+                <a class="p-2 text-white" target="_blank" href="https://www.linkedin.com/company/constratechsummit/"><i
+                    class="fa-brands fa-linkedin-in"></i></a>
+                <a class="p-2 text-white" target="_blank" href="https://www.youtube.com/@Constratechsummit/video"><i
+                    class="fa-brands fa-youtube"></i></a>
+              </div>
 
-                <div>
-                  <a class="mx-3" target="_blank" href="https://www.facebook.com/ConstraTechsummit"><i
-                      class="fa-brands fa-facebook-f"></i></a>
-                  <a class="mx-3" target="_blank" href="https://www.linkedin.com/company/constratechsummit/"><i
-                      class="fa-brands fa-linkedin-in"></i></a>
-                  <a class="mx-3" target="_blank" href="https://www.youtube.com/@Constratechsummit/video"><i
-                      class="fa-brands fa-youtube"></i></a>
-                </div>
-              </ul>
             </div>
+
           </div>
+
+          <span (click)="openNav()" [ngClass]="{'text-white' : isScrolled}">&#9776;</span>
+
         </nav>
+      </div>
+    </div>
+  </div>
+
+  <div class="w-90 mx-auto bb-white align-content-center my-3 py-2" [ngClass]="{ 'd-none' : !isMobile }">
+    <p class="m-0 p-0 h6 date" [ngClass]="{ 'text-white fw-400' : isScrolled ,'text-secondary': !isScrolled}"> 18 - 19
+      June 2025</p>
+    <p class="m-0 p-0 time" [ngClass]="{ 'text-white fw-400' : isScrolled ,'text-secondary': !isScrolled}">11 AM - 7 PM
+    </p>
+    <p class="m-0 p-0 location" [ngClass]="{ 'text-white fw-400' : isScrolled ,'text-secondary': !isScrolled}"> Egypt
+      International
+      Exhibition
+      Center
+      (EIEC)</p>
+
+
+    <div class="row" [ngClass]="{'d-none' : !isScrolled}">
+      <div class="col-md-6 col-sm-12 text-center my-2">
+        <button class="btn-green px-3 py-1 w-100">
+          DOWNLOAD SALES BROCHURE
+        </button>
+      </div>
+      <div class="col-md-4 col-sm-12 text-center my-2">
+        <button class="btn-gray px-3 py-1 w-100">
+          BOOK YOUR STAND
+        </button>
       </div>
     </div>
   </div>

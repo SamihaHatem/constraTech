@@ -56,24 +56,25 @@ h2 {
 }
 
 .texture-bg {
-    background-color: #2e3331;
-    background-image: url(https://www.transparenttextures.com/patterns/egg-shell.png);
+    background-color: #080c2c;
+    background-image: url(https://www.transparenttextures.com/patterns/brick-wall-dark.png);
     color: white;
 }
 
-.texture-bg2{
+.texture-bg2 {
     background-color: white;
     color: black;
     border-bottom: 1px solid #2e3331;
 }
 
-.img2{
+.img2 {
     margin: 4.8px;
 }
 
-.fs-18-5{
+.fs-18-5 {
     font-size: 16px !important;
 }
+
 mat-toolbar {
     position: fixed;
     top: 0;
@@ -86,6 +87,7 @@ mat-sidenav-container {
 
 mat-sidenav {
     padding-top: 3.5rem;
+
     @media screen and (min-width: 600px) {
         padding-top: 4rem;
     }
@@ -94,7 +96,7 @@ mat-sidenav {
         display: flex;
         align-items: center;
         padding: 0.75rem;
-        font-weight: 100;
+        font-weight: 400;
     }
 }
 
@@ -220,10 +222,10 @@ mat-nav-list {
     cursor: pointer !important;
 }
 
-::ng-deep.mat-mdc-form-field-subscript-wrapper{
+::ng-deep.mat-mdc-form-field-subscript-wrapper {
     display: none !important;
 }
 
-.paid-permit{
+.paid-permit {
     color: #0e14d1 !important;
 }
