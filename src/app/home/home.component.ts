@@ -63,17 +63,17 @@ export class HomeComponent implements AfterViewInit, OnInit {
   videoList: any[] = [
     {
       embed: '<iframe width="914" height="514" src="https://www.youtube.com/embed/HRJoYP8C1fE" title="ConstraTech 2024 - Haitham Elkott" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-      img: '../../assets/images/videoImgs/1.png',
+      img: 'assets/images/videoImgs/1.png',
       title: 'ConstraTech 2024 - Haitham Elkott'
     },
     {
       embed: '<iframe width="917" height="514" src="https://www.youtube.com/embed/xjoc5njN-p8?list=PLrmYpV4_zwOj19eQ9MxF6OnWXwXY8pLSg" title="ConstraTech2024 - Fareed Mesallam" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-      img: '../../assets/images/videoImgs/2.png',
+      img: 'assets/images/videoImgs/2.png',
       title: 'ConstraTech2024 - Fareed Mesallam'
     },
     {
       embed: '<iframe width="914" height="514" src="https://www.youtube.com/embed/vQg-njILgqc?list=PLrmYpV4_zwOj19eQ9MxF6OnWXwXY8pLSg" title="ConstraTech 2024 - Emad Fayez" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-      img: '../../assets/images/videoImgs/3.png',
+      img: 'assets/images/videoImgs/3.png',
       title: 'ConstraTech 2024 - Emad Fayez'
     }
   ]
@@ -108,23 +108,23 @@ export class HomeComponent implements AfterViewInit, OnInit {
   tiles: Tile[] = [];
 
   originalTiles: Tile[] = [
-    { img: '../../assets/images/conference/1.jfif', cols: 1, rows: 6 },
-    { img: '../../assets/images/conference/2.jpg', cols: 1, rows: 2 },
-    { img: '../../assets/images/conference/3.jpg', cols: 1, rows: 2 },
-    { img: '../../assets/images/conference/4.webp', cols: 1, rows: 2 },
-    { img: '../../assets/images/conference/5.webp', cols: 1, rows: 2 },
-    { img: '../../assets/images/conference/6.webp', cols: 1, rows: 2 },
-    { img: '../../assets/images/conference/7.jfif', cols: 1, rows: 2 },
+    { img: 'assets/images/conference/1.jfif', cols: 1, rows: 6 },
+    { img: 'assets/images/conference/2.jpg', cols: 1, rows: 2 },
+    { img: 'assets/images/conference/3.jpg', cols: 1, rows: 2 },
+    { img: 'assets/images/conference/4.webp', cols: 1, rows: 2 },
+    { img: 'assets/images/conference/5.webp', cols: 1, rows: 2 },
+    { img: 'assets/images/conference/6.webp', cols: 1, rows: 2 },
+    { img: 'assets/images/conference/7.jfif', cols: 1, rows: 2 },
   ]
 
   MobileTiles: Tile[] = [
-    { img: '../../assets/images/conference/1.jfif', cols: 2, rows: 1 },
-    { img: '../../assets/images/conference/2.jpg', cols: 1, rows: 1 },
-    { img: '../../assets/images/conference/3.jpg', cols: 1, rows: 1 },
-    { img: '../../assets/images/conference/4.webp', cols: 1, rows: 1 },
-    { img: '../../assets/images/conference/5.webp', cols: 1, rows: 1 },
-    { img: '../../assets/images/conference/6.webp', cols: 1, rows: 1 },
-    { img: '../../assets/images/conference/7.jfif', cols: 1, rows: 1 },
+    { img: 'assets/images/conference/1.jfif', cols: 2, rows: 1 },
+    { img: 'assets/images/conference/2.jpg', cols: 1, rows: 1 },
+    { img: 'assets/images/conference/3.jpg', cols: 1, rows: 1 },
+    { img: 'assets/images/conference/4.webp', cols: 1, rows: 1 },
+    { img: 'assets/images/conference/5.webp', cols: 1, rows: 1 },
+    { img: 'assets/images/conference/6.webp', cols: 1, rows: 1 },
+    { img: 'assets/images/conference/7.jfif', cols: 1, rows: 1 },
   ]
 
   numberOfCols: number = 2;

@@ -1,9 +1,9 @@
 <body>
     <mat-toolbar class="texture-bg2 red-bg px-0" [class.justify-content-between]="!authenticated">
         <div class="h-100 bg-white d-flex " routerLink="/admin/home" style="cursor: pointer;">
-            <img src="../../../../../assets/images/logo-short-removebg-preview (1).png" alt="" class="h-100 p-2 m-0"
+            <img src="assets/images/logo-short-removebg-preview (1).png" alt="" class="h-100 p-2 m-0"
                 *ngIf="isCollapsed">
-            <img src="../../../../../assets/images/LOGO1.jpg" alt="" class="h-100 px-4 mx-1" *ngIf="!isCollapsed">
+            <img src="assets/images/LOGO1.jpg" alt="" class="h-100 px-4 mx-1" *ngIf="!isCollapsed">
         </div>
         <button mat-icon-button aria-label="Menu icon" (click)="toggleMenu()" *ngIf="authenticated">
             <mat-icon>menu</mat-icon>
@@ -15,7 +15,7 @@
             <mat-menu #menu="matMenu" id="menu-id">
                 <a class="p-0 m-0 my-1 h-100 d-block px-1 text-center item1" mat-menu-item>
                     <div>
-                        <img style="width: 50px; height: 50px;" src="../../../../../assets/images/profile.jpg">
+                        <img style="width: 50px; height: 50px;" src="assets/images/profile.jpg">
                     </div>
                     <p style="font-weight: 500;" class="px-1 p-0 m-0" id="mat-item-cutom">{{user?.username}}
                     </p>
