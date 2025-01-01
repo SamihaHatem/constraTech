@@ -34,3 +34,18 @@ input.ng-invalid.ng-touched{
 .form-div{
     position: relative;
 }
+
+
+.pdf-graphic{
+    background-image: url('../../../../../assets/images/pdf-graphic.png');
+    background-position: right;
+    background-repeat: no-repeat;
+}
+
+.bg-darker{
+    background-color: rgb(4 4 3) !important;
+}
+
+.overlay-black{
+    background-color: #0000008f;
+}

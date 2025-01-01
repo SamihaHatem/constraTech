@@ -11,7 +11,6 @@
           </button>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item cursor-pointer" (click)="scrollToId('why_exhibit');">Why Egypt</a></li>
-            <li><a class="dropdown-item cursor-pointer" href="#">Sponsorship</a></li>
             <li><a class="dropdown-item cursor-pointer" (click)="scrollToId('exhibitors-list')">2025 Exhibitor List</a></li>
             <li><a class="dropdown-item cursor-pointer" (click)="scrollToId('exhibitors-list')">2024/2023 Exhibitor List</a></li>
             <li><a class="dropdown-item cursor-pointer" routerLink="/forms/exhibitor">Registration</a></li>
@@ -31,7 +30,7 @@
       </li>
 
       <li class="align-content-center">
-        <a>2024 Exhibitors List</a>
+        <a class="cursor-pointer dropdown-item" (click)="scrollToId('exhibitors-list')">2024 Exhibitors List</a>
       </li>
 
       <li>

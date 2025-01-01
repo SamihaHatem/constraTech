@@ -1,22 +1,26 @@
 <div class="form-div">
-    <div class="bg-dark pb-5">
-        <div class="mx-auto d-flex justify-content-between py-5" [ngClass]="{'w-100' : isMobile , 'w-75' : !isMobile}">
-            <div [ngClass]="{'w-50' : isMobile , 'w-25' : !isMobile}">
-                <img [ngClass]="{'w-75' : isMobile , 'w-100' : !isMobile}" [routerLink]="'/home'" class="cursor-pointer"
-                    src="../../../../../assets/images/Logo.png" alt="">
-            </div>
+    <div class="bg-darker pdf-graphic">
+        <div class="w-100 overlay-black">
+            <div class="mx-auto d-flex justify-content-between py-5"
+                [ngClass]="{'w-100' : isMobile , 'w-75' : !isMobile}">
+                <div [ngClass]="{'w-50' : isMobile , 'w-25' : !isMobile}">
+                    <img [ngClass]="{'w-75' : isMobile , 'w-100' : !isMobile}" [routerLink]="'/home'"
+                        class="cursor-pointer" src="../../../../../assets/images/Logo.png" alt="">
+                </div>
 
-            <div [ngClass]="{'w-50 fs-small text-center' : isMobile , 'w-25' : !isMobile}">
-                <p class="text-white">17 - 19 JUNE 2025</p>
-                <p class="text-white">EGYPT INTERNATIONAL</p>
-                <p class="text-white">EXHIBITION CENTER (EIEC)</p>
+                <div [ngClass]="{'w-50 fs-small text-center' : isMobile , 'w-25' : !isMobile}">
+                    <p class="text-white">17 - 19 JUNE 2025</p>
+                    <p class="text-white">EGYPT INTERNATIONAL</p>
+                    <p class="text-white">EXHIBITION CENTER (EIEC)</p>
+                </div>
             </div>
         </div>
     </div>
 
 
     <div class="form-conatiner w-100">
-        <form #form='ngForm' class="mx-auto card my-5 py-2" (ngSubmit)="addSpeaker(form)" [ngClass]="{'w-100' : isMobile , 'w-50' : !isMobile}">
+        <form #form='ngForm' class="mx-auto card my-5 py-2" (ngSubmit)="addSpeaker(form)"
+            [ngClass]="{'w-100' : isMobile , 'w-50' : !isMobile}">
             <p class="h2 text-center my-2 text-secondary">Conference and talks Speaker application</p>
 
             <p class="text-secondary p-3 m-0">Welcome as a Speaker at ConstraTech2025 summit (construction technology
@@ -42,7 +46,8 @@
                 <div class="p-3">
                     <label for="fullname">Your full name <span class="text-secondary"> (as you want to appear on all
                             documents)</span> <span class="text-danger">*</span> </label>
-                    <input id="fullname" name="fullname" ngModel #fullname="ngModel" type="text" class="form-control" required>
+                    <input id="fullname" name="fullname" ngModel #fullname="ngModel" type="text" class="form-control"
+                        required>
 
                     <div class="errors" *ngIf="fullname.touched && fullname.invalid">
                         <p class="text-center m-0" *ngIf="fullname.errors?.['required']">* Please enter your name *</p>
@@ -54,10 +59,12 @@
             <div class="bb-gray py-2">
                 <div class="p-3">
                     <label for="mobile_no">Your mobile number <span class="text-danger">*</span></label>
-                    <input id="mobile_no" name="mobile_no" ngModel #mobile_no="ngModel" type="text" class="form-control" required>
+                    <input id="mobile_no" name="mobile_no" ngModel #mobile_no="ngModel" type="text" class="form-control"
+                        required>
 
                     <div class="errors" *ngIf="mobile_no.touched && mobile_no.invalid">
-                        <p class="text-center m-0" *ngIf="mobile_no.errors?.['required']">* Please enter your mobile number
+                        <p class="text-center m-0" *ngIf="mobile_no.errors?.['required']">* Please enter your mobile
+                            number
                             *
                         </p>
                     </div>
@@ -101,8 +108,8 @@
                 <div class="p-3">
                     <label for="position">Your Job position <span class="text-secondary"> (will appear on the
                             posters)</span> <span class="text-danger">*</span></label>
-                    <input id="position" name="position" ngModel #position="ngModel" type="text"
-                        class="form-control" required>
+                    <input id="position" name="position" ngModel #position="ngModel" type="text" class="form-control"
+                        required>
 
                     <div class="errors" *ngIf="position.touched && position.invalid">
                         <p class="text-center m-0" *ngIf="position.errors?.['required']">* Please enter your job
@@ -133,8 +140,7 @@
             <div class="bb-gray py-2">
                 <div class="p-3">
                     <label for="website">Your company website</label>
-                    <input id="website" name="website" ngModel #website="ngModel" type="text"
-                        class="form-control">
+                    <input id="website" name="website" ngModel #website="ngModel" type="text" class="form-control">
                 </div>
             </div>
 
