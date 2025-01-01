@@ -12,21 +12,30 @@ export class NavbarComponent implements OnInit {
 
   constructor(private observer: BreakpointObserver) { }
 
-
   scrollToId(id: string) {
-    console.log("element id : ", id);
-    const element = document.getElementById(id)
+    console.log("element id : ", id, window.pageYOffset);
+    if (window.pageYOffset == 0) window.scrollTo({
+      top: 155,
+      behavior: "instant",
+    });
+    setTimeout(() => {
+      const element = document.getElementById(id);
+      const fixednavHeight = document.getElementById('fixed-nav-id')?.offsetHeight || 300;
+      console.log("nav fixednavHeight: ", fixednavHeight);
 
+      if (element) {
+        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - fixednavHeight;
 
-    if (element) {
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = elementPosition - 340;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
+        // Get the element after the first scroll
+        console.log("Element after scroll: ", element);
+      }
+    }, 300); // Adjust delay time (300ms is just an example)
   }
 
   ngOnInit(): void {

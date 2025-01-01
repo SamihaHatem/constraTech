@@ -21,7 +21,7 @@
   </section>
 
   <!-- Header -->
-  <div [ngClass]="{ 'fixed-nav': isScrolled }" class="my-nav">
+  <div id="fixed-nav-id" [ngClass]="{ 'fixed-nav': isScrolled }" class="my-nav">
     <app-header [isScrolled]="isScrolled"></app-header>
     <app-navbar></app-navbar>
   </div>
@@ -207,7 +207,7 @@
   </div>
 
   <!-- Key exhibitors at Big 5 Construct Egypt 2025 -->
-  <div class="my-5 py-2">
+  <div class="my-5 py-2" id="exhibitors-list">
     <div class="w-90 mx-auto">
       <p class="h2">Key exhibitors at Big 5 Construct Egypt 2025</p>
       <owl-carousel-o [options]="customOptions">
