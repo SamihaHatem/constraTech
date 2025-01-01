@@ -21,7 +21,7 @@
                     </p>
                 </a>
 
-                <a class="p-0 m-0 my-1 h-100 d-block px-1 item1" mat-menu-item routerLink="/profile">
+                <a class="p-0 m-0 my-1 h-100 d-block px-1 item1" mat-menu-item routerLink="/admin/profile">
                     <p style="font-weight: 500;" class="px-1 p-0 m-0" id="mat-item-cutom">profile</p>
                 </a>
 
@@ -72,6 +72,15 @@
                     <span class="entry">
                         <div class="w-25"> <i class="fa-solid fa-microphone"></i> </div>
                         <span class="w-75 pe-2" *ngIf="!isCollapsed">SPEAKERS</span>
+                    </span>
+                </a>
+
+                <!-- Users -->
+                <a [ngClass]="currentUrl.includes('admin/users') ? 'selectedItem' : ''" mat-list-item
+                    (click)="navigate('admin/users')">
+                    <span class="entry">
+                        <div class="w-25"> <i class="fa-solid fa-users"></i> </div>
+                        <span class="w-75 pe-2" *ngIf="!isCollapsed">USERS</span>
                     </span>
                 </a>
 

@@ -10,11 +10,11 @@
             EXHIBIT
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" routerLink="/forms/exhibitor">Registration</a></li>
-            <li><a class="dropdown-item" href="#">Why Egypt</a></li>
+            <li><a class="dropdown-item cursor-pointer" (click)="scrollToId('why_exhibit')">Why Egypt</a></li>
             <li><a class="dropdown-item" href="#">Sponsorship</a></li>
             <li><a class="dropdown-item" href="#">2025 Exhibitor List</a></li>
             <li><a class="dropdown-item" href="#">2024/2023 Exhibitor List</a></li>
+            <li><a class="dropdown-item" routerLink="/forms/exhibitor">Registration</a></li>
           </ul>
         </div>
       </li>
@@ -25,7 +25,7 @@
           </button>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">Why Egypt</a></li>
-            <li><a class="dropdown-item" href="#">Registration</a></li>
+            <li><a class="dropdown-item" routerLink="/forms/visitor/registration">Registration</a></li>
           </ul>
         </div>
       </li>

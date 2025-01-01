@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --constraTech-green: #89c5b8;
+    --constraTech-green-darker: #246355;
+    --constraTech-orange: #ed3c22;
+}
 
 html,
 body {
@@ -66,14 +71,14 @@ body {
     place-items: center !important;
 }
 
-.flex-dir-col-rev{
+.flex-dir-col-rev {
     flex-direction: column-reverse;
 }
 
-.bb-gray{
+.bb-gray {
     border-bottom: 1px solid rgb(193, 193, 193);
 }
 
-.cursor-pointer{
+.cursor-pointer {
     cursor: pointer;
 }

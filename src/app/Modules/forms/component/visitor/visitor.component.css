@@ -1,0 +1,36 @@
+.card {
+    box-shadow: 0px 0px 4px 1px #afadad;
+}
+
+.my-nav {
+    position: relative;
+    background-color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.fixed-nav {
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    background-color: #030403;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.errors p{
+    color: rgb(88, 12, 12);
+    font-size: 12px;
+}
+
+input.ng-invalid.ng-touched{
+    border-color: rgb(88, 12, 12);
+}
+
+.form-conatiner{
+    position: absolute;
+    top: 150px;
+}
+
+.form-div{
+    position: relative;
+}

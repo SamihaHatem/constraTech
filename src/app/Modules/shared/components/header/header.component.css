@@ -12,8 +12,20 @@
     color: black;
 }
 
+.pdf-graphic{
+    background-image: url('../../../../../assets/images/pdf-graphic.png');
+    background-position: right;
+    background-repeat: no-repeat;
+}
+
+.pdf-graphic-mobile{
+    background-size: 50% 100%;
+}
 
 
+.overlay-darker{
+   background-color:  #00000059;
+}
 
 .sidenav {
     height: 100%;
@@ -67,17 +79,17 @@
 }
 
 .btn-gray {
-    background-color: #434a42;
+    background-color: var(--constraTech-orange);
     color: white;
-    border: 1px solid #434a42;
+    border: 1px solid var(--constraTech-orange);
     border-radius: 4px;
     transition: all 0.3s ease-in-out;
 }
 
 .btn-green{
-    background-color: #50b946;
+    background-color: var(--constraTech-green-darker);
     color: white;
-    border: 1px solid #50b946;
+    border: 1px solid var(--constraTech-green-darker);
     border-radius: 4px;
     transition: all 0.3s ease-in-out;
 }

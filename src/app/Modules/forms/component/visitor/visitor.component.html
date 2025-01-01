@@ -1,1 +1,224 @@
-<p>visitor works!</p>
+<div class="form-div">
+    <div class="bg-dark pb-5">
+        <div class="mx-auto d-flex justify-content-between py-5" [ngClass]="{'w-100' : isMobile , 'w-75' : !isMobile}">
+            <div [ngClass]="{'w-50' : isMobile , 'w-25' : !isMobile}">
+                <img [ngClass]="{'w-75' : isMobile , 'w-100' : !isMobile}" [routerLink]="'/home'" class="cursor-pointer"
+                    src="../../../../../assets/images/Logo.png" alt="">
+            </div>
+
+            <div [ngClass]="{'w-50 fs-small text-center' : isMobile , 'w-25' : !isMobile}">
+                <p class="text-white">25 - 27 May 2025</p>
+                <p class="text-white">EGYPT INTERNATIONAL</p>
+                <p class="text-white">EXHIBITION CENTER (EIEC)</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-conatiner w-100">
+        <form #form='ngForm' class="mx-auto card my-5 py-2" (ngSubmit)="addVisitor(form)" [ngClass]="{'w-100' : isMobile , 'w-50' : !isMobile}">
+            <p class="h2 text-center my-2 text-secondary">Exhibition & Conference Registration form</p>
+
+            <p class="text-secondary fs-small p-3 m-0">Welcome in ConstraTech II (Conference +Exhibition + Workshops)
+                25-26-27 May 2025
+                This global event is the largest gathering of those interested in construction technology in the Middle
+                East. This event consists of an exhibition of building and construction technology companies and a
+                conference to showcase the latest technology trends. In addition to seminars and talks by many pioneers
+                in the field.
+                This event will be three days with more than 2000 attendees. Attendees will include governmental,
+                private, public and academic sectors. </p>
+
+            <!-- Email -->
+            <div class="bb-gray py-2">
+                <div class="p-3">
+                    <label for="email">Email <span class="text-danger">*</span></label>
+                    <input id="email" name="email" ngModel #email='ngModel' type="email" class="form-control" required>
+
+                    <div class="errors" *ngIf="email.touched && email.invalid">
+                        <p class="text-center m-0" *ngIf="email.errors?.['required']">* Please enter your email *</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fullname -->
+            <div class="bb-gray py-2">
+                <div class="p-3">
+                    <label for="fullname">Your full name <span class="text-secondary"> (as you want to appear on all
+                            documents)</span> <span class="text-danger">*</span> </label>
+                    <input id="fullname" name="fullname" ngModel #fullname="ngModel" type="text" class="form-control"
+                        required>
+
+                    <div class="errors" *ngIf="fullname.touched && fullname.invalid">
+                        <p class="text-center m-0" *ngIf="fullname.errors?.['required']">* Please enter your name *</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile -->
+            <div class="bb-gray py-2">
+                <div class="p-3">
+                    <label for="mobile_no">Your mobile number <span class="text-danger">*</span></label>
+                    <input id="mobile_no" name="mobile_no" ngModel #mobile_no="ngModel" type="text" class="form-control"
+                        required>
+
+                    <div class="errors" *ngIf="mobile_no.touched && mobile_no.invalid">
+                        <p class="text-center m-0" *ngIf="mobile_no.errors?.['required']">* Please enter your mobile
+                            number
+                            *
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Facebook -->
+            <div class="bb-gray py-2">
+                <div class="p-3">
+                    <label for="facebook">Your facebook account</label>
+                    <input id="facebook" name="facebook" ngModel #facebook="ngModel" type="text" class="form-control">
+                </div>
+            </div>
+
+            <!-- LinkedIn -->
+            <div class="bb-gray py-2">
+                <div class="p-3">
+                    <label for="linkedin">Your LinkedIn account</label>
+                    <input id="linkedin" name="linkedin" ngModel #linkedin="ngModel" type="text" class="form-control">
+                </div>
+            </div>
+
+            <!-- Job  Position -->
+            <div class="bb-gray py-2">
+                <div class="p-3">
+                    <label for="position">Your Job position <span class="text-secondary"> (will appear on the
+                            posters)</span> <span class="text-danger">*</span></label>
+                    <input id="position" name="position" ngModel #position="ngModel" type="text" class="form-control"
+                        required>
+
+                    <div class="errors" *ngIf="position.touched && position.invalid">
+                        <p class="text-center m-0" *ngIf="position.errors?.['required']">* Please enter your job
+                            position
+                            *
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Company Name -->
+            <div class="bb-gray py-2">
+                <div class="p-3">
+                    <label for="facebook">Where you work? <span class="text-secondary">(your company)</span>
+                        <span class="text-danger">*</span></label>
+                    <input id="company_name" name="company_name" ngModel #company_name="ngModel" type="text"
+                        class="form-control" required>
+
+                    <div class="errors" *ngIf="company_name.touched && company_name.invalid">
+                        <p class="text-center m-0" *ngIf="company_name.errors?.['required']">* Please enter your company
+                            name *
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Company Website -->
+            <div class="bb-gray py-2">
+                <div class="p-3">
+                    <label for="website">Your company website</label>
+                    <input id="website" name="website" ngModel #website="ngModel" type="text" class="form-control">
+                </div>
+            </div>
+
+            <!-- Payment -->
+            <div class="bb-gray py-2">
+                <div class="p-3">
+                    <p> Exhibition Ticket: 10$ <span class="text-danger">*</span></p>
+
+                    <p class="m-0"> Conference & Exhibition:</p>
+                    <p class="m-0"> Individual ticket: 100$</p>
+                    <p class="m-0"> Group from 10: 650$ EGP/group</p>
+
+                    <p> How will you pay for the conference ticket? </p>
+
+                    <div class="d-flex gap-2" *ngFor="let option of paymentOptions">
+                        <input type="radio" [id]="option.value" name="payment" [(ngModel)]="paymentModel.payment"
+                            [value]="option.value" required />
+                        <label [for]="option.value">{{ option.label }}</label>
+                    </div>
+
+                    <!-- "Other" Option -->
+                    <div class="d-flex gap-2">
+                        <input type="radio" id="Other" name="payment" [(ngModel)]="paymentModel.payment" value="Other"
+                            required />
+                        <label class="align-content-center" for="Other">Other:</label>
+                        <input type="text" [(ngModel)]="paymentModel.otherPayment" name="otherPayment"
+                            class="form-control" [required]="paymentModel.payment === 'Other'"
+                            [disabled]="paymentModel.payment !== 'Other'" (input)="onOtherInput()" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- POLICY -->
+            <div class="bb-gray py-2">
+                <div class="p-3">
+                    <p>CAD MASTERS POLICY <span class="text-danger">*</span></p>
+                    <p> Protecting your privacy is important to CAD Masters. We collect data directly from you when you
+                        will
+                        Register for this event. The information we procure includes your name, organization details,
+                        email
+                        and
+                        phone number which is strictly kept confidential with us and will only be shared with the
+                        Sponsors
+                        of
+                        the ConstraTech Egypt event., to help them communicate with you their relevant offerings. By
+                        clicking
+                        submit, I acknowledge the CAD Masters Privacy Statement.</p>
+
+                    <div class="d-flex">
+                        <input type="checkbox" name="policy" ngModel [(ngModel)]="ploicy">
+                        <label for="policy">I accept the policy</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="py-2 text-center">
+                <button type="submit" class="btn btn-primary" [disabled]="form['invalid'] || !ploicy">Submit</button>
+            </div>
+            <!-- 
+            <button (click)="onModal(shareOnSocialMediaContent)">
+                Share On social media
+            </button> -->
+
+        </form>
+
+
+        <footer class="bg-dark py-2">
+            <p class="text-center text-white">ConstraTech</p>
+
+            <div class="text-center">
+                <a class="mx-3" target="_blank" href="https://www.facebook.com/ConstraTechsummit"><i
+                        class="fa-brands fa-facebook-f text-white"></i></a>
+                <a class="mx-3" target="_blank" href="https://www.linkedin.com/company/constratechsummit/"><i
+                        class="fa-brands fa-linkedin-in text-white"></i></a>
+                <a class="mx-3" target="_blank" href="https://www.youtube.com/@Constratechsummit/video"><i
+                        class="fa-brands fa-youtube text-white"></i></a>
+            </div>
+        </footer>
+    </div>
+
+</div>
+
+
+<ng-template #shareOnSocialMediaContent>
+    <div class="bg-white p-3">
+        <div class="head">
+            <p class="h3 text-center">share on social and invite your peers to the event</p>
+        </div>
+        <div>
+            <img class="w-100" src="../../../../../assets/images/Screenshot 2024-12-28 205332.png" alt="">
+        </div>
+        <div>
+            <button
+                (click)="shareOnLinkedIn('title','https://next-images.123rf.com/index/_next/image/?url=https://assets-cdn.123rf.com/index/static/assets/top-section-bg.jpeg&w=3840&q=75')">
+                LinkenIn</button>
+        </div>
+    </div>
+</ng-template>

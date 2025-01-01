@@ -8,8 +8,9 @@ import { ExhibitorComponent } from './component/exhibitor/exhibitor.component';
 import { SharedModule } from '../shared/shared.module';
 import { LoginComponent } from './component/login/login.component';
 import { FormsModule as AngularFormsModule } from '@angular/forms';
-import { ExhibitionConferenceComponent } from './component/exhibition-conference/exhibition-conference.component';
 import { SharePostComponent } from './component/share-post/share-post.component';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { RegisterComponent } from './component/register/register.component';
 
 @NgModule({
   declarations: [
@@ -17,14 +18,15 @@ import { SharePostComponent } from './component/share-post/share-post.component'
     SpeakerComponent,
     ExhibitorComponent,
     LoginComponent,
-    ExhibitionConferenceComponent,
-    SharePostComponent
+    SharePostComponent,
+    RegisterComponent,
   ],
   imports: [
     CommonModule,
     FormsRoutingModule,
     SharedModule,
-    AngularFormsModule
+    AngularFormsModule,
+    NgSelectModule
   ]
 })
 export class FormsModule { }

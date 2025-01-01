@@ -22,6 +22,8 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 import { SponsorsComponent } from './components/sponsors/sponsors.component';
 import { SpeakersComponent } from './components/speakers/speakers.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { UsersComponent } from './components/users/users.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { AdminComponent } from './components/admin/admin.component';
     GalleryComponent,
     SponsorsComponent,
     SpeakersComponent,
-    AdminComponent
+    AdminComponent,
+    ProfileComponent,
+    UsersComponent
   ],
   imports: [
     CommonModule,

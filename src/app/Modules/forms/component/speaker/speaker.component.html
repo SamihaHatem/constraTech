@@ -16,14 +16,16 @@
 
 
     <div class="form-conatiner w-100">
-        <form #form='ngForm' class="mx-auto card my-5 py-2" [ngClass]="{'w-100' : isMobile , 'w-50' : !isMobile}">
+        <form #form='ngForm' class="mx-auto card my-5 py-2" (ngSubmit)="addSpeaker(form)" [ngClass]="{'w-100' : isMobile , 'w-50' : !isMobile}">
             <p class="h2 text-center my-2 text-secondary">Conference and talks Speaker application</p>
 
-            <p class="text-secondary p-3 m-0">Welcome as a Speaker at ConstraTech2025 summit (construction technology summit 25) (Conference and
+            <p class="text-secondary p-3 m-0">Welcome as a Speaker at ConstraTech2025 summit (construction technology
+                summit 25) (Conference and
                 Exhibition)
                 25-26-27 May 2025
                 Dusit Hotel</p>
 
+            <!-- Email -->
             <div class="bb-gray py-2">
                 <div class="p-3">
                     <label for="email">Email <span class="text-danger">*</span></label>
@@ -35,31 +37,34 @@
                 </div>
             </div>
 
+            <!-- fullname -->
             <div class="bb-gray py-2">
                 <div class="p-3">
-                    <label for="name">Your full name <span class="text-secondary"> (as you want to appear on all
+                    <label for="fullname">Your full name <span class="text-secondary"> (as you want to appear on all
                             documents)</span> <span class="text-danger">*</span> </label>
-                    <input id="name" name="name" ngModel #name="ngModel" type="text" class="form-control" required>
+                    <input id="fullname" name="fullname" ngModel #fullname="ngModel" type="text" class="form-control" required>
 
-                    <div class="errors" *ngIf="name.touched && name.invalid">
-                        <p class="text-center m-0" *ngIf="name.errors?.['required']">* Please enter your name *</p>
+                    <div class="errors" *ngIf="fullname.touched && fullname.invalid">
+                        <p class="text-center m-0" *ngIf="fullname.errors?.['required']">* Please enter your name *</p>
                     </div>
                 </div>
             </div>
 
+            <!-- Mobile -->
             <div class="bb-gray py-2">
                 <div class="p-3">
-                    <label for="phone">Your mobile number <span class="text-danger">*</span></label>
-                    <input id="phone" name="phone" ngModel #phone="ngModel" type="text" class="form-control" required>
+                    <label for="mobile_no">Your mobile number <span class="text-danger">*</span></label>
+                    <input id="mobile_no" name="mobile_no" ngModel #mobile_no="ngModel" type="text" class="form-control" required>
 
-                    <div class="errors" *ngIf="phone.touched && phone.invalid">
-                        <p class="text-center m-0" *ngIf="phone.errors?.['required']">* Please enter your mobile number
+                    <div class="errors" *ngIf="mobile_no.touched && mobile_no.invalid">
+                        <p class="text-center m-0" *ngIf="mobile_no.errors?.['required']">* Please enter your mobile number
                             *
                         </p>
                     </div>
                 </div>
             </div>
 
+            <!-- facebook -->
             <div class="bb-gray py-2">
                 <div class="p-3">
                     <label for="facebook">Your facebook account <span class="text-danger">*</span></label>
@@ -75,6 +80,7 @@
                 </div>
             </div>
 
+            <!-- linkedin -->
             <div class="bb-gray py-2">
                 <div class="p-3">
                     <label for="linkedin">Your LinkedIn account <span class="text-danger">*</span></label>
@@ -90,16 +96,16 @@
                 </div>
             </div>
 
-
+            <!-- Job Position -->
             <div class="bb-gray py-2">
                 <div class="p-3">
-                    <label for="job_position">Your Job position <span class="text-secondary"> (will appear on the
+                    <label for="position">Your Job position <span class="text-secondary"> (will appear on the
                             posters)</span> <span class="text-danger">*</span></label>
-                    <input id="job_position" name="job_position" ngModel #job_position="ngModel" type="text"
+                    <input id="position" name="position" ngModel #position="ngModel" type="text"
                         class="form-control" required>
 
-                    <div class="errors" *ngIf="job_position.touched && job_position.invalid">
-                        <p class="text-center m-0" *ngIf="job_position.errors?.['required']">* Please enter your job
+                    <div class="errors" *ngIf="position.touched && position.invalid">
+                        <p class="text-center m-0" *ngIf="position.errors?.['required']">* Please enter your job
                             position
                             *
                         </p>
@@ -107,10 +113,10 @@
                 </div>
             </div>
 
-
+            <!-- company_name -->
             <div class="bb-gray py-2">
                 <div class="p-3">
-                    <label for="facebook">Where you work? <span class="text-secondary">(your company)</span>
+                    <label for="company_name">Where you work? <span class="text-secondary">(your company)</span>
                         <span class="text-danger">*</span></label>
                     <input id="company_name" name="company_name" ngModel #company_name="ngModel" type="text"
                         class="form-control" required>
@@ -123,14 +129,16 @@
                 </div>
             </div>
 
+            <!-- website -->
             <div class="bb-gray py-2">
                 <div class="p-3">
-                    <label for="company_website">Your company website</label>
-                    <input id="company_website" name="company_website" ngModel #company_website="ngModel" type="text"
+                    <label for="website">Your company website</label>
+                    <input id="website" name="website" ngModel #website="ngModel" type="text"
                         class="form-control">
                 </div>
             </div>
 
+            <!-- speech_title -->
             <div class="bb-gray py-2">
                 <div class="p-3">
                     <label for="speech_title">Speech title <span class="text-danger">*</span></label>
@@ -145,6 +153,7 @@
                 </div>
             </div>
 
+            <!-- speech_brief -->
             <div class="bb-gray py-2">
                 <div class="p-3">
                     <label for="speech_brief">Speech Brief <span class="text-danger">*</span></label>
@@ -159,6 +168,7 @@
                 </div>
             </div>
 
+            <!-- BIO -->
             <div class="bb-gray py-2">
                 <div class="p-3">
                     <label for="bio">Your BIO <span class="text-secondary">(as you want to appear in all
@@ -167,11 +177,12 @@
                 </div>
             </div>
 
+            <!-- photo_path -->
             <div class="bb-gray py-2">
                 <div class="p-3">
                     <label for="photo"> Please upload your personal photo <span class="text-danger">*</span></label>
                     <input id="photo" name="photo" ngModel #photo="ngModel" type="file" accept="image/*"
-                        class="form-control" required>
+                        class="form-control" required (change)="uploadImage($event)">
 
                     <div class="errors" *ngIf="photo.touched && photo.invalid">
                         <p class="text-center m-0" *ngIf="photo.errors?.['required']">* Please enter your profile photo
@@ -196,7 +207,7 @@
             </div>
 
             <div class="py-2 text-center">
-                <button class="btn btn-primary" [disabled]="form['invalid']">Submit</button>
+                <button class="btn btn-primary" [disabled]="form['invalid']" type="submit">Submit</button>
             </div>
 
 

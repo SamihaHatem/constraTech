@@ -94,7 +94,7 @@
 }
 
 .banner-child .content2 {
-    background-color: #328b09;
+    background-color: var(--constraTech-green-darker);
 }
 
 .my-nav {
@@ -107,35 +107,35 @@
     position: fixed;
     z-index: 3;
     top: 0;
-    background-color: #171637;
+    background-color: #030403;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .btn-green {
-    background-color: #50b946;
+    background-color: var(--constraTech-green-darker);
     color: white;
-    border: 1px solid #50b946;
+    border: 1px solid var(--constraTech-green-darker);
     border-radius: 4px;
     transition: all 0.3s ease-in-out;
 }
 
 .btn-green:hover {
     background-color: white;
-    color: #50b946;
+    color: var(--constraTech-green-darker);
 }
 
 
 .btn-gray {
-    background-color: #434a42;
+    background-color: var(--constraTech-orange);
     color: white;
-    border: 1px solid #434a42;
+    border: 1px solid var(--constraTech-orange);
     border-radius: 4px;
     transition: all 0.3s ease-in-out;
 }
 
 .btn-gray:hover {
     background-color: white;
-    color: #434a42;
+    color: var(--constraTech-orange);
 }
 
 
@@ -191,7 +191,7 @@
 }
 
 .top-btn button {
-    background-color: #50b946;
+    background-color: var(--constraTech-green-darker);
     color: white;
     width: 40px;
     height: 40px;
@@ -203,7 +203,7 @@
 
 
 .top-btn button:hover {
-    background-color: #44973c;
+    background-color: var(--constraTech-green);
 }
 
 .video-section {

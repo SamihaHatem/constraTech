@@ -28,6 +28,10 @@
                 This event will be three days with more than 2000 attendees. Attendees will include governmental,
                 private, public and academic sectors.
             </p>
+
+
+
+            <!--- Email -->
             <div class="bb-gray py-2">
                 <div class="p-3">
                     <label for="email">Email <span class="text-danger">*</span></label>
@@ -39,41 +43,46 @@
                 </div>
             </div>
 
+            <!-- fullname -->
             <div class="bb-gray py-2">
                 <div class="p-3">
-                    <label for="name">Your full name <span class="text-secondary"> (as you want to appear on all
+                    <label for="fullname">Your full name <span class="text-secondary"> (as you want to appear on all
                             documents)</span> <span class="text-danger">*</span> </label>
-                    <input id="name" name="name" ngModel #name="ngModel" type="text" class="form-control" required>
+                    <input id="fullname" name="fullname" ngModel #fullname="ngModel" type="text" class="form-control"
+                        required>
 
-                    <div class="errors" *ngIf="name.touched && name.invalid">
-                        <p class="text-center m-0" *ngIf="name.errors?.['required']">* Please enter your name *</p>
+                    <div class="errors" *ngIf="fullname.touched && fullname.invalid">
+                        <p class="text-center m-0" *ngIf="fullname.errors?.['required']">* Please enter your name *</p>
                     </div>
                 </div>
             </div>
 
+            <!-- Mobile -->
             <div class="bb-gray py-2">
                 <div class="p-3">
-                    <label for="phone">Your mobile number <span class="text-danger">*</span></label>
-                    <input id="phone" name="phone" ngModel #phone="ngModel" type="text" class="form-control" required>
+                    <label for="mobile_no">Your mobile number <span class="text-danger">*</span></label>
+                    <input id="mobile_no" name="mobile_no" ngModel #mobile_no="ngModel" type="text" class="form-control"
+                        required>
 
-                    <div class="errors" *ngIf="phone.touched && phone.invalid">
-                        <p class="text-center m-0" *ngIf="phone.errors?.['required']">* Please enter your mobile number
+                    <div class="errors" *ngIf="mobile_no.touched && mobile_no.invalid">
+                        <p class="text-center m-0" *ngIf="mobile_no.errors?.['required']">* Please enter your mobile
+                            number
                             *
                         </p>
                     </div>
                 </div>
             </div>
 
-
+            <!--- position -->
             <div class="bb-gray py-2">
                 <div class="p-3">
-                    <label for="job_position">Your Job position <span class="text-secondary"> (will appear on the
+                    <label for="position">Your Job position <span class="text-secondary"> (will appear on the
                             posters)</span> <span class="text-danger">*</span></label>
-                    <input id="job_position" name="job_position" ngModel #job_position="ngModel" type="text"
-                        class="form-control" required>
+                    <input id="position" name="position" ngModel #position="ngModel" type="text" class="form-control"
+                        required>
 
-                    <div class="errors" *ngIf="job_position.touched && job_position.invalid">
-                        <p class="text-center m-0" *ngIf="job_position.errors?.['required']">* Please enter your job
+                    <div class="errors" *ngIf="position.touched && position.invalid">
+                        <p class="text-center m-0" *ngIf="position.errors?.['required']">* Please enter your job
                             position
                             *
                         </p>
@@ -81,10 +90,10 @@
                 </div>
             </div>
 
-
+            <!-- company_name -->
             <div class="bb-gray py-2">
                 <div class="p-3">
-                    <label for="facebook">Where you work? <span class="text-secondary">(your company)</span>
+                    <label for="company_name">Where you work? <span class="text-secondary">(your company)</span>
                         <span class="text-danger">*</span></label>
                     <input id="company_name" name="company_name" ngModel #company_name="ngModel" type="text"
                         class="form-control" required>
@@ -97,13 +106,21 @@
                 </div>
             </div>
 
+            <!-- website -->
             <div class="bb-gray py-2">
                 <div class="p-3">
-                    <label for="company_website">Your company website</label>
-                    <input id="company_website" name="company_website" ngModel #company_website="ngModel" type="text"
-                        class="form-control">
+                    <label for="website">Your company website</label>
+                    <input id="website" name="website" ngModel #website="ngModel" type="text" class="form-control">
                 </div>
             </div>
+
+            <!-- classification -->
+            <!-- <div class="bb-gray py-2">
+                <div class="p-3">
+                    <label for="website">Your company website</label>
+                    <input id="website" name="website" ngModel #website="ngModel" type="text" class="form-control">
+                </div>
+            </div> -->
 
             <div class="bb-gray py-2">
                 <div class="p-3">
