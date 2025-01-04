@@ -1,0 +1,31 @@
+
+
+.speaker-container {
+    position: relative;
+    border-radius: 7px;
+    overflow: hidden;
+}
+
+.speaker-container .speaker-content {
+    position: absolute;
+    top: 32%;
+    left: 32%;
+    background: #000000d1;
+    color: white;
+    width: 25%;
+    opacity: 0;
+    height: 25%;
+    transform: rotate(180deg);
+    transition: all .3s ease-in-out, opacity .5s ease;
+}
+
+.speaker-container:hover .speaker-content {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    transform: rotate(0);
+    opacity: 1;
+}

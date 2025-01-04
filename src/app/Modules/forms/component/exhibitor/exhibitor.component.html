@@ -7,16 +7,18 @@
             </div>
 
             <div [ngClass]="{'w-50 fs-small text-center' : isMobile , 'w-25' : !isMobile}">
-                <p class="text-white">17 - 19 JUNE 2025</p>
-                <p class="text-white">EGYPT INTERNATIONAL</p>
-                <p class="text-white">EXHIBITION CENTER (EIEC)</p>
+                <p class="text-white">25 - 27 MAY 2025</p>
+                <p class="text-white upper-case">CAIRO-EGYPT - Dusit Thani Lakeview</p>
+                <p class="text-white upper-case">New Cairo
+                    Lake View Ballroom</p>
             </div>
         </div>
     </div>
 
 
     <div class="form-conatiner w-100">
-        <form #form='ngForm' class="mx-auto card my-5 py-2" [ngClass]="{'w-100' : isMobile , 'w-50' : !isMobile}">
+        <form #form='ngForm' class="mx-auto card my-5 py-2" [ngClass]="{'w-100' : isMobile , 'w-50' : !isMobile}"
+            (ngSubmit)="addNewExhibitor(form)">
             <p class="h2 text-center my-2 text-secondary">Exhibitors & Sponsors</p>
 
             <p class="text-secondary fs-small p-3 m-0">
@@ -28,8 +30,6 @@
                 This event will be three days with more than 2000 attendees. Attendees will include governmental,
                 private, public and academic sectors.
             </p>
-
-
 
             <!--- Email -->
             <div class="bb-gray py-2">
@@ -141,7 +141,7 @@
             </div>
 
             <div class="py-2 text-center">
-                <button class="btn btn-primary" [disabled]="form['invalid'] || !ploicy">Submit</button>
+                <button class="btn btn-primary" [disabled]="form['invalid'] || !ploicy" type="submit">Submit</button>
             </div>
 
         </form>

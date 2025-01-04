@@ -19,21 +19,25 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { GalleryComponent } from './components/gallery/gallery.component';
-import { SponsorsComponent } from './components/sponsors/sponsors.component';
 import { SpeakersComponent } from './components/speakers/speakers.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { UsersComponent } from './components/users/users.component';
+import { FormsModule } from '@angular/forms';
+import { ExhibitorsComponent } from './components/exhibitors/exhibitors.component';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { WorkshopsComponent } from './components/workshops/workshops.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     GalleryComponent,
-    SponsorsComponent,
     SpeakersComponent,
     AdminComponent,
     ProfileComponent,
-    UsersComponent
+    UsersComponent,
+    ExhibitorsComponent,
+    WorkshopsComponent
   ],
   imports: [
     CommonModule,
@@ -52,7 +56,9 @@ import { UsersComponent } from './components/users/users.component';
     MatExpansionModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    FormsModule,
+    NgSelectModule
   ]
 })
 export class CmsModule { }

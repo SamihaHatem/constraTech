@@ -20,196 +20,105 @@
     </div>
   </section>
 
-  <!-- Header -->
   <div id="fixed-nav-id" [ngClass]="{ 'fixed-nav': isScrolled }" class="my-nav">
     <app-header [isScrolled]="isScrolled"></app-header>
     <app-navbar></app-navbar>
   </div>
 
-  <!-- Banner -->
-  <section class="banner vh-100">
-    <div class="video-section w-100 h-100">
-      <!-- The video -->
-      <video #videoPlayer autoplay muted loop id="myVideo" [autoplay]="autoPlayFlag">
-        <source
-          src="https://www.big5constructegypt.com/wp-content/uploads/sites/21/2024/09/companies-b-roll-online-video-cutter.com-1-2.mp4"
-          type="video/mp4">
-      </video>
 
-      <div class="banner-child w-100 h-100 align-content-end">
-        <div>
-          <div [ngClass]="{'w-100' : isMobile , 'w-90 mx-auto' : !isMobile }">
-            <div [ngClass]="{'w-100' : isMobile , 'w-75' : !isMobile}" class="p-4 content">
-              <h2 class="text-white head-title pb-4 ff-cursive">Find new business opportunities in Egypt’s $570 billion
-                construction market</h2>
-              <p class="text-white"> 17 - 19 June 2025. Egypt International Exhibition Center (EIEC)</p>
-              <div>
-                <div class="row p-0 m-0 bt-white">
-                  <p class="text-white col-md-6 col-sm-12 py-4 m-0 br-white link" [ngClass]="{ 'b-white' : isMobile }">
-                    BECOME A SPONSOR
-                    <i class="fa-solid fa-angle-right"></i>
-                  </p>
-                  <p class="text-white col-md-6 col-sm-12 py-4 m-0 link" [ngClass]="{ 'b-white' : isMobile }">Become a
-                    Speaker
-                    <i class="fa-solid fa-angle-right"></i>
-                  </p>
-                </div>
-                <div class="row p-0 m-0 bt-white bb-white">
-                  <p class="text-white col-md-6 col-sm-12 py-4 m-0 br-white link" [ngClass]="{ 'b-white' : isMobile }">
-                    Registration
-                    <i class="fa-solid fa-angle-right"></i>
-                  </p>
-                  <p class="text-white col-md-6 col-sm-12 py-4 m-0 link" [ngClass]="{ 'b-white' : isMobile }">Agenda
-                    <i class="fa-solid fa-angle-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="content2 text-white">
-            <div class="w-75 d-flex mx-auto" [ngClass]="{'w-90 py-2':isMobile}">
-              <div class="w-25 text-center align-content-center">
-                <p class="h2 m-0">20 000+</p>
-                <p class="m-0">visitors</p>
-              </div>
-
-              <div class="w-25 text-center align-content-center">
-                <p class="h2 m-0">350+</p>
-                <p class="m-0">Exhibiting Compaines</p>
-              </div>
-
-              <div class="w-25 text-center align-content-center">
-                <p class="h2 m-0">20+</p>
-                <p class="m-0">Exhibiting countries</p>
-              </div>
-
-              <div class="w-25 text-center align-content-center">
-                <p class="h2 m-0">20 000+</p>
-                <p class="h2 m-0">SQM</p>
-                <p class="m-0">of total space</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- Egypt's Most Influential Construction Event -->
-  <div class="my-5 py-2">
-    <div class="w-90 mx-auto row" [ngClass]="{'flex-dir-col-rev' : isMobile}">
-      <div class="col-md-6 col-sm-12">
-        <p class="h2">
-          Egypt's Most Influential Construction Event: Showcasing Innovation and Forging Strategic Partnerships
-        </p>
-        <p>
-          Under the patronage of the Ministry of Housing, Utilities & Urban Communities, the 6th edition of Big 5
-          Construct Egypt was a resounding success. Over 18,258 construction experts and more than 287 exhibitors from
-          20
-          countries participated, showcasing cutting-edge innovations and technologies in the construction sector.
-        </p>
-
-        <p>
-          The event fostered business networking and stakeholder collaboration, resulting in the formation of new
-          strategic partnerships. Live demonstrations captivated visitors and opened doors to significant business
-          opportunities through the latest technological advancements.
-        </p>
-
-        <div class="row">
-          <div class="col-md-6 col-sm-12 text-center my-2">
-            <button class="btn-green px-3 py-1" [ngClass]="{'w-100' : isMobile}">
-              DOWNLOAD SALES BROCHURE
-            </button>
-          </div>
-          <div class="col-md-4 col-sm-12 text-center my-2">
-            <button class="btn-gray px-3 py-1" [ngClass]="{'w-100' : isMobile}">
-              BOOK YOUR STAND
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-sm-12 text-end align-content-center">
-        <iframe class="w-100" height="315" src="https://www.youtube.com/embed/ofAhPRo6wrc?si=jWWt4jbIKSPNt8w5"
-          title="YouTube video player" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      </div>
-    </div>
+  <div>
+    <router-outlet></router-outlet>
   </div>
 
-  <!-- Why Exhibit-->
-  <div class="my-5 py-2" id="why_exhibit">
-    <div class="w-90 row mx-auto">
-      <div class="col-md-6 col-sm-12">
-        <p class="h2 mb-4">Why exhibit at Big 5 Construct Egypt</p>
-
-        <div class="row">
-          <div class="col-6">
-            <img src="../../assets/images/business-1-1-60x60-1.png" alt="">
-            <p class="reason-title my-2">
-              SHOWCASE
-              <br>
-              OFFERINGS
-            </p>
-            <p>
-              Showcase your services or launch products to a targeted audience of 20,000 professionals actively seeking
-              your solutions
-            </p>
-          </div>
-          <div class="col-6">
-            <img src="../../assets/images/business-1-1-60x60-1.png" alt="">
-            <p class="reason-title my-2">
-              SHOWCASE
-              <br>
-              OFFERINGS
-            </p>
-            <p>
-              Showcase your services or launch products to a targeted audience of 20,000 professionals actively seeking
-              your solutions
-            </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6">
-            <img src="../../assets/images/business-1-1-60x60-1.png" alt="">
-            <p class="reason-title my-2">
-              SHOWCASE
-              <br>
-              OFFERINGS
-            </p>
-            <p>
-              Showcase your services or launch products to a targeted audience of 20,000 professionals actively seeking
-              your solutions
-            </p>
-          </div>
-          <div class="col-6">
-            <img src="../../assets/images/business-1-1-60x60-1.png" alt="">
-            <p class="reason-title my-2">
-              SHOWCASE
-              <br>
-              OFFERINGS
-            </p>
-            <p>
-              Showcase your services or launch products to a targeted audience of 20,000 professionals actively seeking
-              your solutions
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-sm-12 text-end align-content-center">
-        <img class="w-75" src="../../assets/images/builder-structure-075.avif" alt="" [ngClass]="{'w-100' : isMobile}">
-      </div>
-    </div>
-  </div>
-
-  <!-- Key exhibitors at Big 5 Construct Egypt 2025 -->
-  <div class="my-5 py-2" id="exhibitors-list">
+  <!----- Footer ----->
+  <footer class="py-5 my-5">
     <div class="w-90 mx-auto">
-      <p class="h2">Key exhibitors at Big 5 Construct Egypt 2025</p>
+      <div class="row">
+        <div class="col-md-3 col-sm-12 my-3">
+          <img class="w-100" src="../../assets/images/Logo.png" alt="">
+        </div>
+
+        <div class="col-md-3 col-sm-12 my-3">
+          <div class="w-75 mx-auto">
+            <p class="title">Quick links</p>
+            <p class="text-white">Register for free entry</p>
+            <p class="text-white">Why visit?</p>
+            <p class="text-white">Sponsor</p>
+            <p class="text-white">Venue Map</p>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-12 my-3">
+          <div class="w-75 mx-auto">
+
+
+            <p class="title">Opening dates</p>
+            <p class="text-white">25 - 27 MAY 2025</p>
+            <p class="text-white">10AM - 10PM</p>
+            <!-- <p class="text-white">Tuesday- Thursday</p> -->
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-12">
+          <div class="w-75 mx-auto">
+            <button class="px-3 py-1 w-100">Contact us</button>
+
+            <div class="my-2 text-center">
+              <p class="m-0 text-white fs-small"><i class="fa-solid fa-phone"></i> +20 1067011122</p>
+              <p class="m-0 text-white fs-small"><i class="fa-solid fa-envelope"></i> constratech@cadmasters.org</p>
+            </div>
+
+
+            <div class="text-center my-3">
+              <a class="mx-3" target="_blank" href="https://www.facebook.com/ConstraTechsummit"><i
+                  class="fa-brands fa-facebook-f text-white"></i></a>
+              <a class="mx-3" target="_blank" href="https://www.linkedin.com/company/constratechsummit/"><i
+                  class="fa-brands fa-linkedin-in text-white"></i></a>
+              <a class="mx-3" target="_blank" href="https://www.youtube.com/@Constratechsummit/video"><i
+                  class="fa-brands fa-youtube text-white"></i></a>
+            </div>
+          </div>
+          <div class="text-center">
+            <a class="text-white" routerLink="/admin/home">
+              <span *ngIf="!currentUser || !currentUser.isLoggedIn">login</span>
+              <span *ngIf="currentUser && currentUser.isLoggedIn">admin view</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="top-btn" [ngClass]="{ 'd-none' : !isScrolled }">
+    <button (click)="scroll_Top()"><i class="fa-solid fa-angle-up"></i></button>
+  </div>
+</div>
+
+
+<ng-template #constructionPortfolioContent let-c="close" let-d="dismiss">
+  <div class="bg-custom-black">
+    <div class="modal-header">
+      <p class="h2 text-white text-center">CONSTRUCTION PORTFOLIO OF EVENTS</p>
+      <button type="button" class="btn-close text-white" aria-label="Close" (click)="d('Cross click')"></button>
+    </div>
+
+    <div class="modal-body text-white">
+      <div><img src="../../assets/images/egypt.png" alt="egy"></div>
+      <p>Egypt</p>
+      <p class="">constraTech Construct Egypt</p>
+      <p class="">Egypt Infrastructure & Water Expo</p>
+    </div>
+  </div>
+</ng-template>
+
+
+
+
+
+<!-- Key exhibitors at constraTech Construct Egypt 2025 -->
+<!-- <div class="my-5 py-2" id="exhibitors-list">
+    <div class="w-90 mx-auto">
+      <p class="h2">Key exhibitors at constraTech Egypt 2025</p>
       <owl-carousel-o [options]="customOptions">
         <ng-template carouselSlide>
           <div>
@@ -235,94 +144,32 @@
           </button>
         </div>
         <div class="col-md-4 col-sm-12 text-start my-2">
-          <button class="btn-gray px-3 py-1" [ngClass]="{'w-100' : isMobile}">
+          <button class="btn-gray px-3 py-1" [ngClass]="{'w-100' : isMobile}" routerLink="/forms/visitor/registration">
             BOOK YOUR STAND
           </button>
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
-  <!-- Dedicated - conference -->
-  <div class="my-5 py-2">
+<!-- Key exhibitors at constraTech Construct Egypt 2025 -->
+<!-- <div class="my-5 py-2" id="exhibitors-list">
     <div class="w-90 mx-auto">
-      <p class="h2">Conference</p>
-
-      <div class="row">
-        <div class="col-md-6 col-sm-12">
-          <p>This global event is the largest gathering of those interested in construction technology in the Middle
-            East.
-            This event consists of an exhibition of building and construction technology companies and a conference to
-            showcase the latest technology trends. In addition to seminars and talks by many pioneers in the field. This
-            event will be three days with more than 2000 attendees. Attendees will include governmental, private, public
-            and
-            academic sectors.</p>
-        </div>
-
-        <div class="col-md-6 col-sm-12 text-end align-content-center" [ngClass]="{'text-center' : isMobile }">
-          <img class="w-75" src="../../assets/images/builder-structure-075.avif" [ngClass]="{'w-100' : isMobile }"
-            alt="">
-        </div>
-      </div>
-
-      <!-- <div class="d-flex gap-2 my-5">
-        <button class="btn-green px-3 py-1">
-          DOWNLOAD SALES BROCHURE
-        </button>
-        <button class="btn-gray px-3 py-1">
-          BOOK YOUR STAND
-        </button>
-      </div> -->
-    </div>
-  </div>
-
-  <!-- Big 5 Talks - Workshops -->
-  <div class="my-5 py-2">
-    <div class="w-90 mx-auto">
-      <p class="h2">Workshops</p>
-
-      <div class="row">
-        <div class="col-md-3 col-sm-12 px-2">
-          <img class="w-100" src="../../assets/images/builder-structure-075.avif" alt="">
-          <p>Lorem ipsum dolor sit amet.</p>
-        </div>
-        <div class="col-md-3 col-sm-12 px-2">
-          <img class="w-100" src="../../assets/images/builder-structure-075.avif" alt="">
-          <p>Lorem ipsum dolor sit amet.</p>
-        </div>
-        <div class="col-md-3 col-sm-12 px-2">
-          <img class="w-100" src="../../assets/images/builder-structure-075.avif" alt="">
-          <p>Lorem ipsum dolor sit amet.</p>
-        </div>
-        <div class="col-md-3 col-sm-12 mp-2">
-          <img class="w-100" src="../../assets/images/builder-structure-075.avif" alt="">
-          <p>Lorem ipsum dolor sit amet.</p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-12 text-center my-2">
-          <button class="btn-green px-3 py-1" [ngClass]="{'w-100' : isMobile}">
-            View Workshops
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Hear from some of ConstraTech Egypt 2024 top exhibitors -->
-  <div class="my-5 py-2" >
-    <div class="w-90 mx-auto">
-      <p class="h2">Hear from some of ConstraTech Egypt 2024 top exhibitors</p>
+      <p class="h2">Key exhibitors at constraTech Egypt 2024</p>
       <owl-carousel-o [options]="customOptions">
-        <ng-template carouselSlide *ngFor="let slide of videoList">
-          <div class="video-img-container">
-            <img class="w-100" src="{{slide.img}}" alt="" width="100">
-
-            <div class="child text-center align-content-center">
-              <i class="fa-solid fa-play" (click)="openVideoModal(videoContent , slide.embed)"></i>
-              <p class="video-img-text w-100 text-white m-0 py-2">{{slide.title}}</p>
-            </div>
+        <ng-template carouselSlide>
+          <div>
+            <img src="../assets/images/img-1.jpg" alt="" width="100">
+          </div>
+        </ng-template>
+        <ng-template carouselSlide>
+          <div>
+            <img src="../assets/images/img-2.jpg" alt="" width="100">
+          </div>
+        </ng-template>
+        <ng-template carouselSlide>
+          <div>
+            <img src="../assets/images/img-3.jpg" alt="" width="100">
           </div>
         </ng-template>
       </owl-carousel-o>
@@ -334,249 +181,10 @@
           </button>
         </div>
         <div class="col-md-4 col-sm-12 text-start my-2">
-          <button class="btn-gray px-3 py-1" [ngClass]="{'w-100' : isMobile}"
-            routerLink="/forms/visitor/registration">
+          <button class="btn-gray px-3 py-1" [ngClass]="{'w-100' : isMobile}" routerLink="/forms/visitor/registration">
             BOOK YOUR STAND
           </button>
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="my-5 py-2">
-    <div>
-      <div class="w-90 mx-auto">
-        <p class="h2">Highlights of Big 5 Construct Egypt 2024</p>
-      </div>
-
-      <div>
-        <mat-grid-list cols="{{numberOfCols}}" rowHeight="100px">
-          <mat-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows">
-            <div class="w-100 h-100 img-highlight-container">
-              <img class="w-100 h-100" src="{{tile.img}}" alt="">
-            </div>
-          </mat-grid-tile>
-        </mat-grid-list>
-      </div>
-      <div class="text-center my-3">
-        <button class="btn-green px-4 py-1" [ngClass]="{'w-100':isMobile}">VIEW GALLERY</button>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="my-5 py-2">
-    <div>
-      <div class="w-90 mx-auto">
-        <p class="h2">2025 Sponsors</p>
-
-        <div class="bb-gray">
-          <p class="text-secondary">platinum</p>
-          <div class="row">
-            <div class="col-md-2 col-sm-12 text-center align-content-center my-1 justify-items-center">
-              <div class="sponsors-img-container ">
-                <img class="w-100" src="../../assets/images/sponsors/New folder/1-removebg-preview.png" alt="">
-              </div>
-            </div>
-            <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-              <div class="sponsors-img-container">
-                <img class="w-100" src="../../assets/images/sponsors/New folder/1-removebg-preview.png" alt="">
-              </div>
-            </div>
-            <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-              <div class="sponsors-img-container p-2">
-                <img class="w-100" src="../../assets/images/sponsors/New folder/2-removebg-preview.png" alt="">
-              </div>
-            </div>
-            <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-              <div class="sponsors-img-container p-2">
-                <img class="w-100" src="../../assets/images/sponsors/New folder/3-removebg-preview.png" alt="">
-              </div>
-            </div>
-            <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-              <div class="sponsors-img-container p-2">
-                <img class="w-100" src="../../assets/images/sponsors/New folder/4-removebg-preview.png" alt="">
-              </div>
-            </div>
-            <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-              <div class="sponsors-img-container p-2">
-                <img class="w-100" src="../../assets/images/sponsors/New folder/5-removebg-preview.png" alt="">
-              </div>
-            </div>
-
-            <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-              <div class="sponsors-img-container p-2">
-                <img class="w-100" src="../../assets/images/sponsors/New folder/6-removebg-preview.png" alt="">
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="bb-gray">
-          <p class="text-secondary">silver</p>
-          <div class="row">
-            <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-              <div class="sponsors-img-container ">
-                <img class="w-100" src="../../assets/images/sponsors/New folder/1-removebg-preview.png" alt="">
-              </div>
-            </div>
-            <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-              <div class="sponsors-img-container">
-                <img class="w-100" src="../../assets/images/sponsors/New folder/1-removebg-preview.png" alt="">
-              </div>
-            </div>
-            <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-              <div class="sponsors-img-container p-2">
-                <img class="w-100" src="../../assets/images/sponsors/New folder/2-removebg-preview.png" alt="">
-              </div>
-            </div>
-            <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-              <div class="sponsors-img-container p-2">
-                <img class="w-100" src="../../assets/images/sponsors/New folder/3-removebg-preview.png" alt="">
-              </div>
-            </div>
-            <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-              <div class="sponsors-img-container p-2">
-                <img class="w-100" src="../../assets/images/sponsors/New folder/4-removebg-preview.png" alt="">
-              </div>
-            </div>
-            <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-              <div class="sponsors-img-container p-2">
-                <img class="w-100" src="../../assets/images/sponsors/New folder/5-removebg-preview.png" alt="">
-              </div>
-            </div>
-
-            <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-              <div class="sponsors-img-container p-2">
-                <img class="w-100" src="../../assets/images/sponsors/New folder/6-removebg-preview.png" alt="">
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="bb-gray">
-          <p class="text-secondary">gold</p>
-          <div class="row">
-            <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-              <div class="sponsors-img-container ">
-                <img class="w-100" src="../../assets/images/sponsors/New folder/1-removebg-preview.png" alt="">
-              </div>
-            </div>
-            <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-              <div class="sponsors-img-container">
-                <img class="w-100" src="../../assets/images/sponsors/New folder/1-removebg-preview.png" alt="">
-              </div>
-            </div>
-            <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-              <div class="sponsors-img-container p-2">
-                <img class="w-100" src="../../assets/images/sponsors/New folder/2-removebg-preview.png" alt="">
-              </div>
-            </div>
-            <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-              <div class="sponsors-img-container p-2">
-                <img class="w-100" src="../../assets/images/sponsors/New folder/3-removebg-preview.png" alt="">
-              </div>
-            </div>
-            <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-              <div class="sponsors-img-container p-2">
-                <img class="w-100" src="../../assets/images/sponsors/New folder/4-removebg-preview.png" alt="">
-              </div>
-            </div>
-            <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-              <div class="sponsors-img-container p-2">
-                <img class="w-100" src="../../assets/images/sponsors/New folder/5-removebg-preview.png" alt="">
-              </div>
-            </div>
-
-            <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-              <div class="sponsors-img-container p-2">
-                <img class="w-100" src="../../assets/images/sponsors/New folder/6-removebg-preview.png" alt="">
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <footer class="py-5 my-5">
-    <div class="w-90 mx-auto">
-      <div class="row">
-        <div class="col-md-3 col-sm-12 my-3">
-          <img class="w-100" src="../../assets/images/Logo.png" alt="">
-        </div>
-
-        <div class="col-md-3 col-sm-12 my-3">
-          <div class="w-75 mx-auto">
-            <p class="title">Quick links</p>
-            <p class="text-white">Register for free entry</p>
-            <p class="text-white">Why visit?</p>
-            <p class="text-white">Sponsor</p>
-            <p class="text-white">Venue Map</p>
-          </div>
-        </div>
-
-        <div class="col-md-3 col-sm-12 my-3">
-          <div class="w-75 mx-auto">
-            <p class="title">Opening dates</p>
-            <p class="text-white">17 - 19 June 2025</p>
-            <p class="text-white">11AM - 7PM</p>
-            <p class="text-white">Tuesday- Thursday</p>
-          </div>
-        </div>
-
-        <div class="col-md-3 col-sm-12">
-          <div class="w-75 mx-auto">
-            <button class="px-3 py-1 w-100">Contact us</button>
-            <div class="text-center my-3">
-              <a class="mx-3" target="_blank" href="https://www.facebook.com/ConstraTechsummit"><i
-                  class="fa-brands fa-facebook-f text-white"></i></a>
-              <a class="mx-3" target="_blank" href="https://www.linkedin.com/company/constratechsummit/"><i
-                  class="fa-brands fa-linkedin-in text-white"></i></a>
-              <a class="mx-3" target="_blank" href="https://www.youtube.com/@Constratechsummit/video"><i
-                  class="fa-brands fa-youtube text-white"></i></a>
-            </div>
-          </div>
-          <div class="text-center">
-            <a class="text-white" routerLink="/admin/home">
-              <span *ngIf="!currentUser || !currentUser.isLoggedIn">login</span>
-              <span *ngIf="currentUser && currentUser.isLoggedIn">admin view</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-
-  <div class="top-btn" [ngClass]="{ 'd-none' : !isScrolled }">
-    <button (click)="scroll_Top()"><i class="fa-solid fa-angle-up"></i></button>
-  </div>
-</div>
-
-
-<ng-template #videoContent>
-  <div class="justify-items-center">
-    <pre [innerHtml]="selectedVideo"> </pre>
-  </div>
-</ng-template>
-
-<ng-template #constructionPortfolioContent let-c="close" let-d="dismiss">
-  <div class="bg-custom-black">
-    <div class="modal-header">
-      <p class="h2 text-white text-center">CONSTRUCTION PORTFOLIO OF EVENTS</p>
-      <button type="button" class="btn-close text-white" aria-label="Close" (click)="d('Cross click')"></button>
-    </div>
-
-    <div class="modal-body text-white">
-      <div><img src="../../assets/images/egypt.png" alt="egy"></div>
-      <p>Egypt</p>
-      <p class="">Big 5 Construct Egypt</p>
-      <p class="">Egypt Infrastructure & Water Expo</p>
-    </div>
-  </div>
-</ng-template>
+  </div> -->

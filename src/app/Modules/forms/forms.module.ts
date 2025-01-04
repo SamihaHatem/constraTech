@@ -10,7 +10,7 @@ import { LoginComponent } from './component/login/login.component';
 import { FormsModule as AngularFormsModule } from '@angular/forms';
 import { SharePostComponent } from './component/share-post/share-post.component';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { RegisterComponent } from './component/register/register.component';
+import { RegisterComponent } from '../cms/components/register/register.component';
 
 @NgModule({
   declarations: [

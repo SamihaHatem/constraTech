@@ -10,6 +10,7 @@ export class SpeakerService {
   constructor(private http: HttpClient) { }
 
   addSpeaker(reqBody: any) {
-    return this.http.post(baseUrl.apiUrl + 'speakers/newSpeaker/', reqBody)
+    console.log(baseUrl.apiUrl + 'speakers/newSpeaker')
+    return this.http.post(baseUrl.apiUrl + 'speakers/newSpeaker', reqBody)
   }
 }

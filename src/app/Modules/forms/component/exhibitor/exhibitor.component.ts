@@ -1,5 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
+import { ExhibitorService } from 'src/app/services/forms/exhibitor/exhibitor.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-exhibitor',
@@ -11,8 +13,8 @@ export class ExhibitorComponent {
 
   isScrolled = false;
 
-  ploicy!:boolean 
-  constructor(private observer: BreakpointObserver) { }
+  ploicy!: boolean
+  constructor(private observer: BreakpointObserver, private exhibitorServices: ExhibitorService) { }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -38,6 +40,27 @@ export class ExhibitorComponent {
     if (this.paymentModel.otherPayment.trim()) {
       this.paymentModel.payment = 'Other';
     }
+  }
+
+  addNewExhibitor(form: any) {
+    console.log(form.value)
+    this.exhibitorServices.addExhibitor(form.value).subscribe((response: any) => {
+      console.log("addExhibitor response: ", response)
+      Swal.fire({
+        title: response.message,
+        icon: 'success'
+      }).then(() => {
+        form.reset()
+      })
+    }, (err: any) => {
+      console.log("addExhibitor err: ", err)
+      Swal.fire({
+        title: 'Error',
+        icon: 'error'
+      }).then(() => {
+        form.reset()
+      })
+    })
   }
 
   ngOnInit(): void {

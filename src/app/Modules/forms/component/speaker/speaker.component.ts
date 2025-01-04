@@ -30,7 +30,7 @@ export class SpeakerComponent implements OnInit {
   addSpeaker(form: any) {
     console.log(form.value)
     const formData = new FormData();
-    formData.append('photo_path', this.file, this.file.name)
+    formData.append('photo', this.file, this.file.name)
     formData.append('email', form.value.email)
     formData.append('fullname', form.value.fullname)
     formData.append('mobile_no', form.value.mobile_no)

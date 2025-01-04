@@ -2,7 +2,7 @@
   <div class="w-90 mx-auto py-2">
     <ul class="m-0 d-flex justify-content-between w-75">
       <li class="align-content-center">
-        <a><i class="fa-solid fa-house"></i></a>
+        <a class="text-black" routerLink="/home"><i class="fa-solid fa-house"></i></a>
       </li>
       <li>
         <div class="dropdown">
@@ -11,8 +11,10 @@
           </button>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item cursor-pointer" (click)="scrollToId('why_exhibit');">Why Egypt</a></li>
-            <li><a class="dropdown-item cursor-pointer" (click)="scrollToId('exhibitors-list')">2025 Exhibitor List</a></li>
-            <li><a class="dropdown-item cursor-pointer" (click)="scrollToId('exhibitors-list')">2024/2023 Exhibitor List</a></li>
+            <li><a class="dropdown-item cursor-pointer" (click)="scrollToId('exhibitors-list-2025')">2025 Exhibitor
+                List</a></li>
+            <li><a class="dropdown-item cursor-pointer" (click)="scrollToId('exhibitors-list-2024')">2024/2023 Exhibitor
+                List</a></li>
             <li><a class="dropdown-item cursor-pointer" routerLink="/forms/exhibitor">Registration</a></li>
           </ul>
         </div>
@@ -23,14 +25,14 @@
             VISIT
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Why Egypt</a></li>
+            <!-- <li><a class="dropdown-item" href="#">Why Egypt</a></li> -->
             <li><a class="dropdown-item" routerLink="/forms/visitor/registration">Registration</a></li>
           </ul>
         </div>
       </li>
 
       <li class="align-content-center">
-        <a class="cursor-pointer dropdown-item" (click)="scrollToId('exhibitors-list')">2024 Exhibitors List</a>
+        <a class="cursor-pointer dropdown-item" (click)="scrollToId('exhibitors-list-2024')">2024 Exhibitors List</a>
       </li>
 
       <li>
@@ -40,7 +42,7 @@
           </button>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" routerLink="/forms/speaker">Registration</a></li>
-            <li><a class="dropdown-item" href="#">Speakers List</a></li>
+            <li><a class="dropdown-item cursor-pointer" (click)="scrollToId('speakers-list')">Speakers List</a></li>
           </ul>
         </div>
       </li>
@@ -51,28 +53,17 @@
             Features
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">CONFERENCE</a></li>
-            <li><a class="dropdown-item" href="#">EXHIBITION</a></li>
-            <li><a class="dropdown-item" href="#">WORKSHOP</a></li>
-            <li><a class="dropdown-item" href="#">SPEAKERS</a></li>
+            <li><a class="dropdown-item cursor-pointer" (click)="scrollToId('conference')">CONFERENCE</a></li>
+            <li><a class="dropdown-item cursor-pointer" (click)="scrollToId('why_exhibit')">EXHIBITION</a></li>
+            <li><a class="dropdown-item cursor-pointer" (click)="scrollToId('workshop')">WORKSHOP</a></li>
+            <li><a class="dropdown-item cursor-pointer" (click)="scrollToId('speakers-list')">SPEAKERS</a></li>
           </ul>
         </div>
       </li>
 
-      <li>
-        <div class="dropdown">
-          <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            2025 Sponsors
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </div>
+      <li class="align-content-center">
+        <a class="cursor-pointer dropdown-item" (click)="scrollToId('gallery')">Gallery</a>
       </li>
     </ul>
   </div>
 </nav>
-
-

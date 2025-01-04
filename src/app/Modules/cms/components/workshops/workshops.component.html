@@ -1,0 +1,119 @@
+<div class="p-3">
+    <div class="d-flex justify-content-between">
+        <p class="h2">WorkShops</p>
+        <div>
+            <button class="btn btn-primary" (click)="openModal(newContent)">Add Workshop</button>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div>
+        <!-- Loading -->
+        <div class="d-flex justify-content-center" *ngIf="isLoading">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+        <!-- Error -->
+        <div class="text-center text-danger fs-small" *ngIf="isError">
+            We encountered an issue while fetching the requested data. Please try again later. If the issue persists,
+            contact support.
+        </div>
+
+        <!-- Content -->
+        <div>
+            <div class="card p-2 my-2" *ngFor="let workshop of listOfworkshops" [ngClass]="{ 'bg-rejected' : workshop.status == 'Inactive'
+            , 'bg-confirmed' : workshop.status == 'Active'}">
+                <div class="row">
+
+                    <div class="col-md-6 col-sm-12" *ngIf="workshop.title">
+                        <p><span class="fw-bold">Tilte:</span> {{workshop.title}}</p>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12" *ngIf="workshop.description">
+                        <p><span class="fw-bold">Description:</span> {{workshop.description}}</p>
+                    </div>
+
+
+                    <div class="col-md-6 col-sm-12" *ngIf="workshop.status">
+                        <p><span class="fw-bold">Status:</span> {{workshop.status}}</p>
+                    </div>
+
+                    <div class="text-center">
+                        <img [src]="apiUrl + workshop.photo" alt="" height="200px" style="max-width: 100%;">
+                    </div>
+
+                </div>
+
+                <div class="text-center my-2">
+                    <button class="btn btn-primary" (click)="openModal(updateContent,workshop)">Update</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<ng-template #updateContent>
+    <div class="p-3">
+        <p class="text-center h2">Update WorkShop</p>
+
+        <div class="py-2">
+            <form>
+                <div class="my-2">
+                    <label class="text-secondary" for="title">Tilte: </label>
+                    <input type="text" name="title" class="form-control" id="title" [(ngModel)]="selectedworkshop.title">
+                </div>
+
+                <div class="my-2">
+                    <label class="text-secondary" for="description">Description: </label>
+                    <input type="text" name="description" class="form-control" id="description" [(ngModel)]="selectedworkshop.description">
+                </div>
+
+                <div class="my-2">
+                    <label class="text-secondary" for="status">Status: </label>
+                    <ng-select name="status" [(ngModel)]="selectedworkshop.status">
+                        <ng-option *ngFor="let status of statusList" [value]="status">
+                            {{status}}
+                        </ng-option>
+                    </ng-select>
+                </div>
+
+
+                <div class="text-center">
+                    <button (click)="updateworkshop()">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #newContent>
+    <div class="m-3">
+        <p class="h3 text-center">New Workshop</p>
+
+        <form #newcontentForm="ngForm" (ngSubmit)="newWorshop(newcontentForm)">
+            <div class="my-3">
+                <label for="title" class="label-form">Tilte: </label>
+                <input type="text" class="form-control" name="title" ngModel required>
+            </div>
+
+            <div class="my-3">
+                <label for="description" class="label-form">Description: </label>
+                <input type="text" class="form-control" name="description" ngModel required>
+            </div>
+
+            <div class="my-3">
+                <label for="file">Image: </label>
+                <input type="file" name="file" id="file" class="form-control" ngModel required
+                    (change)="uploadImage($event)">
+            </div>
+
+            <div class="text-center my-3">
+                <button class="btn btn-primary" type="submit" [disabled]="newcontentForm.invalid">Submit</button>
+            </div>
+
+        </form>
+    </div>
+</ng-template>

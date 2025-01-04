@@ -1,5 +1,6 @@
 import { Component, Input, signal } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,17 +9,19 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 })
 export class HeaderComponent {
   isMobile = true;
-  @Input() isScrolled: boolean = false; // Initialize with a default value (optional)
+  @Input() isScrolled: boolean = false;
 
   readonly panelOpenState = signal(false);
 
-  constructor(private observer: BreakpointObserver,) { }
+  constructor(private observer: BreakpointObserver,private router:Router) { }
 
   scroll_Top() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   scrollToId(id: string) {
+    if (!this.router.url.includes('home/content'))
+      this.router.navigateByUrl('/home/content')
     this.closeNav()
     console.log("element id : ", id, window.pageYOffset);
     if (window.pageYOffset == 0) window.scrollTo({

@@ -1,1 +1,130 @@
-<p>speakers works!</p>
+<div class="p-3">
+    <div class="d-flex justify-content-between">
+        <p class="h2">Speakers</p>
+    </div>
+
+    <!-- Content -->
+    <div>
+        <!-- Loading -->
+        <div class="d-flex justify-content-center" *ngIf="isLoading">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+        <!-- Error -->
+        <div class="text-center text-danger fs-small" *ngIf="isError">
+            We encountered an issue while fetching the requested data. Please try again later. If the issue persists,
+            contact support.
+        </div>
+
+        <!-- Content -->
+        <div>
+
+            <div>
+                <div class="w-50">
+                    <label for="">
+                        Filter by status:
+                    </label>
+                    <ng-select name="status" [(ngModel)]="FilterStatus" (change)="onChangeFilter()">
+                        <ng-option *ngFor="let status of statusList" [value]="status">
+                            {{status}}
+                        </ng-option>
+                    </ng-select>
+                </div>
+            </div>
+            <div class="card p-2 my-2" *ngFor="let speaker of listOfspeakers" [ngClass]="{'bg-pending': speaker.status == 'Pending' , 'bg-rejected' : speaker.status == 'Rejected'
+            , 'bg-confirmed' : speaker.status == 'Confirmed'}">
+                <div class="row">
+
+                    <div class="col-md-6 col-sm-12" *ngIf="speaker.company_name">
+                        <p><span class="fw-bold">Company Name:</span> {{speaker.company_name}}</p>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12" *ngIf="speaker.email">
+                        <p><span class="fw-bold">Email:</span> {{speaker.email}}</p>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12" *ngIf="speaker.fullname">
+                        <p><span class="fw-bold">Name:</span> {{speaker.fullname}}</p>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12" *ngIf="speaker.mobile_no">
+                        <p><span class="fw-bold">Mobile:</span> {{speaker.mobile_no}}</p>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12" *ngIf="speaker.position">
+                        <p><span class="fw-bold">Position:</span> {{speaker.position}}</p>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12" *ngIf="speaker.website">
+                        <p><span class="fw-bold">Website:</span> {{speaker.website}}</p>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12" *ngIf="speaker.status">
+                        <p><span class="fw-bold">Status:</span> {{speaker.status}}</p>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12" *ngIf="speaker.bio">
+                        <p><span class="fw-bold">Bio: </span> {{speaker.bio}}</p>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12" *ngIf="speaker.facebook">
+                        <p><span class="fw-bold">Facebook: </span> <a href="{{speaker.facebook}}"
+                                target="_blank">{{speaker.facebook}}</a></p>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12" *ngIf="speaker.linkedin">
+                        <p><span class="fw-bold">Linkedin: </span> <a href="{{speaker.linkedin}}"
+                                target="_blank">{{speaker.linkedin}}</a></p>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12" *ngIf="speaker.speech_brief">
+                        <p><span class="fw-bold">Speech Brief: </span> {{speaker.speech_brief}}</p>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12" *ngIf="speaker.speech_title">
+                        <p><span class="fw-bold">Speech Title: </span> {{speaker.speech_title}}</p>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12" *ngIf="speaker.bio">
+                        <p><span class="fw-bold">Bio: </span> {{speaker.bio}}</p>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <img [src]="apiUrl + speaker.photo_path.slice(1)" alt="" style="max-width: 100%;" height="200px">
+                </div>
+
+                <div class="text-center my-2">
+                    <button class="btn btn-primary" (click)="openModal(updateContent,speaker)">Update</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<ng-template #updateContent>
+    <div class="p-3 bg-white">
+        <p class="text-center h2">{{selectedSpeaker.fullname}}</p>
+
+        <div class="py-2">
+            <form>
+                <div class="my-2">
+                    <label class="text-secondary" for="status">Status: </label>
+                    <ng-select name="status" [(ngModel)]="selectedSpeaker.status">
+                        <ng-option *ngFor="let status of statusList" [value]="status">
+                            {{status}}
+                        </ng-option>
+                    </ng-select>
+                </div>
+
+
+                <div class="text-center">
+                    <button (click)="updateSpeaker()">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</ng-template>

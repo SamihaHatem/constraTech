@@ -58,11 +58,11 @@
                 </a>
 
                 <!-- Exhibitors and Sponsors -->
-                <a [ngClass]="currentUrl.includes('admin/sponsors') ? 'selectedItem' : ''" mat-list-item
-                    (click)="navigate('admin/sponsors')">
+                <a [ngClass]="currentUrl.includes('admin/exhibitors') ? 'selectedItem' : ''" mat-list-item
+                    (click)="navigate('admin/exhibitors')">
                     <span class="entry">
                         <div class="w-25"> <i class="fa-regular fa-handshake"></i> </div>
-                        <span class="w-75 pe-2" *ngIf="!isCollapsed">SPONSORS</span>
+                        <span class="w-75 pe-2 upper-case" *ngIf="!isCollapsed">exhibitor</span>
                     </span>
                 </a>
 
@@ -85,6 +85,15 @@
                 </a>
 
 
+                <!-- workshops -->
+                <a [ngClass]="currentUrl.includes('admin/workshops') ? 'selectedItem' : ''" mat-list-item
+                    (click)="navigate('admin/workshops')">
+                    <span class="entry">
+                        <div class="w-25"> <i class="fa-solid fa-gear"></i></div>
+                        <span class="w-75 pe-2" *ngIf="!isCollapsed">WORKSHOPS</span>
+                    </span>
+                </a>
+
                 <!-- Website -->
                 <a [ngClass]="currentUrl.includes('home') ? 'selectedItem' : ''" mat-list-item
                     (click)="navigate('home')">
@@ -94,29 +103,6 @@
                     </span>
                 </a>
 
-                <!-- Fines Conatiner -->
-                <!-- <ng-container *ngIf="finesRoles.includes(user.role)">
-            <a *ngIf="['QA Manager', 'QA Employee', 'Service Agent' , 'Operation Employee' , 'Operation Manager'].includes(user.role)"
-              [ngClass]="currentUrl.includes('fines/all') ? 'selectedItem' : ''" mat-list-item
-              (click)="navigate('fines/all')">
-              <span class="entry">
-                <div class="w-25"> <i class="fa-solid fa-file-invoice"></i></div>
-                <span class="w-75 pe-2" *ngIf="!isCollapsed" [ngClass]="user.lang == 'ar' ? 'fs-18-5':'' ">{{"FINES" |
-                  translate}} </span>
-              </span>
-            </a>
-  
-            <a [ngClass]="currentUrl.includes('fines/petitions') ? 'selectedItem' : ''" mat-list-item
-              (click)="navigate('fines/petitions')"
-              *ngIf="['QA Manager', 'Service Agent' ,'Operation Manager', 'Operation Employee'].includes(user.role)">
-              <span class="entry">
-                <div class="w-25"><i class="fas fa-file-alt"></i></div>
-                <span class="w-75 pe-2" *ngIf="!isCollapsed" [ngClass]="user.lang == 'ar' ? 'fs-18-5':'' ">{{"PETITIONS" |
-                  translate}}</span>
-              </span>
-            </a>
-          </ng-container>
-   -->
 
             </mat-nav-list>
         </mat-sidenav>

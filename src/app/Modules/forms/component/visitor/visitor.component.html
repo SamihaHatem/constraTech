@@ -8,15 +8,16 @@
 
             <div [ngClass]="{'w-50 fs-small text-center' : isMobile , 'w-25' : !isMobile}">
                 <p class="text-white">25 - 27 May 2025</p>
-                <p class="text-white">EGYPT INTERNATIONAL</p>
-                <p class="text-white">EXHIBITION CENTER (EIEC)</p>
+                <p class="text-white upper-case">CAIRO-EGYPT - Dusit Thani Lakeview</p>
+                <p class="text-white upper-case">New Cairo Lake View Ballroom</p>
             </div>
         </div>
     </div>
 
 
     <div class="form-conatiner w-100">
-        <form #form='ngForm' class="mx-auto card my-5 py-2" (ngSubmit)="addVisitor(form)" [ngClass]="{'w-100' : isMobile , 'w-50' : !isMobile}">
+        <form #form='ngForm' class="mx-auto card my-5 py-2" (ngSubmit)="addVisitor(form)"
+            [ngClass]="{'w-100' : isMobile , 'w-50' : !isMobile}">
             <p class="h2 text-center my-2 text-secondary">Exhibition & Conference Registration form</p>
 
             <p class="text-secondary fs-small p-3 m-0">Welcome in ConstraTech II (Conference +Exhibition + Workshops)

@@ -10,6 +10,6 @@ export class ExhibitorService {
   constructor(private http: HttpClient) { }
 
   addExhibitor(reqBody: any) {
-    return this.http.post(baseUrl.apiUrl + '', reqBody)
+    return this.http.post(baseUrl.apiUrl + 'exhibitors/newExhibitor', reqBody)
   }
 }

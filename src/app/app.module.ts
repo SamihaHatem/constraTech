@@ -17,11 +17,17 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
 import { loginUserReducer } from './store/reducers/user.reduer';
+import { SpeakersComponent } from './speakers/speakers.component';
+import { HomeContentComponent } from './home-content/home-content.component';
+import { WorkshopsComponent } from './workshops/workshops.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    SpeakersComponent,
+    HomeContentComponent,
+    WorkshopsComponent,
   ],
   imports: [
     BrowserModule,

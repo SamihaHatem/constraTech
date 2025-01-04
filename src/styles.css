@@ -82,3 +82,7 @@ body {
 .cursor-pointer {
     cursor: pointer;
 }
+
+.upper-case{
+    text-transform: uppercase;
+}

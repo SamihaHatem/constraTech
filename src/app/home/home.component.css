@@ -9,43 +9,6 @@
     cursor: pointer;
 }
 
-.banner {
-    position: relative;
-}
-
-
-.bg-green {
-    background-color: green;
-}
-
-.banner {
-    overflow: hidden;
-}
-
-
-/** Mat Menu Style */
-/* ::ng-deep.cdk-overlay-connected-position-bounding-box {
-    left: 3% !important;
-    right: 3% !important;
-}
-
-::ng-deep.mat-mdc-menu-panel {
-    width: 100% !important;
-    max-width: 100% !important;
-}
-
-::ng-deep.cdk-overlay-pane {
-    width: 100% !important;
-}
-
-::ng-deep.mat-mdc-menu-content {
-    background-color: rgba(0, 0, 0, 0.927);
-}
-
-::ng-deep.cdk-overlay-connected-position-bounding-box {
-    top: 0 !important;
-} */
-
 
 .bg-custom-black {
     background-color: rgb(0 0 0 / 89%);
@@ -57,44 +20,6 @@
 
 ::ng-deep.btn-close {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e");
-}
-
-
-.banner-child .content .link:hover i {
-    margin-left: 10px;
-}
-
-.banner-child .content .link {
-    cursor: pointer;
-    font-family: 'Inter';
-    font-weight: 400;
-    text-transform: uppercase;
-}
-
-.banner-child .content .link i {
-    transition: all 0.2s ease-in-out;
-}
-
-
-.banner-child {
-    position: absolute;
-    top: 0;
-}
-
-.banner-child .overlay {
-    background-color: rgba(0, 0, 0, 0.333);
-
-}
-
-.banner-child .content {
-    background-color: #0000008f;
-    font-weight: 600;
-    letter-spacing: .32px;
-    line-height: 1.187rem;
-}
-
-.banner-child .content2 {
-    background-color: var(--constraTech-green-darker);
 }
 
 .my-nav {
@@ -111,78 +36,10 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.btn-green {
-    background-color: var(--constraTech-green-darker);
-    color: white;
-    border: 1px solid var(--constraTech-green-darker);
-    border-radius: 4px;
-    transition: all 0.3s ease-in-out;
-}
-
-.btn-green:hover {
-    background-color: white;
-    color: var(--constraTech-green-darker);
-}
 
 
-.btn-gray {
-    background-color: var(--constraTech-orange);
-    color: white;
-    border: 1px solid var(--constraTech-orange);
-    border-radius: 4px;
-    transition: all 0.3s ease-in-out;
-}
-
-.btn-gray:hover {
-    background-color: white;
-    color: var(--constraTech-orange);
-}
 
 
-.custom-icon {
-    width: fit-content;
-    margin: 0;
-    padding: 10px;
-    background: green;
-    color: white;
-    clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
-}
-
-
-.reason-title {
-    color: #323c41;
-    font-size: 1.375rem;
-    font-weight: 500;
-}
-
-.video-img-container {
-    position: relative;
-}
-
-.video-img-container .child {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    background: #00000094;
-}
-
-.video-img-container .child i {
-    color: #ff895d;
-    font-size: xx-large;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-}
-
-.video-img-container .child:hover i {
-    transform: scale(2)
-}
-
-.video-img-text {
-    position: absolute;
-    bottom: 0;
-    background-color: #ff895d59;
-}
 
 .top-btn {
     position: fixed;
@@ -201,60 +58,33 @@
     transition: all 0.2s ease-in-out;
 }
 
-
 .top-btn button:hover {
     background-color: var(--constraTech-green);
 }
 
-.video-section {
-    position: relative;
-}
 
-.video-section #myVideo {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-}
 
-.img-highlight-container {
-    overflow: hidden;
-}
 
-.img-highlight-container img {
-    transition: all 0.3s ease-in-out;
-}
 
-.img-highlight-container:hover img {
-    transform: scale(1.2);
-}
-
-.sponsors-img-container {
-    border-radius: 50%;
-    border: 1px solid rgb(222, 222, 222);
-    width: 100px;
-    height: 100px;
-}
-
-footer{
-    background-color: #6c8393;
+footer {
+    background-color: #000000;
     background-image: url('../../assets/images/output-onlinepngtools1.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
 }
 
-footer .title{
-    color: #033244;
+footer .title {
+    color: var(--constraTech-green);
     font-weight: 700;
     font-size: 25px;
 }
 
 
-footer button{
+footer button {
     color: white;
     border: 0;
-    background: #033244;
+    background: var(--constraTech-orange);
     box-shadow: 1px 1px 3px 3px #2c2c2c36;
 }
+

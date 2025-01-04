@@ -5,6 +5,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { UserI } from 'src/app/interfaces/user';
 import { loginAction, logoutAction } from 'src/app/store/actions/user.action';
 import { baseUrl } from 'src/baseUrl';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -23,8 +24,19 @@ export class UserService {
   }
 
   login(user: { username: string, password: string }) {
-    this.store.dispatch(loginAction({ user }));
-    this.setIsLoggedIn()
+    console.log('api login')
+    this.http.post(baseUrl.apiUrl + 'users/login', user).subscribe((response: any) => {
+      console.log(response)
+      let loggedin_user: UserI = { username: response.username, _id: response._id, email: response.email, isLoggedIn: true, token: response.token }
+      this.store.dispatch(loginAction({ user: loggedin_user }));
+      this.setIsLoggedIn()
+    }, (err) => {
+      console.log(err)
+      Swal.fire({
+        title: 'Login Failed',
+        icon: 'error'
+      })
+    })
   }
 
   logout(): void {
@@ -33,7 +45,7 @@ export class UserService {
   }
 
   register(reqBody: any) {
-    return this.http.post(baseUrl.apiUrl + '/users/register', reqBody)
+    return this.http.post(baseUrl.apiUrl + 'users/register', reqBody)
   }
 
   setIsLoggedIn() {

@@ -1,1 +1,46 @@
-<p>users works!</p>
+<div class="p-3">
+    <div class="d-flex justify-content-between">
+        <p class="h2">Users</p>
+        <div>
+            <button routerLink="/admin/register">New User</button>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div>
+        <!-- Loading -->
+        <div class="d-flex justify-content-center" *ngIf="isLoading">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+        <!-- Error -->
+        <div class="text-center text-danger fs-small" *ngIf="isError">
+            We encountered an issue while fetching the requested data. Please try again later. If the issue persists,
+            contact support.
+        </div>
+
+        <!-- Content -->
+        <div *ngIf="!isError && !isLoading">
+            <div>
+                <div class="w-50">
+                    <label for="">
+                        Filter by status:
+                    </label>
+                    <ng-select name="status" [(ngModel)]="FilterStatus" (change)="onChangeFilter()">
+                        <ng-option *ngFor="let status of statusList" [value]="status">
+                            {{status}}
+                        </ng-option>
+                    </ng-select>
+                </div>
+
+                <div *ngIf="listOfUsers.length == 0">
+                    <p class="text-secondary text-center fs-small py-3">Currently, there is no information to show.</p>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+</div>

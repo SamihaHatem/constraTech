@@ -1,0 +1,209 @@
+.banner {
+    position: relative;
+    overflow: hidden;
+}
+
+.banner-child .content .link:hover i {
+    margin-left: 10px;
+}
+
+.banner-child .content .link {
+    cursor: pointer;
+    font-family: 'Inter';
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.banner-child .content .link i {
+    transition: all 0.2s ease-in-out;
+}
+
+.banner-child {
+    position: absolute;
+    top: 0;
+}
+
+.banner-child .overlay {
+    background-color: rgba(0, 0, 0, 0.333);
+
+}
+
+.banner-child .content {
+    background-color: #0000008f;
+    font-weight: 600;
+    letter-spacing: .32px;
+    line-height: 1.187rem;
+}
+
+.banner-child .content2 {
+    background-color: var(--constraTech-green-darker);
+}
+
+.btn-green {
+    background-color: var(--constraTech-green-darker);
+    color: white;
+    border: 1px solid var(--constraTech-green-darker);
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-green:hover {
+    background-color: white;
+    color: var(--constraTech-green-darker);
+}
+
+.btn-gray {
+    background-color: var(--constraTech-orange);
+    color: white;
+    border: 1px solid var(--constraTech-orange);
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-gray:hover {
+    background-color: white;
+    color: var(--constraTech-orange);
+}
+
+.main-topic-1 {
+    border: 3px solid var(--constraTech-green);
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all .2s ease-in-out;
+}
+
+.main-topic-1:hover {
+    border-color: var(--constraTech-orange);
+    color: var(--constraTech-orange);
+    transform: scale(1.1);
+}
+
+
+.reason-title {
+    color: #323c41;
+    font-size: 1.375rem;
+    font-weight: 500;
+}
+
+.video-img-container {
+    position: relative;
+}
+
+.video-img-container .child {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background: #00000094;
+}
+
+.video-img-container .child i {
+    color: #ff895d;
+    font-size: xx-large;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.video-img-container .child:hover i {
+    transform: scale(2)
+}
+
+.video-img-text {
+    position: absolute;
+    bottom: 0;
+    background-color: #ff895d59;
+}
+
+
+.video-section {
+    position: relative;
+}
+
+.video-section #myVideo {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+
+.img-highlight-container {
+    overflow: hidden;
+}
+
+.img-highlight-container img {
+    transition: all 0.3s ease-in-out;
+}
+
+.img-highlight-container:hover img {
+    transform: scale(1.2);
+}
+
+.sponsors-img-container {
+    border-radius: 50%;
+    border: 1px solid rgb(222, 222, 222);
+    width: 100px;
+    height: 100px;
+}
+
+.rhombus {
+    align-content: center;
+    color: white;
+    text-align: center;
+    --r: 4px;
+    height: 57px;
+    aspect-ratio: 1;
+    margin: calc(tan(18.5deg)* var(--r));
+    clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%) margin-box;
+    --_g: /calc(2*var(--r)) calc(2*var(--r)) radial-gradient(#000 70%, #0000 72%);
+    --_s: calc(100% -(1 - tan(22.5deg))* var(--r));
+    mask: conic-gradient(#000 0 0) no-repeat 50% / var(--_s) var(--_s), top var(--_g) no-repeat space, left var(--_g) space no-repeat;
+    background: var(--constraTech-orange);
+}
+
+iframe {
+    width: 100%;
+}
+
+#workshop img {
+    height: 150px;
+    max-width: 100%;
+}
+
+.conference1 {
+    align-content: center;
+    line-height: 1.8;
+    word-spacing: 5px;
+    letter-spacing: 1.2px;
+}
+
+.speaker-container {
+    position: relative;
+    border-radius: 7px;
+    overflow: hidden;
+}
+
+.speaker-container .speaker-content {
+    position: absolute;
+    top: 32%;
+    left: 32%;
+    background: #000000d1;
+    color: white;
+    width: 25%;
+    opacity: 0;
+    height: 25%;
+    transform: rotate(180deg);
+    transition: all .3s ease-in-out, opacity .5s ease;
+}
+
+.speaker-container:hover .speaker-content {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    transform: rotate(0);
+    opacity: 1;
+}

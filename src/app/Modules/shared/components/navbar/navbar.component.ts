@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -10,9 +11,12 @@ export class NavbarComponent implements OnInit {
   showFiller = false;
   isMobile = true;
 
-  constructor(private observer: BreakpointObserver) { }
+  constructor(private observer: BreakpointObserver, private router: Router) { }
 
   scrollToId(id: string) {
+    console.log(this.router.url)
+    if (!this.router.url.includes('home/content'))
+      this.router.navigateByUrl('/home/content')
     console.log("element id : ", id, window.pageYOffset);
     if (window.pageYOffset == 0) window.scrollTo({
       top: 155,

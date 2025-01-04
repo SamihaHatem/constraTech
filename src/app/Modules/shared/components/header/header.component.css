@@ -94,6 +94,8 @@
     transition: all 0.3s ease-in-out;
 }
 
+
+
 @media (hover: none) {
     .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]):hover {
         background: transparent !important;

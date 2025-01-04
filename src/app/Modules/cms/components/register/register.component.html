@@ -6,16 +6,13 @@
     <div class="px-4">
         <form #registerationForm="ngForm" (ngSubmit)="onRegister(registerationForm)">
 
-
-
-            email
             <!-- Username -->
             <div class="my-3">
                 <label for="username">Username</label>
                 <input type="text" name="username" class="form-control" required ngModel #username="ngModel">
 
                 <div class="errors d-flex justify-content-center" *ngIf="username.touched && username.invalid">
-                    <div *ngIf="username.errors?.['required']">* Please enter username*</div>
+                    <div *ngIf="username.errors?.['required']">*Please enter username*</div>
                 </div>
             </div>
 
@@ -25,7 +22,17 @@
                 <input type="text" name="name" class="form-control" required ngModel #name="ngModel">
 
                 <div class="errors d-flex justify-content-center" *ngIf="name.touched && name.invalid">
-                    <div *ngIf="name.errors?.['required']">*برجاء ادخال اسم المستخدم*</div>
+                    <div *ngIf="name.errors?.['required']">*please enter name*</div>
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="my-3">
+                <label for="email">Email</label>
+                <input type="text" name="email" class="form-control" required ngModel #email="ngModel">
+
+                <div class="errors d-flex justify-content-center" *ngIf="email.touched && email.invalid">
+                    <div *ngIf="email.errors?.['required']">*Please enter email*</div>
                 </div>
             </div>
 
@@ -35,37 +42,38 @@
                 <input type="password" name="password" class="form-control" required ngModel #password="ngModel">
 
                 <div class="errors d-flex justify-content-center" *ngIf="password.touched && password.invalid">
-                    <div *ngIf="password.errors?.['required']">*برجاء ادخال كلمة السر*</div>
+                    <div *ngIf="password.errors?.['required']">*please enter password*</div>
                 </div>
             </div>
 
             <!-- password_confirm -->
             <div class="my-3">
-                <label for="password_confirm">password</label>
+                <label for="password_confirm">Confirm Password</label>
                 <input type="password_confirm" name="password_confirm" class="form-control" required ngModel
                     #password_confirm="ngModel">
 
                 <div class="errors d-flex justify-content-center"
                     *ngIf="password_confirm.touched && password_confirm.invalid">
-                    <div *ngIf="password_confirm.errors?.['required']">*برجاء ادخال كلمة السر*</div>
+                    <div *ngIf="password_confirm.errors?.['required']">*please enter confirm password*</div>
                 </div>
             </div>
 
             <!--- role -->
             <div class="my-3">
-                <label for="role">password</label>
-               <ng-select id="role" name="role" ngModel #role="ngModel">
+                <label for="role">role</label>
+                <ng-select id="role" name="role" ngModel #role="ngModel" required>
+                    <ng-option [value]="'administrator'">
+                        Administrator
+                    </ng-option>
+                </ng-select>
 
-               </ng-select>
-
-                <div class="errors d-flex justify-content-center"
-                    *ngIf="role.touched && role.invalid">
-                    <div *ngIf="role.errors?.['required']">*برجاء ادخال كلمة السر*</div>
+                <div class="errors d-flex justify-content-center" *ngIf="role.touched && role.invalid">
+                    <div *ngIf="role.errors?.['required']">*please enter role*</div>
                 </div>
             </div>
 
             <div class="text-center my-3">
-                <button class="btn btn-primary" [disabled]="registerationForm.invalid" type="submit">اضافة</button>
+                <button class="btn btn-primary" [disabled]="registerationForm.invalid" type="submit">Add</button>
             </div>
         </form>
     </div>

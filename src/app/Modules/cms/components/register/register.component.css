@@ -1,0 +1,8 @@
+.errors{
+    color: rgb(88, 12, 12);
+    font-size: 12px;
+}
+
+input.ng-invalid.ng-touched{
+    border-color: rgb(88, 12, 12);
+}
