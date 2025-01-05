@@ -31,62 +31,65 @@
   </div>
 
   <!----- Footer ----->
-  <footer class="py-5 my-5">
-    <div class="w-90 mx-auto">
-      <div class="row">
-        <div class="col-md-3 col-sm-12 my-3">
-          <img class="w-100" src="../../assets/images/Logo.png" alt="">
-        </div>
-
-        <div class="col-md-3 col-sm-12 my-3">
-          <div class="w-75 mx-auto">
-            <p class="title">Quick links</p>
-            <p class="text-white">Register for free entry</p>
-            <p class="text-white">Why visit?</p>
-            <p class="text-white">Sponsor</p>
-            <p class="text-white">Venue Map</p>
+  <footer class=" my-5">
+    <div class="w-100 py-5 h-100 overlay">
+      <div class="w-90 mx-auto">
+        <div class="row">
+          <div class="col-md-3 col-sm-12 my-3">
+            <img class="w-100" src="../../assets/images/Logo.png" alt="">
           </div>
-        </div>
 
-        <div class="col-md-3 col-sm-12 my-3">
-          <div class="w-75 mx-auto">
-
-
-            <p class="title">Opening dates</p>
-            <p class="text-white">25 - 27 MAY 2025</p>
-            <p class="text-white">10AM - 10PM</p>
-            <!-- <p class="text-white">Tuesday- Thursday</p> -->
-          </div>
-        </div>
-
-        <div class="col-md-3 col-sm-12">
-          <div class="w-75 mx-auto">
-            <button class="px-3 py-1 w-100">Contact us</button>
-
-            <div class="my-2 text-center">
-              <p class="m-0 text-white fs-small"><i class="fa-solid fa-phone"></i> +20 1067011122</p>
-              <p class="m-0 text-white fs-small"><i class="fa-solid fa-envelope"></i> constratech@cadmasters.org</p>
-            </div>
-
-
-            <div class="text-center my-3">
-              <a class="mx-3" target="_blank" href="https://www.facebook.com/ConstraTechsummit"><i
-                  class="fa-brands fa-facebook-f text-white"></i></a>
-              <a class="mx-3" target="_blank" href="https://www.linkedin.com/company/constratechsummit/"><i
-                  class="fa-brands fa-linkedin-in text-white"></i></a>
-              <a class="mx-3" target="_blank" href="https://www.youtube.com/@Constratechsummit/video"><i
-                  class="fa-brands fa-youtube text-white"></i></a>
+          <div class="col-md-3 col-sm-12 my-3">
+            <div class="w-75 mx-auto">
+              <p class="title">Quick links</p>
+              <p class="text-white">Register for free entry</p>
+              <p class="text-white">Why visit?</p>
+              <p class="text-white">Sponsor</p>
+              <p class="text-white">Venue Map</p>
             </div>
           </div>
-          <div class="text-center">
-            <a class="text-white" routerLink="/admin/home">
-              <span *ngIf="!currentUser || !currentUser.isLoggedIn">login</span>
-              <span *ngIf="currentUser && currentUser.isLoggedIn">admin view</span>
-            </a>
+
+          <div class="col-md-3 col-sm-12 my-3">
+            <div class="w-75 mx-auto">
+
+
+              <p class="title">Opening dates</p>
+              <p class="text-white">25 - 27 MAY 2025</p>
+              <p class="text-white">10AM - 10PM</p>
+              <!-- <p class="text-white">Tuesday- Thursday</p> -->
+            </div>
+          </div>
+
+          <div class="col-md-3 col-sm-12">
+            <div class="w-75 mx-auto">
+              <button class="px-3 py-1 w-100">Contact us</button>
+
+              <div class="my-2 text-center">
+                <p class="m-0 text-white fs-small"><i class="fa-solid fa-phone"></i> +20 1067011122</p>
+                <p class="m-0 text-white fs-small"><i class="fa-solid fa-envelope"></i> constratech@cadmasters.org</p>
+              </div>
+
+
+              <div class="text-center my-3">
+                <a class="mx-3" target="_blank" href="https://www.facebook.com/ConstraTechsummit"><i
+                    class="fa-brands fa-facebook-f text-white"></i></a>
+                <a class="mx-3" target="_blank" href="https://www.linkedin.com/company/constratechsummit/"><i
+                    class="fa-brands fa-linkedin-in text-white"></i></a>
+                <a class="mx-3" target="_blank" href="https://www.youtube.com/@Constratechsummit/video"><i
+                    class="fa-brands fa-youtube text-white"></i></a>
+              </div>
+            </div>
+            <div class="text-center">
+              <a class="text-white" routerLink="/admin/home">
+                <span *ngIf="!currentUser || !currentUser.isLoggedIn">login</span>
+                <span *ngIf="currentUser && currentUser.isLoggedIn">admin view</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
   </footer>
 
   <div class="top-btn" [ngClass]="{ 'd-none' : !isScrolled }">

@@ -64,14 +64,16 @@
 
 
 
-
+footer .overlay{
+    background-color: #000000d9;
+}
 
 footer {
     background-color: #000000;
-    background-image: url('../../assets/images/output-onlinepngtools1.png');
+    background-image: url('../../assets/images/pdf-graphic.png');
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: bottom;
+    background-size: 50%;
+    background-position: right;
 }
 
 footer .title {
