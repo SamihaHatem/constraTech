@@ -20,6 +20,7 @@ import { loginUserReducer } from './store/reducers/user.reduer';
 import { SpeakersComponent } from './speakers/speakers.component';
 import { HomeContentComponent } from './home-content/home-content.component';
 import { WorkshopsComponent } from './workshops/workshops.component';
+import { GalleryComponent } from './gallery/gallery.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { WorkshopsComponent } from './workshops/workshops.component';
     SpeakersComponent,
     HomeContentComponent,
     WorkshopsComponent,
+    GalleryComponent,
   ],
   imports: [
     BrowserModule,

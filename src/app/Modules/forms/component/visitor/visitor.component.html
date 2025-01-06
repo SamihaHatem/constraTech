@@ -157,6 +157,10 @@
                             class="form-control" [required]="paymentModel.payment === 'Other'"
                             [disabled]="paymentModel.payment !== 'Other'" (input)="onOtherInput()" />
                     </div>
+
+                    <!-- <button type="button" (click)="InitiatePayment(paymentContent)">
+                        Pay Now
+                    </button> -->
                 </div>
             </div>
 
@@ -187,7 +191,7 @@
                 <button type="submit" class="btn btn-primary" [disabled]="form['invalid'] || !ploicy">Submit</button>
             </div>
             <!-- 
-            <button (click)="onModal(shareOnSocialMediaContent)">
+            <button (click)="openModal(shareOnSocialMediaContent)">
                 Share On social media
             </button> -->
 
@@ -223,6 +227,33 @@
             <button
                 (click)="shareOnLinkedIn('title','https://next-images.123rf.com/index/_next/image/?url=https://assets-cdn.123rf.com/index/static/assets/top-section-bg.jpeg&w=3840&q=75')">
                 LinkenIn</button>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #paymentContent>
+    <div class="bg-white m-3">
+        <p class="h2">Payment</p>
+        <div class="d-flex justify-content-center" *ngIf="myFatorahIsLoading">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+        <div *ngIf="!myFatorahIsLoading">
+            <label for="method">Payment Method: </label>
+            <ng-select name="method" [(ngModel)]="selectedPaymentMethod">
+                <ng-option *ngFor="let method of paymentMethods" [value]="method.PaymentMethodId">
+                    {{ method.PaymentMethodEn }}
+                </ng-option>
+            </ng-select>
+        </div>
+
+
+        <div id="embedded-payment"></div>
+
+
+        <div class="text-center my-3">
+            <button [disabled]="!selectedPaymentMethod" (click)="ExecutePayment()">Pay</button>
         </div>
     </div>
 </ng-template>

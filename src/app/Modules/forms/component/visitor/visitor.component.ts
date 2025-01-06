@@ -41,7 +41,7 @@ export class VisitorComponent {
     }
   }
 
-  onModal(content: TemplateRef<any>) {
+  openModal(content: TemplateRef<any>) {
     this.modalServices.open(content, {
       centered: true,
       size: 'lg'
@@ -63,11 +63,35 @@ export class VisitorComponent {
       Swal.fire({
         title: response.message,
         icon: 'success'
-      }).then(()=>{
+      }).then(() => {
         form.reset()
       })
     }, (err: any) => {
       console.log("addVisitor err : ", err)
+    })
+  }
+
+  myFatorahIsLoading: boolean = false;
+  paymentMethods: any[] = []
+  selectedPaymentMethod: any
+  InitiatePayment(content: TemplateRef<any>) {
+    this.myFatorahIsLoading = true;
+    this.openModal(content)
+    this.visitorService.InitiatePayment().subscribe((response: any) => {
+      console.log(response)
+      this.paymentMethods = response.Data.PaymentMethods;
+      this.myFatorahIsLoading = false;
+    }, (err: any) => {
+      console.log(err)
+    })
+  }
+
+  ExecutePayment() {
+    this.visitorService.ExecutePayment(this.selectedPaymentMethod).subscribe((response: any) => {
+      console.log(response)
+      // window.open(response.Data.PaymentURL, "_blank");
+    }, (err: any) => {
+      console.log(err)
     })
   }
 
