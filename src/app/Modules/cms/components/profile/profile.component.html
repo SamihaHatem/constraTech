@@ -1,10 +1,29 @@
 <div class="m-3">
     <p class="h2">Profile</p>
 
-    <div>
-        <p>Username: {{currentuser.username}}</p>
-        <p>Email: {{currentuser.email}}</p>
-        <p>Username: {{currentuser.username}}</p>
-        <p>Username: {{currentuser.username}}</p>
+    <div class="d-flex justify-content-center">
+        <div>
+            <p>Username: {{currentuser.username}}</p>
+            <p>Email: {{currentuser.email}}</p>
+            <p>Username: {{currentuser.username}}</p>
+            <div class="text-center">
+                <button (click)="openModal(resetPassword)">Reset Password</button>
+            </div>
+        </div>
     </div>
 </div>
+
+<ng-template #resetPassword>
+    <div class="bg-white m-3">
+        <p class="h3">
+            Reset Password
+        </p>
+        <div>
+            <label for="newPassword">New Password: </label>
+            <input type="text" name="newPassword" class="form-control" ngModel #newPasswordd="ngModel" [(ngModel)]="newPassword">
+        </div>
+        <div>
+            <button>Submit</button>
+        </div>
+    </div>
+</ng-template>

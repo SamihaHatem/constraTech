@@ -9,6 +9,8 @@ export const initialState: UserI = storedUserData ? JSON.parse(storedUserData) :
     username: '',
     token: '',
     password: '',
+    email: '',
+    role: ''
 };
 
 export const loginUserReducer = createReducer(initialState,
@@ -18,7 +20,9 @@ export const loginUserReducer = createReducer(initialState,
         isLoggedIn: true,
         token: user.token,
         password: '',
-        username: user.username
+        username: user.username,
+        email: user.email,
+        role: user.role
     })),
     on(logoutAction, state => ({
         ...state,
@@ -26,6 +30,8 @@ export const loginUserReducer = createReducer(initialState,
         isLoggedIn: false,
         token: '',
         password: '',
-        username: ''
+        username: '',
+        email: '',
+        role: ''
     }))
 )
