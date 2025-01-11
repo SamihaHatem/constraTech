@@ -77,7 +77,7 @@ export class CmsService {
     return this.http.post(baseUrl.apiUrl + 'speakers/confirmSpeaker', reqBody)
   }
 
-  getActiveSpeakers(){
+  getActiveSpeakers() {
     return this.http.get(baseUrl.apiUrl + 'speakers/Confirmed')
   }
 
@@ -103,5 +103,20 @@ export class CmsService {
 
   getActiveWorkshops() {
     return this.http.get(baseUrl.apiUrl + 'workshops/allActive')
+  }
+
+  // -------------------------------------------------------------------
+  // ---------------------------- Visitors  ----------------------------
+  // -------------------------------------------------------------------
+  getAllVisitors() {
+    return this.http.get(baseUrl.apiUrl + 'visitors/all')
+  }
+
+  getVisitorsStatusList() {
+    return ["Pending", "Confirmed", "Rejected"]
+  }
+
+  confirmVisitor(reqBody: any) {
+    return this.http.post(baseUrl.apiUrl + 'visitors/confirmVisitor', reqBody)
   }
 }

@@ -27,6 +27,7 @@ import { FormsModule } from '@angular/forms';
 import { ExhibitorsComponent } from './components/exhibitors/exhibitors.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { WorkshopsComponent } from './components/workshops/workshops.component';
+import { VisitorsComponent } from './components/visitors/visitors.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { WorkshopsComponent } from './components/workshops/workshops.component';
     ProfileComponent,
     UsersComponent,
     ExhibitorsComponent,
-    WorkshopsComponent
+    WorkshopsComponent,
+    VisitorsComponent
   ],
   imports: [
     CommonModule,

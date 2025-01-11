@@ -2,7 +2,7 @@
     <div class="d-flex justify-content-between">
         <p class="h2">WorkShops</p>
         <div>
-            <button class="btn btn-primary" (click)="openModal(newContent)">Add Workshop</button>
+            <button (click)="openModal(newContent)">Add Workshop</button>
         </div>
     </div>
 
@@ -21,7 +21,25 @@
         </div>
 
         <!-- Content -->
-        <div>
+        <div class="!isLoading %% !isError">
+
+            <div>
+                <div class="w-50">
+                    <label for="">
+                        Filter by status:
+                    </label>
+                    <ng-select name="status" [(ngModel)]="FilterStatus" (change)="onChangeFilter()">
+                        <ng-option *ngFor="let status of statusList" [value]="status">
+                            {{status}}
+                        </ng-option>
+                    </ng-select>
+                </div>
+
+                <div *ngIf="listOfworkshops.length == 0">
+                    <p class="text-secondary text-center fs-small py-3">Currently, there is no information to show.</p>
+                </div>
+            </div>
+
             <div class="card p-2 my-2" *ngFor="let workshop of listOfworkshops" [ngClass]="{ 'bg-rejected' : workshop.status == 'Inactive'
             , 'bg-confirmed' : workshop.status == 'Active'}">
                 <div class="row">
@@ -46,7 +64,7 @@
                 </div>
 
                 <div class="text-center my-2">
-                    <button class="btn btn-primary" (click)="openModal(updateContent,workshop)">Update</button>
+                    <button (click)="openModal(updateContent,workshop)">Update</button>
                 </div>
             </div>
         </div>
@@ -111,7 +129,7 @@
             </div>
 
             <div class="text-center my-3">
-                <button class="btn btn-primary" type="submit" [disabled]="newcontentForm.invalid">Submit</button>
+                <button  type="submit" [disabled]="newcontentForm.invalid">Submit</button>
             </div>
 
         </form>

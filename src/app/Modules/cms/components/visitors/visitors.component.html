@@ -1,0 +1,114 @@
+<div class="p-3">
+    <div class="d-flex justify-content-between">
+        <p class="h2">Visitors</p>
+    </div>
+
+    <!-- Content -->
+    <div>
+        <!-- Loading -->
+        <div class="d-flex justify-content-center" *ngIf="isLoading">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+        <!-- Error -->
+        <div class="text-center text-danger fs-small" *ngIf="isError">
+            We encountered an issue while fetching the requested data. Please try again later. If the issue persists,
+            contact support.
+        </div>
+
+        <!-- Content -->
+        <div *ngIf="!isError && !isLoading">
+            <div>
+                <div class="w-50">
+                    <label for="">
+                        Filter by status:
+                    </label>
+                    <ng-select name="status" [(ngModel)]="FilterStatus" (change)="onChangeFilter()">
+                        <ng-option *ngFor="let status of statusList" [value]="status">
+                            {{status}}
+                        </ng-option>
+                    </ng-select>
+                </div>
+
+                <div *ngIf="listOfvisitors.length == 0">
+                    <p class="text-secondary text-center fs-small py-3">Currently, there is no information to show.</p>
+                </div>
+            </div>
+            <div class="card p-2 my-2" *ngFor="let visitor of listOfvisitors" [ngClass]="{'bg-pending': visitor.status == 'Pending' , 'bg-rejected' : visitor.status == 'Rejected'
+            , 'bg-confirmed' : visitor.status == 'Confirmed'}">
+                <div class="row">
+
+                    <div class="col-md-6 col-sm-12" *ngIf="visitor.company_name">
+                        <p><span class="fw-bold">Company Name:</span> {{visitor.company_name}}</p>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12" *ngIf="visitor.email">
+                        <p><span class="fw-bold">Email:</span> {{visitor.email}}</p>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12" *ngIf="visitor.fullname">
+                        <p><span class="fw-bold">Name:</span> {{visitor.fullname}}</p>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12" *ngIf="visitor.mobile_no">
+                        <p><span class="fw-bold">Mobile:</span> {{visitor.mobile_no}}</p>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12" *ngIf="visitor.position">
+                        <p><span class="fw-bold">Position:</span> {{visitor.position}}</p>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12" *ngIf="visitor.website">
+                        <p><span class="fw-bold">Website:</span> {{visitor.website}}</p>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12" *ngIf="visitor.status">
+                        <p><span class="fw-bold">Status:</span> {{visitor.status}}</p>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12" *ngIf="visitor.facebook">
+                        <p><span class="fw-bold">Facebook: </span> <a href="{{visitor.facebook}}"
+                                target="_blank">{{visitor.facebook}}</a></p>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12" *ngIf="visitor.linkedin">
+                        <p><span class="fw-bold">Linkedin: </span> <a href="{{visitor.linkedin}}"
+                                target="_blank">{{visitor.linkedin}}</a></p>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12" *ngIf="visitor.payment">
+                        <p><span class="fw-bold">Payment:</span> {{visitor.payment}}</p>
+                    </div>
+
+                    <div class="text-center">
+                        <button class="px-2 py-1" (click)="openModal(updateContent , visitor)">Update</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<ng-template #updateContent>
+    <div class="p-2 bg-white">
+        <p class="text-center h3">Update Visitor</p>
+        <div class="my-3">
+            <label for="status">Status</label>
+            <ng-select name="status" [(ngModel)]="selectedVisitor.status">
+                <ng-option *ngFor="let status of statusList" [value]="status">
+                    {{status}}
+                </ng-option>
+            </ng-select>
+            <!-- payment -->
+        </div>
+
+        <div class="text-center my-2">
+            <button (click)="confirmVisitor()">Submit</button>
+        </div>
+    </div>
+</ng-template>

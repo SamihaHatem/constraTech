@@ -13,6 +13,7 @@ export class WorkshopsComponent {
   isLoading: boolean = true
   isError: boolean = false
   listOfworkshops: any[] = []
+  tempListOfworkshops: any[] = []
   statusList: any[] = []
   selectedworkshop: any
   apiUrl: string = baseUrl.apiUrl
@@ -69,6 +70,7 @@ export class WorkshopsComponent {
     this.workshopsServices.getAllworkshops().subscribe((response: any) => {
       console.log("getAllworkshops response: ", response)
       this.listOfworkshops = response.result;
+      this.tempListOfworkshops = response.result;
       this.isLoading = false;
       this.isError = false;
     }, (err: any) => {
@@ -105,6 +107,19 @@ export class WorkshopsComponent {
         this.getAllworkshops();
       })
     })
+  }
+
+  FilterStatus: any
+  onChangeFilter() {
+    console.log(this.FilterStatus)
+    if (this.FilterStatus) {
+      this.listOfworkshops = this.tempListOfworkshops.filter((speaker) => {
+        return speaker.status == this.FilterStatus
+      })
+    }
+    else {
+      this.listOfworkshops = this.tempListOfworkshops
+    }
   }
 
   ngOnInit(): void {

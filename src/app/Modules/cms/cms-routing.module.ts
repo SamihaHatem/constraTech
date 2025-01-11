@@ -10,6 +10,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { ExhibitorsComponent } from './components/exhibitors/exhibitors.component';
 import { WorkshopsComponent } from './components/workshops/workshops.component';
 import { RegisterComponent } from './components/register/register.component';
+import { VisitorsComponent } from './components/visitors/visitors.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,7 @@ const routes: Routes = [
       { path: 'profile', component: ProfileComponent, canActivate: [authGuard] },
       { path: 'workshops', component: WorkshopsComponent, canActivate: [authGuard] },
       { path: 'register', component: RegisterComponent, canActivate: [authGuard] },
+      { path: 'visitors', component: VisitorsComponent, canActivate: [authGuard] },
       { path: '', redirectTo: 'admin', pathMatch: 'full' }, // Default child route
     ],
   },

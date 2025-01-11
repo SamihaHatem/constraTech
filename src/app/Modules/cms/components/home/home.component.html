@@ -94,6 +94,15 @@
                     </span>
                 </a>
 
+                <!-- visitors -->
+                <a [ngClass]="currentUrl.includes('admin/visitors') ? 'selectedItem' : ''" mat-list-item
+                    (click)="navigate('admin/visitors')">
+                    <span class="entry">
+                        <div class="w-25"> <i class="fa-solid fa-user-plus"></i></div>
+                        <span class="w-75 pe-2" *ngIf="!isCollapsed">VISITORS</span>
+                    </span>
+                </a>
+
                 <!-- Website -->
                 <a [ngClass]="currentUrl.includes('home') ? 'selectedItem' : ''" mat-list-item
                     (click)="navigate('home')">
