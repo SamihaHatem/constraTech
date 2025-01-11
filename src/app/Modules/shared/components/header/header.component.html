@@ -4,7 +4,7 @@
     <div class="w-90 mx-auto">
       <div class="d-flex">
         <div class="w-50 d-flex">
-          <div class="w-50">
+          <div [ngClass]="{'w-30 align-content-center': !isMobile , 'w-50' : isMobile}">
             <img routerLink="/home" style="max-width: 100%;" class="cursor-pointer"
               [ngClass]="{ 'd-none' : isScrolled }"
               src="../assets/images/o_bg-remover-gen_2qhiLVeeY8noWoL9fiuSzfl9rdp.png" alt="constraTech logo">
@@ -15,10 +15,10 @@
           </div>
 
 
-          <div class="w-50 align-content-center" [ngClass]="{ 'd-none' : isMobile }">
+          <div class="align-content-center p-2" [ngClass]="{ 'd-none' : isMobile }">
             <p class="m-0 p-0 h6 date" [ngClass]="{ 'text-white fw-400': isScrolled }">25 - 27 MAY 2025</p>
             <p class="m-0 p-0 time" [ngClass]="{ 'text-white fw-400': isScrolled }">10 AM - 10 PM</p>
-            <p class="m-0 p-0 location upper-case" [ngClass]="{ 'text-white fw-400': isScrolled }"> CAIRO-EGYPT - Dusit
+            <p class="m-0 p-0 location" [ngClass]="{ 'text-white fw-400': isScrolled }"> CAIRO-EGYPT - Dusit
               Thani Lakeview - New Cairo
               Lake View Ballroom </p>
           </div>

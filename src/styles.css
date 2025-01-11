@@ -83,6 +83,15 @@ body {
     cursor: pointer;
 }
 
-.upper-case{
+.upper-case {
     text-transform: uppercase;
+}
+
+.w-30 {
+    width: 30% !important;
+}
+
+
+.w-60 {
+    width: 60% !important;
 }

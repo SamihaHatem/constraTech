@@ -2,18 +2,17 @@
   <section class="py-3 section-1">
     <div class="w-90 mx-auto">
       <div class="d-flex" [class.justify-content-center]="isMobile">
-        <div [class.w-50]="!isMobile">
-          <span [ngClass]="{'fs-small':isMobile}" class="text-white d-flex place-items-center"
-            (click)="openModal(constructionPortfolioContent)">
+        <div [class.w-50]="!isMobile" class="align-content-center">
+          <span class="fs-small text-white d-flex place-items-center" (click)="openModal(constructionPortfolioContent)">
             CONSTRUCTION PORTFOLIO OF EVENTS <i class="fa-solid fa-caret-down mx-1"></i>
           </span>
         </div>
         <div class="w-50 text-end" [class.d-none]="isMobile">
-          <a class="mx-3" target="_blank" href="https://www.facebook.com/ConstraTechsummit"><i
+          <a class="mx-3 fs-small" target="_blank" href="https://www.facebook.com/ConstraTechsummit"><i
               class="fa-brands fa-facebook-f text-white"></i></a>
-          <a class="mx-3" target="_blank" href="https://www.linkedin.com/company/constratechsummit/"><i
+          <a class="mx-3 fs-small" target="_blank" href="https://www.linkedin.com/company/constratechsummit/"><i
               class="fa-brands fa-linkedin-in text-white"></i></a>
-          <a class="mx-3" target="_blank" href="https://www.youtube.com/@Constratechsummit/video"><i
+          <a class="mx-3 fs-small" target="_blank" href="https://www.youtube.com/@Constratechsummit/video"><i
               class="fa-brands fa-youtube text-white"></i></a>
         </div>
       </div>

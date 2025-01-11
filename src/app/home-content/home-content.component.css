@@ -3,13 +3,21 @@
     overflow: hidden;
 }
 
+.head-title {
+    font-size: 2.313rem;
+}
+
+.vh-75 {
+    height: 80vh !important;
+}
+
 .banner-child .content .link:hover i {
     margin-left: 10px;
 }
 
 .banner-child .content .link {
     cursor: pointer;
-    font-family: 'Inter';
+    font-family: Inter, sans-serif;
     font-weight: 400;
     text-transform: uppercase;
 }
