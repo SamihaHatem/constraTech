@@ -71,7 +71,11 @@
                     </div>
 
                     <div class="col-md-6 col-sm-12" *ngIf="exhibitor.classification">
-                        <p><span class="fw-bold">Classification:</span> {{exhibitor.classification}}</p>
+                        <p><span class="fw-bold">Classification:</span> {{exhibitor.classification}}
+                            <i class="fas fa-gem platinum" *ngIf="exhibitor.classification == 'Platinum'"></i>
+                            <i class="fas fa-star silver" *ngIf="exhibitor.classification == 'Silver'"></i>
+                            <i class="fas fa-crown gold " *ngIf="exhibitor.classification == 'Gold'"></i>
+                        </p>
                     </div>
                 </div>
 
@@ -294,8 +298,8 @@
                 </div>
             </div>
 
-             <!-- classification -->
-             <div class="bb-gray py-2">
+            <!-- classification -->
+            <div class="bb-gray py-2">
                 <div class="p-3">
                     <label class="text-secondary" for="classification">Classification: </label>
                     <ng-select name="classification">

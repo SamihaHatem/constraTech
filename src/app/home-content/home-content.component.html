@@ -1,7 +1,7 @@
 <!-- Home -->
 <div>
     <!----- Video Banner ----->
-    <section class="banner vh-75">
+    <section class="banner " [ngClass]="{'vh-100':isMobile , 'vh-75':!isMobile}">
         <div class="video-section w-100 h-100">
             <!-- The video -->
             <video #videoPlayer autoplay muted loop id="myVideo" [autoplay]="autoPlayFlag">
@@ -666,7 +666,8 @@
                 </mat-grid-list>
             </div>
             <div class="text-center my-3">
-                <button class="btn-green px-4 py-1" [ngClass]="{'w-90': isMobile }"  routerLink="/home/gallery">VIEW GALLERY</button>
+                <button class="btn-green px-4 py-1" [ngClass]="{'w-90': isMobile }" routerLink="/home/gallery">VIEW
+                    GALLERY</button>
             </div>
         </div>
     </div>
@@ -677,153 +678,39 @@
             <div class="w-90 mx-auto">
                 <p class="h2">2025 Exhibitors and Sponsors</p>
 
-                <div class="bb-gray">
-                    <p class="text-secondary">platinum</p>
+                <div class="bb-gray" *ngIf="platinumExhibitors.length > 0 ">
+                    <p class="text-secondary">Platinum</p>
                     <div class="row">
-                        <div class="col-md-2 col-sm-12 text-center align-content-center my-1 justify-items-center">
-                            <div class="sponsors-img-container ">
-                                <img class="w-100" src="../../assets/images/sponsors/New folder/1-removebg-preview.png"
-                                    alt="">
+                        <div class="col-md-2 col-sm-12 text-center align-content-center my-1 justify-items-center"
+                            *ngFor="let exhibitor of platinumExhibitors">
+                            <div class="sponsors-img-container p-2 align-content-center">
+                                {{exhibitor.company_name}}
                             </div>
                         </div>
-                        <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-                            <div class="sponsors-img-container">
-                                <img class="w-100" src="../../assets/images/sponsors/New folder/1-removebg-preview.png"
-                                    alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-                            <div class="sponsors-img-container p-2">
-                                <img class="w-100" src="../../assets/images/sponsors/New folder/2-removebg-preview.png"
-                                    alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-                            <div class="sponsors-img-container p-2">
-                                <img class="w-100" src="../../assets/images/sponsors/New folder/3-removebg-preview.png"
-                                    alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-                            <div class="sponsors-img-container p-2">
-                                <img class="w-100" src="../../assets/images/sponsors/New folder/4-removebg-preview.png"
-                                    alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-                            <div class="sponsors-img-container p-2">
-                                <img class="w-100" src="../../assets/images/sponsors/New folder/5-removebg-preview.png"
-                                    alt="">
-                            </div>
-                        </div>
-
-                        <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-                            <div class="sponsors-img-container p-2">
-                                <img class="w-100" src="../../assets/images/sponsors/New folder/6-removebg-preview.png"
-                                    alt="">
-                            </div>
-                        </div>
-
                     </div>
                 </div>
 
-                <div class="bb-gray">
-                    <p class="text-secondary">silver</p>
+                <div class="bb-gray" *ngIf="silverExhibitors.length > 0 ">
+                    <p class="text-secondary">Silver</p>
                     <div class="row">
-                        <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-                            <div class="sponsors-img-container ">
-                                <img class="w-100" src="../../assets/images/sponsors/New folder/1-removebg-preview.png"
-                                    alt="">
+                        <div class="col-md-2 col-sm-12 text-center align-content-center my-1 justify-items-center"
+                            *ngFor="let exhibitor of silverExhibitors">
+                            <div class="sponsors-img-container p-2 align-content-center">
+                                {{exhibitor.company_name}}
                             </div>
                         </div>
-                        <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-                            <div class="sponsors-img-container">
-                                <img class="w-100" src="../../assets/images/sponsors/New folder/1-removebg-preview.png"
-                                    alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-                            <div class="sponsors-img-container p-2">
-                                <img class="w-100" src="../../assets/images/sponsors/New folder/2-removebg-preview.png"
-                                    alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-                            <div class="sponsors-img-container p-2">
-                                <img class="w-100" src="../../assets/images/sponsors/New folder/3-removebg-preview.png"
-                                    alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-                            <div class="sponsors-img-container p-2">
-                                <img class="w-100" src="../../assets/images/sponsors/New folder/4-removebg-preview.png"
-                                    alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-                            <div class="sponsors-img-container p-2">
-                                <img class="w-100" src="../../assets/images/sponsors/New folder/5-removebg-preview.png"
-                                    alt="">
-                            </div>
-                        </div>
-
-                        <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-                            <div class="sponsors-img-container p-2">
-                                <img class="w-100" src="../../assets/images/sponsors/New folder/6-removebg-preview.png"
-                                    alt="">
-                            </div>
-                        </div>
-
                     </div>
                 </div>
 
-                <div class="bb-gray">
-                    <p class="text-secondary">gold</p>
+                <div class="bb-gray" *ngIf="goldExhibitors.length > 0 ">
+                    <p class="text-secondary">Gold</p>
                     <div class="row">
-                        <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-                            <div class="sponsors-img-container ">
-                                <img class="w-100" src="../../assets/images/sponsors/New folder/1-removebg-preview.png"
-                                    alt="">
+                        <div class="col-md-2 col-sm-12 text-center align-content-center my-1 justify-items-center"
+                            *ngFor="let exhibitor of goldExhibitors">
+                            <div class="sponsors-img-container p-2 align-content-center">
+                                {{exhibitor.company_name}}
                             </div>
                         </div>
-                        <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-                            <div class="sponsors-img-container">
-                                <img class="w-100" src="../../assets/images/sponsors/New folder/1-removebg-preview.png"
-                                    alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-                            <div class="sponsors-img-container p-2">
-                                <img class="w-100" src="../../assets/images/sponsors/New folder/2-removebg-preview.png"
-                                    alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-                            <div class="sponsors-img-container p-2">
-                                <img class="w-100" src="../../assets/images/sponsors/New folder/3-removebg-preview.png"
-                                    alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-                            <div class="sponsors-img-container p-2">
-                                <img class="w-100" src="../../assets/images/sponsors/New folder/4-removebg-preview.png"
-                                    alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-                            <div class="sponsors-img-container p-2">
-                                <img class="w-100" src="../../assets/images/sponsors/New folder/5-removebg-preview.png"
-                                    alt="">
-                            </div>
-                        </div>
-
-                        <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
-                            <div class="sponsors-img-container p-2">
-                                <img class="w-100" src="../../assets/images/sponsors/New folder/6-removebg-preview.png"
-                                    alt="">
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </div>

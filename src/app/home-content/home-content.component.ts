@@ -125,13 +125,13 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
 
   listOfGallery: any[] = []
   getActiveImages() {
-    this.contentServices.getAllImages().subscribe((response: any) => {
+    this.contentServices.getActiveImages().subscribe((response: any) => {
       console.log(response)
       this.listOfGallery = response.result
       for (let i = 0; i < 7; i++) {
         if (this.listOfGallery[i]) {
-          this.originalTiles[i].img = baseUrl.apiUrl + this.listOfGallery[i].filename;
-          this.MobileTiles[i].img = baseUrl.apiUrl + this.listOfGallery[i].filename;
+          this.originalTiles[i].img = baseUrl.apiUrl + this.listOfGallery[i];
+          this.MobileTiles[i].img = baseUrl.apiUrl + this.listOfGallery[i];
         }
       }
     }, (err: any) => {
@@ -171,10 +171,36 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
     })
   }
 
+  listOfExhibitors: any[] = []
+  silverExhibitors: any[] = []
+  goldExhibitors: any[] = []
+  platinumExhibitors: any[] = []
+
+
+  getActiveExhibitors() {
+    this.contentServices.getConfirmedExhibitors().subscribe((response: any) => {
+      console.log("getActiveExhibitors response: ", response)
+      this.listOfExhibitors = response.result
+      this.listOfExhibitors.forEach((exhibitor) => {
+        if (exhibitor.classification == 'Silver') {
+          this.silverExhibitors.push(exhibitor)
+        }
+        else if (exhibitor.classification == 'Gold') {
+          this.goldExhibitors.push(exhibitor)
+        }
+        else if (exhibitor.classification == 'Platinum') {
+          this.platinumExhibitors.push(exhibitor)
+        }
+      })
+    }, (err: any) => {
+      console.log(err)
+    })
+  }
   ngOnInit(): void {
     this.getActiveImages();
     this.getActiveWorkshops();
     this.getActiveSpeakers();
+    this.getActiveExhibitors();
 
     this.observer.observe(['(max-width: 800px)']).subscribe((screenSize) => {
       if (screenSize.matches) {

@@ -28,3 +28,15 @@ button {
 input.ng-invalid.ng-touched {
     border-color: rgb(88, 12, 12);
 }
+
+.gold {
+    color: gold;
+}
+
+.silver {
+    color: silver;
+}
+
+.platinum {
+    color: #bead8b;
+}

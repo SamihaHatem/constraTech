@@ -20,7 +20,7 @@ export interface Tile {
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements  OnInit {
+export class HomeComponent implements OnInit {
 
   isMobile = true;
   currentUser!: UserI
@@ -93,7 +93,7 @@ export class HomeComponent implements  OnInit {
   ];
 
   constructor(private modalServices: NgbModal, private observer: BreakpointObserver, private sanitizer: DomSanitizer,
-    private userServices: UserService, private contentServices: CmsService , private router:Router) {
+    private userServices: UserService, private contentServices: CmsService, private router: Router) {
     userServices.user$.subscribe(user => {
       this.currentUser = user;
       console.log(this.currentUser)
@@ -111,8 +111,6 @@ export class HomeComponent implements  OnInit {
     this.isScrolled = scrollPosition > 0;
   }
 
-
-
   openModal(content: TemplateRef<any>) {
     this.modalServices.open(content, {
       backdrop: 'static',
@@ -125,24 +123,7 @@ export class HomeComponent implements  OnInit {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-
-
-  listOfExhibitors: any[] = []
-  getActiveExhibitors() {
-    this.contentServices.getConfirmedExhibitors().subscribe((response: any) => {
-      console.log(response)
-      this.listOfExhibitors = response.result
-
-    }, (err: any) => {
-      console.log(err)
-    })
-  }
-
-
-
   ngOnInit(): void {
-    this.getActiveExhibitors();
-
     this.observer.observe(['(max-width: 800px)']).subscribe((screenSize) => {
       if (screenSize.matches) {
         this.isMobile = true;
