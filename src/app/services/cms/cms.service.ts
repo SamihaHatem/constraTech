@@ -68,6 +68,11 @@ export class CmsService {
     return ["Pending", "Confirmed", "Rejected"]
   }
 
+  addSpeaker(reqBody: any) {
+    console.log(baseUrl.apiUrl + 'speakers/newSpeaker')
+    return this.http.post(baseUrl.apiUrl + 'speakers/newSpeaker', reqBody)
+  }
+
   updateSpeaker(reqBody: any) {
     return this.http.post(baseUrl.apiUrl + 'speakers/confirmSpeaker', reqBody)
   }

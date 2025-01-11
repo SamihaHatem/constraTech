@@ -19,6 +19,13 @@ export class SpeakersComponent implements OnInit {
   apiUrl: string = baseUrl.apiUrl
   FilterStatus: any
 
+
+  file: any;
+  uploadImage(event: any) {
+    this.file = event.target.files[0];
+    console.log(this.file);
+  }
+
   constructor(private speakersServices: CmsService, private modalService: NgbModal) { }
 
   openModal(content: TemplateRef<any>, speaker?: any) {
@@ -61,6 +68,38 @@ export class SpeakersComponent implements OnInit {
     })
   }
 
+  addSpeaker(form: any) {
+    console.log(form.value)
+    const formData = new FormData();
+    formData.append('photo', this.file, this.file.name)
+    formData.append('email', form.value.email)
+    formData.append('fullname', form.value.fullname)
+    formData.append('mobile_no', form.value.mobile_no)
+    formData.append('position', form.value.position)
+    formData.append('facebook', form.value.facebook)
+    formData.append('linkedin', form.value.linkedin)
+    formData.append('bio', form.value.bio)
+    formData.append('company_name', form.value.company_name)
+    formData.append('website', form.value.website)
+    formData.append('speech_title', form.value.speech_title)
+    formData.append('speech_brief', form.value.speech_brief)
+
+    this.speakersServices.addSpeaker(formData).subscribe((response: any) => {
+      console.log("addSpeaker response : ", response)
+      Swal.fire({
+        title: response.message,
+        icon: 'success'
+      }).then(() => {
+        form.reset()
+        this.modalService.dismissAll();
+        this.getAllSpeakers();
+      })
+    }, (err: any) => {
+      console.log("addSpeaker err : ", err)
+      this.modalService.dismissAll();
+      this.getAllSpeakers();
+    })
+  }
 
   updateSpeaker() {
     let reqBody = {

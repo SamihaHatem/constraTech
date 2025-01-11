@@ -1,6 +1,10 @@
 <div class="p-3">
     <div class="d-flex justify-content-between">
         <p class="h2">Speakers</p>
+
+        <div class="align-content-center">
+            <button (click)="openModal(newSpeakerContent)" class="px-2 py-1">Add New Speaker</button>
+        </div>
     </div>
 
     <!-- Content -->
@@ -18,8 +22,7 @@
         </div>
 
         <!-- Content -->
-        <div>
-
+        <div *ngIf="!isError && !isLoading">
             <div>
                 <div class="w-50">
                     <label for="">
@@ -30,6 +33,10 @@
                             {{status}}
                         </ng-option>
                     </ng-select>
+                </div>
+
+                <div *ngIf="listOfspeakers.length == 0">
+                    <p class="text-secondary text-center fs-small py-3">Currently, there is no information to show.</p>
                 </div>
             </div>
             <div class="card p-2 my-2" *ngFor="let speaker of listOfspeakers" [ngClass]="{'bg-pending': speaker.status == 'Pending' , 'bg-rejected' : speaker.status == 'Rejected'
@@ -107,24 +114,376 @@
 
 <ng-template #updateContent>
     <div class="p-3 bg-white">
-        <p class="text-center h2">{{selectedSpeaker.fullname}}</p>
-
         <div class="py-2">
-            <form>
-                <div class="my-2">
+            <form #form='ngForm' class="mx-auto card py-2" (ngSubmit)="updateSpeaker()">
+                <p class="h2 text-center my-2">Update Speaker</p>
+
+                <!-- Email -->
+                <div class="bb-gray py-2">
+                    <div class="p-3">
+                        <label for="email">Email <span class="text-danger">*</span></label>
+                        <input id="email" name="email" ngModel #email='ngModel' type="email" class="form-control"
+                            required [(ngModel)]="selectedSpeaker.email">
+
+                        <div class="errors" *ngIf="email.touched && email.invalid">
+                            <p class="text-center m-0" *ngIf="email.errors?.['required']">* Please enter email *</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- fullname -->
+                <div class="bb-gray py-2">
+                    <div class="p-3">
+                        <label for="fullname">Full name <span class="text-danger">*</span> </label>
+                        <input id="fullname" name="fullname" ngModel #fullname="ngModel" type="text"
+                            class="form-control" required [(ngModel)]="selectedSpeaker.fullname">
+
+                        <div class="errors" *ngIf="fullname.touched && fullname.invalid">
+                            <p class="text-center m-0" *ngIf="fullname.errors?.['required']">* Please enter full name *
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile -->
+                <div class="bb-gray py-2">
+                    <div class="p-3">
+                        <label for="mobile_no">Mobile Number <span class="text-danger">*</span></label>
+                        <input id="mobile_no" name="mobile_no" ngModel #mobile_no="ngModel" type="text"
+                            class="form-control" required [(ngModel)]="selectedSpeaker.mobile_no">
+
+                        <div class="errors" *ngIf="mobile_no.touched && mobile_no.invalid">
+                            <p class="text-center m-0" *ngIf="mobile_no.errors?.['required']">* Please enter mobile
+                                number
+                                *
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- facebook -->
+                <div class="bb-gray py-2">
+                    <div class="p-3">
+                        <label for="facebook">Facebook account <span class="text-danger">*</span></label>
+                        <input id="facebook" name="facebook" ngModel #facebook="ngModel" type="text"
+                            class="form-control" required [(ngModel)]="selectedSpeaker.facebook">
+
+                        <div class="errors" *ngIf="facebook.touched && facebook.invalid">
+                            <p class="text-center m-0" *ngIf="facebook.errors?.['required']">* Please enter facebook
+                                account
+                                *
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- linkedin -->
+                <div class="bb-gray py-2">
+                    <div class="p-3">
+                        <label for="linkedin">LinkedIn account <span class="text-danger">*</span></label>
+                        <input id="linkedin" name="linkedin" ngModel #linkedin="ngModel" type="text"
+                            class="form-control" required [(ngModel)]="selectedSpeaker.linkedin">
+
+                        <div class="errors" *ngIf="linkedin.touched && linkedin.invalid">
+                            <p class="text-center m-0" *ngIf="linkedin.errors?.['required']">* Please enter linkedin
+                                account
+                                *
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job Position -->
+                <div class="bb-gray py-2">
+                    <div class="p-3">
+                        <label for="position">Job position <span class="text-danger">*</span></label>
+                        <input id="position" name="position" ngModel #position="ngModel" type="text"
+                            class="form-control" required [(ngModel)]="selectedSpeaker.position">
+
+                        <div class="errors" *ngIf="position.touched && position.invalid">
+                            <p class="text-center m-0" *ngIf="position.errors?.['required']">* Please enter job
+                                position
+                                *
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- company_name -->
+                <div class="bb-gray py-2">
+                    <div class="p-3">
+                        <label for="company_name"> Company Name
+                            <span class="text-danger">*</span></label>
+                        <input id="company_name" name="company_name" ngModel #company_name="ngModel" type="text"
+                            class="form-control" required [(ngModel)]="selectedSpeaker.company_name">
+
+                        <div class="errors" *ngIf="company_name.touched && company_name.invalid">
+                            <p class="text-center m-0" *ngIf="company_name.errors?.['required']">* Please enter company
+                                name *
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- website -->
+                <div class="bb-gray py-2">
+                    <div class="p-3">
+                        <label for="website">Company website</label>
+                        <input id="website" name="website" ngModel #website="ngModel" type="text" class="form-control"
+                            [(ngModel)]="selectedSpeaker.website">
+                    </div>
+                </div>
+
+                <!-- speech_title -->
+                <div class="bb-gray py-2">
+                    <div class="p-3">
+                        <label for="speech_title">Speech title <span class="text-danger">*</span></label>
+                        <input id="speech_title" name="speech_title" ngModel #speech_title="ngModel" type="text"
+                            class="form-control" required [(ngModel)]="selectedSpeaker.speech_title">
+
+                        <div class="errors" *ngIf="speech_title.touched && speech_title.invalid">
+                            <p class="text-center m-0" *ngIf="speech_title.errors?.['required']">* Please enter speech
+                                title *
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- speech_brief -->
+                <div class="bb-gray py-2">
+                    <div class="p-3">
+                        <label for="speech_brief">Speech Brief <span class="text-danger">*</span></label>
+                        <input id="speech_brief" name="speech_brief" ngModel #speech_brief="ngModel" type="text"
+                            class="form-control" required [(ngModel)]="selectedSpeaker.speech_brief">
+
+                        <div class="errors" *ngIf="speech_brief.touched && speech_brief.invalid">
+                            <p class="text-center m-0" *ngIf="speech_brief.errors?.['required']">* Please enter speech
+                                brief *
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BIO -->
+                <div class="bb-gray py-2">
+                    <div class="p-3">
+                        <label for="bio">BIO </label>
+                        <input id="bio" name="bio" type="text" class="form-control" ngModel #bio="ngModel"
+                            [(ngModel)]="selectedSpeaker.bio">
+                    </div>
+                </div>
+
+                <div class="bb-gray py-2">
+                    <div class="p-3">
+                        <label class="text-secondary" for="status">Status: </label>
+                        <ng-select name="status" ngModel [(ngModel)]="selectedSpeaker.status">
+                            <ng-option *ngFor="let status of statusList" [value]="status">
+                                {{status}}
+                            </ng-option>
+                        </ng-select>
+                    </div>
+                </div>
+
+
+                <div class="py-2 text-center">
+                    <button class="btn btn-primary" [disabled]="form['invalid']" type="submit">Submit</button>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #newSpeakerContent>
+    <div class="bg-white p-3">
+        <form #form='ngForm' class="mx-auto card py-2" (ngSubmit)="addSpeaker(form)">
+            <p class="h2 text-center my-2">New Speaker</p>
+
+            <!-- Email -->
+            <div class="bb-gray py-2">
+                <div class="p-3">
+                    <label for="email">Email <span class="text-danger">*</span></label>
+                    <input id="email" name="email" ngModel #email='ngModel' type="email" class="form-control" required>
+
+                    <div class="errors" *ngIf="email.touched && email.invalid">
+                        <p class="text-center m-0" *ngIf="email.errors?.['required']">* Please enter email *</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- fullname -->
+            <div class="bb-gray py-2">
+                <div class="p-3">
+                    <label for="fullname">Full name <span class="text-danger">*</span> </label>
+                    <input id="fullname" name="fullname" ngModel #fullname="ngModel" type="text" class="form-control"
+                        required>
+
+                    <div class="errors" *ngIf="fullname.touched && fullname.invalid">
+                        <p class="text-center m-0" *ngIf="fullname.errors?.['required']">* Please enter full name *</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile -->
+            <div class="bb-gray py-2">
+                <div class="p-3">
+                    <label for="mobile_no">Mobile Number <span class="text-danger">*</span></label>
+                    <input id="mobile_no" name="mobile_no" ngModel #mobile_no="ngModel" type="text" class="form-control"
+                        required>
+
+                    <div class="errors" *ngIf="mobile_no.touched && mobile_no.invalid">
+                        <p class="text-center m-0" *ngIf="mobile_no.errors?.['required']">* Please enter mobile
+                            number
+                            *
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- facebook -->
+            <div class="bb-gray py-2">
+                <div class="p-3">
+                    <label for="facebook">Facebook account <span class="text-danger">*</span></label>
+                    <input id="facebook" name="facebook" ngModel #facebook="ngModel" type="text" class="form-control"
+                        required>
+
+                    <div class="errors" *ngIf="facebook.touched && facebook.invalid">
+                        <p class="text-center m-0" *ngIf="facebook.errors?.['required']">* Please enter facebook
+                            account
+                            *
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- linkedin -->
+            <div class="bb-gray py-2">
+                <div class="p-3">
+                    <label for="linkedin">LinkedIn account <span class="text-danger">*</span></label>
+                    <input id="linkedin" name="linkedin" ngModel #linkedin="ngModel" type="text" class="form-control"
+                        required>
+
+                    <div class="errors" *ngIf="linkedin.touched && linkedin.invalid">
+                        <p class="text-center m-0" *ngIf="linkedin.errors?.['required']">* Please enter linkedin
+                            account
+                            *
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Job Position -->
+            <div class="bb-gray py-2">
+                <div class="p-3">
+                    <label for="position">Job position <span class="text-danger">*</span></label>
+                    <input id="position" name="position" ngModel #position="ngModel" type="text" class="form-control"
+                        required>
+
+                    <div class="errors" *ngIf="position.touched && position.invalid">
+                        <p class="text-center m-0" *ngIf="position.errors?.['required']">* Please enter job
+                            position
+                            *
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- company_name -->
+            <div class="bb-gray py-2">
+                <div class="p-3">
+                    <label for="company_name"> Company Name
+                        <span class="text-danger">*</span></label>
+                    <input id="company_name" name="company_name" ngModel #company_name="ngModel" type="text"
+                        class="form-control" required>
+
+                    <div class="errors" *ngIf="company_name.touched && company_name.invalid">
+                        <p class="text-center m-0" *ngIf="company_name.errors?.['required']">* Please enter company
+                            name *
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- website -->
+            <div class="bb-gray py-2">
+                <div class="p-3">
+                    <label for="website">Company website</label>
+                    <input id="website" name="website" ngModel #website="ngModel" type="text" class="form-control">
+                </div>
+            </div>
+
+            <!-- speech_title -->
+            <div class="bb-gray py-2">
+                <div class="p-3">
+                    <label for="speech_title">Speech title <span class="text-danger">*</span></label>
+                    <input id="speech_title" name="speech_title" ngModel #speech_title="ngModel" type="text"
+                        class="form-control" required>
+
+                    <div class="errors" *ngIf="speech_title.touched && speech_title.invalid">
+                        <p class="text-center m-0" *ngIf="speech_title.errors?.['required']">* Please enter speech
+                            title *
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- speech_brief -->
+            <div class="bb-gray py-2">
+                <div class="p-3">
+                    <label for="speech_brief">Speech Brief <span class="text-danger">*</span></label>
+                    <input id="speech_brief" name="speech_brief" ngModel #speech_brief="ngModel" type="text"
+                        class="form-control" required>
+
+                    <div class="errors" *ngIf="speech_brief.touched && speech_brief.invalid">
+                        <p class="text-center m-0" *ngIf="speech_brief.errors?.['required']">* Please enter speech
+                            brief *
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BIO -->
+            <div class="bb-gray py-2">
+                <div class="p-3">
+                    <label for="bio">BIO </label>
+                    <input id="bio" name="bio" type="text" class="form-control" ngModel #bio="ngModel">
+                </div>
+            </div>
+
+            <!-- photo_path -->
+            <div class="bb-gray py-2">
+                <div class="p-3">
+                    <label for="photo"> Please upload your personal photo <span class="text-danger">*</span></label>
+                    <input id="photo" name="photo" ngModel #photo="ngModel" type="file" accept="image/*"
+                        class="form-control" required (change)="uploadImage($event)">
+
+                    <div class="errors" *ngIf="photo.touched && photo.invalid">
+                        <p class="text-center m-0" *ngIf="photo.errors?.['required']">* Please enter your profile photo
+                            *
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="bb-gray py-2">
+                <div class="p-3">
                     <label class="text-secondary" for="status">Status: </label>
-                    <ng-select name="status" [(ngModel)]="selectedSpeaker.status">
+                    <ng-select name="status" ngModel>
                         <ng-option *ngFor="let status of statusList" [value]="status">
                             {{status}}
                         </ng-option>
                     </ng-select>
                 </div>
+            </div>
 
 
-                <div class="text-center">
-                    <button (click)="updateSpeaker()">Submit</button>
-                </div>
-            </form>
-        </div>
+            <div class="py-2 text-center">
+                <button class="btn btn-primary" [disabled]="form['invalid']" type="submit">Submit</button>
+            </div>
+
+
+        </form>
     </div>
 </ng-template>
