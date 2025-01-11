@@ -85,6 +85,31 @@ export class ExhibitorsComponent implements OnInit {
     })
   }
 
+  addNewExhibitor(form: any) {
+    console.log(form.value)
+    this.exhibitoServices.addExhibitor(form.value).subscribe((response: any) => {
+      console.log("addExhibitor response: ", response)
+      Swal.fire({
+        title: response.message,
+        icon: 'success'
+      }).then(() => {
+        form.reset()
+        this.modalService.dismissAll();
+        this.getAllExhibitors();
+      })
+    }, (err: any) => {
+      console.log("addExhibitor err: ", err)
+      Swal.fire({
+        title: 'Error',
+        icon: 'error'
+      }).then(() => {
+        form.reset()
+        this.modalService.dismissAll();
+        this.getAllExhibitors();
+      })
+    })
+  }
+
   ngOnInit(): void {
     this.getAllExhibitors();
     this.statusList = this.exhibitoServices.getExhibitorStatus();

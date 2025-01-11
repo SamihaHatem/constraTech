@@ -12,3 +12,19 @@
     background: #ceffe0dd;
     border: 2px solid #34f67bc8;
 }
+
+button {
+    background-color: var(--constraTech-dark-blue);
+    border: var(--constraTech-dark-blue);
+    color: white;
+    border-radius: 5px;
+}
+
+.errors p {
+    color: rgb(88, 12, 12);
+    font-size: 12px;
+}
+
+input.ng-invalid.ng-touched {
+    border-color: rgb(88, 12, 12);
+}

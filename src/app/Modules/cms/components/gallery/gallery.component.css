@@ -12,8 +12,8 @@ img {
 }
 
 button {
-    background-color: var(--constraTech-green-darker);
-    border: var(--constraTech-green-darker);
+    background-color: var(--constraTech-dark-blue);
+    border: var(--constraTech-dark-blue);
     color: white;
     border-radius: 5px;
 }

@@ -1,7 +1,9 @@
 <div class="p-3">
     <div class="d-flex justify-content-between">
         <p class="h2">Exhibitors</p>
-
+        <div class="align-content-center">
+            <button (click)="openModal(newExhibitorContent)" class="px-2 py-1">Add New Exhibitor</button>
+        </div>
     </div>
 
     <!-- Content -->
@@ -84,32 +86,242 @@
 
 <ng-template #updateContent>
     <div class="p-3 bg-white">
-        <p class="text-center h2">{{selectedExhibitor.fullname}}</p>
+        <!-- <p class="text-center h2">{{selectedExhibitor.fullname}}</p> -->
 
         <div class="py-2">
-            <form>
-                <div class="my-2">
-                    <label class="text-secondary" for="status">Status: </label>
-                    <ng-select name="status" [(ngModel)]="selectedExhibitor.status">
-                        <ng-option *ngFor="let status of statusList" [value]="status">
-                            {{status}}
-                        </ng-option>
-                    </ng-select>
+
+            <form #form='ngForm' class="mx-auto card py-2" (ngSubmit)="updateExhibitor()">
+                <p class="h2 text-center my-2">Update Exhibitor</p>
+                <!--- Email -->
+                <div class="bb-gray py-2">
+                    <div class="p-3">
+                        <label for="email">Email <span class="text-danger">*</span></label>
+                        <input id="email" name="email" ngModel #email='ngModel' type="email" class="form-control"
+                            required [(ngModel)]="selectedExhibitor.email">
+
+                        <div class="errors" *ngIf="email.touched && email.invalid">
+                            <p class="text-center m-0" *ngIf="email.errors?.['required']">* Please enter email *</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="my-2">
+                <!-- fullname -->
+                <div class="bb-gray py-2">
+                    <div class="p-3">
+                        <label for="fullname">Full Name <span class="text-danger">*</span> </label>
+                        <input id="fullname" name="fullname" ngModel #fullname="ngModel" type="text"
+                            class="form-control" required [(ngModel)]="selectedExhibitor.fullname">
+
+                        <div class="errors" *ngIf="fullname.touched && fullname.invalid">
+                            <p class="text-center m-0" *ngIf="fullname.errors?.['required']">* Please enter full name *
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile -->
+                <div class="bb-gray py-2">
+                    <div class="p-3">
+                        <label for="mobile_no">Mobile number <span class="text-danger">*</span></label>
+                        <input id="mobile_no" name="mobile_no" ngModel #mobile_no="ngModel" type="text"
+                            class="form-control" required [(ngModel)]="selectedExhibitor.mobile_no">
+
+                        <div class="errors" *ngIf="mobile_no.touched && mobile_no.invalid">
+                            <p class="text-center m-0" *ngIf="mobile_no.errors?.['required']">* Please enter mobile
+                                number
+                                *
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!--- position -->
+                <div class="bb-gray py-2">
+                    <div class="p-3">
+                        <label for="position">Job position <span class="text-danger">*</span></label>
+                        <input id="position" name="position" ngModel #position="ngModel" type="text"
+                            class="form-control" required [(ngModel)]="selectedExhibitor.position">
+
+                        <div class="errors" *ngIf="position.touched && position.invalid">
+                            <p class="text-center m-0" *ngIf="position.errors?.['required']">* Please enter job
+                                position
+                                *
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- company_name -->
+                <div class="bb-gray py-2">
+                    <div class="p-3">
+                        <label for="company_name">Company Name
+                            <span class="text-danger">*</span></label>
+                        <input id="company_name" name="company_name" ngModel #company_name="ngModel" type="text"
+                            class="form-control" required [(ngModel)]="selectedExhibitor.company_name">
+
+                        <div class="errors" *ngIf="company_name.touched && company_name.invalid">
+                            <p class="text-center m-0" *ngIf="company_name.errors?.['required']">* Please enter company
+                                name *
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- website -->
+                <div class="bb-gray py-2">
+                    <div class="p-3">
+                        <label for="website">Company website</label>
+                        <input id="website" name="website" ngModel #website="ngModel" type="text" class="form-control"
+                            [(ngModel)]="selectedExhibitor.website">
+                    </div>
+                </div>
+
+                <!-- classification -->
+                <div class="bb-gray py-2">
+                    <div class="p-3">
+                        <label class="text-secondary" for="classification">Classification: </label>
+                        <ng-select name="classification" [(ngModel)]="selectedExhibitor.classification">
+                            <ng-option *ngFor="let classification of classificationList" [value]="classification">
+                                {{classification}}
+                            </ng-option>
+                        </ng-select>
+                    </div>
+                </div>
+
+                <!-- status -->
+                <div class="bb-gray py-2">
+                    <div class="p-3">
+                        <label class="text-secondary" for="status">Status: </label>
+                        <ng-select name="status" [(ngModel)]="selectedExhibitor.status">
+                            <ng-option *ngFor="let status of statusList" [value]="status">
+                                {{status}}
+                            </ng-option>
+                        </ng-select>
+                    </div>
+                </div>
+
+                <div class="py-2 text-center">
+                    <button class="btn btn-primary" [disabled]="form['invalid']" type="submit">Submit</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #newExhibitorContent>
+    <div class="m-3">
+        <form #form='ngForm' class="mx-auto card py-2" (ngSubmit)="addNewExhibitor(form)">
+            <p class="h2 text-center my-2">New Exhibitor</p>
+            <!--- Email -->
+            <div class="bb-gray py-2">
+                <div class="p-3">
+                    <label for="email">Email <span class="text-danger">*</span></label>
+                    <input id="email" name="email" ngModel #email='ngModel' type="email" class="form-control" required>
+
+                    <div class="errors" *ngIf="email.touched && email.invalid">
+                        <p class="text-center m-0" *ngIf="email.errors?.['required']">* Please enter email *</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- fullname -->
+            <div class="bb-gray py-2">
+                <div class="p-3">
+                    <label for="fullname">Full Name <span class="text-danger">*</span> </label>
+                    <input id="fullname" name="fullname" ngModel #fullname="ngModel" type="text" class="form-control"
+                        required>
+
+                    <div class="errors" *ngIf="fullname.touched && fullname.invalid">
+                        <p class="text-center m-0" *ngIf="fullname.errors?.['required']">* Please enter full name *</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile -->
+            <div class="bb-gray py-2">
+                <div class="p-3">
+                    <label for="mobile_no">Mobile number <span class="text-danger">*</span></label>
+                    <input id="mobile_no" name="mobile_no" ngModel #mobile_no="ngModel" type="text" class="form-control"
+                        required>
+
+                    <div class="errors" *ngIf="mobile_no.touched && mobile_no.invalid">
+                        <p class="text-center m-0" *ngIf="mobile_no.errors?.['required']">* Please enter mobile
+                            number
+                            *
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!--- position -->
+            <div class="bb-gray py-2">
+                <div class="p-3">
+                    <label for="position">Job position <span class="text-danger">*</span></label>
+                    <input id="position" name="position" ngModel #position="ngModel" type="text" class="form-control"
+                        required>
+
+                    <div class="errors" *ngIf="position.touched && position.invalid">
+                        <p class="text-center m-0" *ngIf="position.errors?.['required']">* Please enter job
+                            position
+                            *
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- company_name -->
+            <div class="bb-gray py-2">
+                <div class="p-3">
+                    <label for="company_name">Company Name
+                        <span class="text-danger">*</span></label>
+                    <input id="company_name" name="company_name" ngModel #company_name="ngModel" type="text"
+                        class="form-control" required>
+
+                    <div class="errors" *ngIf="company_name.touched && company_name.invalid">
+                        <p class="text-center m-0" *ngIf="company_name.errors?.['required']">* Please enter company
+                            name *
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- website -->
+            <div class="bb-gray py-2">
+                <div class="p-3">
+                    <label for="website">Company website</label>
+                    <input id="website" name="website" ngModel #website="ngModel" type="text" class="form-control">
+                </div>
+            </div>
+
+             <!-- classification -->
+             <div class="bb-gray py-2">
+                <div class="p-3">
                     <label class="text-secondary" for="classification">Classification: </label>
-                    <ng-select name="classification" [(ngModel)]="selectedExhibitor.classification">
+                    <ng-select name="classification">
                         <ng-option *ngFor="let classification of classificationList" [value]="classification">
                             {{classification}}
                         </ng-option>
                     </ng-select>
                 </div>
+            </div>
 
-                <div class="text-center">
-                    <button (click)="updateExhibitor()">Submit</button>
+            <!-- status -->
+            <div class="bb-gray py-2">
+                <div class="p-3">
+                    <label class="text-secondary" for="status">Status: </label>
+                    <ng-select name="status">
+                        <ng-option *ngFor="let status of statusList" [value]="status">
+                            {{status}}
+                        </ng-option>
+                    </ng-select>
                 </div>
-            </form>
-        </div>
+            </div>
+
+            <div class="py-2 text-center">
+                <button class="btn btn-primary" [disabled]="form['invalid']" type="submit">Submit</button>
+            </div>
+
+        </form>
     </div>
 </ng-template>

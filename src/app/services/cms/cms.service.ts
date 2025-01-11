@@ -36,6 +36,10 @@ export class CmsService {
     return this.http.get(baseUrl.apiUrl + 'exhibitors/all')
   }
 
+  addExhibitor(reqBody: any) {
+    return this.http.post(baseUrl.apiUrl + 'exhibitors/newExhibitor', reqBody)
+  }
+
   getExhibitorStatus() {
     return ["Pending", "Confirmed", "Rejected"]
   }
