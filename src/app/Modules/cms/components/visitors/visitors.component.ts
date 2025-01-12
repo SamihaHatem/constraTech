@@ -2,6 +2,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CmsService } from 'src/app/services/cms/cms.service';
 import { baseUrl } from 'src/baseUrl';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-visitors',
@@ -60,18 +61,29 @@ export class VisitorsComponent implements OnInit {
   }
 
   confirmVisitor() {
-    const formData = new FormData()
-    formData.append('visitor_id', this.selectedVisitor._id)
-    if (this.selectedVisitor.status) formData.append('status', this.selectedVisitor.status)
-    if (this.selectedVisitor.payment) formData.append('payment', this.selectedVisitor.payment)
-    console.log(formData)
-    formData.forEach((v) => { console.log('v: ', v) }
-  )
+    const reqBody: { visitor_id: any, status?: any, payment?: any } = { visitor_id: this.selectedVisitor._id }
+    if (this.selectedVisitor.status) reqBody.status = this.selectedVisitor.status
+    if (this.selectedVisitor.payment) reqBody.payment = this.selectedVisitor.payment
+    console.log(reqBody)
 
-    this.visitorsServicers.confirmVisitor(formData).subscribe((response) => {
+    this.visitorsServicers.confirmVisitor(reqBody).subscribe((response: any) => {
       console.log("confirmVisitor response: ", response)
+      Swal.fire({
+        title: response.message,
+        icon: 'success'
+      }).then(()=>{
+        this.modalServices.dismissAll()
+        this.getAllVisitors()
+      })
     }, (err: any) => {
       console.log("confirmVisitor err: ", err)
+      Swal.fire({
+        title: 'Error',
+        icon: 'error'
+      }).then(()=>{
+        this.modalServices.dismissAll()
+        this.getAllVisitors()
+      })
     })
   }
 
