@@ -19,7 +19,7 @@
 
 
     <div class="form-conatiner w-100">
-        <form #form='ngForm' class="mx-auto card my-5 py-2" (ngSubmit)="addVisitor(form)"
+        <form #form='ngForm' class="mx-auto card my-5 py-2" (ngSubmit)="addVisitor(form , paymentOptionContent)"
             [ngClass]="{'w-100' : isMobile , 'w-50' : !isMobile}">
             <p class="h2 text-center my-2 text-secondary">Exhibition & Conference Registration form</p>
 
@@ -254,6 +254,16 @@
 
         <div class="text-center my-3">
             <button [disabled]="!selectedPaymentMethod" (click)="ExecutePayment()">Pay</button>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #paymentOptionContent>
+    <div class="bg-white p-3">
+        <div class="text-center">
+            <p>Thank You for your registeration!</p>
+            <a class="mx-2 btn btn-primary" href="https://portal.myfatoorah.com/EGY/le/0505260752188152" target="_blank">Pay Now</a>
+            <button class="mx-2 btn btn-primary " (click)="canecl()" >Pay Later</button>
         </div>
     </div>
 </ng-template>

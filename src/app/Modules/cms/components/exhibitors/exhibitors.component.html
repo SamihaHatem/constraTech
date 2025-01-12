@@ -302,7 +302,7 @@
             <div class="bb-gray py-2">
                 <div class="p-3">
                     <label class="text-secondary" for="classification">Classification: </label>
-                    <ng-select name="classification">
+                    <ng-select name="classification"  ngModel #classification="ngModel">
                         <ng-option *ngFor="let classification of classificationList" [value]="classification">
                             {{classification}}
                         </ng-option>
@@ -314,7 +314,7 @@
             <div class="bb-gray py-2">
                 <div class="p-3">
                     <label class="text-secondary" for="status">Status: </label>
-                    <ng-select name="status">
+                    <ng-select name="status" ngModel #status="ngModel">
                         <ng-option *ngFor="let status of statusList" [value]="status">
                             {{status}}
                         </ng-option>

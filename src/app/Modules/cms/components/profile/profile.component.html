@@ -14,16 +14,17 @@
 </div>
 
 <ng-template #resetPassword>
-    <div class="bg-white m-3">
+    <div class="bg-white p-3">
         <p class="h3">
             Reset Password
         </p>
         <div>
             <label for="newPassword">New Password: </label>
-            <input type="text" name="newPassword" class="form-control" ngModel #newPasswordd="ngModel" [(ngModel)]="newPassword">
+            <input type="text" name="newPassword" class="form-control" ngModel #newPasswordd="ngModel"
+                [(ngModel)]="newPassword">
         </div>
-        <div>
-            <button>Submit</button>
+        <div class="text-center">
+            <button class="p-1 m-2" (click)="resetPasswordFn()">Submit</button>
         </div>
     </div>
 </ng-template>

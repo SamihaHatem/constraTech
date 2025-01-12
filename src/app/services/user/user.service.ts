@@ -27,7 +27,7 @@ export class UserService {
     console.log('api login')
     this.http.post(baseUrl.apiUrl + 'users/login', user).subscribe((response: any) => {
       console.log(response)
-      let loggedin_user: UserI = { username: response.username, _id: response._id, email: response.email, isLoggedIn: true, token: response.token }
+      let loggedin_user: UserI = { username: response.username, _id: response.user_id, email: response.email, isLoggedIn: true, token: response.token }
       this.store.dispatch(loginAction({ user: loggedin_user }));
       this.setIsLoggedIn()
     }, (err) => {
@@ -46,6 +46,10 @@ export class UserService {
 
   register(reqBody: any) {
     return this.http.post(baseUrl.apiUrl + 'users/register', reqBody)
+  }
+
+  resetPassword(reqBody: { userId: any, newPassword: any }) {
+    return this.http.post(baseUrl.apiUrl + 'users/resetPassword', reqBody)
   }
 
   setIsLoggedIn() {

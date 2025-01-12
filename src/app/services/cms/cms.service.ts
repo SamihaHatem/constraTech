@@ -33,7 +33,7 @@ export class CmsService {
   // --------------------------- Exhibitors  ---------------------------
   // -------------------------------------------------------------------
   getAllExhibitors() {
-    return this.http.get(baseUrl.apiUrl + 'exhibitors/all')
+    return this.http.get(baseUrl.apiUrl + 'exhibitors/All')
   }
 
   addExhibitor(reqBody: any) {

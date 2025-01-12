@@ -2,6 +2,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { UserI } from 'src/app/interfaces/user';
 import { UserService } from 'src/app/services/user/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-profile',
@@ -23,6 +24,27 @@ export class ProfileComponent implements OnInit {
     this.modalServices.open(content, {
       centered: true,
       size: 'lg'
+    })
+  }
+
+  resetPasswordFn() {
+    this.usersServices.resetPassword({ userId: this.currentuser._id, newPassword: this.newPassword }).subscribe((response: any) => {
+      console.log(response)
+      Swal.fire({
+        title: response.message,
+        icon: 'success'
+      }).then(() => {
+        this.modalServices.dismissAll()
+      })
+
+    }, (err: any) => {
+      console.log(err)
+      Swal.fire({
+        title: 'Error',
+        icon: 'error'
+      }).then(() => {
+        this.modalServices.dismissAll()
+      })
     })
   }
 

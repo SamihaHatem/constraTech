@@ -56,7 +56,7 @@ export class VisitorComponent {
     window.open(linkedInUrl, '_blank');
   }
 
-  addVisitor(form: any) {
+  addVisitor(form: any, content: TemplateRef<any>) {
     console.log(form.value)
     this.visitorService.addVisitor(form.value).subscribe((response: any) => {
       console.log("addVisitor response : ", response)
@@ -65,10 +65,15 @@ export class VisitorComponent {
         icon: 'success'
       }).then(() => {
         form.reset()
+        this.openModal(content)
       })
     }, (err: any) => {
       console.log("addVisitor err : ", err)
     })
+  }
+
+  canecl() {
+    this.modalServices.dismissAll()
   }
 
   myFatorahIsLoading: boolean = false;

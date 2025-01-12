@@ -1,0 +1,7 @@
+
+button {
+    background-color: var(--constraTech-dark-blue);
+    border: var(--constraTech-dark-blue);
+    color: white;
+    border-radius: 5px;
+}
