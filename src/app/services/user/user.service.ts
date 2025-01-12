@@ -52,6 +52,10 @@ export class UserService {
     return this.http.post(baseUrl.apiUrl + 'users/resetPassword', reqBody)
   }
 
+  getAllUsers(){
+    return this.http.get(baseUrl.apiUrl + 'users/allUsers')
+  }
+
   setIsLoggedIn() {
     this.user$ = this.store.pipe(select('user'));
     this.user$.subscribe((data: any) => {

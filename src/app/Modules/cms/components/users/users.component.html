@@ -39,6 +39,33 @@
                 </div>
             </div>
 
+            <div *ngIf="listOfUsers.length > 0" class="my-3">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Role</th>
+                            <th>createdAt</th>
+                            <th>updatedAt</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr *ngFor="let user of listOfUsers">
+                            <td>{{user.username}}</td>
+                            <td>{{user.email}}</td>
+                            <td>{{user.is_activated}}</td>
+                            <td>{{user.role}}</td>
+                            <td>{{user.createdAt | date}}</td>
+                            <td>{{user.updatedAt | date}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
 
         </div>
 
