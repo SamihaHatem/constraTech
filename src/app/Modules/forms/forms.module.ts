@@ -11,6 +11,7 @@ import { FormsModule as AngularFormsModule } from '@angular/forms';
 import { SharePostComponent } from './component/share-post/share-post.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { RegisterComponent } from '../cms/components/register/register.component';
+import {MatStepperModule} from '@angular/material/stepper';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { RegisterComponent } from '../cms/components/register/register.component
     FormsRoutingModule,
     SharedModule,
     AngularFormsModule,
-    NgSelectModule
+    NgSelectModule,
+    MatStepperModule
   ]
 })
 export class FormsModule { }

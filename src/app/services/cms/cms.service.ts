@@ -109,7 +109,7 @@ export class CmsService {
   // ---------------------------- Visitors  ----------------------------
   // -------------------------------------------------------------------
   getAllVisitors() {
-    return this.http.get(baseUrl.apiUrl + 'visitors/all')
+    return this.http.get(baseUrl.apiUrl + 'visitors/All')
   }
 
   getVisitorsStatusList() {

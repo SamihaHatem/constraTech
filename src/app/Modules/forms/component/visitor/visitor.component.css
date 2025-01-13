@@ -2,21 +2,6 @@
     box-shadow: 0px 0px 4px 1px #afadad;
 }
 
-.my-nav {
-    position: relative;
-    background-color: white;
-    transition: all 0.3s ease-in-out;
-}
-
-
-.fixed-nav {
-    position: fixed;
-    z-index: 3;
-    top: 0;
-    background-color: #030403;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
 .errors p{
     color: rgb(88, 12, 12);
     font-size: 12px;
@@ -27,7 +12,6 @@ input.ng-invalid.ng-touched{
 }
 
 .form-conatiner{
-    position: absolute;
     top: 150px;
 }
 
@@ -35,6 +19,12 @@ input.ng-invalid.ng-touched{
     position: relative;
 }
 
+.linkedin{
+    background-color: #0a66c2;
+    border: #0a66c2;
+    color: white;
+    border-radius: 5px;
+}
 
 .pdf-graphic{
     background-image: url('../../../../../assets/images/pdf-graphic.png');
@@ -49,3 +39,13 @@ input.ng-invalid.ng-touched{
 .overlay-black{
     background-color: #0000008f;
 }
+
+::ng-deep .mat-horizontal-stepper-header{
+    pointer-events: none !important;
+}
+
+/* footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+} */

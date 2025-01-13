@@ -3,6 +3,7 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { VisitorService } from 'src/app/services/forms/visitor/visitor.service';
 import Swal from 'sweetalert2';
+import { MatStepper } from '@angular/material/stepper';
 
 @Component({
   selector: 'app-visitor',
@@ -56,7 +57,15 @@ export class VisitorComponent {
     window.open(linkedInUrl, '_blank');
   }
 
-  addVisitor(form: any, content: TemplateRef<any>) {
+  linkedinAuth() {
+    this.visitorService.linkedinAuth().subscribe((response: any) => {
+      console.log(response)
+    }, (err: any) => {
+      console.log(err)
+    })
+  }
+
+  addVisitor(form: any, stepper: MatStepper) {
     console.log(form.value)
     this.visitorService.addVisitor(form.value).subscribe((response: any) => {
       console.log("addVisitor response : ", response)
@@ -65,40 +74,21 @@ export class VisitorComponent {
         icon: 'success'
       }).then(() => {
         form.reset()
-        this.openModal(content)
+        stepper.next();
       })
     }, (err: any) => {
       console.log("addVisitor err : ", err)
     })
   }
 
-  canecl() {
-    this.modalServices.dismissAll()
+  cancel(stepper: MatStepper, content?: TemplateRef<any>) {
+    stepper.next()
+    if (content)
+      setTimeout(() => {
+        this.openModal(content)
+      }, 100);
   }
 
-  myFatorahIsLoading: boolean = false;
-  paymentMethods: any[] = []
-  selectedPaymentMethod: any
-  InitiatePayment(content: TemplateRef<any>) {
-    this.myFatorahIsLoading = true;
-    this.openModal(content)
-    this.visitorService.InitiatePayment().subscribe((response: any) => {
-      console.log(response)
-      this.paymentMethods = response.Data.PaymentMethods;
-      this.myFatorahIsLoading = false;
-    }, (err: any) => {
-      console.log(err)
-    })
-  }
-
-  ExecutePayment() {
-    this.visitorService.ExecutePayment(this.selectedPaymentMethod).subscribe((response: any) => {
-      console.log(response)
-      // window.open(response.Data.PaymentURL, "_blank");
-    }, (err: any) => {
-      console.log(err)
-    })
-  }
 
   ngOnInit(): void {
     this.observer.observe(['(max-width: 800px)']).subscribe((screenSize) => {

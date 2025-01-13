@@ -43,4 +43,8 @@ export class VisitorService {
     })
     return this.http.post('https://thingproxy.freeboard.io/fetch/' + baseUrl.myfatoorahApiUrl + 'InitiateSession', reqBody, { headers })
   }
+
+  linkedinAuth(){
+    return this.http.get(baseUrl.apiUrl + 'visitors/linkedin/auth')
+  }
 }
