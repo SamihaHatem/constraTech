@@ -143,7 +143,8 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
   getActiveSpeakers() {
     this.contentServices.getTopFiveSpeakers().subscribe((response: any) => {
       console.log(response)
-      this.listOfSpeakers = response.result;
+      for (let i = 0; i < response.result.length; i++)
+        this.listOfSpeakers[i] = response.result[i];
     }, (err: any) => {
       console.log(err)
     })

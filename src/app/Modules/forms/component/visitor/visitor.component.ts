@@ -89,6 +89,7 @@ export class VisitorComponent {
     console.log(reqBody)
     this.visitorService.shareToLinkedIn(reqBody).subscribe((response: any) => {
       console.log(response)
+      this.shareLinkedin();
     }, (err: any) => {
       console.log(err)
     }) // access_token, text, imageBinary, fileName

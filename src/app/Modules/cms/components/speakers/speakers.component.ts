@@ -99,27 +99,27 @@ export class SpeakersComponent implements OnInit {
 
   async addSpeaker(form: any) {
     console.log(form.value)
-    const formData = new FormData();
-    formData.append('photo', this.file, this.file.name)
-    formData.append('email', form.value.email)
-    formData.append('fullname', form.value.fullname)
-    formData.append('mobile_no', form.value.mobile_no)
-    formData.append('position', form.value.position)
-    formData.append('facebook', form.value.facebook)
-    formData.append('linkedin', form.value.linkedin)
-    formData.append('bio', form.value.bio)
-    formData.append('company_name', form.value.company_name)
-    formData.append('website', form.value.website)
-    formData.append('speech_title', form.value.speech_title)
-    formData.append('speech_brief', form.value.speech_brief)
-    formData.append('top_five', form.value.top_five)
+    // const formData = new FormData();
+    // formData.append('photo', this.file, this.file.name)
+    // formData.append('email', form.value.email)
+    // formData.append('fullname', form.value.fullname)
+    // formData.append('mobile_no', form.value.mobile_no)
+    // formData.append('position', form.value.position)
+    // formData.append('facebook', form.value.facebook)
+    // formData.append('linkedin', form.value.linkedin)
+    // formData.append('bio', form.value.bio)
+    // formData.append('company_name', form.value.company_name)
+    // formData.append('website', form.value.website)
+    // formData.append('speech_title', form.value.speech_title)
+    // formData.append('speech_brief', form.value.speech_brief)
+    // formData.append('top_five', form.value.top_five)
 
     let reqBody = { ...form.value }
     if (this.file) {
       const base64Image = await this.convertToBase64(this.file);
       reqBody.photo_path = base64Image
     }
-
+    console.log("addSpeaker: ", reqBody)
     this.speakersServices.addSpeaker(reqBody).subscribe((response: any) => {
       console.log("addSpeaker response : ", response)
       Swal.fire({

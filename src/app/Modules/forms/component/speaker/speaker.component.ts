@@ -27,23 +27,50 @@ export class SpeakerComponent implements OnInit {
     console.log(this.file);
   }
 
-  addSpeaker(form: any) {
-    console.log(form.value)
-    const formData = new FormData();
-    formData.append('photo', this.file, this.file.name)
-    formData.append('email', form.value.email)
-    formData.append('fullname', form.value.fullname)
-    formData.append('mobile_no', form.value.mobile_no)
-    formData.append('position', form.value.position)
-    formData.append('facebook', form.value.facebook)
-    formData.append('linkedin', form.value.linkedin)
-    formData.append('bio', form.value.bio)
-    formData.append('company_name', form.value.company_name)
-    formData.append('website', form.value.website)
-    formData.append('speech_title', form.value.speech_title)
-    formData.append('speech_brief', form.value.speech_brief)
+  convertToBase64(file: any): Promise<string> {
+    return new Promise((resolve, reject) => {
+      if (!file) {
+        reject('No file provided');
+        return;
+      }
 
-    this.speakerServices.addSpeaker(formData).subscribe((response: any) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        resolve(reader.result as string);
+      };
+      reader.onerror = (error) => {
+        reject('Error reading file: ' + error);
+      };
+
+      reader.readAsDataURL(file);
+    });
+  }
+
+  async addSpeaker(form: any) {
+    console.log(form.value)
+    // const formData = new FormData();
+    // formData.append('photo', this.file, this.file.name)
+    // formData.append('email', form.value.email)
+    // formData.append('fullname', form.value.fullname)
+    // formData.append('mobile_no', form.value.mobile_no)
+    // formData.append('position', form.value.position)
+    // formData.append('facebook', form.value.facebook)
+    // formData.append('linkedin', form.value.linkedin)
+    // formData.append('bio', form.value.bio)
+    // formData.append('company_name', form.value.company_name)
+    // formData.append('website', form.value.website)
+    // formData.append('speech_title', form.value.speech_title)
+    // formData.append('speech_brief', form.value.speech_brief)
+    // formData.append('top_five', form.value.top_five)
+
+    let reqBody = { ...form.value }
+    reqBody.status ='Pending'
+    if (this.file) {
+      const base64Image = await this.convertToBase64(this.file);
+      reqBody.photo_path = base64Image
+    }
+    console.log("addSpeaker: ", reqBody)
+    this.speakerServices.addSpeaker(reqBody).subscribe((response: any) => {
       console.log("addSpeaker response : ", response)
       Swal.fire({
         title: response.message,

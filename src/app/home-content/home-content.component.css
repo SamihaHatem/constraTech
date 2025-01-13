@@ -192,6 +192,7 @@ iframe {
     position: relative;
     border-radius: 7px;
     overflow: hidden;
+    box-shadow: 1px 1px 4px 1px #d5d5d5;
 }
 
 .speaker-container .speaker-content {
