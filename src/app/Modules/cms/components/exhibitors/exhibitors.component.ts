@@ -1,6 +1,7 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CmsService } from 'src/app/services/cms/cms.service';
+import { baseUrl } from 'src/baseUrl';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -18,6 +19,7 @@ export class ExhibitorsComponent implements OnInit {
   statusList: any[] = []
   classificationList: any[] = []
   FilterStatus: any
+  apiUrl: string = baseUrl.apiUrl
 
   constructor(private exhibitoServices: CmsService, private modalService: NgbModal) { }
 
@@ -58,12 +60,24 @@ export class ExhibitorsComponent implements OnInit {
     })
   }
 
-  updateExhibitor() {
+  file: any;
+  uploadImage(event: any) {
+    this.file = event.target.files[0];
+    console.log(this.file);
+  }
+
+  async updateExhibitor() {
     let reqBody = {
+      ...this.selectedExhibitor,
       exhibitor_id: this.selectedExhibitor._id,
-      status: this.selectedExhibitor.status,
-      classification: this.selectedExhibitor.classification
     }
+
+    if (this.file) {
+      const base64Image = await this.convertToBase64(this.file);
+      reqBody.logo = base64Image
+    }
+    else delete reqBody.logo
+    console.log(reqBody)
     this.exhibitoServices.updateExhibitor(reqBody).subscribe((response: any) => {
       console.log("updateExhibitor response: ", response)
       Swal.fire({
@@ -72,6 +86,7 @@ export class ExhibitorsComponent implements OnInit {
       }).then(() => {
         this.modalService.dismissAll();
         this.getAllExhibitors();
+        this.file = null
       })
     }, (err: any) => {
       console.log("updateExhibitor err: ", err)
@@ -81,19 +96,58 @@ export class ExhibitorsComponent implements OnInit {
       }).then(() => {
         this.modalService.dismissAll();
         this.getAllExhibitors();
+        this.file = null
       })
     })
   }
 
-  addNewExhibitor(form: any) {
+  base64Image!: string;
+  base64String!: string;
+
+  convertToBase64(file: any): Promise<string> {
+    return new Promise((resolve, reject) => {
+      if (!file) {
+        reject('No file provided');
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = () => {
+        resolve(reader.result as string);
+      };
+      reader.onerror = (error) => {
+        reject('Error reading file: ' + error);
+      };
+
+      reader.readAsDataURL(file);
+    });
+  }
+
+
+  async addNewExhibitor(form: any) {
+    // const formData = new FormData();
+    // formData.append('logo', this.file, this.file.name)
+    // formData.append('classification', form.value.classification)
+    // formData.append('company_name', form.value.company_name)
+    // formData.append('email', form.value.email)
+    // formData.append('fullname', form.value.fullname)
+    // formData.append('mobile_no', form.value.mobile_no)
+    // formData.append('position', form.value.position)
+    // formData.append('status', form.value.status)
+    // formData.append('website', form.value.website)
     console.log(form.value)
-    this.exhibitoServices.addExhibitor(form.value).subscribe((response: any) => {
+    console.log(this.file, this.convertToBase64(this.file))
+    const base64Image = await this.convertToBase64(this.file);
+    const reqBody = { ...form.value, logo: base64Image };
+    console.log(reqBody)
+    this.exhibitoServices.addExhibitor(reqBody).subscribe((response: any) => {
       console.log("addExhibitor response: ", response)
       Swal.fire({
         title: response.message,
         icon: 'success'
       }).then(() => {
         form.reset()
+        this.file = null
         this.modalService.dismissAll();
         this.getAllExhibitors();
       })
@@ -104,6 +158,7 @@ export class ExhibitorsComponent implements OnInit {
         icon: 'error'
       }).then(() => {
         form.reset()
+        this.file = null
         this.modalService.dismissAll();
         this.getAllExhibitors();
       })

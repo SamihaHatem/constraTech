@@ -18,6 +18,7 @@ export class SpeakersComponent implements OnInit {
   selectedSpeaker: any
   apiUrl: string = baseUrl.apiUrl
   FilterStatus: any
+  FilterTopFive: any
 
 
   file: any;
@@ -38,9 +39,11 @@ export class SpeakersComponent implements OnInit {
 
   onChangeFilter() {
     console.log(this.FilterStatus)
-    if (this.FilterStatus) {
+    if (this.FilterStatus || this.FilterTopFive) {
       this.listOfspeakers = this.tempListOfspeakers.filter((speaker) => {
-        return speaker.status == this.FilterStatus
+        const statusMatch = (this.FilterStatus) ? speaker.status == this.FilterStatus : true
+        const topFiveMatch = (this.FilterTopFive) ? (this.FilterTopFive == 'true') ? speaker.top_five : !speaker.top_five : true
+        return statusMatch && topFiveMatch
       })
     }
     else {
@@ -83,6 +86,7 @@ export class SpeakersComponent implements OnInit {
     formData.append('website', form.value.website)
     formData.append('speech_title', form.value.speech_title)
     formData.append('speech_brief', form.value.speech_brief)
+    formData.append('top_five', form.value.top_five)
 
     this.speakersServices.addSpeaker(formData).subscribe((response: any) => {
       console.log("addSpeaker response : ", response)
@@ -103,9 +107,10 @@ export class SpeakersComponent implements OnInit {
 
   updateSpeaker() {
     let reqBody = {
+      ...this.selectedSpeaker,
       speaker_id: this.selectedSpeaker._id,
-      status: this.selectedSpeaker.status,
     }
+    console.log("updateSpeaker : ", reqBody)
     this.speakersServices.updateSpeaker(reqBody).subscribe((response: any) => {
       console.log("updateExhibitor response: ", response)
       Swal.fire({

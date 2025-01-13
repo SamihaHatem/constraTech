@@ -28,3 +28,10 @@ button {
 input.ng-invalid.ng-touched {
     border-color: rgb(88, 12, 12);
 }
+
+.top-five{
+    text-align: right;
+    position: absolute;
+    right: 20px;
+    color: #040404;
+}

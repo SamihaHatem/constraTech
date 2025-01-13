@@ -24,15 +24,31 @@
         <!-- Content -->
         <div *ngIf="!isError && !isLoading">
             <div>
-                <div class="w-50">
-                    <label for="">
-                        Filter by status:
-                    </label>
-                    <ng-select name="status" [(ngModel)]="FilterStatus" (change)="onChangeFilter()">
-                        <ng-option *ngFor="let status of statusList" [value]="status">
-                            {{status}}
-                        </ng-option>
-                    </ng-select>
+                <div class="w-75 d-flex gap-1">
+                    <div class="w-50">
+                        <label for="">
+                            Filter by status:
+                        </label>
+                        <ng-select name="status" [(ngModel)]="FilterStatus" (change)="onChangeFilter()">
+                            <ng-option *ngFor="let status of statusList" [value]="status">
+                                {{status}}
+                            </ng-option>
+                        </ng-select>
+                    </div>
+
+                    <div class="w-50">
+                        <label for="">
+                            Top Five:
+                        </label>
+                        <ng-select name="top_five" [(ngModel)]="FilterTopFive" (change)="onChangeFilter()">
+                            <ng-option value="true">
+                                Yes
+                            </ng-option>
+                            <ng-option value="false">
+                                No
+                            </ng-option>
+                        </ng-select>
+                    </div>
                 </div>
 
                 <div *ngIf="listOfspeakers.length == 0">
@@ -42,7 +58,11 @@
             <div class="card p-2 my-2" *ngFor="let speaker of listOfspeakers" [ngClass]="{'bg-pending': speaker.status == 'Pending' , 'bg-rejected' : speaker.status == 'Rejected'
             , 'bg-confirmed' : speaker.status == 'Confirmed'}">
                 <div class="row">
-
+                    <div *ngIf="speaker.top_five">
+                        <p class="text-right gold h2 my-2 top-five">
+                            Top Five <i class="fas fa-star"></i>
+                        </p>
+                    </div>
                     <div class="col-md-6 col-sm-12" *ngIf="speaker.company_name">
                         <p><span class="fw-bold">Company Name:</span> {{speaker.company_name}}</p>
                     </div>
@@ -284,11 +304,23 @@
                     </div>
                 </div>
 
+                <div class="bb-gray py-2">
+                    <div class="p-3">
+                        <label class="text-secondary" for="top_five">Top Five?</label>
+                        <ng-select name="top_five" ngModel [(ngModel)]="selectedSpeaker.top_five">
+                            <ng-option [value]="true">
+                                Yes
+                            </ng-option>
+                            <ng-option [value]="false">
+                                No
+                            </ng-option>
+                        </ng-select>
+                    </div>
+                </div>
 
                 <div class="py-2 text-center">
                     <button class="btn btn-primary" [disabled]="form['invalid']" type="submit">Submit</button>
                 </div>
-
 
             </form>
         </div>
@@ -467,12 +499,28 @@
                 </div>
             </div>
 
+            <!-- Status -->
             <div class="bb-gray py-2">
                 <div class="p-3">
                     <label class="text-secondary" for="status">Status: </label>
                     <ng-select name="status" ngModel #status="ngModel">
                         <ng-option *ngFor="let status of statusList" [value]="status">
                             {{status}}
+                        </ng-option>
+                    </ng-select>
+                </div>
+            </div>
+
+            <!-- Top Five -->
+            <div class="bb-gray py-2">
+                <div class="p-3">
+                    <label class="text-secondary" for="top_five">Top Five?</label>
+                    <ng-select name="top_five" ngModel>
+                        <ng-option [value]="true">
+                            Yes
+                        </ng-option>
+                        <ng-option [value]="false">
+                            No
                         </ng-option>
                     </ng-select>
                 </div>

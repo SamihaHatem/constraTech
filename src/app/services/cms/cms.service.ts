@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ReplaySubject } from 'rxjs';
 import { baseUrl } from 'src/baseUrl';
 
 @Injectable({
@@ -40,6 +41,10 @@ export class CmsService {
     return this.http.post(baseUrl.apiUrl + 'exhibitors/newExhibitor', reqBody)
   }
 
+  updateExhibitor(reqBody: any) {
+    return this.http.post(baseUrl.apiUrl + 'exhibitors/updateExhibitor', reqBody)
+  }
+
   getExhibitorStatus() {
     return ["Pending", "Confirmed", "Rejected"]
   }
@@ -48,7 +53,7 @@ export class CmsService {
     return ["Silver", "Gold", "Platinum"]
   }
 
-  updateExhibitor(reqBody: any) {
+  confirmExhibitor(reqBody: any) {
     return this.http.post(baseUrl.apiUrl + 'exhibitors/confirmExhibitor', reqBody)
   }
 
@@ -79,6 +84,10 @@ export class CmsService {
 
   getActiveSpeakers() {
     return this.http.get(baseUrl.apiUrl + 'speakers/Confirmed')
+  }
+
+  getTopFiveSpeakers() {
+    return this.http.get(baseUrl.apiUrl + 'speakers/top/Five')
   }
 
 
@@ -119,4 +128,5 @@ export class CmsService {
   confirmVisitor(reqBody: any) {
     return this.http.post(baseUrl.apiUrl + 'visitors/confirmVisitor', reqBody)
   }
+
 }

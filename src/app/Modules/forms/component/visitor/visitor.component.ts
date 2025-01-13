@@ -60,6 +60,7 @@ export class VisitorComponent {
   linkedinAuth() {
     this.visitorService.linkedinAuth().subscribe((response: any) => {
       console.log(response)
+      //this.visitorService.shareToLinkedIn({}) access_token, text, imageBinary, fileName
     }, (err: any) => {
       console.log(err)
     })
