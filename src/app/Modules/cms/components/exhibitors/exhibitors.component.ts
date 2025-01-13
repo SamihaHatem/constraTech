@@ -16,6 +16,7 @@ export class ExhibitorsComponent implements OnInit {
   listOfExhibitors: any[] = []
   tempListOfExhibitors: any[] = []
   selectedExhibitor: any
+  selectedExhibitorLogo: any
   statusList: any[] = []
   classificationList: any[] = []
   FilterStatus: any
@@ -24,7 +25,10 @@ export class ExhibitorsComponent implements OnInit {
   constructor(private exhibitoServices: CmsService, private modalService: NgbModal) { }
 
   openModal(content: TemplateRef<any>, exhibitor?: any) {
-    if (exhibitor) this.selectedExhibitor = exhibitor;
+    if (exhibitor) {
+      this.selectedExhibitor = exhibitor;
+      this.selectedExhibitorLogo = this.apiUrl + exhibitor?.logo.slice(1)
+    }
     this.modalService.open(content, {
       centered: true,
       size: 'lg'
@@ -61,9 +65,12 @@ export class ExhibitorsComponent implements OnInit {
   }
 
   file: any;
-  uploadImage(event: any) {
+  async uploadImage(event: any) {
     this.file = event.target.files[0];
     console.log(this.file);
+
+    this.convertToBase64(this.file)
+    this.selectedExhibitorLogo = await this.convertToBase64(this.file)
   }
 
   async updateExhibitor() {
@@ -101,7 +108,7 @@ export class ExhibitorsComponent implements OnInit {
     })
   }
 
-  base64Image!: string;
+  base64Image!: any;
   base64String!: string;
 
   convertToBase64(file: any): Promise<string> {
@@ -113,6 +120,7 @@ export class ExhibitorsComponent implements OnInit {
 
       const reader = new FileReader();
       reader.onload = () => {
+        this.base64Image = reader.result
         resolve(reader.result as string);
       };
       reader.onerror = (error) => {

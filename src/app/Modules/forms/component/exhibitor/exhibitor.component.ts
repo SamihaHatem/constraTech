@@ -42,25 +42,58 @@ export class ExhibitorComponent {
     }
   }
 
-  addNewExhibitor(form: any) {
+  file: any;
+  uploadImage(event: any) {
+    this.file = event.target.files[0];
+    console.log(this.file);
+  }
+  base64Image!: string;
+  base64String!: string;
+
+  convertToBase64(file: any): Promise<string> {
+    return new Promise((resolve, reject) => {
+      if (!file) {
+        reject('No file provided');
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = () => {
+        resolve(reader.result as string);
+      };
+      reader.onerror = (error) => {
+        reject('Error reading file: ' + error);
+      };
+
+      reader.readAsDataURL(file);
+    });
+  }
+
+  async addNewExhibitor(form: any) {
     console.log(form.value)
-    this.exhibitorServices.addExhibitor(form.value).subscribe((response: any) => {
-      console.log("addExhibitor response: ", response)
-      Swal.fire({
-        title: response.message,
-        icon: 'success'
-      }).then(() => {
-        form.reset()
-      })
-    }, (err: any) => {
-      console.log("addExhibitor err: ", err)
-      Swal.fire({
-        title: 'Error',
-        icon: 'error'
-      }).then(() => {
-        form.reset()
-      })
-    })
+       console.log(this.file, this.convertToBase64(this.file))
+       const base64Image = await this.convertToBase64(this.file);
+       const reqBody = { ...form.value, logo: base64Image };
+       console.log(reqBody)
+       this.exhibitorServices.addExhibitor(reqBody).subscribe((response: any) => {
+         console.log("addExhibitor response: ", response)
+         Swal.fire({
+           title: response.message,
+           icon: 'success'
+         }).then(() => {
+           form.reset()
+           this.file = null
+         })
+       }, (err: any) => {
+         console.log("addExhibitor err: ", err)
+         Swal.fire({
+           title: 'Error',
+           icon: 'error'
+         }).then(() => {
+           form.reset()
+           this.file = null
+         })
+       })
   }
 
   ngOnInit(): void {

@@ -60,10 +60,38 @@ export class VisitorComponent {
   linkedinAuth() {
     this.visitorService.linkedinAuth().subscribe((response: any) => {
       console.log(response)
-      //this.visitorService.shareToLinkedIn({}) access_token, text, imageBinary, fileName
     }, (err: any) => {
       console.log(err)
     })
+  }
+
+
+  async img64() {
+    var res = await fetch('../../../../../assets/images/Screenshot 2024-12-28 205332.png');
+    var blob = await res.blob();
+
+    return new Promise((resolve, reject) => {
+      var reader = new FileReader();
+      reader.addEventListener("load", function () {
+        resolve(reader.result);
+      }, false);
+
+      reader.onerror = () => {
+        return reject(this);
+      };
+      reader.readAsDataURL(blob);
+    })
+  }
+
+  async shareLinkedin() {
+    const img = await this.img64()
+    let reqBody = { fileName: 'asasasas', text: '123', imageBinary: img, access_token: "AQU3-53dgV20XxVV6ZmxITKEYbEur7-p1dxLz19GyaV8AzlUXNSqlbPLiC6jeBuIWWYu3LaBY5gOIg1OTNJqOX_tcuIeeNdBN6dg_g2YJi7wFAgHkHp6w0Vq2bZEgZR1QoTJxYw164KXuAuq0FYw7ZFkmgq1w-_H5lrMnNrBZT0lKx0MIRpP8dFxZ3spU3HVQ2V5UXQGqucEMOkzrVPUpWcQ_wty07rA45N-xSSoqT1Lb563e4tUmJXChxySk2rtKEyow7MpDlpT5cQHU0z0XfU24XZB4yLoOYuyVCDQ3JJC3RNMieZpIX1edjUgWFXK0jw9JMavO0uGNuwzjvIL1ytSDz4dJw" }
+    console.log(reqBody)
+    this.visitorService.shareToLinkedIn(reqBody).subscribe((response: any) => {
+      console.log(response)
+    }, (err: any) => {
+      console.log(err)
+    }) // access_token, text, imageBinary, fileName
   }
 
   addVisitor(form: any, stepper: MatStepper) {

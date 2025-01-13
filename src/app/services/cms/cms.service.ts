@@ -79,7 +79,7 @@ export class CmsService {
   }
 
   updateSpeaker(reqBody: any) {
-    return this.http.post(baseUrl.apiUrl + 'speakers/confirmSpeaker', reqBody)
+    return this.http.post(baseUrl.apiUrl + 'speakers/updateSpeaker', reqBody)
   }
 
   getActiveSpeakers() {

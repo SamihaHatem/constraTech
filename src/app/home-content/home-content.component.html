@@ -680,11 +680,12 @@
 
                 <div class="bb-gray" *ngIf="platinumExhibitors.length > 0 ">
                     <p class="text-secondary">Platinum</p>
-                    <div class="row">
+                    <div class="row my-2">
                         <div class="col-md-2 col-sm-12 text-center align-content-center my-1 justify-items-center"
                             *ngFor="let exhibitor of platinumExhibitors">
                             <div class="sponsors-img-container p-2 align-content-center">
-                                {{exhibitor.company_name}}
+                                <img src="{{apiUrl}}{{exhibitor.logo.slice(1)}}" alt="" style="max-width: 100%;">
+
                             </div>
                         </div>
                     </div>
@@ -692,11 +693,12 @@
 
                 <div class="bb-gray" *ngIf="silverExhibitors.length > 0 ">
                     <p class="text-secondary">Silver</p>
-                    <div class="row">
+                    <div class="row my-2">
                         <div class="col-md-2 col-sm-12 text-center align-content-center my-1 justify-items-center"
                             *ngFor="let exhibitor of silverExhibitors">
                             <div class="sponsors-img-container p-2 align-content-center">
-                                {{exhibitor.company_name}}
+                                <img src="{{apiUrl}}{{exhibitor.logo.slice(1)}}" alt="" style="max-width: 100%;">
+
                             </div>
                         </div>
                     </div>
@@ -704,11 +706,11 @@
 
                 <div class="bb-gray" *ngIf="goldExhibitors.length > 0 ">
                     <p class="text-secondary">Gold</p>
-                    <div class="row">
+                    <div class="row my-2">
                         <div class="col-md-2 col-sm-12 text-center align-content-center my-1 justify-items-center"
                             *ngFor="let exhibitor of goldExhibitors">
                             <div class="sponsors-img-container p-2 align-content-center">
-                                {{exhibitor.company_name}}
+                                <img src="{{apiUrl}}{{exhibitor.logo.slice(1)}}" alt="" style="max-width: 100%;">
                             </div>
                         </div>
                     </div>
@@ -725,8 +727,8 @@
                 <p class="h2">2024 Exhibitors and Sponsors</p>
 
                 <div class="bb-gray">
-                    <p class="text-secondary">platinum</p>
-                    <div class="row">
+                    <p class="text-secondary">Platinum</p>
+                    <div class="row my-2">
                         <div class="col-md-2 col-sm-12 text-center align-content-center my-1 justify-items-center">
                             <div class="sponsors-img-container ">
                                 <img class="w-100" src="../../assets/images/sponsors/New folder/1-removebg-preview.png"
@@ -775,8 +777,8 @@
                 </div>
 
                 <div class="bb-gray">
-                    <p class="text-secondary">silver</p>
-                    <div class="row">
+                    <p class="text-secondary">Silver</p>
+                    <div class="row my-2">
                         <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
                             <div class="sponsors-img-container ">
                                 <img class="w-100" src="../../assets/images/sponsors/New folder/1-removebg-preview.png"
@@ -825,8 +827,8 @@
                 </div>
 
                 <div class="bb-gray">
-                    <p class="text-secondary">gold</p>
-                    <div class="row">
+                    <p class="text-secondary">Gold</p>
+                    <div class="row my-2">
                         <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
                             <div class="sponsors-img-container ">
                                 <img class="w-100" src="../../assets/images/sponsors/New folder/1-removebg-preview.png"

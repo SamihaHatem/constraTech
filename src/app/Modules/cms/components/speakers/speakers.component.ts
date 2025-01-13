@@ -19,22 +19,48 @@ export class SpeakersComponent implements OnInit {
   apiUrl: string = baseUrl.apiUrl
   FilterStatus: any
   FilterTopFive: any
-
+  selectedSpeakerPhoto: any
 
   file: any;
-  uploadImage(event: any) {
+  async uploadImage(event: any) {
     this.file = event.target.files[0];
     console.log(this.file);
+
+
+    this.convertToBase64(this.file)
+    this.selectedSpeakerPhoto = await this.convertToBase64(this.file)
   }
 
   constructor(private speakersServices: CmsService, private modalService: NgbModal) { }
 
   openModal(content: TemplateRef<any>, speaker?: any) {
-    if (speaker) this.selectedSpeaker = speaker;
+    if (speaker) {
+      this.selectedSpeaker = speaker;
+      this.selectedSpeakerPhoto = this.apiUrl + this.selectedSpeaker?.photo_path.slice(1)
+    }
     this.modalService.open(content, {
       centered: true,
       size: 'lg'
     })
+  }
+
+  convertToBase64(file: any): Promise<string> {
+    return new Promise((resolve, reject) => {
+      if (!file) {
+        reject('No file provided');
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = () => {
+        resolve(reader.result as string);
+      };
+      reader.onerror = (error) => {
+        reject('Error reading file: ' + error);
+      };
+
+      reader.readAsDataURL(file);
+    });
   }
 
   onChangeFilter() {
@@ -105,11 +131,18 @@ export class SpeakersComponent implements OnInit {
     })
   }
 
-  updateSpeaker() {
+  async updateSpeaker() {
     let reqBody = {
       ...this.selectedSpeaker,
       speaker_id: this.selectedSpeaker._id,
     }
+
+    if (this.file) {
+      const base64Image = await this.convertToBase64(this.file);
+      reqBody.photo_path = base64Image
+    }
+    else delete reqBody.photo_path
+
     console.log("updateSpeaker : ", reqBody)
     this.speakersServices.updateSpeaker(reqBody).subscribe((response: any) => {
       console.log("updateExhibitor response: ", response)

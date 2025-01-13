@@ -19,6 +19,7 @@
         </div>
 
         <button (click)="openModal(shareOnSocialMediaContent)">open</button>
+        <button (click)="shareLinkedin()">share</button>
 
         <div class="form-conatiner w-100 ">
 
@@ -249,7 +250,8 @@
                         <div class="text-center">
                             <a class="mx-2 btn btn-primary" href="https://portal.myfatoorah.com/EGY/le/0505260752188152"
                                 target="_blank" (click)="cancel(stepper , shareOnSocialMediaContent)">Pay Now</a>
-                            <button class="mx-2 btn btn-primary " (click)="cancel(stepper , shareOnSocialMediaContent)">Pay Later</button>
+                            <button class="mx-2 btn btn-primary "
+                                (click)="cancel(stepper , shareOnSocialMediaContent)">Pay Later</button>
                         </div>
                     </mat-step>
                     <mat-step [editable]="false">
@@ -295,8 +297,7 @@
             <img class="w-100" src="../../../../../assets/images/Screenshot 2024-12-28 205332.png" alt="">
         </div>
         <div class="text-center">
-            <button class="text-center linkedin my-2 px2 py-1"
-                (click)="linkedinAuth()">
+            <button class="text-center linkedin my-2 px2 py-1" (click)="linkedinAuth()">
                 LinkenIn <i class="fa-brands fa-linkedin-in"></i></button>
         </div>
     </div>

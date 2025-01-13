@@ -318,6 +318,19 @@
                     </div>
                 </div>
 
+                <!-- photo_path -->
+                <div class="col-12 text-center" *ngIf="selectedSpeaker.photo_path">
+                    <img src="{{selectedSpeakerPhoto}}" alt="" style="max-width: 90%;">
+                </div>
+
+                <div class="bb-gray py-2">
+                    <div class="p-3">
+                        <label for="logo">New Photo</label>
+                        <input id="logo" name="logo" ngModel #logo="ngModel" type="file" accept="image/*"
+                            class="form-control" (change)="uploadImage($event)">
+                    </div>
+                </div>
+
                 <div class="py-2 text-center">
                     <button class="btn btn-primary" [disabled]="form['invalid']" type="submit">Submit</button>
                 </div>

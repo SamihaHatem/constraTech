@@ -49,6 +49,6 @@ export class VisitorService {
   }
 
   shareToLinkedIn(reqBody: any) {
-    return this.http.post(baseUrl.apiUrl + 'speakers/linkedin/share', reqBody)
+    return this.http.post(baseUrl.apiUrl + 'visitors/linkedin/share', reqBody)
   }
 }

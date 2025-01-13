@@ -210,12 +210,12 @@
 
                 <!-- Logo -->
                 <div class="col-12 text-center" *ngIf="selectedExhibitor.logo">
-                    <img src="{{apiUrl}}{{selectedExhibitor.logo.slice(1)}}" alt="" style="max-width: 90%;">
+                    <img src="{{selectedExhibitorLogo}}" alt="" style="max-width: 90%;">
                 </div>
 
                 <div class="bb-gray py-2">
                     <div class="p-3">
-                        <label for="logo">New Logo <span class="text-danger">*</span></label>
+                        <label for="logo">New Logo</label>
                         <input id="logo" name="logo" ngModel #logo="ngModel" type="file" accept="image/*"
                             class="form-control" (change)="uploadImage($event)">
                     </div>
