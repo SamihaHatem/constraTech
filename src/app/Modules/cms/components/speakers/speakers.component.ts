@@ -97,7 +97,7 @@ export class SpeakersComponent implements OnInit {
     })
   }
 
-  addSpeaker(form: any) {
+  async addSpeaker(form: any) {
     console.log(form.value)
     const formData = new FormData();
     formData.append('photo', this.file, this.file.name)
@@ -114,7 +114,13 @@ export class SpeakersComponent implements OnInit {
     formData.append('speech_brief', form.value.speech_brief)
     formData.append('top_five', form.value.top_five)
 
-    this.speakersServices.addSpeaker(formData).subscribe((response: any) => {
+    let reqBody = { ...form.value }
+    if (this.file) {
+      const base64Image = await this.convertToBase64(this.file);
+      reqBody.photo_path = base64Image
+    }
+
+    this.speakersServices.addSpeaker(reqBody).subscribe((response: any) => {
       console.log("addSpeaker response : ", response)
       Swal.fire({
         title: response.message,

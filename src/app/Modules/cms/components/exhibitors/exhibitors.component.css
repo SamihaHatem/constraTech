@@ -40,3 +40,7 @@ input.ng-invalid.ng-touched {
 .platinum {
     color: #bead8b;
 }
+
+img{
+    width: 250px;
+}

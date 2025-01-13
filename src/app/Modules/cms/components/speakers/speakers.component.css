@@ -35,3 +35,7 @@ input.ng-invalid.ng-touched {
     right: 20px;
     color: #040404;
 }
+
+img{
+    width: 250px;
+}
