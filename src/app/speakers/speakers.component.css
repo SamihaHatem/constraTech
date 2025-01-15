@@ -1,8 +1,11 @@
 .speaker-container {
     position: relative;
-    border-radius: 7px;
+    border-radius: 50%;
     overflow: hidden;
     box-shadow: 1px 1px 4px 1px #d5d5d5;
+    width: 350px;
+    height: 350px;
+    margin: auto;
 }
 
 .speaker-container .speaker-content {
