@@ -1,0 +1,29 @@
+.btn-green {
+    background-color: var(--constraTech-green-darker);
+    color: white;
+    border: 1px solid var(--constraTech-green-darker);
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-green:hover {
+    background-color: white;
+    color: var(--constraTech-green-darker);
+}
+
+.btn-gray {
+    background-color: var(--constraTech-orange);
+    color: white;
+    border: 1px solid var(--constraTech-orange);
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-gray:hover {
+    background-color: white;
+    color: var(--constraTech-orange);
+}
+
+.bg-sec{
+    background-color: rgb(227, 227, 227);
+}

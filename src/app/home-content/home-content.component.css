@@ -190,9 +190,16 @@ iframe {
 
 .speaker-container {
     position: relative;
-    border-radius: 7px;
+    border-radius: 50%;
     overflow: hidden;
     box-shadow: 1px 1px 4px 1px #d5d5d5;
+    width: 350px;
+    height: 350px;
+    margin: auto;
+}
+
+#workshop .h5{
+    color: var(--constraTech-green-darker);
 }
 
 .speaker-container .speaker-content {
@@ -218,3 +225,128 @@ iframe {
     transform: rotate(0);
     opacity: 1;
 }
+
+
+#why_exhibit .img-grid {
+    display: grid;
+    grid-template-areas: 'item1 item2'
+        'item3 item2'
+        'item3 item4';
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 40px;
+}
+
+.img-grid img {
+    width: 100%;
+    height: 100%;
+}
+
+.item1 {
+    grid-area: item1;
+    background-color: green;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.item2 {
+    grid-area: item2;
+    background-color: red;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.item3 {
+    grid-area: item3;
+    background-color: blue;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.item4 {
+    grid-area: item4;
+    background-color: yellow;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.main-topic-container {
+    position: relative;
+    transition: all 100ms ease-in-out;
+}
+
+.main-topic-container .my-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.main-topic-container img {
+    height: 200px;
+    width: 100%;
+    filter: grayscale(1);
+    transition: all 0.3s ease-in ;
+    transition-delay: 0.4s;
+}
+
+.main-topic-container .my-child p {
+    width: fit-content;
+    margin: auto;
+    transition: all 0.3s ease-in-out;
+}
+
+.main-topic-container:hover .my-child p {
+    background-color: var(--constraTech-green-darker);
+}
+
+.main-topic-container .overlay {
+    background: #000000b8;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.main-topic-container:hover .overlay {
+    background: #000000cc;
+    position: absolute;
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+
+.main-topic-container:hover {
+    z-index: 2;
+    transform: scale(1.15);
+}
+
+.main-topic-container:hover img {
+    filter: grayscale(0);
+}
+
+
+.my-title p {
+    text-align:center;
+   
+    text-transform:uppercase;
+    font-size:26px; letter-spacing:1px;
+    
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-rows: 16px 0;
+    grid-gap: 22px;
+  }
+  
+  .my-title p:after,.my-title p:before {
+    content: " ";
+    display: block;
+    border-bottom: 2px solid #ccc;
+    background-color:#f8f8f8;
+  }

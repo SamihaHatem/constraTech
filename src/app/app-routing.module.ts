@@ -5,6 +5,7 @@ import { SpeakersComponent } from './speakers/speakers.component';
 import { HomeContentComponent } from './home-content/home-content.component';
 import { WorkshopsComponent } from './workshops/workshops.component';
 import { GalleryComponent } from './gallery/gallery.component';
+import { MainTopicsComponent } from './main-topics/main-topics.component';
 
 
 const routerOptions: ExtraOptions = {
@@ -21,6 +22,7 @@ const routes: Routes = [
       { path: 'content', component: HomeContentComponent },
       { path: 'workshops', component: WorkshopsComponent },
       { path: 'gallery', component: GalleryComponent },
+      { path: 'main-topics', component: MainTopicsComponent },
       { path: '', redirectTo: 'content', pathMatch: 'full' },
     ],
   },

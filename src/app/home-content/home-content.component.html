@@ -159,8 +159,9 @@
 
                 <div class="row">
                     <div class="col-md-6 col-sm-12 text-center my-2">
-                        <button class="btn-green px-3 py-1" [ngClass]="{'w-100' : isMobile}">
-                            DOWNLOAD SALES BROCHURE
+                        <button class="btn-green px-3 py-1 upper-case" [ngClass]="{'w-100' : isMobile}"
+                            routerLink="/forms/speaker">
+                            become speaker and register
                         </button>
                     </div>
                     <div class="col-md-4 col-sm-12 text-center my-2">
@@ -183,7 +184,7 @@
 
 
     <!----- Why Exhibit ----->
-    <div class="my-5 py-2" id="why_exhibit">
+    <div class="my-5 py-3" id="why_exhibit">
         <div class="w-90 row mx-auto">
             <div class="col-md-6 col-sm-12">
                 <p class="h2 mb-4">Why exhibit at constraTech Egypt</p>
@@ -224,7 +225,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-12">
                         <div class="rhombus">
                             <i class="fas fa-chart-line"></i>
                         </div>
@@ -239,37 +240,77 @@
                             partnerships.
                         </p>
                     </div>
-                    <div class="col-6">
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-sm-12 text-center my-2">
+                        <button class="btn-green px-3 py-1 upper-case" [ngClass]="{'w-100' : isMobile}"
+                            routerLink="/forms/speaker">
+                            become speaker and register
+                        </button>
+                    </div>
+                    <div class="col-md-4 col-sm-12 text-center my-2">
+                        <button class="btn-gray px-3 py-1" [ngClass]="{'w-100' : isMobile}"
+                            routerLink="/forms/visitor/registration">
+                            BOOK YOUR STAND
+                        </button>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-6 col-sm-12 text-end align-content-center">
-                <img class="w-75" src="../../assets/images/builder-structure-075.avif" alt=""
-                    [ngClass]="{'w-100' : isMobile}">
+                <div class="img-grid p-2">
+                    <div class="item1">
+                        <img src="../../assets/images/builder-structure-075.avif" alt="">
+                    </div>
+                    <div class="item2">
+                        <img src="../../assets/images/builder-structure-075.avif" alt="">
+                    </div>
+                    <div class="item3">
+                        <img src="../../assets/images/builder-structure-075.avif" alt="">
+                    </div>
+                    <div class="item4">
+                        <img src="../../assets/images/builder-structure-075.avif" alt="">
+                    </div>
+
+                </div>
             </div>
+
+
         </div>
     </div>
 
     <!----- Conference ----->
     <div class="my-5 py-2" id="conference">
         <div class="w-90 mx-auto">
-            <p class="h2">Conference Theater1
-            </p>
+            <p class="h2">Conference</p>
 
             <div class="row">
                 <div class="col-md-6 col-sm-12">
                     <p class="conference1">
-                        This global event is the largest gathering of those interested in construction technology in the
-                        Middle
-                        East. This event consists of an exhibition of building and construction technology companies and
-                        a
-                        conference to showcase the latest technology trends. In addition to seminars and talks by many
-                        pioneers in
-                        the field. This event will be three days with more than 2000 attendees. Attendees will include
-                        governmental,
-                        private, public and academic sectors.
+                        ConstraTech 2025, the region’s premier construction and technology conference, taking place on
+                        May 25-27, 2025, at the Dusit Thani Hotel, New Cairo. Bringing together industry leaders,
+                        innovators, and professionals, ConstraTech showcases the latest advancements in construction
+                        technologies, management strategies, and design methodologies. Engage in insightful sessions,
+                        hands-on workshops, and unparalleled networking opportunities. Whether you're seeking to explore
+                        groundbreaking trends or strengthen your industry connections, ConstraTech 2025 is where the
+                        future of construction takes shape.
                     </p>
+
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12 text-center my-2">
+                            <button class="btn-green px-3 py-1 upper-case" [ngClass]="{'w-100' : isMobile}"
+                                routerLink="/forms/speaker">
+                                become speaker and register
+                            </button>
+                        </div>
+                        <div class="col-md-4 col-sm-12 text-center my-2">
+                            <button class="btn-gray px-3 py-1" [ngClass]="{'w-100' : isMobile}"
+                                routerLink="/forms/visitor/registration">
+                                BOOK YOUR STAND
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="col-md-6 col-sm-12 text-end align-content-center" [ngClass]="{'text-center' : isMobile }">
@@ -278,14 +319,8 @@
                 </div>
             </div>
 
-            <!-- <div class="d-flex gap-2 my-5">
-        <button class="btn-green px-3 py-1">
-          DOWNLOAD SALES BROCHURE
-        </button>
-        <button class="btn-gray px-3 py-1">
-          BOOK YOUR STAND
-        </button>
-      </div> -->
+
+
         </div>
     </div>
 
@@ -294,215 +329,259 @@
         <div class="w-90 mx-auto">
             <p class="h2">Main Topics</p>
 
-            <div class="row">
-                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                    <p class="main-topic-1 p-3 m-0">
-                        <i class="fa-solid fa-cubes-stacked"></i> BIM: Building information modeling
-                    </p>
+            <div class="row" *ngIf="!isMobile">
+                <div class="col-md-3 col-sm-12 p-0">
+                    <div class="main-topic-container">
+                        <img src="../../assets/images/builder-structure-075.avif" alt="">
+                        <div class="w-100 h-100 overlay"></div>
+                        <div class="my-child text-center align-content-center px-2">
+                            <p class="text-white fw-bold h5  px-2 py-3">BIM: Building information modeling</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                    <p class="main-topic-1 p-3 m-0">
-                        <i class="fa-solid fa-earth-asia"></i> GIS: Geographic information system
-                    </p>
+                <div class="col-md-3 col-sm-12 p-0">
+                    <div class="main-topic-container">
+                        <img src="../../assets/images/builder-structure-075.avif" alt="">
+                        <div class="w-100 h-100 overlay"></div>
+                        <div class="my-child text-center align-content-center px-2">
+                            <p class="text-white fw-bold h5  px-2 py-3">GIS: Geographic information system</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                    <p class="main-topic-1 p-3 m-0">
-                        <i class="fa-solid fa-brain"></i> Big Data and Artificial Intelligence
-                    </p>
+                <div class="col-md-3 col-sm-12 p-0">
+                    <div class="main-topic-container">
+                        <img src="../../assets/images/builder-structure-075.avif" alt="">
+                        <div class="w-100 h-100 overlay"></div>
+                        <div class="my-child text-center align-content-center px-2">
+                            <p class="text-white fw-bold h5  px-2 py-3">Big Data and Artificial Intelligence</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                    <p class="main-topic-1 p-3 m-0">
-                        <i class="fa-regular fa-clone"></i> Digital twin
-                    </p>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                    <p class="main-topic-1 p-3 m-0">
-                        <i class="fa-solid fa-network-wired"></i> IOT: Internet of things
-                    </p>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                    <p class="main-topic-1 p-3 m-0">
-                        <i class="fa-solid fa-expand"></i> Laser scanning
-                    </p>
+                <div class="col-md-3 col-sm-12 p-0">
+                    <div class="main-topic-container">
+                        <img src="../../assets/images/builder-structure-075.avif" alt="">
+                        <div class="w-100 h-100 overlay"></div>
+                        <div class="my-child text-center align-content-center px-2">
+                            <p class="text-white fw-bold h5 px-2 py-3">Digital twin</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                    <p class="main-topic-1 p-3 m-0">
-                        <i class="fa-solid fa-print"></i> 3D printing
-                    </p>
+                <div class="col-md-3 col-sm-12 p-0">
+                    <div class="main-topic-container">
+                        <img src="../../assets/images/builder-structure-075.avif" alt="">
+                        <div class="w-100 h-100 overlay"></div>
+                        <div class="my-child text-center align-content-center px-2">
+                            <p class="text-white fw-bold h5  px-2 py-3">IOT: Internet of things</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                    <p class="main-topic-1 p-3 m-0">
-                        <i class="fa-regular fa-building"></i> Facility Management
-                    </p>
+                <div class="col-md-3 col-sm-12 p-0">
+                    <div class="main-topic-container">
+                        <img src="../../assets/images/builder-structure-075.avif" alt="">
+                        <div class="w-100 h-100 overlay"></div>
+                        <div class="my-child text-center align-content-center px-2">
+                            <p class="text-white fw-bold h5  px-2 py-3">Laser scanning</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                    <p class="main-topic-1 p-3 m-0">
-                        <i class="fa-solid fa-cloud"></i> Cloud applications
-                    </p>
+                <div class="col-md-3 col-sm-12 p-0">
+                    <div class="main-topic-container">
+                        <img src="../../assets/images/builder-structure-075.avif" alt="">
+                        <div class="w-100 h-100 overlay"></div>
+                        <div class="my-child text-center align-content-center px-2">
+                            <p class="text-white fw-bold h5  px-2 py-3">3D printing</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                    <p class="main-topic-1 p-3 m-0">
-                        <i class="fa-regular fa-eye"></i> Virtual reality and augmented reality
-                    </p>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                    <p class="main-topic-1 p-3 m-0">
-                        <i class="fa-solid fa-helicopter"></i> Drones
-                    </p>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                    <p class="main-topic-1 p-3 m-0">
-                        <i class="fa-solid fa-leaf"></i> Sustainability
-                    </p>
+                <div class="col-md-3 col-sm-12 p-0">
+                    <div class="main-topic-container">
+                        <img src="../../assets/images/builder-structure-075.avif" alt="">
+                        <div class="w-100 h-100 overlay"></div>
+                        <div class="my-child text-center align-content-center px-2">
+                            <p class="text-white fw-bold h5 px-2 py-3">Facility Management</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                    <p class="main-topic-1 p-3 m-0">
-                        <i class="fa-solid fa-robot"></i> Robotics
-                    </p>
+                <div class="col-md-3 col-sm-12 p-0">
+                    <div class="main-topic-container">
+                        <img src="../../assets/images/builder-structure-075.avif" alt="">
+                        <div class="w-100 h-100 overlay"></div>
+                        <div class="my-child text-center align-content-center px-2">
+                            <p class="text-white fw-bold h5  px-2 py-3">Cloud applications</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                    <p class="main-topic-1 p-3 m-0">
-                        <i class="fa-solid fa-mobile-screen-button"></i> Mobile Apps and 5G Technology
-                    </p>
+                <div class="col-md-3 col-sm-12 p-0">
+                    <div class="main-topic-container">
+                        <img src="../../assets/images/builder-structure-075.avif" alt="">
+                        <div class="w-100 h-100 overlay"></div>
+                        <div class="my-child text-center align-content-center px-2">
+                            <p class="text-white fw-bold h5  px-2 py-3">Virtual reality and augmented reality</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                    <p class="main-topic-1 p-3 m-0">
-                        <i class="fa-solid fa-database"></i> ERP systems
-                    </p>
+                <div class="col-md-3 col-sm-12 p-0">
+                    <div class="main-topic-container">
+                        <img src="../../assets/images/builder-structure-075.avif" alt="">
+                        <div class="w-100 h-100 overlay"></div>
+                        <div class="my-child text-center align-content-center px-2">
+                            <p class="text-white fw-bold h5  px-2 py-3">Drones</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                    <p class="main-topic-1 p-3 m-0">
-                        <i class="fa-solid fa-file-contract"></i> Contracts
-                    </p>
+                <div class="col-md-3 col-sm-12 p-0">
+                    <div class="main-topic-container">
+                        <img src="../../assets/images/builder-structure-075.avif" alt="">
+                        <div class="w-100 h-100 overlay"></div>
+                        <div class="my-child text-center align-content-center px-2">
+                            <p class="text-white fw-bold h5 px-2 py-3">Sustainability</p>
+                        </div>
+                    </div>
                 </div>
+            </div>
 
-                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                    <p class="main-topic-1 p-3 m-0">
-                        <i class="fa-solid fa-file-lines"></i> Document Control
-                    </p>
-                </div>
+            <div id="carouselExample" class="carousel slide" *ngIf="isMobile">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="main-topic-container">
+                            <img src="../../assets/images/builder-structure-075.avif" alt="">
+                            <div class="w-100 h-100 overlay"></div>
+                            <div class="my-child text-center align-content-center px-2">
+                                <p class="text-white fw-bold h5  px-2 py-3">BIM: Building information modeling</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="main-topic-container">
+                            <img src="../../assets/images/builder-structure-075.avif" alt="">
+                            <div class="w-100 h-100 overlay"></div>
+                            <div class="my-child text-center align-content-center px-2">
+                                <p class="text-white fw-bold h5  px-2 py-3">GIS: Geographic information system</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="main-topic-container">
+                            <img src="../../assets/images/builder-structure-075.avif" alt="">
+                            <div class="w-100 h-100 overlay"></div>
+                            <div class="my-child text-center align-content-center px-2">
+                                <p class="text-white fw-bold h5  px-2 py-3">Big Data and Artificial Intelligence</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="main-topic-container">
+                            <img src="../../assets/images/builder-structure-075.avif" alt="">
+                            <div class="w-100 h-100 overlay"></div>
+                            <div class="my-child text-center align-content-center px-2">
+                                <p class="text-white fw-bold h5 px-2 py-3">Digital twin</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="main-topic-container">
+                            <img src="../../assets/images/builder-structure-075.avif" alt="">
+                            <div class="w-100 h-100 overlay"></div>
+                            <div class="my-child text-center align-content-center px-2">
+                                <p class="text-white fw-bold h5  px-2 py-3">IOT: Internet of things</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="main-topic-container">
+                            <img src="../../assets/images/builder-structure-075.avif" alt="">
+                            <div class="w-100 h-100 overlay"></div>
+                            <div class="my-child text-center align-content-center px-2">
+                                <p class="text-white fw-bold h5  px-2 py-3">Laser scanning</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="main-topic-container">
+                            <img src="../../assets/images/builder-structure-075.avif" alt="">
+                            <div class="w-100 h-100 overlay"></div>
+                            <div class="my-child text-center align-content-center px-2">
+                                <p class="text-white fw-bold h5  px-2 py-3">3D printing</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="main-topic-container">
+                            <img src="../../assets/images/builder-structure-075.avif" alt="">
+                            <div class="w-100 h-100 overlay"></div>
+                            <div class="my-child text-center align-content-center px-2">
+                                <p class="text-white fw-bold h5 px-2 py-3">Facility Management</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="main-topic-container">
+                            <img src="../../assets/images/builder-structure-075.avif" alt="">
+                            <div class="w-100 h-100 overlay"></div>
+                            <div class="my-child text-center align-content-center px-2">
+                                <p class="text-white fw-bold h5  px-2 py-3">Cloud applications</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="main-topic-container">
+                            <img src="../../assets/images/builder-structure-075.avif" alt="">
+                            <div class="w-100 h-100 overlay"></div>
+                            <div class="my-child text-center align-content-center px-2">
+                                <p class="text-white fw-bold h5  px-2 py-3">Virtual reality and augmented reality</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="main-topic-container">
+                            <img src="../../assets/images/builder-structure-075.avif" alt="">
+                            <div class="w-100 h-100 overlay"></div>
+                            <div class="my-child text-center align-content-center px-2">
+                                <p class="text-white fw-bold h5  px-2 py-3">Drones</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="main-topic-container">
+                            <img src="../../assets/images/builder-structure-075.avif" alt="">
+                            <div class="w-100 h-100 overlay"></div>
+                            <div class="my-child text-center align-content-center px-2">
+                                <p class="text-white fw-bold h5 px-2 py-3">Sustainability</p>
+                            </div>
+                        </div>
+                    </div>
 
 
-                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                    <p class="main-topic-1 p-3 m-0">
-                        <i class="fa-brands fa-pagelines"></i> Sustainability and Green Building
-                    </p>
                 </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
 
-                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                    <p class="main-topic-1 p-3 m-0">
-                        <i class="fa-solid fa-certificate"></i> ISO & standards
-                    </p>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                    <p class="main-topic-1 p-3 m-0">
-                        <i class="fa-solid fa-helmet-safety"></i> Construction strategies
-                    </p>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                    <p class="main-topic-1 p-3 m-0">
-                        <i class="fa-solid fa-dollar-sign"></i> Financial aspects
-                    </p>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                    <p class="main-topic-1 p-3 m-0">
-                        <i class="fa-solid fa-server"></i> ERP systems in Construction
-                    </p>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                    <p class="main-topic-1 p-3 m-0">
-                        <i class="fa-solid fa-truck-fast"></i> Supply Chain
-                    </p>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                    <p class="main-topic-1 p-3 m-0">
-                        <i class="fa-solid fa-diagram-project"></i> Mega size projects management
-                    </p>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                    <p class="main-topic-1 p-3 m-0">
-                        <i class="fa-solid fa-list-check"></i> Assets management
-                    </p>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                    <p class="main-topic-1 p-3 m-0">
-                        <i class="fa-solid fa-triangle-exclamation"></i> Risk Management
-                    </p>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                    <p class="main-topic-1 p-3 m-0">
-                        <i class="fa-solid fa-briefcase"></i> Procurement
-                    </p>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                    <p class="main-topic-1 p-3 m-0">
-                        <i class="fa-solid fa-shield-halved"></i> Safety
-                    </p>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                    <p class="main-topic-1 p-3 m-0">
-                        <i class="fa-solid fa-chart-line"></i> Lean Construction
-                    </p>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                    <p class="main-topic-1 p-3 m-0">
-                        <i class="fa-solid fa-weight-hanging"></i> Heavy equipment
-                    </p>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                    <p class="main-topic-1 p-3 m-0">
-                        <i class="fa-solid fa-hexagon-nodes"></i> Networking
-                    </p>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                    <p class="main-topic-1 p-3 m-0">
-                        <i class="fa-solid fa-book"></i> Knowledge
-                    </p>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                    <p class="main-topic-1 p-3 m-0">
-                        <i class="fa-solid fa-user-tie"></i> Self branding
-                    </p>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                    <p class="main-topic-1 p-3 m-0">
-                        <i class="fa-regular fa-bell"></i> Latest updates
-                    </p>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                    <p class="main-topic-1 p-3 m-0">
-                        <i class="fa-solid fa-lightbulb"></i> Fresh leads
-                    </p>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                    <p class="main-topic-1 p-3 m-0">
-                        <i class="fa-solid fa-display"></i> Showcase
-                    </p>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                    <p class="main-topic-1 p-3 m-0">
-                        <i class="fa-solid fa-bullhorn"></i> Marketing
-                    </p>
-                </div>
-
+            <div class="text-center my-3">
+                <button routerLink="/home/main-topics" class="btn-green px-3 py-1" [ngClass]="{'w-90' : isMobile}">View
+                    Main
+                    Topics</button>
             </div>
         </div>
     </div>
@@ -516,10 +595,9 @@
                 <div class="col-md-4 col-sm-6" *ngFor="let speaker of listOfSpeakers">
                     <div *ngIf="speaker ; else noSpeaker">
                         <div class="speaker-container">
-                            <img [src]="apiUrl + speaker.photo_path.slice(1)" alt=""
-                                style="height: 250px; width: 100%;">
+                            <img [src]="apiUrl + speaker.photo_path.slice(1)" alt="{{ speaker.fullname }}"
+                                style="height: 100%; width: 100%;">
                             <div class="speaker-content p-2 align-content-end">
-
                                 <div>
                                     <div>
                                         <p class="text-center m-0">{{speaker.position}} at {{speaker.company_name}}</p>
@@ -541,7 +619,6 @@
                                     </div>
                                 </div>
 
-                                <!-- speech_brief / speech_title -->
                             </div>
                         </div>
                         <p class="text-center fw-bold">{{ speaker.fullname }}</p>
@@ -565,30 +642,30 @@
                 <div class="col-md-3 col-sm-12 px-2">
                     <div *ngIf="listOfWorkShops[0]; else no_workshop">
                         <img class="w-100" [src]="apiUrl+ listOfWorkShops[0].photo" alt="" style="height: 250px;">
-                        <p class="text-center fw-bold h5">{{listOfWorkShops[0].title}}</p>
-                        <p class="text-center">{{listOfWorkShops[0].description}}</p>
+                        <p class="text-center fw-bold h5 my-2">{{listOfWorkShops[0].title}}</p>
+                        <!-- <p class="text-center">{{listOfWorkShops[0].description}}</p> -->
                     </div>
 
                 </div>
                 <div class="col-md-3 col-sm-12 px-2">
                     <div *ngIf="listOfWorkShops[1]; else no_workshop">
                         <img class="w-100" [src]="apiUrl+ listOfWorkShops[1].photo" alt="" style="height: 250px;">
-                        <p class="text-center fw-bold h5">{{listOfWorkShops[1].title}}</p>
-                        <p class="text-center">{{listOfWorkShops[1].description}}</p>
+                        <p class="text-center fw-bold h5 my-2">{{listOfWorkShops[1].title}}</p>
+                        <!-- <p class="text-center">{{listOfWorkShops[1].description}}</p> -->
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-12 px-2">
                     <div *ngIf="listOfWorkShops[2]; else no_workshop">
                         <img class="w-100" [src]="apiUrl+ listOfWorkShops[2].photo" alt="" style="height: 250px;">
-                        <p class="text-center fw-bold h5">{{listOfWorkShops[2].title}}</p>
-                        <p class="text-center">{{listOfWorkShops[2].description}}</p>
+                        <p class="text-center fw-bold h5 my-2">{{listOfWorkShops[2].title}}</p>
+                        <!-- <p class="text-center">{{listOfWorkShops[2].description}}</p> -->
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-12 mp-2">
                     <div *ngIf="listOfWorkShops[3]; else no_workshop">
                         <img class="w-100" [src]="apiUrl+ listOfWorkShops[3].photo" alt="" style="height: 250px;">
-                        <p class="text-center fw-bold h5">{{listOfWorkShops[3].title}}</p>
-                        <p class="text-center">{{listOfWorkShops[3].description}}</p>
+                        <p class="text-center fw-bold h5 my-2">{{listOfWorkShops[3].title}}</p>
+                        <!-- <p class="text-center">{{listOfWorkShops[3].description}}</p> -->
                     </div>
                 </div>
             </div>
@@ -635,8 +712,9 @@
 
             <div class="row">
                 <div class="col-md-6 col-sm-12 text-end my-2">
-                    <button class="btn-green px-3 py-1" [ngClass]="{'w-100' : isMobile}">
-                        DOWNLOAD SALES BROCHURE
+                    <button class="btn-green px-3 py-1 upper-case" [ngClass]="{'w-100' : isMobile}"
+                        routerLink="/forms/speaker">
+                        become speaker and register
                     </button>
                 </div>
                 <div class="col-md-4 col-sm-12 text-start my-2">
@@ -684,7 +762,8 @@
                         <div class="col-md-2 col-sm-12 text-center align-content-center my-1 justify-items-center"
                             *ngFor="let exhibitor of platinumExhibitors">
                             <div class="sponsors-img-container p-2 align-content-center">
-                                <img *ngIf="exhibitor.logo" src="{{apiUrl}}{{exhibitor.logo.slice(1)}}" alt="" style="max-width: 100%;">
+                                <img *ngIf="exhibitor.logo" src="{{apiUrl}}{{exhibitor.logo.slice(1)}}" alt=""
+                                    style="max-width: 100%;">
 
                             </div>
                         </div>
@@ -697,7 +776,8 @@
                         <div class="col-md-2 col-sm-12 text-center align-content-center my-1 justify-items-center"
                             *ngFor="let exhibitor of silverExhibitors">
                             <div class="sponsors-img-container p-2 align-content-center">
-                                <img *ngIf="exhibitor.logo" src="{{apiUrl}}{{exhibitor.logo.slice(1)}}" alt="" style="max-width: 100%;">
+                                <img *ngIf="exhibitor.logo" src="{{apiUrl}}{{exhibitor.logo.slice(1)}}" alt=""
+                                    style="max-width: 100%;">
 
                             </div>
                         </div>
@@ -729,44 +809,44 @@
                 <div class="bb-gray">
                     <p class="text-secondary">Platinum</p>
                     <div class="row my-2">
-                        <div class="col-md-2 col-sm-12 text-center align-content-center my-1 justify-items-center">
+                        <div class="col-md-2 col-sm-6 text-center align-content-center my-1 justify-items-center">
                             <div class="sponsors-img-container ">
                                 <img class="w-100" src="../../assets/images/sponsors/New folder/1-removebg-preview.png"
                                     alt="">
                             </div>
                         </div>
-                        <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
+                        <div class="col-md-2 col-sm-6 text-center align-content-center my-1  justify-items-center">
                             <div class="sponsors-img-container">
                                 <img class="w-100" src="../../assets/images/sponsors/New folder/1-removebg-preview.png"
                                     alt="">
                             </div>
                         </div>
-                        <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
+                        <div class="col-md-2 col-sm-6 text-center align-content-center my-1  justify-items-center">
                             <div class="sponsors-img-container p-2">
                                 <img class="w-100" src="../../assets/images/sponsors/New folder/2-removebg-preview.png"
                                     alt="">
                             </div>
                         </div>
-                        <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
+                        <div class="col-md-2 col-sm-6 text-center align-content-center my-1  justify-items-center">
                             <div class="sponsors-img-container p-2">
                                 <img class="w-100" src="../../assets/images/sponsors/New folder/3-removebg-preview.png"
                                     alt="">
                             </div>
                         </div>
-                        <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
+                        <div class="col-md-2 col-sm-6 text-center align-content-center my-1  justify-items-center">
                             <div class="sponsors-img-container p-2">
                                 <img class="w-100" src="../../assets/images/sponsors/New folder/4-removebg-preview.png"
                                     alt="">
                             </div>
                         </div>
-                        <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
+                        <div class="col-md-2 col-sm-6 text-center align-content-center my-1  justify-items-center">
                             <div class="sponsors-img-container p-2">
                                 <img class="w-100" src="../../assets/images/sponsors/New folder/5-removebg-preview.png"
                                     alt="">
                             </div>
                         </div>
 
-                        <div class="col-md-2 col-sm-12 text-center align-content-center my-1  justify-items-center">
+                        <div class="col-md-2 col-sm-6 text-center align-content-center my-1  justify-items-center">
                             <div class="sponsors-img-container p-2">
                                 <img class="w-100" src="../../assets/images/sponsors/New folder/6-removebg-preview.png"
                                     alt="">
@@ -881,8 +961,6 @@
     </div>
 </div>
 
-
-
 <ng-template #videoContent>
     <div class="justify-items-center">
         <pre [innerHtml]="selectedVideo"> </pre>
@@ -891,9 +969,9 @@
 
 <ng-template #no_workshop>
     <img class="w-100" style="height: 250px;" src="../../assets/images/builder-structure-075.avif" alt="">
-    <p class="text-center fw-bold h5">Title</p>
-    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium voluptas veritatis
-        aliquid impedit ipsam iure.</p>
+    <p class="text-center fw-bold h5 my-2">Title</p>
+    <!-- <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium voluptas veritatis
+        aliquid impedit ipsam iure.</p> -->
 </ng-template>
 
 

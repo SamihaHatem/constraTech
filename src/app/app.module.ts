@@ -21,6 +21,7 @@ import { SpeakersComponent } from './speakers/speakers.component';
 import { HomeContentComponent } from './home-content/home-content.component';
 import { WorkshopsComponent } from './workshops/workshops.component';
 import { GalleryComponent } from './gallery/gallery.component';
+import { MainTopicsComponent } from './main-topics/main-topics.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { GalleryComponent } from './gallery/gallery.component';
     HomeContentComponent,
     WorkshopsComponent,
     GalleryComponent,
+    MainTopicsComponent,
   ],
   imports: [
     BrowserModule,

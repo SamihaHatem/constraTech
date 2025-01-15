@@ -1,0 +1,109 @@
+.main-topic-container {
+    position: relative;
+    transition: all 100ms ease-in-out;
+}
+
+.main-topic-container .my-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.main-topic-container img {
+    height: 200px;
+    width: 100%;
+    filter: grayscale(1);
+    transition: all 0.3s ease-in;
+    transition-delay: 0.4s;
+}
+
+.main-topic-container .my-child p {
+    width: fit-content;
+    margin: auto;
+    transition: all 0.3s ease-in-out;
+}
+
+.main-topic-container:hover .my-child p {
+    background-color: var(--constraTech-green-darker);
+}
+
+.main-topic-container .overlay {
+    background: #000000b8;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.main-topic-container:hover .overlay {
+    background: #000000cc;
+    position: absolute;
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+
+.main-topic-container:hover {
+    z-index: 2;
+    transform: scale(1.15);
+}
+
+.main-topic-container:hover img {
+    filter: grayscale(0);
+}
+
+
+.my-title p {
+    text-align: center;
+
+    text-transform: uppercase;
+    font-size: 26px;
+    letter-spacing: 1px;
+
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-rows: 16px 0;
+    grid-gap: 22px;
+}
+
+.my-title p:after,
+.my-title p:before {
+    content: " ";
+    display: block;
+    border-bottom: 2px solid #ccc;
+    background-color: #f8f8f8;
+}
+
+.btn-green {
+    background-color: var(--constraTech-green-darker);
+    color: white;
+    border: 1px solid var(--constraTech-green-darker);
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-green:hover {
+    background-color: white;
+    color: var(--constraTech-green-darker);
+}
+
+.btn-gray {
+    background-color: var(--constraTech-orange);
+    color: white;
+    border: 1px solid var(--constraTech-orange);
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-gray:hover {
+    background-color: white;
+    color: var(--constraTech-orange);
+}

@@ -67,7 +67,7 @@ export class VisitorComponent {
 
 
   async img64() {
-    var res = await fetch('../../../../../assets/images/Screenshot 2024-12-28 205332.png');
+    var res = await fetch('../../../../../assets/images/Linkedin post.jpg');
     var blob = await res.blob();
 
     return new Promise((resolve, reject) => {
@@ -85,7 +85,12 @@ export class VisitorComponent {
 
   async shareLinkedin() {
     const img = await this.img64()
-    let reqBody = { fileName: 'asasasas', text: '123', imageBinary: img, access_token: "AQU3-53dgV20XxVV6ZmxITKEYbEur7-p1dxLz19GyaV8AzlUXNSqlbPLiC6jeBuIWWYu3LaBY5gOIg1OTNJqOX_tcuIeeNdBN6dg_g2YJi7wFAgHkHp6w0Vq2bZEgZR1QoTJxYw164KXuAuq0FYw7ZFkmgq1w-_H5lrMnNrBZT0lKx0MIRpP8dFxZ3spU3HVQ2V5UXQGqucEMOkzrVPUpWcQ_wty07rA45N-xSSoqT1Lb563e4tUmJXChxySk2rtKEyow7MpDlpT5cQHU0z0XfU24XZB4yLoOYuyVCDQ3JJC3RNMieZpIX1edjUgWFXK0jw9JMavO0uGNuwzjvIL1ytSDz4dJw" }
+    let reqBody = {
+      fileName: 'constraTech', text: `Join me for four three of exclusive networking and discovery with global construction & design community at ConstraTech 2025. This year, enjoy new experiences, Conference, Exhibtions, workshops & talks. 
+Register to get your badge now (registration Link)
+See you there 25-26-27 May 2025
+#constratech25 - #constratech`, imageBinary: img, access_token: "AQU3-53dgV20XxVV6ZmxITKEYbEur7-p1dxLz19GyaV8AzlUXNSqlbPLiC6jeBuIWWYu3LaBY5gOIg1OTNJqOX_tcuIeeNdBN6dg_g2YJi7wFAgHkHp6w0Vq2bZEgZR1QoTJxYw164KXuAuq0FYw7ZFkmgq1w-_H5lrMnNrBZT0lKx0MIRpP8dFxZ3spU3HVQ2V5UXQGqucEMOkzrVPUpWcQ_wty07rA45N-xSSoqT1Lb563e4tUmJXChxySk2rtKEyow7MpDlpT5cQHU0z0XfU24XZB4yLoOYuyVCDQ3JJC3RNMieZpIX1edjUgWFXK0jw9JMavO0uGNuwzjvIL1ytSDz4dJw"
+    }
     console.log(reqBody)
     this.visitorService.shareToLinkedIn(reqBody).subscribe((response: any) => {
       console.log(response)
