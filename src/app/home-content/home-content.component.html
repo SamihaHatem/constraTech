@@ -161,13 +161,13 @@
                     <div class="col-md-6 col-sm-12 text-center my-2">
                         <button class="btn-green px-3 py-1 upper-case" [ngClass]="{'w-100' : isMobile}"
                             routerLink="/forms/speaker">
-                            become speaker and register
+                            become speaker
                         </button>
                     </div>
                     <div class="col-md-4 col-sm-12 text-center my-2">
                         <button class="btn-gray px-3 py-1" [ngClass]="{'w-100' : isMobile}"
                             routerLink="/forms/visitor/registration">
-                            BOOK YOUR STAND
+                            REGISTER
                         </button>
                     </div>
                 </div>
@@ -246,13 +246,13 @@
                     <div class="col-md-6 col-sm-12 text-center my-2">
                         <button class="btn-green px-3 py-1 upper-case" [ngClass]="{'w-100' : isMobile}"
                             routerLink="/forms/speaker">
-                            become speaker and register
+                            become speaker
                         </button>
                     </div>
                     <div class="col-md-4 col-sm-12 text-center my-2">
                         <button class="btn-gray px-3 py-1" [ngClass]="{'w-100' : isMobile}"
                             routerLink="/forms/visitor/registration">
-                            BOOK YOUR STAND
+                            REGISTER
                         </button>
                     </div>
                 </div>
@@ -301,13 +301,13 @@
                         <div class="col-md-6 col-sm-12 text-center my-2">
                             <button class="btn-green px-3 py-1 upper-case" [ngClass]="{'w-100' : isMobile}"
                                 routerLink="/forms/speaker">
-                                become speaker and register
+                                become speaker
                             </button>
                         </div>
                         <div class="col-md-4 col-sm-12 text-center my-2">
                             <button class="btn-gray px-3 py-1" [ngClass]="{'w-100' : isMobile}"
                                 routerLink="/forms/visitor/registration">
-                                BOOK YOUR STAND
+                                REGISTER
                             </button>
                         </div>
                     </div>
@@ -592,7 +592,7 @@
             <p class="h2">Speakers list</p>
 
             <div class="row">
-                <div class="col-md-4 col-sm-6" *ngFor="let speaker of listOfSpeakers">
+                <div class="col-md-3 col-sm-6" *ngFor="let speaker of listOfSpeakers">
                     <div *ngIf="speaker ; else noSpeaker">
                         <div class="speaker-container">
                             <img [src]="apiUrl + speaker.photo_path.slice(1)" alt="{{ speaker.fullname }}"
@@ -714,13 +714,13 @@
                 <div class="col-md-6 col-sm-12 text-end my-2">
                     <button class="btn-green px-3 py-1 upper-case" [ngClass]="{'w-100' : isMobile}"
                         routerLink="/forms/speaker">
-                        become speaker and register
+                        become speaker
                     </button>
                 </div>
                 <div class="col-md-4 col-sm-12 text-start my-2">
                     <button class="btn-gray px-3 py-1" [ngClass]="{'w-100' : isMobile}"
                         routerLink="/forms/visitor/registration">
-                        BOOK YOUR STAND
+                        REGISTER
                     </button>
                 </div>
             </div>

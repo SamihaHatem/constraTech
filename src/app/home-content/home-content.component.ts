@@ -139,7 +139,7 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
     })
   }
 
-  listOfSpeakers: any[] = [false, false, false]
+  listOfSpeakers: any[] = [false, false, false , false ]
   getActiveSpeakers() {
     this.contentServices.getTopFiveSpeakers().subscribe((response: any) => {
       console.log(response)
