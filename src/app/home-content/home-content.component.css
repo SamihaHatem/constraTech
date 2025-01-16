@@ -29,6 +29,7 @@
 .banner-child {
     position: absolute;
     top: 0;
+    background-color: #000000a8;
 }
 
 .banner-child .overlay {
@@ -193,12 +194,12 @@ iframe {
     border-radius: 50%;
     overflow: hidden;
     box-shadow: 1px 1px 4px 1px #d5d5d5;
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     margin: auto;
 }
 
-#workshop .h5{
+#workshop .h5 {
     color: var(--constraTech-green-darker);
 }
 
@@ -286,7 +287,7 @@ iframe {
     height: 200px;
     width: 100%;
     filter: grayscale(1);
-    transition: all 0.3s ease-in ;
+    transition: all 0.3s ease-in;
     transition-delay: 0.4s;
 }
 
@@ -333,20 +334,22 @@ iframe {
 
 
 .my-title p {
-    text-align:center;
-   
-    text-transform:uppercase;
-    font-size:26px; letter-spacing:1px;
-    
+    text-align: center;
+
+    text-transform: uppercase;
+    font-size: 26px;
+    letter-spacing: 1px;
+
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     grid-template-rows: 16px 0;
     grid-gap: 22px;
-  }
-  
-  .my-title p:after,.my-title p:before {
+}
+
+.my-title p:after,
+.my-title p:before {
     content: " ";
     display: block;
     border-bottom: 2px solid #ccc;
-    background-color:#f8f8f8;
-  }
+    background-color: #f8f8f8;
+}

@@ -1,4 +1,4 @@
 export const baseUrl = {
-    apiUrl: 'https://api.constratech.org/',
+    apiUrl: 'http://localhost:5000/',
     myfatoorahApiUrl: 'https://apitest.myfatoorah.com/v2/'
 }

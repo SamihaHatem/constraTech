@@ -96,3 +96,7 @@ body {
 .w-60 {
     width: 60% !important;
 }
+
+.position-static {
+    position: static !important;
+}

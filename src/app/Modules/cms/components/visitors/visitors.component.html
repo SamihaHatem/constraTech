@@ -35,36 +35,105 @@
                     <p class="text-secondary text-center fs-small py-3">Currently, there is no information to show.</p>
                 </div>
             </div>
-            <div class="card p-2 my-2" *ngFor="let visitor of listOfvisitors" [ngClass]="{'bg-pending': visitor.status == 'Pending' , 'bg-rejected' : visitor.status == 'Rejected'
+
+            <div class="my-2" *ngIf="listOfvisitors.length > 0">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Company</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Mobile</th>
+                            <th>Position</th>
+                            <th>Status</th>
+                            <th>Facebook</th>
+                            <th>Linkedin</th>
+                            <th>Website</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let visitor of listOfvisitors; let i= index">
+
+                            <td [ngClass]="{'bg-pending': visitor.status == 'Pending' , 'bg-rejected' : visitor.status == 'Rejected'
+                        , 'bg-confirmed' : visitor.status == 'Confirmed'}">{{i+1}}</td>
+
+                            <td [ngClass]="{'bg-pending': visitor.status == 'Pending' , 'bg-rejected' : visitor.status == 'Rejected'
+                        , 'bg-confirmed' : visitor.status == 'Confirmed'}">{{visitor.company_name}}</td>
+
+                            <td [ngClass]="{'bg-pending': visitor.status == 'Pending' , 'bg-rejected' : visitor.status == 'Rejected'
+                        , 'bg-confirmed' : visitor.status == 'Confirmed'}">{{visitor.fullname}}</td>
+
+                            <td [ngClass]="{'bg-pending': visitor.status == 'Pending' , 'bg-rejected' : visitor.status == 'Rejected'
+                        , 'bg-confirmed' : visitor.status == 'Confirmed'}">{{visitor.email}}</td>
+
+                            <td [ngClass]="{'bg-pending': visitor.status == 'Pending' , 'bg-rejected' : visitor.status == 'Rejected'
+                        , 'bg-confirmed' : visitor.status == 'Confirmed'}">{{visitor.mobile_no}}</td>
+
+                            <td [ngClass]="{'bg-pending': visitor.status == 'Pending' , 'bg-rejected' : visitor.status == 'Rejected'
+                        , 'bg-confirmed' : visitor.status == 'Confirmed'}">{{visitor.position}}</td>
+
+                            <td [ngClass]="{'bg-pending': visitor.status == 'Pending' , 'bg-rejected' : visitor.status == 'Rejected'
+                        , 'bg-confirmed' : visitor.status == 'Confirmed'}">{{visitor.status}}</td>
+
+                            <td [ngClass]="{'bg-pending': visitor.status == 'Pending' , 'bg-rejected' : visitor.status == 'Rejected'
+                        , 'bg-confirmed' : visitor.status == 'Confirmed'}">
+                                <a *ngIf="visitor.facebook" href="{{visitor.facebook}}">facebook</a>
+                            </td>
+
+                            <td [ngClass]="{'bg-pending': visitor.status == 'Pending' , 'bg-rejected' : visitor.status == 'Rejected'
+                        , 'bg-confirmed' : visitor.status == 'Confirmed'}">
+                                <a *ngIf="visitor.linkedin" href="{{visitor.linkedin}}">linkedin</a>
+                            </td>
+
+                            <td [ngClass]="{'bg-pending': visitor.status == 'Pending' , 'bg-rejected' : visitor.status == 'Rejected'
+                        , 'bg-confirmed' : visitor.status == 'Confirmed'}">
+                                <a *ngIf="visitor.website" href="{{visitor.website}}">website</a>
+                            </td>
+
+                            <td style="text-align: center; align-content: center;" [ngClass]="{'bg-pending': visitor.status == 'Pending' , 'bg-rejected' : visitor.status == 'Rejected'
+                            , 'bg-confirmed' : visitor.status == 'Confirmed'}">
+                                <button class="fs-small m-0 p-0" mat-icon-button [matMenuTriggerFor]="menu"
+                                    aria-label="Example icon-button with a menu">
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </button>
+                                <mat-menu #menu="matMenu">
+                                    <!-- <a id="item1" class=" p-0 m-0 h-100 d-block px-1" mat-menu-item
+                                        (click)="openModal(contactInfoContent , visitor)">
+                                        <p style="font-weight: 500;" class="px-1 p-0 m-0" id="mat-item-cutom">contact
+                                            info</p>
+                                    </a> -->
+
+                                    <a id="item1" class=" p-0 m-0 h-100 d-block px-1" mat-menu-item
+                                        *ngIf="visitor.status == 'Rejected' || visitor.status=='Pending'"
+                                        (click)="confirmVisitor('Confirmed' , visitor._id)">
+                                        <p style="font-weight: 500;" class="px-1 p-0 m-0" id="mat-item-cutom">confirm
+                                        </p>
+                                    </a>
+
+                                    <a id="item1" class=" p-0 m-0 h-100 d-block px-1" mat-menu-item
+                                        *ngIf="visitor.status == 'Confirmed' || visitor.status=='Pending'"
+                                        (click)="confirmVisitor('Rejected' , visitor._id)">
+                                        <p style="font-weight: 500;" class="px-1 p-0 m-0" id="mat-item-cutom">reject
+                                        </p>
+                                    </a>
+                                </mat-menu>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- <div class="card p-2 my-2" *ngFor="let visitor of listOfvisitors" [ngClass]="{'bg-pending': visitor.status == 'Pending' , 'bg-rejected' : visitor.status == 'Rejected'
              , 'bg-confirmed' : visitor.status == 'Confirmed'}">
                 <div class="row">
-
-                    <div class="col-md-6 col-sm-12" *ngIf="visitor.company_name">
-                        <p><span class="fw-bold">Company Name:</span> {{visitor.company_name}}</p>
-                    </div>
-
-                    <div class="col-md-6 col-sm-12" *ngIf="visitor.email">
-                        <p><span class="fw-bold">Email:</span> {{visitor.email}}</p>
-                    </div>
-
-                    <div class="col-md-6 col-sm-12" *ngIf="visitor.fullname">
-                        <p><span class="fw-bold">Name:</span> {{visitor.fullname}}</p>
-                    </div>
 
                     <div class="col-md-6 col-sm-12" *ngIf="visitor.mobile_no">
                         <p><span class="fw-bold">Mobile:</span> {{visitor.mobile_no}}</p>
                     </div>
 
-                    <div class="col-md-6 col-sm-12" *ngIf="visitor.position">
-                        <p><span class="fw-bold">Position:</span> {{visitor.position}}</p>
-                    </div>
-
                     <div class="col-md-6 col-sm-12" *ngIf="visitor.website">
                         <p><span class="fw-bold">Website:</span> {{visitor.website}}</p>
-                    </div>
-
-                    <div class="col-md-6 col-sm-12" *ngIf="visitor.status">
-                        <p><span class="fw-bold">Status:</span> {{visitor.status}}</p>
                     </div>
 
                     <div class="col-md-6 col-sm-12" *ngIf="visitor.facebook">
@@ -82,12 +151,11 @@
                     </div>
 
                     <div class="text-center">
-                        <button class="px-2 py-1" (click)="openModal(updateContent , visitor)">Update</button>
+                        <button class="px-2 py-1 button" (click)="openModal(updateContent , visitor)">Update</button>
                     </div>
 
                 </div>
-
-            </div>
+            </div> -->
         </div>
 
     </div>
@@ -107,8 +175,30 @@
             <!-- payment -->
         </div>
 
-        <div class="text-center my-2">
-            <button (click)="confirmVisitor()">Submit</button>
+        <!-- <div class="text-center my-2">
+            <button class="button" (click)="confirmVisitor()">Submit</button>
+        </div> -->
+    </div>
+</ng-template>
+
+<ng-template #contactInfoContent>
+    <div class="p-3 bg-white">
+        <p class="text-center h5">{{selectedVisitor.fullname}}</p>
+
+        <div class="row">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Facebook</th>
+                        <th>Linkedin</th>
+                        <th>Website</th>
+                    </tr>
+                </thead>
+            </table>
+            <div class="col-md-6 col-lg-6 col-sm-12 col-12">
+                <a href="{{selectedVisitor.facebook}}"> <i class="fa-brands fa-facebook text-primary"></i> </a>
+            </div>
+
         </div>
     </div>
 </ng-template>

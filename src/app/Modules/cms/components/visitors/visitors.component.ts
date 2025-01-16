@@ -60,10 +60,9 @@ export class VisitorsComponent implements OnInit {
     this.statusList = this.visitorsServicers.getVisitorsStatusList();
   }
 
-  confirmVisitor() {
-    const reqBody: { visitor_id: any, status?: any, payment?: any } = { visitor_id: this.selectedVisitor._id }
-    if (this.selectedVisitor.status) reqBody.status = this.selectedVisitor.status
-    if (this.selectedVisitor.payment) reqBody.payment = this.selectedVisitor.payment
+  confirmVisitor(status: any, visitor_id: any) {
+    const reqBody: { visitor_id: any, status?: any, payment?: any } = { visitor_id, status }
+    // if (this.selectedVisitor.payment) reqBody.payment = this.selectedVisitor.payment
     console.log(reqBody)
 
     this.visitorsServicers.confirmVisitor(reqBody).subscribe((response: any) => {
@@ -71,7 +70,7 @@ export class VisitorsComponent implements OnInit {
       Swal.fire({
         title: response.message,
         icon: 'success'
-      }).then(()=>{
+      }).then(() => {
         this.modalServices.dismissAll()
         this.getAllVisitors()
       })
@@ -80,7 +79,7 @@ export class VisitorsComponent implements OnInit {
       Swal.fire({
         title: 'Error',
         icon: 'error'
-      }).then(()=>{
+      }).then(() => {
         this.modalServices.dismissAll()
         this.getAllVisitors()
       })

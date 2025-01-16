@@ -1,21 +1,42 @@
 .bg-pending {
     background: #fbfbb7d0;
-    border: 2px solid #e0e056de;
 }
 
 .bg-rejected {
     background: #ebebebe9;
-    border: 2px solid #848181e4;
 }
 
 .bg-confirmed {
     background: #ceffe0dd;
-    border: 2px solid #34f67bc8;
 }
 
-button {
+.button {
     background-color: var(--constraTech-dark-blue);
     border: var(--constraTech-dark-blue);
     color: white;
     border-radius: 5px;
+}
+
+
+.mat-mdc-icon-button .mat-mdc-button-touch-target {
+    top: 0% !important;
+    height: 0 !important;
+    left: 0 !important;
+    width: 0 !important;
+}
+
+.mat-mdc-menu-item {
+    min-height: 100%;
+}
+
+#mat-item-cutom {
+    font-size: 13px !important;
+}
+
+#item1:hover {
+    color: blue;
+}
+
+.mat-mdc-icon-button.mat-mdc-button-base {
+    --mdc-icon-button-state-layer-size: 20px;
 }

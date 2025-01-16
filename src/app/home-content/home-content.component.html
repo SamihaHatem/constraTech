@@ -591,44 +591,132 @@
         <div class="w-90 mx-auto">
             <p class="h2">Speakers list</p>
 
-            <div class="row">
-                <div class="col-md-3 col-sm-6" *ngFor="let speaker of listOfSpeakers">
-                    <div *ngIf="speaker ; else noSpeaker">
-                        <div class="speaker-container">
-                            <img [src]="apiUrl + speaker.photo_path.slice(1)" alt="{{ speaker.fullname }}"
-                                style="height: 100%; width: 100%;">
-                            <div class="speaker-content p-2 align-content-end">
+                <div class="row my-3">
+                    <div class="speaker-container col-2 p-0" *ngFor="let speaker of listOfSpeakers">
+                        <img [src]="apiUrl + speaker.photo_path.slice(1)" class="d-block w-100 h-100" alt="...">
+                        <div class="p-2 align-content-end">
+                            <div class="speaker-content">
                                 <div>
-                                    <div>
-                                        <p class="text-center m-0">{{speaker.position}} at {{speaker.company_name}}</p>
+                                    <p class="text-center m-0">position at company_name</p>
 
-                                        <div class="text-center my-2">
-                                            <p class="m-0">{{ speaker.mobile_no }}</p>
-                                            <p class="m-0">{{ speaker.email }}</p>
-                                        </div>
-
-                                        <div class="text-center">
-                                            <a class="mx-3" target="_blank" href="{{speaker.facebook}}"><i
-                                                    class="fa-brands fa-facebook-f text-white"></i></a>
-                                            <a class="mx-3" target="_blank" href="{{speaker.linkedin}}"><i
-                                                    class="fa-brands fa-linkedin-in text-white"></i></a>
-                                            <a class="mx-3" target="_blank" href="{{speaker.website}}"><i
-                                                    class="fa-solid fa-globe text-white"></i></a>
-                                        </div>
-
+                                    <div class="text-center my-2">
+                                        <p class="m-0">speaker.mobile_no</p>
+                                        <p class="m-0">speaker.email</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <a class="mx-3" target="_blank" href=""><i
+                                                class="fa-brands fa-facebook-f text-white"></i></a>
+                                        <a class="mx-3" target="_blank" href=""><i
+                                                class="fa-brands fa-linkedin-in text-white"></i></a>
+                                        <a class="mx-3" target="_blank" href=""><i
+                                                class="fa-solid fa-globe text-white"></i></a>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
-                        <p class="text-center fw-bold">{{ speaker.fullname }}</p>
                     </div>
+                    
+
+                    <!-- <div class="speaker-container col-2 p-0">
+                        <img src="../../assets/images/0.jpg" class="d-block w-100 h-100" alt="...">
+                        <div class="speaker-content p-2 align-content-end">
+                            <div>
+                                <div>
+                                    <p class="text-center m-0">position at company_name</p>
+
+                                    <div class="text-center my-2">
+                                        <p class="m-0">speaker.mobile_no</p>
+                                        <p class="m-0">speaker.email</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <a class="mx-3" target="_blank" href=""><i
+                                                class="fa-brands fa-facebook-f text-white"></i></a>
+                                        <a class="mx-3" target="_blank" href=""><i
+                                                class="fa-brands fa-linkedin-in text-white"></i></a>
+                                        <a class="mx-3" target="_blank" href=""><i
+                                                class="fa-solid fa-globe text-white"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="speaker-container col-2 p-0">
+                        <img src="../../assets/images/0.jpg" class="d-block w-100 h-100" alt="...">
+                        <div class="speaker-content p-2 align-content-end">
+                            <div>
+                                <div>
+                                    <p class="text-center m-0">position at company_name</p>
+
+                                    <div class="text-center my-2">
+                                        <p class="m-0">speaker.mobile_no</p>
+                                        <p class="m-0">speaker.email</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <a class="mx-3" target="_blank" href=""><i
+                                                class="fa-brands fa-facebook-f text-white"></i></a>
+                                        <a class="mx-3" target="_blank" href=""><i
+                                                class="fa-brands fa-linkedin-in text-white"></i></a>
+                                        <a class="mx-3" target="_blank" href=""><i
+                                                class="fa-solid fa-globe text-white"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="speaker-container col-2 p-0">
+                        <img src="../../assets/images/0.jpg" class="d-block w-100 h-100" alt="...">
+                        <div class="speaker-content p-2 align-content-end">
+                            <div>
+                                <div>
+                                    <p class="text-center m-0">position at company_name</p>
+
+                                    <div class="text-center my-2">
+                                        <p class="m-0">speaker.mobile_no</p>
+                                        <p class="m-0">speaker.email</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <a class="mx-3" target="_blank" href=""><i
+                                                class="fa-brands fa-facebook-f text-white"></i></a>
+                                        <a class="mx-3" target="_blank" href=""><i
+                                                class="fa-brands fa-linkedin-in text-white"></i></a>
+                                        <a class="mx-3" target="_blank" href=""><i
+                                                class="fa-solid fa-globe text-white"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="speaker-container col-2 p-0">
+                        <img src="../../assets/images/0.jpg" class="d-block w-100 h-100" alt="...">
+                        <div class="speaker-content p-2 align-content-end">
+                            <div>
+                                <div>
+                                    <p class="text-center m-0">position at company_name</p>
+
+                                    <div class="text-center my-2">
+                                        <p class="m-0">speaker.mobile_no</p>
+                                        <p class="m-0">speaker.email</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <a class="mx-3" target="_blank" href=""><i
+                                                class="fa-brands fa-facebook-f text-white"></i></a>
+                                        <a class="mx-3" target="_blank" href=""><i
+                                                class="fa-brands fa-linkedin-in text-white"></i></a>
+                                        <a class="mx-3" target="_blank" href=""><i
+                                                class="fa-solid fa-globe text-white"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
                 </div>
 
-                <div class="text-center">
-                    <button class="btn-green px-3 py-1" [ngClass]="{'w-90' : isMobile}" routerLink="/home/speakers">View
-                        Speakers</button>
-                </div>
+            <div class="text-center">
+                <button class="btn-green px-3 py-1" [ngClass]="{'w-90' : isMobile}" routerLink="/home/speakers">View
+                    Speakers</button>
             </div>
         </div>
     </div>
@@ -977,33 +1065,25 @@
 
 <ng-template #noSpeaker>
 
-    <div class="speaker-container">
-        <img src="../../assets/images/builder-structure-075.avif" alt="" style="height: 100%; width: 100%;">
+    <div class="speaker-container col-2 p-0">
+        <img src="../../assets/images/0.jpg" class="d-block w-100 h-100" alt="...">
         <div class="speaker-content p-2 align-content-end">
-
             <div>
                 <div>
                     <p class="text-center m-0">position at company_name</p>
 
                     <div class="text-center my-2">
-                        <p class="m-0">mobile_no </p>
-                        <p class="m-0">speaker.email </p>
+                        <p class="m-0">speaker.mobile_no</p>
+                        <p class="m-0">speaker.email</p>
                     </div>
-
                     <div class="text-center">
-                        <a class="mx-3" target="_blank" href="speaker.facebook"><i
-                                class="fa-brands fa-facebook-f text-white"></i></a>
-                        <a class="mx-3" target="_blank" href="speaker.linkedin"><i
-                                class="fa-brands fa-linkedin-in text-white"></i></a>
-                        <a class="mx-3" target="_blank" href="speaker.website"><i
-                                class="fa-solid fa-globe text-white"></i></a>
+                        <a class="mx-3" target="_blank" href=""><i class="fa-brands fa-facebook-f text-white"></i></a>
+                        <a class="mx-3" target="_blank" href=""><i class="fa-brands fa-linkedin-in text-white"></i></a>
+                        <a class="mx-3" target="_blank" href=""><i class="fa-solid fa-globe text-white"></i></a>
                     </div>
-
                 </div>
             </div>
-
-            <!-- speech_brief / speech_title -->
         </div>
     </div>
-    <p class="text-center fw-bold">speaker name</p>
+
 </ng-template>
