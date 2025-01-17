@@ -7,10 +7,6 @@
     font-size: 2.313rem;
 }
 
-.vh-75 {
-    height: 100vh !important;
-}
-
 .banner-child .content .link:hover i {
     margin-left: 10px;
 }
@@ -44,7 +40,7 @@
     line-height: 1.187rem;
 }
 
-.banner-child .content2 {
+.content2 {
     background-color: var(--constraTech-green-darker);
 }
 
@@ -186,7 +182,6 @@ iframe {
     align-content: center;
     line-height: 1.8;
     word-spacing: 5px;
-    letter-spacing: 1.2px;
 }
 
 .speaker-container {
@@ -213,6 +208,7 @@ iframe {
     opacity: 0;
     height: 25%;
     transform: rotate(180deg);
+    font-size: 13px;
     transition: all .3s ease-in-out, opacity .5s ease;
 }
 
@@ -240,6 +236,10 @@ iframe {
 .img-grid img {
     width: 100%;
     height: 100%;
+}
+
+.speaker-name {
+    color: var(--constraTech-green-darker);
 }
 
 .item1 {

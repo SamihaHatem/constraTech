@@ -96,7 +96,9 @@
     transition: all 0.3s ease-in-out;
 }
 
-
+.bg-black-custom{
+    background:rgba(0, 0, 0, 0.907);
+}
 
 @media (hover: none) {
     .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]):hover {

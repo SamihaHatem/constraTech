@@ -90,6 +90,33 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
     nav: true
   }
 
+  speakersOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    dots: false,
+    autoplay: true,
+    navSpeed: 300,
+    navText: ['<', '>'],
+    margin: 7,
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 4
+      },
+      940: {
+        items: 5
+      }
+    },
+    nav: true,
+
+  }
   bannerOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,

@@ -1,10 +1,10 @@
 <!-- Home -->
 <div>
     <!----- Video Banner ----->
-    <section class="banner " [ngClass]="{'vh-100':isMobile , 'vh-75':!isMobile}">
+    <section class="banner vh-100">
         <div class="video-section w-100 h-100">
             <!-- The video -->
-            <video #videoPlayer autoplay muted loop id="myVideo" [autoplay]="autoPlayFlag">
+            <video #videoPlayer autoplay muted loop id="myVideo" [autoplay]="autoPlayFlag" preload="none">
                 <source
                     src="https://www.big5constructegypt.com/wp-content/uploads/sites/21/2024/09/companies-b-roll-online-video-cutter.com-1-2.mp4"
                     type="video/mp4">
@@ -53,81 +53,82 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="content2 text-white">
-                        <div [ngClass]="{ 'd-none' : !isMobile }">
-                            <owl-carousel-o [options]="customOptions">
-                                <ng-template carouselSlide>
-                                    <div class="text-center align-content-center py-2">
-                                        <p class="h2 m-0">3000+</p>
-                                        <p class="m-0">visitors</p>
-                                    </div>
-                                </ng-template>
-
-                                <ng-template carouselSlide>
-
-                                    <div class="text-center align-content-center py-2">
-                                        <p class="h2 m-0">50+</p>
-                                        <p class="m-0">Speaker</p>
-                                    </div>
-                                </ng-template>
-
-                                <ng-template carouselSlide>
-                                    <div class="text-center align-content-center py-2">
-                                        <p class="h2 m-0">40+</p>
-                                        <p class="m-0">Exhibitors</p>
-                                    </div>
-                                </ng-template>
-
-                                <ng-template carouselSlide>
-                                    <div class="text-center align-content-center py-2">
-                                        <p class="h2 m-0">6+</p>
-                                        <p class="m-0">Panel discussions</p>
-                                    </div>
-                                </ng-template>
-
-                                <ng-template carouselSlide>
-                                    <div class="text-center align-content-center py-2">
-                                        <p class="h4 m-0">Media Coverage
-                                        </p>
-                                    </div>
-                                </ng-template>
-                            </owl-carousel-o>
-
-                        </div>
-                        <div class="w-75 d-flex mx-auto py-3" [ngClass]="{'d-none':isMobile}">
-                            <div class="w-25 text-center align-content-center">
-                                <p class="h2 m-0">3000+</p>
-                                <p class="m-0">visitors</p>
-                            </div>
-
-                            <div class="w-25 text-center align-content-center">
-                                <p class="h2 m-0">50+</p>
-                                <p class="m-0">Speaker</p>
-                            </div>
-
-                            <div class="w-25 text-center align-content-center">
-                                <p class="h4 m-0">Media Coverage
-                                </p>
-                            </div>
-
-                            <div class="w-25 text-center align-content-center">
-                                <p class="h2 m-0">40+</p>
-                                <p class="m-0">Exhibitors</p>
-                            </div>
-
-                            <div class="w-25 text-center align-content-center">
-                                <p class="h2 m-0">6+</p>
-                                <p class="m-0">Panel discussions</p>
-                            </div>
-
-
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Content 2 -->
+    <div class="content2 text-white">
+        <div [ngClass]="{ 'd-none' : !isMobile }">
+            <owl-carousel-o [options]="customOptions">
+                <ng-template carouselSlide>
+                    <div class="text-center align-content-center py-2">
+                        <p class="h2 m-0">3000+</p>
+                        <p class="m-0">visitors</p>
+                    </div>
+                </ng-template>
+
+                <ng-template carouselSlide>
+
+                    <div class="text-center align-content-center py-2">
+                        <p class="h2 m-0">50+</p>
+                        <p class="m-0">Speaker</p>
+                    </div>
+                </ng-template>
+
+                <ng-template carouselSlide>
+                    <div class="text-center align-content-center py-2">
+                        <p class="h2 m-0">40+</p>
+                        <p class="m-0">Exhibitors</p>
+                    </div>
+                </ng-template>
+
+                <ng-template carouselSlide>
+                    <div class="text-center align-content-center py-2">
+                        <p class="h2 m-0">6+</p>
+                        <p class="m-0">Panel discussions</p>
+                    </div>
+                </ng-template>
+
+                <ng-template carouselSlide>
+                    <div class="text-center align-content-center py-2">
+                        <p class="h4 m-0">Media Coverage
+                        </p>
+                    </div>
+                </ng-template>
+            </owl-carousel-o>
+
+        </div>
+        <div class="w-75 d-flex mx-auto py-3" [ngClass]="{'d-none':isMobile}">
+            <div class="w-25 text-center align-content-center">
+                <p class="h2 m-0">3000+</p>
+                <p class="m-0">visitors</p>
+            </div>
+
+            <div class="w-25 text-center align-content-center">
+                <p class="h2 m-0">50+</p>
+                <p class="m-0">Speaker</p>
+            </div>
+
+            <div class="w-25 text-center align-content-center">
+                <p class="h4 m-0">Media Coverage
+                </p>
+            </div>
+
+            <div class="w-25 text-center align-content-center">
+                <p class="h2 m-0">40+</p>
+                <p class="m-0">Exhibitors</p>
+            </div>
+
+            <div class="w-25 text-center align-content-center">
+                <p class="h2 m-0">6+</p>
+                <p class="m-0">Panel discussions</p>
+            </div>
+
+
+        </div>
+    </div>
 
     <!----- Egypt's top construction event ----->
     <div class="my-5 py-2">
@@ -165,9 +166,9 @@
                         </button>
                     </div>
                     <div class="col-md-4 col-sm-12 text-center my-2">
-                        <button class="btn-gray px-3 py-1" [ngClass]="{'w-100' : isMobile}"
+                        <button class="btn-gray px-3 py-1 upper-case" [ngClass]="{'w-100' : isMobile}"
                             routerLink="/forms/visitor/registration">
-                            REGISTER
+                            visitor register
                         </button>
                     </div>
                 </div>
@@ -181,7 +182,6 @@
             </div>
         </div>
     </div>
-
 
     <!----- Why Exhibit ----->
     <div class="my-5 py-3" id="why_exhibit">
@@ -250,9 +250,9 @@
                         </button>
                     </div>
                     <div class="col-md-4 col-sm-12 text-center my-2">
-                        <button class="btn-gray px-3 py-1" [ngClass]="{'w-100' : isMobile}"
+                        <button class="btn-gray px-3 py-1 upper-case" [ngClass]="{'w-100' : isMobile}"
                             routerLink="/forms/visitor/registration">
-                            REGISTER
+                            visitor register
                         </button>
                     </div>
                 </div>
@@ -305,9 +305,9 @@
                             </button>
                         </div>
                         <div class="col-md-4 col-sm-12 text-center my-2">
-                            <button class="btn-gray px-3 py-1" [ngClass]="{'w-100' : isMobile}"
+                            <button class="btn-gray px-3 py-1 upper-case" [ngClass]="{'w-100' : isMobile}"
                                 routerLink="/forms/visitor/registration">
-                                REGISTER
+                                visitor register
                             </button>
                         </div>
                     </div>
@@ -591,128 +591,36 @@
         <div class="w-90 mx-auto">
             <p class="h2">Speakers list</p>
 
-                <div class="row my-3">
-                    <div class="speaker-container col-2 p-0" *ngFor="let speaker of listOfSpeakers">
+            <owl-carousel-o [options]="speakersOptions">
+                <ng-template carouselSlide *ngFor="let speaker of listOfSpeakers">
+                    <div class="speaker-container">
                         <img [src]="apiUrl + speaker.photo_path.slice(1)" class="d-block w-100 h-100" alt="...">
-                        <div class="p-2 align-content-end">
-                            <div class="speaker-content">
-                                <div>
-                                    <p class="text-center m-0">position at company_name</p>
+                        <div class="">
+                            <div class="speaker-content align-content-end">
+                                <div class="p-2">
+                                    <p class="text-center m-0">{{speaker.position}} at {{speaker.company_name}}</p>
 
                                     <div class="text-center my-2">
-                                        <p class="m-0">speaker.mobile_no</p>
-                                        <p class="m-0">speaker.email</p>
+                                        <p class="m-0">{{speaker.mobile_no}}</p>
+                                        <p class="m-0">{{speaker.email}}</p>
                                     </div>
                                     <div class="text-center">
-                                        <a class="mx-3" target="_blank" href=""><i
+                                        <a class="mx-2" *ngIf="speaker.facebook" target="_blank"
+                                            href="{{speaker.facebook}}"><i
                                                 class="fa-brands fa-facebook-f text-white"></i></a>
-                                        <a class="mx-3" target="_blank" href=""><i
+                                        <a class="mx-2" *ngIf="speaker.linkedin" target="_blank"
+                                            href="{{speaker.linkedin}}"><i
                                                 class="fa-brands fa-linkedin-in text-white"></i></a>
-                                        <a class="mx-3" target="_blank" href=""><i
-                                                class="fa-solid fa-globe text-white"></i></a>
+                                        <a class="mx-2" *ngIf="speaker.website" target="_blank"
+                                            href="{{speaker.website}}"><i class="fa-solid fa-globe text-white"></i></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
-
-                    <!-- <div class="speaker-container col-2 p-0">
-                        <img src="../../assets/images/0.jpg" class="d-block w-100 h-100" alt="...">
-                        <div class="speaker-content p-2 align-content-end">
-                            <div>
-                                <div>
-                                    <p class="text-center m-0">position at company_name</p>
-
-                                    <div class="text-center my-2">
-                                        <p class="m-0">speaker.mobile_no</p>
-                                        <p class="m-0">speaker.email</p>
-                                    </div>
-                                    <div class="text-center">
-                                        <a class="mx-3" target="_blank" href=""><i
-                                                class="fa-brands fa-facebook-f text-white"></i></a>
-                                        <a class="mx-3" target="_blank" href=""><i
-                                                class="fa-brands fa-linkedin-in text-white"></i></a>
-                                        <a class="mx-3" target="_blank" href=""><i
-                                                class="fa-solid fa-globe text-white"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="speaker-container col-2 p-0">
-                        <img src="../../assets/images/0.jpg" class="d-block w-100 h-100" alt="...">
-                        <div class="speaker-content p-2 align-content-end">
-                            <div>
-                                <div>
-                                    <p class="text-center m-0">position at company_name</p>
-
-                                    <div class="text-center my-2">
-                                        <p class="m-0">speaker.mobile_no</p>
-                                        <p class="m-0">speaker.email</p>
-                                    </div>
-                                    <div class="text-center">
-                                        <a class="mx-3" target="_blank" href=""><i
-                                                class="fa-brands fa-facebook-f text-white"></i></a>
-                                        <a class="mx-3" target="_blank" href=""><i
-                                                class="fa-brands fa-linkedin-in text-white"></i></a>
-                                        <a class="mx-3" target="_blank" href=""><i
-                                                class="fa-solid fa-globe text-white"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="speaker-container col-2 p-0">
-                        <img src="../../assets/images/0.jpg" class="d-block w-100 h-100" alt="...">
-                        <div class="speaker-content p-2 align-content-end">
-                            <div>
-                                <div>
-                                    <p class="text-center m-0">position at company_name</p>
-
-                                    <div class="text-center my-2">
-                                        <p class="m-0">speaker.mobile_no</p>
-                                        <p class="m-0">speaker.email</p>
-                                    </div>
-                                    <div class="text-center">
-                                        <a class="mx-3" target="_blank" href=""><i
-                                                class="fa-brands fa-facebook-f text-white"></i></a>
-                                        <a class="mx-3" target="_blank" href=""><i
-                                                class="fa-brands fa-linkedin-in text-white"></i></a>
-                                        <a class="mx-3" target="_blank" href=""><i
-                                                class="fa-solid fa-globe text-white"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="speaker-container col-2 p-0">
-                        <img src="../../assets/images/0.jpg" class="d-block w-100 h-100" alt="...">
-                        <div class="speaker-content p-2 align-content-end">
-                            <div>
-                                <div>
-                                    <p class="text-center m-0">position at company_name</p>
-
-                                    <div class="text-center my-2">
-                                        <p class="m-0">speaker.mobile_no</p>
-                                        <p class="m-0">speaker.email</p>
-                                    </div>
-                                    <div class="text-center">
-                                        <a class="mx-3" target="_blank" href=""><i
-                                                class="fa-brands fa-facebook-f text-white"></i></a>
-                                        <a class="mx-3" target="_blank" href=""><i
-                                                class="fa-brands fa-linkedin-in text-white"></i></a>
-                                        <a class="mx-3" target="_blank" href=""><i
-                                                class="fa-solid fa-globe text-white"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-                </div>
+                    <p class="text-center speaker-name fw-bold">{{speaker.fullname}}</p>
+                </ng-template>
+            </owl-carousel-o>
 
             <div class="text-center">
                 <button class="btn-green px-3 py-1" [ngClass]="{'w-90' : isMobile}" routerLink="/home/speakers">View
@@ -782,20 +690,8 @@
                             <p class="video-img-text w-100 text-white m-0 py-2">{{slide.title}}</p>
                         </div>
 
-                        <!-- <div>
-              <div [innerHtml]="sanitizer_video(video.iframe)"></div>
-              <p>{{video.title}}</p>
-            </div> -->
                     </div>
                 </ng-template>
-
-                <!-- <div *ngFor="let video of youtube">
-          fffffff
-          <div>
-            <pre [innerHtml]="video.iframe"></pre>
-            <p>{{video.title}}</p>
-          </div>
-        </div> -->
             </owl-carousel-o>
 
             <div class="row">
@@ -806,9 +702,9 @@
                     </button>
                 </div>
                 <div class="col-md-4 col-sm-12 text-start my-2">
-                    <button class="btn-gray px-3 py-1" [ngClass]="{'w-100' : isMobile}"
+                    <button class="btn-gray px-3 py-1 upper-case" [ngClass]="{'w-100' : isMobile}"
                         routerLink="/forms/visitor/registration">
-                        REGISTER
+                        visitor register
                     </button>
                 </div>
             </div>

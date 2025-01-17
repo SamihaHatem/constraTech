@@ -34,5 +34,6 @@ nav ul {
     height: 100%;
 }
 
-
-
+.dropdown button {
+    padding: 0 !important;
+}

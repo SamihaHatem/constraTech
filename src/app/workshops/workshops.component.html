@@ -11,22 +11,24 @@
                     <p class="fw-bold h5">{{workshop.title}}</p>
                     <p class="">{{workshop.description}}</p>
 
-                    <div class="row">
-                        <div class="col-md-6 col-sm-12 text-center my-2">
-                            <button class="btn-green px-3 py-1 upper-case" [ngClass]="{'w-100' : isMobile}"
-                                routerLink="/forms/speaker">
-                                become speaker
-                            </button>
-                        </div>
-                        <div class="col-md-4 col-sm-12 text-center my-2">
-                            <button class="btn-gray px-3 py-1" [ngClass]="{'w-100' : isMobile}"
-                                routerLink="/forms/visitor/registration">
-                                REGISTER
-                            </button>
-                        </div>
-                    </div>
+
                 </div>
 
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-sm-12 text-center my-2">
+                <button class="btn-green px-3 py-1 upper-case" [ngClass]="{'w-100' : isMobile}"
+                    routerLink="/forms/speaker">
+                    become speaker
+                </button>
+            </div>
+            <div class="col-md-4 col-sm-12 text-center my-2">
+                <button class="btn-gray px-3 py-1 upper-case" [ngClass]="{'w-100' : isMobile}"
+                    routerLink="/forms/visitor/registration">
+                    visitor register
+                </button>
             </div>
         </div>
     </div>
