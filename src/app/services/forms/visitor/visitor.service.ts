@@ -55,10 +55,10 @@ export class VisitorService {
 
   facebookInit() {
     FB.init({
-      appId: '1125554722616508',  // Your Facebook App ID
+      appId: '503600565629562',  
       cookie: true,
       xfbml: true,
-      version: 'v14.0'  // Use the appropriate version
+      version: 'v14.0'  
     });
   }
 

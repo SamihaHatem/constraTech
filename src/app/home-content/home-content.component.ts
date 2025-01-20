@@ -48,20 +48,95 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
 
   videoList: any[] = [
     {
-      embed: '<iframe width="914" height="514" src="https://www.youtube.com/embed/HRJoYP8C1fE" title="ConstraTech 2024 - Haitham Elkott" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-      img: '../../assets/images/videoImgs/1.png',
-      title: 'ConstraTech 2024 - Haitham Elkott'
+      embed: '<iframe width="914" height="514" src="https://www.youtube.com/embed/SpBuvRoNOfQ?list=PLrmYpV4_zwOiwSHFsqreyW8NwYrF25KFc" title="Sherief Elabd - Oracle-Director, Global Industry &amp; Innovation Strategy- Review" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+      img: '../../assets/images/videoImgs/Sherief Elabd.jpg',
+      title: 'Sherief Elabd - Oracle-Director, Global Industry & Innovation Strategy- Review'
     },
     {
-      embed: '<iframe width="917" height="514" src="https://www.youtube.com/embed/xjoc5njN-p8?list=PLrmYpV4_zwOj19eQ9MxF6OnWXwXY8pLSg" title="ConstraTech2024 - Fareed Mesallam" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-      img: '../../assets/images/videoImgs/1.png',
-      title: 'ConstraTech2024 - Fareed Mesallam'
+      embed: '<iframe width="702" height="395" src="https://www.youtube.com/embed/CLZXZUUUwIo?list=PLrmYpV4_zwOiwSHFsqreyW8NwYrF25KFc" title="David Egan - UK - Review - CEO &amp; founder WIIG" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+      img: '../../assets/images/videoImgs/David Egan.jpg',
+      title: 'David Egan - UK - Review - CEO & founder WIIG'
     },
     {
-      embed: '<iframe width="914" height="514" src="https://www.youtube.com/embed/vQg-njILgqc?list=PLrmYpV4_zwOj19eQ9MxF6OnWXwXY8pLSg" title="ConstraTech 2024 - Emad Fayez" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-      img: '../../assets/images/videoImgs/1.png',
-      title: 'ConstraTech 2024 - Emad Fayez'
-    }
+      embed: '<iframe width="702" height="395" src="https://www.youtube.com/embed/YISZZgo4FJI?list=PLrmYpV4_zwOiwSHFsqreyW8NwYrF25KFc" title="Constratech23 Riccardo Pagani - Italy - BIMON Italy - CEO" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+      img: '../../assets/images/videoImgs/Riccardo Pagani.jpg',
+      title: 'Constratech23 Riccardo Pagani - Italy - BIMON Italy - CEO'
+    },
+    {
+      embed: '<iframe width="702" height="395" src="https://www.youtube.com/embed/hs5Jgh3t3zQ?list=PLrmYpV4_zwOiwSHFsqreyW8NwYrF25KFc" title="Constratech23  Raphael Ani PMI Review" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+      img: '../../assets/images/videoImgs/Raphael Ani.jpg',
+      title: 'Constratech23 Raphael Ani PMI Review'
+    },
+    {
+      embed: '<iframe width="702" height="395" src="https://www.youtube.com/embed/fSY1-hdBRrI?list=PLrmYpV4_zwOiwSHFsqreyW8NwYrF25KFc" title="ConstraTech23   Jonson  Regional Director Middle east - Review" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+      img: '../../assets/images/videoImgs/Jonson Regional.jpg',
+      title: 'ConstraTech23 Jonson Regional Director Middle east - Review'
+    },
+    {
+      embed: '<iframe width="702" height="395" src="https://www.youtube.com/embed/FGmPxzrLzow?list=PLrmYpV4_zwOiwSHFsqreyW8NwYrF25KFc" title="Omar Habib - Digital Delivery Manager - WIIgroup - UK- Review" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+      img: '../../assets/images/videoImgs/Omar Habib.jpg',
+      title: 'Omar Habib - Digital Delivery Manager - WIIgroup - UK- Review'
+    },
+    {
+      embed: '<iframe width="702" height="395" src="https://www.youtube.com/embed/eZYiQ_rbpm4?list=PLrmYpV4_zwOiwSHFsqreyW8NwYrF25KFc" title="Karim Hisham- Trimble Regional Technical Manager- ConstrTech Review" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+      img: '../../assets/images/videoImgs/Karim Hisham.jpg',
+      title: 'Karim Hisham- Trimble Regional Technical Manager- ConstrTech Review'
+    },
+    {
+      embed: '<iframe width="702" height="395" src="https://www.youtube.com/embed/naxj6ScyKWM?list=PLrmYpV4_zwOiwSHFsqreyW8NwYrF25KFc" title="Mahmoud Hafez- Area Business Manager- ConstrTech Review" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+      img: '../../assets/images/videoImgs/Mahmoud Hafez.jpg',
+      title: 'Mahmoud Hafez- Area Business Manager- ConstrTech Review'
+    },
+    {
+      embed: '<iframe width="702" height="395" src="https://www.youtube.com/embed/2alRfyQVuWI?list=PLrmYpV4_zwOiwSHFsqreyW8NwYrF25KFc" title="Salah Omran - Senior Projects BIM Manager and Ass. Prof. at Helwan University- ConstraTech Review" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+      img: '../../assets/images/videoImgs/Salah Omran.jpg',
+      title: 'Salah Omran - Senior Projects BIM Manager and Ass. Prof. at Helwan University- ConstraTech Review'
+    },
+    {
+      embed: '<iframe width="702" height="395" src="https://www.youtube.com/embed/-q7hsQr54yE?list=PLrmYpV4_zwOiwSHFsqreyW8NwYrF25KFc" title="Constra Tech 2024- Reviews - (Gamal Eldin Abdelhafez)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+      img: '../../assets/images/videoImgs/jamal Eldeen.jpg',
+      title: 'Constra Tech 2024- Reviews - (Gamal Eldin Abdelhafez)'
+    },
+    {
+      embed: '<iframe width="702" height="395" src="https://www.youtube.com/embed/CeCt5t8xyWA?list=PLrmYpV4_zwOiwSHFsqreyW8NwYrF25KFc" title="Constra Tech 2024- Reviews -(Noha Elsayaad)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+      img: '../../assets/images/videoImgs/Noha Elsayaad.jpg',
+      title: 'Constra Tech 2024- Reviews - (Noha Elsayaad)'
+    },
+    {
+      embed: '<iframe width="702" height="395" src="https://www.youtube.com/embed/Js9kKncmEes?list=PLrmYpV4_zwOiwSHFsqreyW8NwYrF25KFc" title="Constra Tech 2024- Reviews -(Amr Atef)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+      img: '../../assets/images/videoImgs/Amr Atef.jpg',
+      title: 'Constra Tech 2024- Reviews -(Amr Atef)'
+    },
+    {
+      embed: '<iframe width="702" height="395" src="https://www.youtube.com/embed/Ru5KIiF_7GU?list=PLrmYpV4_zwOiwSHFsqreyW8NwYrF25KFc" title="Constra Tech 2024- Reviews - (Mariam Shalakany)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+      img: '../../assets/images/videoImgs/Mariam Shalakany.jpg',
+      title: 'Constra Tech 2024- Reviews - (Mariam Shalakany)'
+    },
+    {
+      embed: '<iframe width="702" height="395" src="https://www.youtube.com/embed/U7xpHOCFfjs?list=PLrmYpV4_zwOiwSHFsqreyW8NwYrF25KFc" title="Constra Tech 2024- Reviews -(Sara Elgamal)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+      img: '../../assets/images/videoImgs/Sara Elgamal.jpg',
+      title: 'Constra Tech 2024- Reviews -(Sara Elgamal)'
+    },
+    {
+      embed: '<iframe width="702" height="395" src="https://www.youtube.com/embed/Yuik5jNiA74?list=PLrmYpV4_zwOiwSHFsqreyW8NwYrF25KFc" title="Constra Tech 2024- Reviews -(Maged Farrag)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+      img: '../../assets/images/videoImgs/Maged Farrag.jpg',
+      title: 'Maged Farrag'
+    },
+    {
+      embed: '<iframe width="702" height="395" src="https://www.youtube.com/embed/e_iRfwFP9cs?list=PLrmYpV4_zwOiwSHFsqreyW8NwYrF25KFc" title="Constra Tech 2024- Reviews - (Mohamad Ezzeldin)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+      img: '../../assets/images/videoImgs',
+      title: 'Constra Tech 2024- Reviews - (Mohamad Ezzeldin)'
+    },
+    {
+      embed: '<iframe width="702" height="395" src="https://www.youtube.com/embed/q6-hlPZ9xpk?list=PLrmYpV4_zwOiwSHFsqreyW8NwYrF25KFc" title="Constra Tech 2024- Reviews -(Asem Salah)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+      img: '../../assets/images/videoImgs/Asem Salah.jpg',
+      title: 'Constra Tech 2024- Reviews -(Asem Salah)'
+    },
+    {
+      embed: '<iframe width="702" height="395" src="https://www.youtube.com/embed/qWKV2M2EXtg?list=PLrmYpV4_zwOiwSHFsqreyW8NwYrF25KFc" title="Constra Tech 2024- Reviews -(Sofia Guedes Vaz)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+      img: '../../assets/images/videoImgs/Sofia Guedes Vaz.jpg',
+      title: 'Constra Tech 2024- Reviews -(Sofia Guedes Vaz)'
+    },
   ]
   customOptions: OwlOptions = {
     loop: true,
