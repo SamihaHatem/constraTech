@@ -129,7 +129,7 @@ See you there 25-26-27 May 2025
 Register to get your badge now (registration Link)
 See you there 25-26-27 May 2025
 #constratech25 - #constratech`;
-    const photoUrl = 'https://hips.hearstapps.com/hmg-prod/images/spring-flowers-65de4a13478ee.jpg?crop=0.668xw:1.00xh;0.287xw,0&resize=1200:*';  // Replace with the URL of the photo
+    const photoUrl = '../../../../../assets/images/Linkedin post.jpg';  // Replace with the URL of the photo
     this.visitorService.shareTextAndPhoto(message, photoUrl);
   }
 

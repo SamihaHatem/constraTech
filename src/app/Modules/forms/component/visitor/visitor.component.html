@@ -28,7 +28,6 @@
                 <input id="duration" value="1000" type="number" min="0" step="100" #duration>
             </div>
 
-            <button (click)="shareOnFacebook()">facebook</button>
 
 
             <div class="mx-auto card my-5 py-2" [ngClass]="{'w-100' : isMobile , 'w-50' : !isMobile}">
@@ -299,8 +298,11 @@
             <img class="w-100" src="../../../../../assets/images/Linkedin post.jpg" alt="">
         </div>
         <div class="text-center">
-            <button class="text-center linkedin my-2 px2 py-1" (click)="linkedinAuth()">
+            <button class="text-center linkedin m-2 px-2 py-1" (click)="linkedinAuth()">
                 LinkenIn <i class="fa-brands fa-linkedin-in"></i></button>
+
+            <button class="text-center linkedin m-2 px-2 py-1" (click)="shareOnFacebook()">Facebook <i class="fa-brands fa-facebook"></i></button>
+
         </div>
     </div>
 </ng-template>

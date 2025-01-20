@@ -67,6 +67,8 @@ export class VisitorService {
       method: 'feed',
       link: 'https://constratech.org/',
       caption: message,
+      message:message,
+      quote:message,
       picture: photoUrl,
     }, function (response: any) {
       console.log(response)
