@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { baseUrl } from 'src/baseUrl';
+declare var FB: any;
 
 @Injectable({
   providedIn: 'root'
@@ -44,11 +45,36 @@ export class VisitorService {
     return this.http.post('https://thingproxy.freeboard.io/fetch/' + baseUrl.myfatoorahApiUrl + 'InitiateSession', reqBody, { headers })
   }
 
-  linkedinAuth(){
+  linkedinAuth() {
     return this.http.get(baseUrl.apiUrl + 'visitors/linkedin/auth')
   }
 
   shareToLinkedIn(reqBody: any) {
     return this.http.post(baseUrl.apiUrl + 'visitors/linkedin/share', reqBody)
+  }
+
+  facebookInit() {
+    FB.init({
+      appId: '1125554722616508',  // Your Facebook App ID
+      cookie: true,
+      xfbml: true,
+      version: 'v14.0'  // Use the appropriate version
+    });
+  }
+
+  shareTextAndPhoto(message: string, photoUrl: string): void {
+    FB.ui({
+      method: 'feed',
+      link: 'https://constratech.org/',
+      caption: message,
+      picture: photoUrl,
+    }, function (response: any) {
+      console.log(response)
+      if (response && !response.error_message) {
+        console.log('Post shared successfully');
+      } else {
+        console.log('Error sharing the post');
+      }
+    });
   }
 }
