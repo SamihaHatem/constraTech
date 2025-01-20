@@ -124,7 +124,7 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
     },
     {
       embed: '<iframe width="702" height="395" src="https://www.youtube.com/embed/e_iRfwFP9cs?list=PLrmYpV4_zwOiwSHFsqreyW8NwYrF25KFc" title="Constra Tech 2024- Reviews - (Mohamad Ezzeldin)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-      img: '../../assets/images/videoImgs',
+      img: '../../assets/images/videoImgs/Mohamad Ezzeldin.jpg',
       title: 'Constra Tech 2024- Reviews - (Mohamad Ezzeldin)'
     },
     {
@@ -148,6 +148,7 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
     navSpeed: 300,
     navText: ['<', '>'],
     margin: 7,
+    center:true,
     responsive: {
       0: {
         items: 1
@@ -255,7 +256,6 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
   openVideoModal(content: TemplateRef<any>, video: any) {
     this.selectedVideo = this.sanitizer.bypassSecurityTrustHtml(video)
     this.modalServices.open(content, {
-      size: 'xl',
       centered: true
     })
   }
