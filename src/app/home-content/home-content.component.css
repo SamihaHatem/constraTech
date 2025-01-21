@@ -147,8 +147,6 @@
 }
 
 .sponsors-img-container {
-    border-radius: 50%;
-    border: 1px solid rgb(222, 222, 222);
     width: 100px;
     height: 100px;
     overflow: hidden;
@@ -164,7 +162,7 @@
     margin: calc(tan(18.5deg)* var(--r));
     clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%) margin-box;
     --_g: /calc(2*var(--r)) calc(2*var(--r)) radial-gradient(#000 70%, #0000 72%);
-    --_s: calc(100% -(1 - tan(22.5deg))* var(--r));
+    --_s: calc(100% - (1 - tan(22.5deg))* var(--r));
     mask: conic-gradient(#000 0 0) no-repeat 50% / var(--_s) var(--_s), top var(--_g) no-repeat space, left var(--_g) space no-repeat;
     background: var(--constraTech-orange);
 }
