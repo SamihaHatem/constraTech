@@ -36,7 +36,7 @@
                         </ng-select>
                     </div>
 
-                    <div class="w-50">
+                    <!-- <div class="w-50">
                         <label for="">
                             Top Five:
                         </label>
@@ -48,7 +48,7 @@
                                 No
                             </ng-option>
                         </ng-select>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div *ngIf="listOfspeakers.length == 0">
@@ -58,11 +58,11 @@
             <div class="card p-2 my-2" *ngFor="let speaker of listOfspeakers" [ngClass]="{'bg-pending': speaker.status == 'Pending' , 'bg-rejected' : speaker.status == 'Rejected'
             , 'bg-confirmed' : speaker.status == 'Confirmed'}">
                 <div class="row">
-                    <div *ngIf="speaker.top_five">
+                    <!-- <div *ngIf="speaker.top_five">
                         <p class="text-right gold h2 my-2 top-five">
                             Top Five <i class="fas fa-star"></i>
                         </p>
-                    </div>
+                    </div> -->
                     <div class="col-md-6 col-sm-12" *ngIf="speaker.company_name">
                         <p><span class="fw-bold">Company Name:</span> {{speaker.company_name}}</p>
                     </div>
@@ -304,7 +304,7 @@
                     </div>
                 </div>
 
-                <div class="bb-gray py-2">
+                <!-- <div class="bb-gray py-2">
                     <div class="p-3">
                         <label class="text-secondary" for="top_five">Top Five?</label>
                         <ng-select name="top_five" ngModel [(ngModel)]="selectedSpeaker.top_five">
@@ -316,7 +316,7 @@
                             </ng-option>
                         </ng-select>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- photo_path -->
                 <div class="col-12 text-center" *ngIf="selectedSpeaker.photo_path">
@@ -525,7 +525,7 @@
             </div>
 
             <!-- Top Five -->
-            <div class="bb-gray py-2">
+            <!-- <div class="bb-gray py-2">
                 <div class="p-3">
                     <label class="text-secondary" for="top_five">Top Five?</label>
                     <ng-select name="top_five" ngModel>
@@ -537,7 +537,7 @@
                         </ng-option>
                     </ng-select>
                 </div>
-            </div>
+            </div> -->
 
 
             <div class="py-2 text-center">

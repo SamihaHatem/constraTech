@@ -27,7 +27,8 @@ export class ExhibitorsComponent implements OnInit {
   openModal(content: TemplateRef<any>, exhibitor?: any) {
     if (exhibitor) {
       this.selectedExhibitor = exhibitor;
-      this.selectedExhibitorLogo = this.apiUrl + exhibitor?.logo.slice(1)
+      if (exhibitor.logo)
+        this.selectedExhibitorLogo = this.apiUrl + exhibitor?.logo.slice(1)
     }
     this.modalService.open(content, {
       centered: true,

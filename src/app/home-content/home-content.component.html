@@ -1,7 +1,7 @@
 <!-- Home -->
 <div>
     <!----- Video Banner ----->
-    <section class="banner vh-100">
+    <section class="banner" [ngClass]="{ 'vh-90' : !isMobile , 'vh-100' : isMobile}">
         <div class="video-section w-100 h-100">
             <!-- The video -->
             <video #videoPlayer autoplay muted loop id="myVideo" [autoplay]="autoPlayFlag" preload="none">
@@ -25,24 +25,24 @@
                             </p>
                             <div>
                                 <div class="row p-0 m-0 bt-white">
-                                    <p class="text-white col-md-6 col-sm-12 py-4 m-0 br-white link"
+                                    <p class="text-white col-md-6 col-sm-12 py-4 m-0 br-white link d-flex justify-content-between"
                                         [ngClass]="{ 'b-white' : isMobile }" routerLink="/forms/exhibitor">
                                         BECOME A SPONSOR
                                         <i class="fa-solid fa-angle-right"></i>
-                                    </p>
-                                    <p class="text-white col-md-6 col-sm-12 py-4 m-0 link"
+                                    </p> 
+                                    <p class="text-white col-md-6 col-sm-12 py-4 m-0 link  d-flex justify-content-between"
                                         [ngClass]="{ 'b-white' : isMobile }" routerLink="/forms/speaker">Become a
                                         Speaker
                                         <i class="fa-solid fa-angle-right"></i>
                                     </p>
                                 </div>
                                 <div class="row p-0 m-0 bt-white bb-white">
-                                    <p class="text-white col-md-6 col-sm-12 py-4 m-0 br-white link"
+                                    <p class="text-white col-md-6 col-sm-12 py-4 m-0 br-white link  d-flex justify-content-between"
                                         [ngClass]="{ 'b-white' : isMobile }" routerLink="/forms/visitor/registration">
                                         Registration
                                         <i class="fa-solid fa-angle-right"></i>
                                     </p>
-                                    <a class="text-white col-md-6 col-sm-12 py-4 m-0 link text-decoration-none"
+                                    <a class="text-white col-md-6 col-sm-12 py-4 m-0 link text-decoration-none  d-flex justify-content-between"
                                         [ngClass]="{ 'b-white' : isMobile }"
                                         href="https://constratech.org/public/storage/download/agenda/xamBqGhgkT2lkx9F9EspTwbXz833PRptbx396QGX.pdf"
                                         download="Agenda ConstraTech 2024" target="_blank">
@@ -131,7 +131,7 @@
     </div>
 
     <!----- Egypt's top construction event ----->
-    <div class="my-5 py-2">
+    <div class="my-5 py-3">
         <div class="w-90 mx-auto row" [ngClass]="{'flex-dir-col-rev' : isMobile}">
             <div class="col-md-6 col-sm-12">
                 <p class="h2">
@@ -160,13 +160,13 @@
 
                 <div class="row">
                     <div class="col-md-6 col-sm-12 text-center my-2">
-                        <button class="btn-green px-3 py-1 upper-case" [ngClass]="{'w-100' : isMobile}"
+                        <button class="btn-green px-3 py-1 upper-case " [ngClass]="{'w-100' : isMobile , 'btn-250px' : !isMobile}"
                             routerLink="/forms/exhibitor">
                             become a partner
                         </button>
                     </div>
                     <div class="col-md-6 col-sm-12 text-center my-2">
-                        <button class="btn-gray px-3 py-1 upper-case" [ngClass]="{'w-100' : isMobile}"
+                        <button class="btn-gray px-3 py-1 upper-case" [ngClass]="{'w-100' : isMobile , 'btn-250px' : !isMobile}"
                             routerLink="/forms/visitor/registration">
                             visitor registration
                         </button>
@@ -244,13 +244,13 @@
 
                 <div class="row">
                     <div class="col-md-6 col-sm-12 text-center my-2">
-                        <button class="btn-green px-3 py-1 upper-case" [ngClass]="{'w-100' : isMobile}"
+                        <button class="btn-green px-3 py-1 upper-case " [ngClass]="{'w-100' : isMobile , 'btn-250px' : !isMobile}"
                             routerLink="/forms/exhibitor">
                             become a partner
                         </button>
                     </div>
                     <div class="col-md-6 col-sm-12 text-center my-2">
-                        <button class="btn-gray px-3 py-1 upper-case" [ngClass]="{'w-100' : isMobile}"
+                        <button class="btn-gray px-3 py-1 upper-case " [ngClass]="{'w-100' : isMobile , 'btn-250px' : !isMobile}"
                             routerLink="/forms/visitor/registration">
                             visitor registration
                         </button>
@@ -281,7 +281,7 @@
     </div>
 
     <!----- Conference ----->
-    <div class="my-5 py-2" id="conference">
+    <div class="my-5 py-3" id="conference">
         <div class="w-90 mx-auto">
             <p class="h2">Conference</p>
 
@@ -299,13 +299,13 @@
 
                     <div class="row">
                         <div class="col-md-6 col-sm-12 text-center my-2">
-                            <button class="btn-green px-3 py-1 upper-case" [ngClass]="{'w-100' : isMobile}"
+                            <button class="btn-green px-3 py-1 upper-case" [ngClass]="{'w-100' : isMobile , 'btn-250px' : !isMobile}"
                                 routerLink="/forms/exhibitor">
                                 become a partner
                             </button>
                         </div>
                         <div class="col-md-6 col-sm-12 text-center my-2">
-                            <button class="btn-gray px-3 py-1 upper-case" [ngClass]="{'w-100' : isMobile}"
+                            <button class="btn-gray px-3 py-1 upper-case" [ngClass]="{'w-100' : isMobile , 'btn-250px' : !isMobile}"
                                 routerLink="/forms/visitor/registration">
                                 visitor registration
                             </button>
@@ -325,7 +325,7 @@
     </div>
 
     <!----- Main Topics ----->
-    <div id="main-topics" class="py-2 my-5">
+    <div id="main-topics" class="py-3 my-5">
         <div class="w-90 mx-auto">
             <p class="h2">Main Topics</p>
 
@@ -587,7 +587,7 @@
     </div>
 
     <!----- Speakers ----->
-    <div id="speakers-list" class="py-2 my-5">
+    <div id="speakers-list" class="py-3 my-5">
         <div class="w-90 mx-auto">
             <p class="h2">Speakers list</p>
 
@@ -630,7 +630,7 @@
     </div>
 
     <!-----  Workshops ----->
-    <div class="my-5 py-2" id="workshop">
+    <div class="my-5 py-3" id="workshop">
         <div class="w-90 mx-auto">
             <p class="h2">Workshops</p>
 
@@ -677,7 +677,7 @@
     </div>
 
     <!----- Youtube Videos ----->
-    <div class="my-5 py-2">
+    <div class="my-5 py-3">
         <div class="w-90 mx-auto">
             <p class="h2">Hear from some of ConstraTech Egypt 2024</p>
             <owl-carousel-o [options]="customOptions">
@@ -696,13 +696,13 @@
 
             <div class="row">
                 <div class="col-md-6 col-sm-12 text-end my-2">
-                    <button class="btn-green px-3 py-1 upper-case" [ngClass]="{'w-100' : isMobile}"
+                    <button class="btn-green px-3 py-1 upper-case" [ngClass]="{'w-100' : isMobile , 'btn-250px' : !isMobile}"
                         routerLink="/forms/exhibitor">
                         become a partner
                     </button>
                 </div>
                 <div class="col-md-6 col-sm-12 text-start my-2">
-                    <button class="btn-gray px-3 py-1 upper-case" [ngClass]="{'w-100' : isMobile}"
+                    <button class="btn-gray px-3 py-1 upper-case" [ngClass]="{'w-100' : isMobile , 'btn-250px' : !isMobile}"
                         routerLink="/forms/visitor/registration">
                         visitor registration
                     </button>
@@ -712,7 +712,7 @@
     </div>
 
     <!----- Gallery ----->
-    <div class="my-5 py-2" id="gallery">
+    <div class="my-5 py-3" id="gallery">
         <div>
             <div class="w-90 mx-auto">
                 <p class="h2">Highlights of ConstraTech Construct Egypt 2024</p>
@@ -735,7 +735,7 @@
     </div>
 
     <!----- 2025 Exhibitors and Sponsors ----->
-    <div class="my-5 py-2" id="exhibitors-list-2025">
+    <div class="my-5 py-3" id="exhibitors-list-2025">
         <div>
             <div class="w-90 mx-auto">
                 <p class="h2">2025 Exhibitors and Sponsors</p>
@@ -785,7 +785,7 @@
     </div>
 
     <!----- 2024 Exhibitors and Sponsors ----->
-    <div class="my-5 py-2" id="exhibitors-list-2024">
+    <div class="my-5 py-3" id="exhibitors-list-2024">
         <div>
             <div class="w-90 mx-auto">
                 <p class="h2">2024 Exhibitors and Sponsors</p>

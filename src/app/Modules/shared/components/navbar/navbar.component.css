@@ -37,3 +37,7 @@ nav ul {
 .dropdown button {
     padding: 0 !important;
 }
+
+.fs-13:hover{
+    font-weight: bold;
+}

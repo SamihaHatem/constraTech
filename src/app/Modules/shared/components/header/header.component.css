@@ -10,7 +10,7 @@
     font-weight: 500;
     line-height: 1.375rem;
     color: black;
-    font-size: .875rem;
+    font-size: .775rem;
     letter-spacing: .017rem;
 }
 
@@ -36,7 +36,7 @@
     z-index: 1;
     top: 0;
     right: 0;
-    background-color: #1e1c2f;
+    background-color: black;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;

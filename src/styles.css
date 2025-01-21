@@ -100,3 +100,11 @@ body {
 .position-static {
     position: static !important;
 }
+
+.fs-13 {
+    font-size: 14px !important;
+}
+
+.btn-250px {
+    width: 250px !important;
+}

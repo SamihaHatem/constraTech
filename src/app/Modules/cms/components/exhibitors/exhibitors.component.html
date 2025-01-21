@@ -2,7 +2,7 @@
     <div class="d-flex justify-content-between">
         <p class="h2">Exhibitors</p>
         <div class="align-content-center">
-            <button (click)="openModal(newExhibitorContent)" class="px-2 py-1">Add New Exhibitor</button>
+            <button (click)="openModal(newExhibitorContent)" class="px-2 py-1 button">Add New Exhibitor</button>
         </div>
     </div>
 
@@ -39,54 +39,71 @@
                 </div>
             </div>
 
-            <div class="card p-2 my-2" *ngFor="let exhibitor of listOfExhibitors" [ngClass]="{'bg-pending': exhibitor.status == 'Pending' , 'bg-rejected' : exhibitor.status == 'Rejected'
+            <div class="my-3" *ngIf="listOfExhibitors.length > 0">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Company</th>
+                            <th>Email</th>
+                            <th>Name</th>
+                            <th>Mobile</th>
+                            <th>Position</th>
+                            <th>Website</th>
+                            <th>Status</th>
+                            <th>Classification</th>
+                            <th>Logo</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let exhibitor of listOfExhibitors">
+                            <td [ngClass]="{'bg-pending': exhibitor.status == 'Pending' , 'bg-rejected' : exhibitor.status == 'Rejected'
+                ,'bg-confirmed' : exhibitor.status == 'Confirmed'}">{{exhibitor.company_name}}</td>
+                            <td [ngClass]="{'bg-pending': exhibitor.status == 'Pending' , 'bg-rejected' : exhibitor.status == 'Rejected'
+                ,'bg-confirmed' : exhibitor.status == 'Confirmed'}">{{exhibitor.email}}</td>
+                            <td [ngClass]="{'bg-pending': exhibitor.status == 'Pending' , 'bg-rejected' : exhibitor.status == 'Rejected'
+                ,'bg-confirmed' : exhibitor.status == 'Confirmed'}">{{exhibitor.fullname}}</td>
+                            <td [ngClass]="{'bg-pending': exhibitor.status == 'Pending' , 'bg-rejected' : exhibitor.status == 'Rejected'
+                ,'bg-confirmed' : exhibitor.status == 'Confirmed'}">{{exhibitor.mobile_no}}</td>
+                            <td [ngClass]="{'bg-pending': exhibitor.status == 'Pending' , 'bg-rejected' : exhibitor.status == 'Rejected'
+                ,'bg-confirmed' : exhibitor.status == 'Confirmed'}">{{exhibitor.position}}</td>
+                            <td [ngClass]="{'bg-pending': exhibitor.status == 'Pending' , 'bg-rejected' : exhibitor.status == 'Rejected'
+                ,'bg-confirmed' : exhibitor.status == 'Confirmed'}">{{exhibitor.website}}</td>
+                            <td [ngClass]="{'bg-pending': exhibitor.status == 'Pending' , 'bg-rejected' : exhibitor.status == 'Rejected'
+                ,'bg-confirmed' : exhibitor.status == 'Confirmed'}">{{exhibitor.status}}</td>
+                            <td [ngClass]="{'bg-pending': exhibitor.status == 'Pending' , 'bg-rejected' : exhibitor.status == 'Rejected'
+                ,'bg-confirmed' : exhibitor.status == 'Confirmed'}">{{exhibitor.classification}}</td>
+                           
+                            <td [ngClass]="{'bg-pending': exhibitor.status == 'Pending' , 'bg-rejected' : exhibitor.status == 'Rejected'
                 ,'bg-confirmed' : exhibitor.status == 'Confirmed'}">
-                <div class="row">
-                    <div class="col-md-6 col-sm-12" *ngIf="exhibitor.company_name">
-                        <p><span class="fw-bold">Company Name:</span> {{exhibitor.company_name}}</p>
-                    </div>
+                                <img *ngIf="exhibitor.logo" src="{{apiUrl}}{{exhibitor.logo.slice(1)}}" alt=""
+                                    style="max-width: 90px;">
+                                    <p class="text-center fs-small text-secondary" *ngIf="!exhibitor.logo">
+                                        no logo
+                                    </p>
+                            </td>
+                            <td [ngClass]="{'bg-pending': exhibitor.status == 'Pending' , 'bg-rejected' : exhibitor.status == 'Rejected'
+                ,'bg-confirmed' : exhibitor.status == 'Confirmed'}" style="text-align: center; align-content: center;">
+                                <button class="fs-small m-0 p-0" mat-icon-button [matMenuTriggerFor]="menu"
+                                    aria-label="Example icon-button with a menu">
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </button>
+                                <mat-menu #menu="matMenu">
 
-                    <div class="col-md-6 col-sm-12" *ngIf="exhibitor.email">
-                        <p><span class="fw-bold">Email:</span> {{exhibitor.email}}</p>
-                    </div>
+                                    <a id="item1" class=" p-0 m-0 h-100 d-block px-1" mat-menu-item
+                                        (click)="openModal(updateContent, exhibitor)">
+                                        <p style="font-weight: 500;" class="px-1 p-0 m-0" id="mat-item-cutom">update
+                                        </p>
+                                    </a>
 
-                    <div class="col-md-6 col-sm-12" *ngIf="exhibitor.fullname">
-                        <p><span class="fw-bold">Name:</span> {{exhibitor.fullname}}</p>
-                    </div>
+                                </mat-menu>
 
-                    <div class="col-md-6 col-sm-12" *ngIf="exhibitor.mobile_no">
-                        <p><span class="fw-bold">Mobile:</span> {{exhibitor.mobile_no}}</p>
-                    </div>
-
-                    <div class="col-md-6 col-sm-12" *ngIf="exhibitor.position">
-                        <p><span class="fw-bold">Position:</span> {{exhibitor.position}}</p>
-                    </div>
-
-                    <div class="col-md-6 col-sm-12" *ngIf="exhibitor.website">
-                        <p><span class="fw-bold">Website:</span> {{exhibitor.website}}</p>
-                    </div>
-
-                    <div class="col-md-6 col-sm-12" *ngIf="exhibitor.status">
-                        <p><span class="fw-bold">Status:</span> {{exhibitor.status}}</p>
-                    </div>
-
-                    <div class="col-md-6 col-sm-12" *ngIf="exhibitor.classification">
-                        <p><span class="fw-bold">Classification:</span> {{exhibitor.classification}}
-                            <i class="fas fa-gem platinum" *ngIf="exhibitor.classification == 'Platinum'"></i>
-                            <i class="fas fa-star silver" *ngIf="exhibitor.classification == 'Silver'"></i>
-                            <i class="fas fa-crown gold " *ngIf="exhibitor.classification == 'Gold'"></i>
-                        </p>
-                    </div>
-
-                    <div class="col-12 text-center" *ngIf="exhibitor.logo">
-                        <img src="{{apiUrl}}{{exhibitor.logo.slice(1)}}" alt="" style="max-width: 100%;">
-                    </div>
-                </div>
-
-                <div class="text-center my-2">
-                    <button class="btn btn-primary" (click)="openModal(updateContent, exhibitor)">Update</button>
-                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+
         </div>
 
     </div>
