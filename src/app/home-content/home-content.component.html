@@ -1,59 +1,58 @@
 <!-- Home -->
 <div>
     <!----- Video Banner ----->
-    <section class="banner" [ngClass]="{ 'vh-90' : !isMobile , 'vh-100' : isMobile}">
-        <div class="video-section w-100 h-100">
+    <section>
+        <div class="new-parent">
             <!-- The video -->
-            <video #videoPlayer autoplay muted loop id="myVideo" [autoplay]="autoPlayFlag" preload="none">
+            <video width="100%" #videoPlayer autoplay muted loop id="myVideo" [autoplay]="autoPlayFlag" preload="none">
                 <source
                     src="https://www.big5constructegypt.com/wp-content/uploads/sites/21/2024/09/companies-b-roll-online-video-cutter.com-1-2.mp4"
                     type="video/mp4">
             </video>
 
-            <div class="banner-child w-100 h-100 align-content-end">
-                <div>
-                    <div [ngClass]="{'w-100' : isMobile , 'w-90 mx-auto px-2' : !isMobile }">
-                        <div [ngClass]="{'w-100' : isMobile , 'w-60' : !isMobile}" class="p-4 content">
-                            <h2 class="text-white head-title my-4">Find new business opportunities in Egypt’s
-                                $570
-                                billion
-                                construction market</h2>
+            <div class="new-child align-content-end" [ngClass]="{'vh-90': !isMobile}">
+                <div [ngClass]="{'w-100' : isMobile , 'w-60': !isMobile}">
+                    <div class="new-child-2 px-4 pt-5" [ngClass]="{'w-100' : isMobile , 'w-90 ms-auto': !isMobile}">
+                        <h2 class="text-white head-title">Find new business opportunities in Egypt’s
+                            $570
+                            billion
+                            construction market</h2>
 
-                            <p class="text-white my-4"> 25 - 27 MAY 2025.
-                                <span>CAIRO-EGYPT - Dusit Thani Lakeview - New Cairo
-                                    Lake View Ballroom</span>
-                            </p>
-                            <div>
-                                <div class="row p-0 m-0 bt-white">
-                                    <p class="text-white col-md-6 col-sm-12 py-4 m-0 br-white link d-flex justify-content-between"
-                                        [ngClass]="{ 'b-white' : isMobile }" routerLink="/forms/exhibitor">
-                                        BECOME A SPONSOR
-                                        <i class="fa-solid fa-angle-right"></i>
-                                    </p> 
-                                    <p class="text-white col-md-6 col-sm-12 py-4 m-0 link  d-flex justify-content-between"
-                                        [ngClass]="{ 'b-white' : isMobile }" routerLink="/forms/speaker">Become a
-                                        Speaker
-                                        <i class="fa-solid fa-angle-right"></i>
-                                    </p>
-                                </div>
-                                <div class="row p-0 m-0 bt-white bb-white">
-                                    <p class="text-white col-md-6 col-sm-12 py-4 m-0 br-white link  d-flex justify-content-between"
-                                        [ngClass]="{ 'b-white' : isMobile }" routerLink="/forms/visitor/registration">
-                                        Registration
-                                        <i class="fa-solid fa-angle-right"></i>
-                                    </p>
-                                    <a class="text-white col-md-6 col-sm-12 py-4 m-0 link text-decoration-none  d-flex justify-content-between"
-                                        [ngClass]="{ 'b-white' : isMobile }"
-                                        href="https://constratech.org/public/storage/download/agenda/xamBqGhgkT2lkx9F9EspTwbXz833PRptbx396QGX.pdf"
-                                        download="Agenda ConstraTech 2024" target="_blank">
-                                        Agenda
-                                        <i class="fa-solid fa-angle-right"></i>
-                                    </a>
-                                </div>
+                        <p class="text-white py-3"> 25 - 27 MAY 2025.
+                            <span>CAIRO-EGYPT - Dusit Thani Lakeview - New Cairo
+                                Lake View Ballroom</span>
+                        </p>
+                        <div>
+                            <div class="row p-0 py-2 m-0 bt-white" [ngClass]="{'py-2' : !isMobile}">
+                                <p class="text-white col-md-6 col-sm-12 cursor-pointer py-3 m-0 br-white link d-flex justify-content-between"
+                                    [ngClass]="{ 'b-white' : isMobile }" routerLink="/forms/exhibitor">
+                                    BECOME A SPONSOR
+                                    <i class="fa-solid fa-angle-right"></i>
+                                </p>
+                                <p class="text-white col-md-6 col-sm-12 py-3 m-0 cursor-pointer link d-flex justify-content-between"
+                                    [ngClass]="{ 'b-white' : isMobile }" routerLink="/forms/speaker">Become a
+                                    Speaker
+                                    <i class="fa-solid fa-angle-right"></i>
+                                </p>
+                            </div>
+                            <div class="row p-0 m-0 bt-white" [ngClass]="{'py-2' : !isMobile}">
+                                <p class="text-white  col-md-6 col-sm-12 cursor-pointer py-3 m-0 br-white link d-flex justify-content-between"
+                                    [ngClass]="{ 'b-white' : isMobile }" routerLink="/forms/visitor/registration">
+                                    Registration
+                                    <i class="fa-solid fa-angle-right"></i>
+                                </p>
+                                <a class="text-white text-decoration-none cursor-pointer col-md-6 col-sm-12 py-3 m-0 link d-flex justify-content-between"
+                                    [ngClass]="{ 'b-white' : isMobile }"
+                                    href="https://constratech.org/public/storage/download/agenda/xamBqGhgkT2lkx9F9EspTwbXz833PRptbx396QGX.pdf"
+                                    download="Agenda ConstraTech 2024" target="_blank">
+                                    Agenda
+                                    <i class="fa-solid fa-angle-right"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -160,13 +159,14 @@
 
                 <div class="row">
                     <div class="col-md-6 col-sm-12 text-center my-2">
-                        <button class="btn-green px-3 py-1 upper-case " [ngClass]="{'w-100' : isMobile , 'btn-250px' : !isMobile}"
-                            routerLink="/forms/exhibitor">
+                        <button class="btn-green px-3 py-1 upper-case "
+                            [ngClass]="{'w-100' : isMobile , 'btn-250px' : !isMobile}" routerLink="/forms/exhibitor">
                             become a partner
                         </button>
                     </div>
                     <div class="col-md-6 col-sm-12 text-center my-2">
-                        <button class="btn-gray px-3 py-1 upper-case" [ngClass]="{'w-100' : isMobile , 'btn-250px' : !isMobile}"
+                        <button class="btn-gray px-3 py-1 upper-case"
+                            [ngClass]="{'w-100' : isMobile , 'btn-250px' : !isMobile}"
                             routerLink="/forms/visitor/registration">
                             visitor registration
                         </button>
@@ -244,13 +244,14 @@
 
                 <div class="row">
                     <div class="col-md-6 col-sm-12 text-center my-2">
-                        <button class="btn-green px-3 py-1 upper-case " [ngClass]="{'w-100' : isMobile , 'btn-250px' : !isMobile}"
-                            routerLink="/forms/exhibitor">
+                        <button class="btn-green px-3 py-1 upper-case "
+                            [ngClass]="{'w-100' : isMobile , 'btn-250px' : !isMobile}" routerLink="/forms/exhibitor">
                             become a partner
                         </button>
                     </div>
                     <div class="col-md-6 col-sm-12 text-center my-2">
-                        <button class="btn-gray px-3 py-1 upper-case " [ngClass]="{'w-100' : isMobile , 'btn-250px' : !isMobile}"
+                        <button class="btn-gray px-3 py-1 upper-case "
+                            [ngClass]="{'w-100' : isMobile , 'btn-250px' : !isMobile}"
                             routerLink="/forms/visitor/registration">
                             visitor registration
                         </button>
@@ -299,13 +300,15 @@
 
                     <div class="row">
                         <div class="col-md-6 col-sm-12 text-center my-2">
-                            <button class="btn-green px-3 py-1 upper-case" [ngClass]="{'w-100' : isMobile , 'btn-250px' : !isMobile}"
+                            <button class="btn-green px-3 py-1 upper-case"
+                                [ngClass]="{'w-100' : isMobile , 'btn-250px' : !isMobile}"
                                 routerLink="/forms/exhibitor">
                                 become a partner
                             </button>
                         </div>
                         <div class="col-md-6 col-sm-12 text-center my-2">
-                            <button class="btn-gray px-3 py-1 upper-case" [ngClass]="{'w-100' : isMobile , 'btn-250px' : !isMobile}"
+                            <button class="btn-gray px-3 py-1 upper-case"
+                                [ngClass]="{'w-100' : isMobile , 'btn-250px' : !isMobile}"
                                 routerLink="/forms/visitor/registration">
                                 visitor registration
                             </button>
@@ -696,13 +699,14 @@
 
             <div class="row">
                 <div class="col-md-6 col-sm-12 text-end my-2">
-                    <button class="btn-green px-3 py-1 upper-case" [ngClass]="{'w-100' : isMobile , 'btn-250px' : !isMobile}"
-                        routerLink="/forms/exhibitor">
+                    <button class="btn-green px-3 py-1 upper-case"
+                        [ngClass]="{'w-100' : isMobile , 'btn-250px' : !isMobile}" routerLink="/forms/exhibitor">
                         become a partner
                     </button>
                 </div>
                 <div class="col-md-6 col-sm-12 text-start my-2">
-                    <button class="btn-gray px-3 py-1 upper-case" [ngClass]="{'w-100' : isMobile , 'btn-250px' : !isMobile}"
+                    <button class="btn-gray px-3 py-1 upper-case"
+                        [ngClass]="{'w-100' : isMobile , 'btn-250px' : !isMobile}"
                         routerLink="/forms/visitor/registration">
                         visitor registration
                     </button>

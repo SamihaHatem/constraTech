@@ -108,3 +108,7 @@ body {
 .btn-250px {
     width: 250px !important;
 }
+
+.w-60{
+    width: 60% !important;
+}
