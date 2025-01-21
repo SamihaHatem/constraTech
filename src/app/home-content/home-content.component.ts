@@ -148,7 +148,7 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
     navSpeed: 300,
     navText: ['<', '>'],
     margin: 7,
-    center:true,
+    center: true,
     responsive: {
       0: {
         items: 1
@@ -165,6 +165,35 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
     },
     nav: true
   }
+
+  customOptions2: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    dots: false,
+    autoplay: true,
+    navSpeed: 300,
+    navText: ['<', '>'],
+    margin: 10,
+    center: true,
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+      1000: {
+        items: 3 
+      },
+    },
+    nav: true
+  }
+
 
   speakersOptions: OwlOptions = {
     loop: true,
