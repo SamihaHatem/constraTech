@@ -65,7 +65,7 @@ export class VisitorService {
   shareTextAndPhoto(message: string, photoUrl: string): void {
     FB.ui({
       method: 'feed',
-      link: 'https://constratech.org/',
+      link: 'https://new.constratech.org/',
       caption: message,
       message:message,
       quote:message,

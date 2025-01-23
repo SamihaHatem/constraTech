@@ -129,7 +129,7 @@ See you there 25-26-27 May 2025
 Register to get your badge now (registration Link)
 See you there 25-26-27 May 2025
 #constratech25 - #constratech`;
-    const photoUrl = '../../../../../assets/images/Linkedin post.jpg';  // Replace with the URL of the photo
+    const photoUrl = 'https://new.constratech.org/assets/images/Linkedin%20post.jpg';  // Replace with the URL of the photo
     this.visitorService.shareTextAndPhoto(message, photoUrl);
   }
 
