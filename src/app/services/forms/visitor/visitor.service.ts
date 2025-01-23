@@ -55,7 +55,7 @@ export class VisitorService {
 
   facebookInit() {
     FB.init({
-      appId: '503600565629562',  
+      appId: '1291942738744571',  
       cookie: true,
       xfbml: true,
       version: 'v14.0'  
