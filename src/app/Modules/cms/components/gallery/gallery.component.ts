@@ -43,6 +43,21 @@ export class GalleryComponent implements OnInit {
     }
   }
 
+  isImageOrVideo(path: string): string {
+    const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.webp'];
+    const videoExtensions = ['.mp4', '.webm', '.ogg', '.avi', '.mov', '.mkv'];
+  
+    const ext = path.toLowerCase().slice(((path.lastIndexOf('.') - 1) >>> 0) + 2); // Get the file extension
+    
+    if (imageExtensions.includes(`.${ext}`)) {
+      return 'image';
+    } else if (videoExtensions.includes(`.${ext}`)) {
+      return 'video';
+    } else {
+      return 'unknown';
+    }
+  }
+
   addPhoto() {
     const formData = new FormData();
     formData.append('file', this.file, this.file.name)

@@ -3,7 +3,7 @@
         <p class="h2">Speakers</p>
 
         <div class="align-content-center">
-            <button (click)="openModal(newSpeakerContent)" class="px-2 py-1">Add New Speaker</button>
+            <button (click)="openModal(newSpeakerContent)" class="px-2 py-1 button">Add New Speaker</button>
         </div>
     </div>
 
@@ -24,7 +24,7 @@
         <!-- Content -->
         <div *ngIf="!isError && !isLoading">
             <div>
-                <div class="w-75 d-flex gap-1">
+                <div class="w-100 justify-content-between align-items-center d-flex gap-1">
                     <div class="w-50">
                         <label for="">
                             Filter by status:
@@ -34,6 +34,12 @@
                                 {{status}}
                             </ng-option>
                         </ng-select>
+                    </div>
+                    <div class="">
+                        <button (click)="listView()" class="view-btn" [ngClass]="{'selectedView': view=='list'}"><i
+                                class="fa-solid fa-list"></i></button>
+                        <button (click)="gridView()" class="view-btn" [ngClass]="{'selectedView': view=='grid'}"><i
+                                class="fa-solid fa-table"></i></button>
                     </div>
 
                     <!-- <div class="w-50">
@@ -55,77 +61,171 @@
                     <p class="text-secondary text-center fs-small py-3">Currently, there is no information to show.</p>
                 </div>
             </div>
-            <div class="card p-2 my-2" *ngFor="let speaker of listOfspeakers" [ngClass]="{'bg-pending': speaker.status == 'Pending' , 'bg-rejected' : speaker.status == 'Rejected'
-            , 'bg-confirmed' : speaker.status == 'Confirmed'}">
-                <div class="row">
-                    <!-- <div *ngIf="speaker.top_five">
-                        <p class="text-right gold h2 my-2 top-five">
-                            Top Five <i class="fas fa-star"></i>
-                        </p>
-                    </div> -->
-                    <div class="col-md-6 col-sm-12" *ngIf="speaker.company_name">
-                        <p><span class="fw-bold">Company Name:</span> {{speaker.company_name}}</p>
-                    </div>
 
-                    <div class="col-md-6 col-sm-12" *ngIf="speaker.email">
-                        <p><span class="fw-bold">Email:</span> {{speaker.email}}</p>
-                    </div>
+            <div *ngIf="listOfspeakers.length >= 0">
 
-                    <div class="col-md-6 col-sm-12" *ngIf="speaker.fullname">
-                        <p><span class="fw-bold">Name:</span> {{speaker.fullname}}</p>
-                    </div>
+                <div *ngIf="view == 'grid'">
+                    <table class="table table-bordered table-hover my-2">
+                        <thead>
+                            <tr>
+                                <th class="col-1">Company</th>
+                                <th class="col-1">Email</th>
+                                <th class="col-1">Name</th>
+                                <th class="col-1">Mobile</th>
+                                <th class="col-1">Position</th>
+                                <th>webiste</th>
+                                <th>facebook</th>
+                                <th>linkedin</th>
+                                <th class="col-1">Status</th>
+                                <th class="col-1">Speech Title</th>
+                                <th>Photo</th>
+                                <th></th>
+                            </tr>
+                        </thead>
 
-                    <div class="col-md-6 col-sm-12" *ngIf="speaker.mobile_no">
-                        <p><span class="fw-bold">Mobile:</span> {{speaker.mobile_no}}</p>
-                    </div>
+                        <tbody>
+                            <tr *ngFor="let speaker of listOfspeakers">
+                                <td [ngClass]="{'bg-pending2': speaker.status == 'Pending' , 'bg-rejected2' : speaker.status == 'Rejected'
+                                ,'bg-confirmed2' : speaker.status == 'Confirmed'}">{{speaker.company_name}}</td>
+                                <td [ngClass]="{'bg-pending2': speaker.status == 'Pending' , 'bg-rejected2' : speaker.status == 'Rejected'
+                                ,'bg-confirmed2' : speaker.status == 'Confirmed'}">{{speaker.email}}</td>
+                                <td [ngClass]="{'bg-pending2': speaker.status == 'Pending' , 'bg-rejected2' : speaker.status == 'Rejected'
+                                ,'bg-confirmed2' : speaker.status == 'Confirmed'}">{{speaker.fullname}}</td>
+                                <td [ngClass]="{'bg-pending2': speaker.status == 'Pending' , 'bg-rejected2' : speaker.status == 'Rejected'
+                                ,'bg-confirmed2' : speaker.status == 'Confirmed'}">{{speaker.mobile_no}}</td>
+                                <td [ngClass]="{'bg-pending2': speaker.status == 'Pending' , 'bg-rejected2' : speaker.status == 'Rejected'
+                                ,'bg-confirmed2' : speaker.status == 'Confirmed'}">{{speaker.position}}</td>
+                                <td [ngClass]="{'bg-pending2': speaker.status == 'Pending' , 'bg-rejected2' : speaker.status == 'Rejected'
+                                ,'bg-confirmed2' : speaker.status == 'Confirmed'}">
+                                    <span *ngIf="!speaker.website" class="text-secondary fs-13">no website</span>
+                                    <a *ngIf="speaker.website" target="_blank" href="{{speaker.website}}"><i
+                                            class="fa-solid fa-link"></i></a>
+                                </td>
 
-                    <div class="col-md-6 col-sm-12" *ngIf="speaker.position">
-                        <p><span class="fw-bold">Position:</span> {{speaker.position}}</p>
-                    </div>
+                                <td [ngClass]="{'bg-pending2': speaker.status == 'Pending' , 'bg-rejected2' : speaker.status == 'Rejected'
+                                ,'bg-confirmed2' : speaker.status == 'Confirmed'}">
+                                    <span *ngIf="!speaker.facebook" class="text-secondary fs-13">no facebook</span>
+                                    <a *ngIf="speaker.facebook" target="_blank" href="{{speaker.facebook}}"><i
+                                            class="fa-brands fa-facebook-f"></i></a>
+                                </td>
 
-                    <div class="col-md-6 col-sm-12" *ngIf="speaker.website">
-                        <p><span class="fw-bold">Website:</span> {{speaker.website}}</p>
-                    </div>
+                                <td [ngClass]="{'bg-pending2': speaker.status == 'Pending' , 'bg-rejected2' : speaker.status == 'Rejected'
+                                ,'bg-confirmed2' : speaker.status == 'Confirmed'}">
+                                    <span *ngIf="!speaker.linkedin" class="text-secondary fs-13">no linkedin</span>
+                                    <a *ngIf="speaker.linkedin" target="_blank" href="{{speaker.linkedin}}"><i
+                                            class="fa-brands fa-linkedin-in"></i></a>
+                                </td>
 
-                    <div class="col-md-6 col-sm-12" *ngIf="speaker.status">
-                        <p><span class="fw-bold">Status:</span> {{speaker.status}}</p>
-                    </div>
+                                <td [ngClass]="{'bg-pending2': speaker.status == 'Pending' , 'bg-rejected2' : speaker.status == 'Rejected'
+                ,'bg-confirmed2' : speaker.status == 'Confirmed'}">{{speaker.status}}</td>
+                                <td [ngClass]="{'bg-pending2': speaker.status == 'Pending' , 'bg-rejected2' : speaker.status == 'Rejected'
+                                ,'bg-confirmed2' : speaker.status == 'Confirmed'}">{{speaker.speech_title}}</td>
+                                <td [ngClass]="{'bg-pending2': speaker.status == 'Pending' , 'bg-rejected2' : speaker.status == 'Rejected'
+                                ,'bg-confirmed2' : speaker.status == 'Confirmed'}" class="col-1">
+                                    <img [src]="apiUrl + speaker.photo_path.slice(1)" alt="" style="max-width: 100%;"
+                                        height="150px" width="100px">
+                                </td>
 
-                    <div class="col-md-6 col-sm-12" *ngIf="speaker.bio">
-                        <p><span class="fw-bold">Bio: </span> {{speaker.bio}}</p>
-                    </div>
 
-                    <div class="col-md-6 col-sm-12" *ngIf="speaker.facebook">
-                        <p><span class="fw-bold">Facebook: </span> <a href="{{speaker.facebook}}"
-                                target="_blank">{{speaker.facebook}}</a></p>
-                    </div>
+                                <td [ngClass]="{'bg-pending2': speaker.status == 'Pending' , 'bg-rejected2' : speaker.status == 'Rejected'
+                                ,'bg-confirmed2' : speaker.status == 'Confirmed'}" style="text-align: center; align-content: center;">
+                                    <button class="fs-small m-0 p-0" mat-icon-button [matMenuTriggerFor]="menu"
+                                        aria-label="Example icon-button with a menu">
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                    </button>
+                                    <mat-menu #menu="matMenu">
+                                        <a id="item1" class=" p-0 m-0 h-100 d-block px-1" mat-menu-item>
+                                            <p style="font-weight: 500;" class="px-1 p-0 m-0" id="mat-item-cutom"
+                                                (click)="openModal(moreDetailsContent , speaker)">more</p>
+                                        </a>
 
-                    <div class="col-md-6 col-sm-12" *ngIf="speaker.linkedin">
-                        <p><span class="fw-bold">Linkedin: </span> <a href="{{speaker.linkedin}}"
-                                target="_blank">{{speaker.linkedin}}</a></p>
-                    </div>
+                                        <a id="item1" class=" p-0 m-0 h-100 d-block px-1" mat-menu-item>
+                                            <p style="font-weight: 500;" class="px-1 p-0 m-0" id="mat-item-cutom"
+                                                (click)="openModal(updateContent,speaker)">update</p>
+                                        </a>
+                                    </mat-menu>
 
-                    <div class="col-md-6 col-sm-12" *ngIf="speaker.speech_brief">
-                        <p><span class="fw-bold">Speech Brief: </span> {{speaker.speech_brief}}</p>
-                    </div>
-
-                    <div class="col-md-6 col-sm-12" *ngIf="speaker.speech_title">
-                        <p><span class="fw-bold">Speech Title: </span> {{speaker.speech_title}}</p>
-                    </div>
-
-                    <div class="col-md-6 col-sm-12" *ngIf="speaker.bio">
-                        <p><span class="fw-bold">Bio: </span> {{speaker.bio}}</p>
-                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
 
-                <div class="text-center">
-                    <img [src]="apiUrl + speaker.photo_path.slice(1)" alt="" style="max-width: 100%;" height="200px">
-                </div>
 
-                <div class="text-center my-2">
-                    <button class="btn btn-primary" (click)="openModal(updateContent,speaker)">Update</button>
+                <div *ngIf="view == 'list'">
+                    <div class="card p-2 my-2" *ngFor="let speaker of listOfspeakers" [ngClass]="{'bg-pending': speaker.status == 'Pending' , 'bg-rejected' : speaker.status == 'Rejected'
+                , 'bg-confirmed' : speaker.status == 'Confirmed'}">
+                        <div class="row">
+                            <!-- <div *ngIf="speaker.top_five">
+                            <p class="text-right gold h2 my-2 top-five">
+                                Top Five <i class="fas fa-star"></i>
+                            </p>
+                        </div> -->
+                            <div class="col-md-6 col-sm-12" *ngIf="speaker.company_name">
+                                <p><span class="fw-bold">Company Name:</span> {{speaker.company_name}}</p>
+                            </div>
+
+                            <div class="col-md-6 col-sm-12" *ngIf="speaker.email">
+                                <p><span class="fw-bold">Email:</span> {{speaker.email}}</p>
+                            </div>
+
+                            <div class="col-md-6 col-sm-12" *ngIf="speaker.fullname">
+                                <p><span class="fw-bold">Name:</span> {{speaker.fullname}}</p>
+                            </div>
+
+                            <div class="col-md-6 col-sm-12" *ngIf="speaker.mobile_no">
+                                <p><span class="fw-bold">Mobile:</span> {{speaker.mobile_no}}</p>
+                            </div>
+
+                            <div class="col-md-6 col-sm-12" *ngIf="speaker.position">
+                                <p><span class="fw-bold">Position:</span> {{speaker.position}}</p>
+                            </div>
+
+                            <div class="col-md-6 col-sm-12" *ngIf="speaker.website">
+                                <p><span class="fw-bold">Website:</span> {{speaker.website}}</p>
+                            </div>
+
+                            <div class="col-md-6 col-sm-12" *ngIf="speaker.status">
+                                <p><span class="fw-bold">Status:</span> {{speaker.status}}</p>
+                            </div>
+
+                            <div class="col-md-6 col-sm-12" *ngIf="speaker.bio">
+                                <p><span class="fw-bold">Bio: </span> {{speaker.bio}}</p>
+                            </div>
+
+                            <div class="col-md-6 col-sm-12" *ngIf="speaker.facebook">
+                                <p><span class="fw-bold">Facebook: </span> <a href="{{speaker.facebook}}"
+                                        target="_blank">{{speaker.facebook}}</a></p>
+                            </div>
+
+                            <div class="col-md-6 col-sm-12" *ngIf="speaker.linkedin">
+                                <p><span class="fw-bold">Linkedin: </span> <a href="{{speaker.linkedin}}"
+                                        target="_blank">{{speaker.linkedin}}</a></p>
+                            </div>
+
+                            <div class="col-md-6 col-sm-12" *ngIf="speaker.speech_brief">
+                                <p><span class="fw-bold">Speech Brief: </span> {{speaker.speech_brief}}</p>
+                            </div>
+
+                            <div class="col-md-6 col-sm-12" *ngIf="speaker.speech_title">
+                                <p><span class="fw-bold">Speech Title: </span> {{speaker.speech_title}}</p>
+                            </div>
+
+                        </div>
+
+                        <div class="text-center">
+                            <img [src]="apiUrl + speaker.photo_path.slice(1)" alt="" style="max-width: 100%;"
+                                height="200px">
+                        </div>
+
+                        <div class="text-center my-2">
+                            <button class="btn btn-primary button"
+                                (click)="openModal(updateContent,speaker)">Update</button>
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </div>
 
     </div>
@@ -332,7 +432,7 @@
                 </div>
 
                 <div class="py-2 text-center">
-                    <button class="btn btn-primary" [disabled]="form['invalid']" type="submit">Submit</button>
+                    <button class="btn btn-primary button" [disabled]="form['invalid']" type="submit">Submit</button>
                 </div>
 
             </form>
@@ -541,10 +641,30 @@
 
 
             <div class="py-2 text-center">
-                <button class="btn btn-primary" [disabled]="form['invalid']" type="submit">Submit</button>
+                <button class="btn btn-primary button" [disabled]="form['invalid']" type="submit">Submit</button>
             </div>
 
 
         </form>
+    </div>
+</ng-template>
+
+<ng-template #moreDetailsContent>
+    <div class="bg-white p-3">
+        <p class="text-center h3">More Details</p>
+        <div>
+            <div>
+                <label for="" class="text-secondary">Bio</label>
+                <p class="form-control" *ngIf="selectedSpeaker.bio">{{selectedSpeaker.bio}}</p>
+                <p class="form-control text-secondary fs-13" *ngIf="!selectedSpeaker.bio">No content</p>
+            </div>
+
+            <div>
+                <label for="" class="text-secondary">Speech Brief</label>
+                <p class="form-control" *ngIf="selectedSpeaker.speech_brief">{{selectedSpeaker.speech_brief}}</p>
+                <p class="form-control text-secondary fs-13" *ngIf="!selectedSpeaker.speech_brief">No content</p>
+
+            </div>
+        </div>
     </div>
 </ng-template>

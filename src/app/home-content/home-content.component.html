@@ -26,7 +26,7 @@
                             <div class="row p-0 py-2 m-0 bt-white" [ngClass]="{'py-2' : !isMobile}">
                                 <p class="text-white col-md-6 col-sm-12 cursor-pointer py-3 m-0 br-white link d-flex justify-content-between"
                                     [ngClass]="{ 'b-white' : isMobile }" routerLink="/forms/exhibitor">
-                                    BECOME A SPONSOR
+                                    Become a Partner
                                     <i class="fa-solid fa-angle-right"></i>
                                 </p>
                                 <p class="text-white col-md-6 col-sm-12 py-3 m-0 cursor-pointer link d-flex justify-content-between"
@@ -38,7 +38,7 @@
                             <div class="row p-0 m-0 bt-white" [ngClass]="{'py-2' : !isMobile}">
                                 <p class="text-white  col-md-6 col-sm-12 cursor-pointer py-3 m-0 br-white link d-flex justify-content-between"
                                     [ngClass]="{ 'b-white' : isMobile }" routerLink="/forms/visitor/registration">
-                                    Registration
+                                    Visitor Registration
                                     <i class="fa-solid fa-angle-right"></i>
                                 </p>
                                 <a class="text-white text-decoration-none cursor-pointer col-md-6 col-sm-12 py-3 m-0 link d-flex justify-content-between"
@@ -262,16 +262,16 @@
             <div class="col-md-6 col-sm-12 text-end align-content-center">
                 <div class="img-grid p-2">
                     <div class="item1">
-                        <img src="../../assets/images/builder-structure-075.avif" alt="">
+                        <img src="../../assets/images/why1 (1).jpg" alt="">
                     </div>
                     <div class="item2">
-                        <img src="../../assets/images/builder-structure-075.avif" alt="">
+                        <img src="../../assets/images/why1 (2).jpg" alt="">
                     </div>
                     <div class="item3">
-                        <img src="../../assets/images/builder-structure-075.avif" alt="">
+                        <img src="../../assets/images/why1 (3).jpg" alt="">
                     </div>
                     <div class="item4">
-                        <img src="../../assets/images/builder-structure-075.avif" alt="">
+                        <img src="../../assets/images/why1 (4).JPG" alt="">
                     </div>
 
                 </div>
@@ -317,8 +317,7 @@
                 </div>
 
                 <div class="col-md-6 col-sm-12 text-end align-content-center" [ngClass]="{'text-center' : isMobile }">
-                    <img class="w-75" src="../../assets/images/builder-structure-075.avif"
-                        [ngClass]="{'w-100' : isMobile }" alt="">
+                    <img class="w-75" src="../../assets/images/conSec.jpg" [ngClass]="{'w-100' : isMobile }" alt="">
                 </div>
             </div>
 
@@ -326,6 +325,37 @@
 
         </div>
     </div>
+
+
+    <!----- Speakers ----->
+    <div id="speakers-list" class="py-3 my-5">
+        <div class="w-90 mx-auto">
+            <p class="h2">Speakers list</p>
+
+            <owl-carousel-o [options]="speakersOptions">
+                <ng-template carouselSlide *ngFor="let speaker of listOfSpeakers">
+                    <div class="speaker-container">
+                        <img [src]="apiUrl + speaker.photo_path.slice(1)" class="d-block w-100 h-100" alt="...">
+                        <div class="">
+                            <div class="speaker-content align-content-end">
+                                <div class="py-2 px-3 h-100 align-content-center">
+                                    <p class="text-center m-0">{{speaker.speech_title}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-center speaker-name fw-bold my-1">{{speaker.fullname}}</p>
+                    <p class="text-center text-secondary fs-13 speaker-name fw-bold">{{speaker.position}}</p>
+                </ng-template>
+            </owl-carousel-o>
+
+            <div class="text-center">
+                <button class="btn-green px-3 py-1" [ngClass]="{'w-90' : isMobile}" routerLink="/home/speakers">View
+                    Speakers</button>
+            </div>
+        </div>
+    </div>
+
 
     <!----- Main Topics ----->
     <div id="main-topics" class="py-3 my-5">
@@ -589,35 +619,6 @@
         </div>
     </div>
 
-    <!----- Speakers ----->
-    <div id="speakers-list" class="py-3 my-5">
-        <div class="w-90 mx-auto">
-            <p class="h2">Speakers list</p>
-
-            <owl-carousel-o [options]="speakersOptions">
-                <ng-template carouselSlide *ngFor="let speaker of listOfSpeakers">
-                    <div class="speaker-container">
-                        <img [src]="apiUrl + speaker.photo_path.slice(1)" class="d-block w-100 h-100" alt="...">
-                        <div class="">
-                            <div class="speaker-content align-content-end">
-                                <div class="py-2 px-3 h-100 align-content-center">
-                                    <p class="text-center m-0">{{speaker.speech_title}}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-center speaker-name fw-bold my-1">{{speaker.fullname}}</p>
-                    <p class="text-center text-secondary fs-13 speaker-name fw-bold">{{speaker.position}}</p>
-                </ng-template>
-            </owl-carousel-o>
-
-            <div class="text-center">
-                <button class="btn-green px-3 py-1" [ngClass]="{'w-90' : isMobile}" routerLink="/home/speakers">View
-                    Speakers</button>
-            </div>
-        </div>
-    </div>
-
     <!-----  Workshops ----->
     <div class="my-5 py-3" id="workshop">
         <div class="w-90 mx-auto">
@@ -732,45 +733,42 @@
             <div class="w-90 mx-auto">
                 <p class="h2">2025 Exhibitors and Sponsors</p>
 
-                <div class="bb-gray" *ngIf="platinumExhibitors.length > 0 ">
-                    <p class="text-secondary">Platinum</p>
+
+                <div *ngFor="let classification of classifications">
+                    <ng-container *ngIf="(groupedExhibitors[classification] || []).length > 0">
+                        <div class="bb-gray">
+                            <h4>{{ classification }}</h4>
+                            <div *ngIf="(groupedExhibitors[classification] || []).length > 0">
+
+                                <div class="row my-2">
+                                    <div *ngFor="let exhibitor of groupedExhibitors[classification]"
+                                        class="col-md-2 col-sm-12 text-center align-content-center my-1 justify-items-center">
+                                        <div class="sponsors-img-container p-2 align-content-center">
+                                            <img *ngIf="exhibitor.logo" src="{{apiUrl}}{{exhibitor.logo.slice(1)}}"
+                                                alt="" style="max-width: 100%;">
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+
+                <!-- <div class="bb-gray" *ngIf="platinumExhibitors.length > 0 ">
+                    <p class="fw-bold">classification type</p>
                     <div class="row my-2">
                         <div class="col-md-2 col-sm-12 text-center align-content-center my-1 justify-items-center"
                             *ngFor="let exhibitor of platinumExhibitors">
                             <div class="sponsors-img-container p-2 align-content-center">
                                 <img *ngIf="exhibitor.logo" src="{{apiUrl}}{{exhibitor.logo.slice(1)}}" alt=""
                                     style="max-width: 100%;">
-
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="bb-gray" *ngIf="silverExhibitors.length > 0 ">
-                    <p class="text-secondary">Silver</p>
-                    <div class="row my-2">
-                        <div class="col-md-2 col-sm-12 text-center align-content-center my-1 justify-items-center"
-                            *ngFor="let exhibitor of silverExhibitors">
-                            <div class="sponsors-img-container p-2 align-content-center">
-                                <img *ngIf="exhibitor.logo" src="{{apiUrl}}{{exhibitor.logo.slice(1)}}" alt=""
-                                    style="max-width: 100%;">
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bb-gray" *ngIf="goldExhibitors.length > 0 ">
-                    <p class="text-secondary">Gold</p>
-                    <div class="row my-2">
-                        <div class="col-md-2 col-sm-12 text-center align-content-center my-1 justify-items-center"
-                            *ngFor="let exhibitor of goldExhibitors">
-                            <div class="sponsors-img-container p-2 align-content-center">
-                                <img src="{{apiUrl}}{{exhibitor.logo.slice(1)}}" alt="" style="max-width: 100%;">
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
         </div>

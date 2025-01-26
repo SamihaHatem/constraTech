@@ -19,6 +19,11 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
 
   @ViewChild('videoPlayer') videoPlayer: any;
 
+  classifications = [
+    "Under Patronage", "Platinum Sponsor", "Gold Sponsor", "Silver Sponsor",
+    "Bronze Sponsor", "Exhibitor", "Supporting Association", "Media Partner", 
+    "Academic Partner", "Visiting Partner"
+  ];
 
   selectedVideo!: SafeHtml
   numberOfCols: number = 2;
@@ -188,7 +193,7 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
         items: 3
       },
       1000: {
-        items: 3 
+        items: 3
       },
     },
     nav: true
@@ -255,13 +260,33 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
 
   }
 
+  isImageOrVideo(path: string): string {
+    const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.webp'];
+    const videoExtensions = ['.mp4', '.webm', '.ogg', '.avi', '.mov', '.mkv'];
+
+    const ext = path.toLowerCase().slice(((path.lastIndexOf('.') - 1) >>> 0) + 2); // Get the file extension
+
+    if (imageExtensions.includes(`.${ext}`)) {
+      return 'image';
+    } else if (videoExtensions.includes(`.${ext}`)) {
+      return 'video';
+    } else {
+      return 'unknown';
+    }
+  }
+
+
   listOfGallery: any[] = []
   getActiveImages() {
     this.contentServices.getActiveImages().subscribe((response: any) => {
       console.log(response)
       this.listOfGallery = response.result
-      for (let i = 0; i < 7; i++) {
-        if (this.listOfGallery[i]) {
+      for (let i = 0; i < this.listOfGallery.length; i++) {
+        if (this.originalTiles.length >= 7) {
+          break;
+        }
+        const is_image = this.isImageOrVideo(baseUrl.apiUrl + this.listOfGallery[i]) == 'image'
+        if (this.listOfGallery[i] && is_image) {
           this.originalTiles[i].img = baseUrl.apiUrl + this.listOfGallery[i];
           this.MobileTiles[i].img = baseUrl.apiUrl + this.listOfGallery[i];
         }
@@ -305,22 +330,25 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
   goldExhibitors: any[] = []
   platinumExhibitors: any[] = []
 
+  // groupedExhibitors = {};
+  // groupedExhibitors: { [key: string]: { name: string, classification: string }[] } = {};
+  groupedExhibitors: { [key: string]: any[] } = {};
 
   getActiveExhibitors() {
     this.contentServices.getConfirmedExhibitors().subscribe((response: any) => {
       console.log("getActiveExhibitors response: ", response)
       this.listOfExhibitors = response.result
-      this.listOfExhibitors.forEach((exhibitor) => {
-        if (exhibitor.classification == 'Silver') {
-          this.silverExhibitors.push(exhibitor)
+
+      this.groupedExhibitors = this.listOfExhibitors.reduce((acc, exhibitor) => {
+        if (!acc[exhibitor.classification]) {
+          acc[exhibitor.classification] = [];
         }
-        else if (exhibitor.classification == 'Gold') {
-          this.goldExhibitors.push(exhibitor)
-        }
-        else if (exhibitor.classification == 'Platinum') {
-          this.platinumExhibitors.push(exhibitor)
-        }
-      })
+        acc[exhibitor.classification].push(exhibitor);
+        return acc;
+      }, {});
+
+      console.log("groupedExhibitors: ", this.groupedExhibitors)
+     
     }, (err: any) => {
       console.log(err)
     })

@@ -50,7 +50,9 @@ export class CmsService {
   }
 
   getExhibitorClassifications() {
-    return ["Silver", "Gold", "Platinum"]
+    return ["Under Patronage", "Platinum Sponsor", "Gold Sponsor", "Silver Sponsor", "Bronze Sponsor", "Exhibitor", "Supporting Association"
+      , "Media Partner", "Academic Partner", "Visiting Partner"
+    ]
   }
 
   confirmExhibitor(reqBody: any) {

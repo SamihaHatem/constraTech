@@ -58,18 +58,15 @@ export class VisitorService {
       appId: '1291942738744571',  
       cookie: true,
       xfbml: true,
-      version: 'v14.0'  
+      version: 'v14.0'
     });
   }
 
   shareTextAndPhoto(message: string, photoUrl: string): void {
     FB.ui({
-      method: 'feed',
-      link: 'https://new.constratech.org/',
-      caption: message,
-      message:message,
-      quote:message,
-      picture: photoUrl,
+      method: 'share',
+      hashtag: '#constratech25', 
+      href: 'https://new.constratech.org/',
     }, function (response: any) {
       console.log(response)
       if (response && !response.error_message) {

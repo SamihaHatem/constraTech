@@ -22,10 +22,19 @@ export class SpeakersComponent implements OnInit {
   selectedSpeakerPhoto: any
 
   file: any;
+  view: string = 'list'
+
+  gridView() {
+    this.view = 'grid'
+  }
+
+  listView() {
+    this.view = 'list'
+  }
+
   async uploadImage(event: any) {
     this.file = event.target.files[0];
     console.log(this.file);
-
 
     this.convertToBase64(this.file)
     this.selectedSpeakerPhoto = await this.convertToBase64(this.file)
