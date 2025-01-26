@@ -51,13 +51,18 @@
                     </ng-container>
                     <p class="text-center my-2 fw-bold"
                         [ngClass]="{'text-success' : image.status == 'Active' , 'text-secondary' :image.status == 'Inactive' }">
-                        {{image.status}}
+                        {{image.status}}  {{image.highlights ? ' - highlighted' : ''}}
                     </p>
                     <div class="text-center">
-                        <button *ngIf="image.status == 'Active'"
+                        <button class="mx-2" *ngIf="image.status == 'Active'"
                             (click)="updateImageStatus('Inactive' , image._id)">Deactivate</button>
-                        <button *ngIf="image.status == 'Inactive'"
+                        <button class="mx-2" *ngIf="image.status == 'Inactive'"
                             (click)="updateImageStatus('Active' , image._id)">Activate</button>
+
+                        <button class="mx-2" *ngIf="image.highlights"
+                            (click)="updateImageHighlight(false , image._id)">Unhighlight</button>
+                        <button class="mx-2" *ngIf="!image.highlights"
+                            (click)="updateImageHighlight(true , image._id)">Highlight</button>
                     </div>
                 </div>
             </div>
@@ -70,7 +75,9 @@
         <p class="h3">New Gallery</p>
         <form #newPhotForm="ngForm" (ngSubmit)="addPhoto()">
             <div class="my-3">
-                <label for="photo" class="label-form text-secondary">Select photo</label>
+                <label for="photo" class="label-form text-secondary">Select media
+
+                </label>
                 <input type="file" name="photo" id="photo" class="form-control" accept="image/*|video/*"
                     (change)="uploadImage($event)" required>
             </div>

@@ -46,9 +46,9 @@ export class GalleryComponent implements OnInit {
   isImageOrVideo(path: string): string {
     const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.webp'];
     const videoExtensions = ['.mp4', '.webm', '.ogg', '.avi', '.mov', '.mkv'];
-  
+
     const ext = path.toLowerCase().slice(((path.lastIndexOf('.') - 1) >>> 0) + 2); // Get the file extension
-    
+
     if (imageExtensions.includes(`.${ext}`)) {
       return 'image';
     } else if (videoExtensions.includes(`.${ext}`)) {
@@ -105,6 +105,29 @@ export class GalleryComponent implements OnInit {
 
   updateImageStatus(status: string, _id: string) {
     this.galleryServices.updateImageStatus({ _id, status }).subscribe((response: any) => {
+      console.log(response)
+      Swal.fire({
+        title: response.message,
+        icon: 'success'
+      }).then(() => {
+        this.modalServices.dismissAll()
+        this.getAllImages();
+      })
+    }, (err: any) => {
+      console.log(err)
+      Swal.fire({
+        title: 'Error',
+        icon: 'error'
+      }).then(() => {
+        this.modalServices.dismissAll()
+        this.getAllImages();
+      })
+    })
+  }
+
+  updateImageHighlight(highlight: any, _id: any) {
+    console.log({ _id, highlights:highlight })
+    this.galleryServices.updateImageStatus({ _id, highlights:highlight }).subscribe((response: any) => {
       console.log(response)
       Swal.fire({
         title: response.message,

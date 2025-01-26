@@ -29,6 +29,12 @@ export class CmsService {
     return this.http.get(baseUrl.apiUrl + 'gallery/allActive')
   }
 
+  getHighightsImages(){
+    // highlights
+    return this.http.get(baseUrl.apiUrl + 'gallery/highlights')
+
+  }
+
 
   // -------------------------------------------------------------------
   // --------------------------- Exhibitors  ---------------------------

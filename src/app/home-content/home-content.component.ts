@@ -21,7 +21,7 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
 
   classifications = [
     "Under Patronage", "Platinum Sponsor", "Gold Sponsor", "Silver Sponsor",
-    "Bronze Sponsor", "Exhibitor", "Supporting Association", "Media Partner", 
+    "Bronze Sponsor", "Exhibitor", "Supporting Association", "Media Partner",
     "Academic Partner", "Visiting Partner"
   ];
 
@@ -32,23 +32,23 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
   apiUrl: string = baseUrl.apiUrl
 
   originalTiles: Tile[] = [
-    { img: '../../assets/images/conference/1.jfif', cols: 1, rows: 6 },
-    { img: '../../assets/images/conference/2.jpg', cols: 1, rows: 2 },
-    { img: '../../assets/images/conference/3.jpg', cols: 1, rows: 2 },
-    { img: '../../assets/images/conference/4.webp', cols: 1, rows: 2 },
-    { img: '../../assets/images/conference/5.webp', cols: 1, rows: 2 },
-    { img: '../../assets/images/conference/6.webp', cols: 1, rows: 2 },
-    { img: '../../assets/images/conference/7.jfif', cols: 1, rows: 2 },
+    { img: '', cols: 1, rows: 6 },
+    { img: '', cols: 1, rows: 2 },
+    { img: '', cols: 1, rows: 2 },
+    { img: '', cols: 1, rows: 2 },
+    { img: '', cols: 1, rows: 2 },
+    { img: '', cols: 1, rows: 2 },
+    { img: '', cols: 1, rows: 2 },
   ]
 
   MobileTiles: Tile[] = [
-    { img: '../../assets/images/conference/1.jfif', cols: 2, rows: 1 },
-    { img: '../../assets/images/conference/2.jpg', cols: 1, rows: 1 },
-    { img: '../../assets/images/conference/3.jpg', cols: 1, rows: 1 },
-    { img: '../../assets/images/conference/4.webp', cols: 1, rows: 1 },
-    { img: '../../assets/images/conference/5.webp', cols: 1, rows: 1 },
-    { img: '../../assets/images/conference/6.webp', cols: 1, rows: 1 },
-    { img: '../../assets/images/conference/7.jfif', cols: 1, rows: 1 },
+    { img: '', cols: 2, rows: 1 },
+    { img: '', cols: 1, rows: 1 },
+    { img: '', cols: 1, rows: 1 },
+    { img: '', cols: 1, rows: 1 },
+    { img: '', cols: 1, rows: 1 },
+    { img: '', cols: 1, rows: 1 },
+    { img: '', cols: 1, rows: 1 },
   ]
 
   videoList: any[] = [
@@ -277,18 +277,20 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
 
 
   listOfGallery: any[] = []
-  getActiveImages() {
-    this.contentServices.getActiveImages().subscribe((response: any) => {
-      console.log(response)
+  getHighightsImages() {
+    this.contentServices.getHighightsImages().subscribe((response: any) => {
+      console.log("getHighightsImages: ", response)
       this.listOfGallery = response.result
+      let count = 0
       for (let i = 0; i < this.listOfGallery.length; i++) {
-        if (this.originalTiles.length >= 7) {
+        if (count >= 7){
           break;
         }
-        const is_image = this.isImageOrVideo(baseUrl.apiUrl + this.listOfGallery[i]) == 'image'
-        if (this.listOfGallery[i] && is_image) {
+        if (this.listOfGallery[i]) {
           this.originalTiles[i].img = baseUrl.apiUrl + this.listOfGallery[i];
           this.MobileTiles[i].img = baseUrl.apiUrl + this.listOfGallery[i];
+          console.log(i ,  this.listOfGallery[i])
+          count++;
         }
       }
     }, (err: any) => {
@@ -326,12 +328,6 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
   }
 
   listOfExhibitors: any[] = []
-  silverExhibitors: any[] = []
-  goldExhibitors: any[] = []
-  platinumExhibitors: any[] = []
-
-  // groupedExhibitors = {};
-  // groupedExhibitors: { [key: string]: { name: string, classification: string }[] } = {};
   groupedExhibitors: { [key: string]: any[] } = {};
 
   getActiveExhibitors() {
@@ -348,13 +344,13 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
       }, {});
 
       console.log("groupedExhibitors: ", this.groupedExhibitors)
-     
+
     }, (err: any) => {
       console.log(err)
     })
   }
   ngOnInit(): void {
-    this.getActiveImages();
+    this.getHighightsImages();
     this.getActiveWorkshops();
     this.getActiveSpeakers();
     this.getActiveExhibitors();

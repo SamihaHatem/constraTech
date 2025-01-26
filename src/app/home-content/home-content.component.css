@@ -242,28 +242,37 @@ iframe {
 
 .item1 {
     grid-area: item1;
-    background-color: green;
+    background-image: url("../../assets/images/why1.jpg");
+    background-size: cover;
+    background-position-x: center;
     border-radius: 5px;
     overflow: hidden;
 }
 
 .item2 {
     grid-area: item2;
-    background-color: red;
+    background-image: url("../../assets/images/why2.jpg");
+    background-size: cover;
+    background-position-x: center;
     border-radius: 5px;
     overflow: hidden;
 }
 
 .item3 {
     grid-area: item3;
-    background-color: blue;
+    background-image: url("../../assets/images/why3.jpg");
+    background-size: cover;
+    background-position-x: center;
+
     border-radius: 5px;
     overflow: hidden;
 }
 
 .item4 {
     grid-area: item4;
-    background-color: yellow;
+    background-image: url("../../assets/images/why4.JPG");
+    background-size: cover;
+    background-position-x: center;
     border-radius: 5px;
     overflow: hidden;
 }
@@ -289,7 +298,7 @@ iframe {
     transition-delay: 0.4s;
 }
 
-.img1{
+.img1 {
     background: #246355;
 }
 
@@ -297,7 +306,7 @@ iframe {
     font-size: 1rem !important;
 }
 
-.img2{
+.img2 {
     background: var(--constraTech-orange);
 }
 

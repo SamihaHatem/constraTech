@@ -8,9 +8,10 @@
                     <!-- <img [src]="apiUrl+image" alt="" style="height: 250px; width: 100%;"> -->
 
 
-                    <img *ngIf="isImageOrVideo(apiUrl+image) == 'image'" [src]="apiUrl+image" style="height: 250px; width: 100%;">
-                    <video height="250" *ngIf="isImageOrVideo(apiUrl+image) == 'video'" [src]="apiUrl+image" alt="" style="height: 250px; width: 100%;"
-                        controls></video>
+                    <img *ngIf="isImageOrVideo(apiUrl+image) == 'image'" [src]="apiUrl+image"
+                        style="height: 250px; width: 100%;">
+                    <video height="250" *ngIf="isImageOrVideo(apiUrl+image) == 'video'" [src]="apiUrl+image" alt=""
+                        style="height: 250px; width: 100%;" preload="none" controls></video>
 
                 </div>
             </div>
