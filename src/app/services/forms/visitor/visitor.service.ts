@@ -55,7 +55,7 @@ export class VisitorService {
 
   facebookInit() {
     FB.init({
-      appId: '1291942738744571',  
+      appId: '1291942738744571',
       cookie: true,
       xfbml: true,
       version: 'v14.0'
@@ -64,9 +64,19 @@ export class VisitorService {
 
   shareTextAndPhoto(message: string, photoUrl: string): void {
     FB.ui({
-      method: 'share',
-      hashtag: '#constratech25', 
-      href: 'https://new.constratech.org/',
+      method: 'feed',
+      // hashtag: '#constratech25',
+      // href: 'https://new.constratech.org/',
+      // quote: message,
+      // picture: "https://new.constratech.org/assets/images/Linkedin%20post.jpg"
+
+      link: 'https://new.constratech.org/',
+      picture: "https://new.constratech.org/assets/images/Linkedin%20post.jpg",
+      name: 'ConstraTech 2025',  // Title of the post
+      caption: 'Join me at ConstraTech 2025!',  // This is the caption text below the image
+      description: message,  // This is the message text you want to share
+      hashtag: '#constratech25',  // Your hashtag
+
     }, function (response: any) {
       console.log(response)
       if (response && !response.error_message) {

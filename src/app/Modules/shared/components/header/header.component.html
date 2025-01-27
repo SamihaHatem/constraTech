@@ -25,14 +25,14 @@
             </div>
           </div>
 
-          <div class="w-50 justify-items-end align-content-center">
+          <div class="w-50 justify-items-end align-content-center      d-grid">
             <!-- Desktop -->
             <div class="w-75 d-flex justify-content-end" [ngClass]="{ 'd-none' : isMobile }">
               <div class="w-50 img-container align-content-center" *ngIf="!isScrolled">
                 <img style="max-width: 100%;" src="../../../../../assets/images/new_logo3.png"
                   alt="وزارة الاسكان والمرافق والمجتمعات العمرانية">
               </div>
-              
+
               <div class="w-25 img-container align-content-center" *ngIf="!isScrolled">
                 <img style="max-width: 100%; height: 65%;" src="../../../../../assets/images/img-3-removebg-preview.png"
                   alt="Egyption Engineers syndicate">
@@ -56,11 +56,11 @@
                             Egypt</a></li>
                         <li><a class="p-0 text-white fs-small py-1 upper-case"
                             (click)="scrollToId('exhibitors-list-2025')">2025
-                            Exhibitor
-                            List</a></li>
+                            Patners
+                            </a></li>
                         <li><a class="p-0 text-white fs-small py-1 upper-case"
-                            (click)="scrollToId('exhibitors-list-2024')">2024
-                            Exhibitor List</a></li>
+                            (click)="scrollToId('exhibitors-list-2024')">Pervious
+                            Partners</a></li>
                         <li><a class="p-0 text-white fs-small py-1 upper-case"
                             routerLink="/forms/exhibitor">Registration</a></li>
                       </ul>
@@ -112,7 +112,7 @@
                   </mat-accordion>
                 </a>
 
-                <a class="text-white upper-case" (click)="scrollToId('exhibitors-list-2024')">2024 Exhibitors List</a>
+                <a class="text-white upper-case" (click)="scrollToId('exhibitors-list-2025')">2025 Partners</a>
 
                 <a class="text-white upper-case" (click)="scrollToId('gallery')">Gallery</a>
 
