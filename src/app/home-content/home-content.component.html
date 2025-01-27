@@ -313,7 +313,8 @@
                 </div>
 
                 <div class="col-md-6 col-sm-12 text-end align-content-center" [ngClass]="{'text-center' : isMobile }">
-                    <img loading="lazy" class="w-95" src="../../assets/images/conSec.jpg" [ngClass]="{'w-100' : isMobile }" alt="">
+                    <img loading="lazy" class="w-95" src="../../assets/images/conSec.jpg"
+                        [ngClass]="{'w-100' : isMobile }" alt="">
                 </div>
             </div>
         </div>
@@ -328,7 +329,8 @@
             <owl-carousel-o [options]="speakersOptions">
                 <ng-template carouselSlide *ngFor="let speaker of listOfSpeakers">
                     <div class="speaker-container">
-                        <img loading="lazy" [src]="apiUrl + speaker.photo_path.slice(1)" class="d-block w-100 h-100" alt="...">
+                        <img loading="lazy" [src]="apiUrl + speaker.photo_path.slice(1)" class="d-block w-100 h-100"
+                            alt="...">
                         <div class="">
                             <div class="speaker-content align-content-end">
                                 <div class="py-2 px-3 h-100 align-content-center">
@@ -620,7 +622,8 @@
             <div class="row">
                 <div class="col-md-3 col-sm-12 px-2">
                     <div *ngIf="listOfWorkShops[0]; else no_workshop">
-                        <img loading="lazy" class="w-100" [src]="apiUrl+ listOfWorkShops[0].photo" alt="" style="height: 250px;">
+                        <img loading="lazy" class="w-100" [src]="apiUrl+ listOfWorkShops[0].photo" alt=""
+                            style="height: 250px;">
                         <p class="text-center fw-bold h5 my-2">{{listOfWorkShops[0].title}}</p>
                         <!-- <p class="text-center">{{listOfWorkShops[0].description}}</p> -->
                     </div>
@@ -628,21 +631,24 @@
                 </div>
                 <div class="col-md-3 col-sm-12 px-2">
                     <div *ngIf="listOfWorkShops[1]; else no_workshop">
-                        <img loading="lazy" class="w-100" [src]="apiUrl+ listOfWorkShops[1].photo" alt="" style="height: 250px;">
+                        <img loading="lazy" class="w-100" [src]="apiUrl+ listOfWorkShops[1].photo" alt=""
+                            style="height: 250px;">
                         <p class="text-center fw-bold h5 my-2">{{listOfWorkShops[1].title}}</p>
                         <!-- <p class="text-center">{{listOfWorkShops[1].description}}</p> -->
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-12 px-2">
                     <div *ngIf="listOfWorkShops[2]; else no_workshop">
-                        <img loading="lazy" class="w-100" [src]="apiUrl+ listOfWorkShops[2].photo" alt="" style="height: 250px;">
+                        <img loading="lazy" class="w-100" [src]="apiUrl+ listOfWorkShops[2].photo" alt=""
+                            style="height: 250px;">
                         <p class="text-center fw-bold h5 my-2">{{listOfWorkShops[2].title}}</p>
                         <!-- <p class="text-center">{{listOfWorkShops[2].description}}</p> -->
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-12 mp-2">
                     <div *ngIf="listOfWorkShops[3]; else no_workshop">
-                        <img loading="lazy" class="w-100" [src]="apiUrl+ listOfWorkShops[3].photo" alt="" style="height: 250px;">
+                        <img loading="lazy" class="w-100" [src]="apiUrl+ listOfWorkShops[3].photo" alt=""
+                            style="height: 250px;">
                         <p class="text-center fw-bold h5 my-2">{{listOfWorkShops[3].title}}</p>
                         <!-- <p class="text-center">{{listOfWorkShops[3].description}}</p> -->
                     </div>
@@ -733,14 +739,14 @@
                             <h4>{{ classification }}</h4>
                             <div *ngIf="(groupedExhibitors[classification] || []).length > 0">
 
-                                <div class="row my-2">
+                                <div class="row gap-5 my-2 py-2">
                                     <div *ngFor="let exhibitor of groupedExhibitors[classification]"
-                                        class="col-md-2 col-sm-12 text-center align-content-center my-1 justify-items-center">
-                                        <div class="sponsors-img-container align-content-center">
-                                            <img loading="lazy" *ngIf="exhibitor.logo" src="{{apiUrl}}{{exhibitor.logo.slice(1)}}"
-                                                alt="" style="max-width: 100%;">
+                                        class="col-12 col-md-1 col-lg-1 text-center my-1">
+                                        <div class="sponsors-img-container p-2">
+                                            <img loading="lazy" *ngIf="exhibitor.logo"
+                                                src="{{ apiUrl }}{{ exhibitor.logo.slice(1) }}" alt=""
+                                                style="max-width: 100%;">
                                         </div>
-
                                     </div>
                                 </div>
 
@@ -760,196 +766,175 @@
                 <p class="h2">Previous Partners</p>
 
                 <div class="bb-gray">
-                    <div class="row my-2">
-                        <div class="col-md-2 col-sm-6 text-center align-content-center my-1 justify-items-center">
+                    <div class="row gap-5 my-2">
+                        <div class="col-12 col-md-1 col-lg-1 text-center my-1">
                             <div class="sponsors-img-container">
                                 <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/1.jpg" alt="">
                             </div>
                         </div>
-                        <div class="col-md-2 col-sm-6 text-center align-content-center my-1  justify-items-center">
+                        <div class="col-12 col-md-1 col-lg-1 text-center my-1">
                             <div class="sponsors-img-container">
                                 <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/2.jpg" alt="">
                             </div>
                         </div>
-                        <div class="col-md-2 col-sm-6 text-center align-content-center my-1  justify-items-center">
+                        <div class="col-12 col-md-1 col-lg-1 text-center my-1">
                             <div class="sponsors-img-container">
                                 <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/3.jpg" alt="">
                             </div>
                         </div>
-                        <div class="col-md-2 col-sm-6 text-center align-content-center my-1  justify-items-center">
+                        <div class="col-12 col-md-1 col-lg-1 text-center my-1">
                             <div class="sponsors-img-container">
                                 <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/4.jpg" alt="">
                             </div>
                         </div>
-                        <div class="col-md-2 col-sm-6 text-center align-content-center my-1  justify-items-center">
+                        <div class="col-12 col-md-1 col-lg-1 text-center my-1">
                             <div class="sponsors-img-container">
                                 <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/5.jpg" alt="">
                             </div>
                         </div>
-                        <div class="col-md-2 col-sm-6 text-center align-content-center my-1  justify-items-center">
+                        <div class="col-12 col-md-1 col-lg-1 text-center my-1">
                             <div class="sponsors-img-container">
                                 <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/6.jpg" alt="">
                             </div>
                         </div>
 
-                        <div class="col-md-2 col-sm-6 text-center align-content-center my-1  justify-items-center">
+                        <div class="col-12 col-md-1 col-lg-1 text-center my-1">
                             <div class="sponsors-img-container">
                                 <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/7.jpg" alt="">
                             </div>
                         </div>
 
-                        <div class="col-md-2 col-sm-6 text-center align-content-center my-1  justify-items-center">
+                        <div class="col-12 col-md-1 col-lg-1 text-center my-1">
                             <div class="sponsors-img-container">
                                 <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/8.jpg" alt="">
                             </div>
                         </div>
 
-                        <div class="col-md-2 col-sm-6 text-center align-content-center my-1  justify-items-center">
+                        <div class="col-12 col-md-1 col-lg-1 text-center my-1">
                             <div class="sponsors-img-container">
-                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/9.jpg"
-                                    alt="">
+                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/9.jpg" alt="">
                             </div>
                         </div>
 
-                        <div class="col-md-2 col-sm-6 text-center align-content-center my-1  justify-items-center">
+                        <div class="col-12 col-md-1 col-lg-1 text-center my-1">
                             <div class="sponsors-img-container">
-                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/10.jpg"
-                                    alt="">
+                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/10.jpg" alt="">
                             </div>
                         </div>
 
-                        <div class="col-md-2 col-sm-6 text-center align-content-center my-1  justify-items-center">
+                        <div class="col-12 col-md-1 col-lg-1 text-center my-1">
                             <div class="sponsors-img-container">
-                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/11.jpg"
-                                    alt="">
-                            </div>
-                        </div>
-
-
-                        <div class="col-md-2 col-sm-6 text-center align-content-center my-1  justify-items-center">
-                            <div class="sponsors-img-container">
-                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/12.jpg"
-                                    alt="">
-                            </div>
-                        </div>
-
-                        <div class="col-md-2 col-sm-6 text-center align-content-center my-1  justify-items-center">
-                            <div class="sponsors-img-container">
-                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/13.jpg"
-                                    alt="">
-                            </div>
-                        </div>
-
-                        <div class="col-md-2 col-sm-6 text-center align-content-center my-1  justify-items-center">
-                            <div class="sponsors-img-container">
-                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/14.jpg"
-                                    alt="">
-                            </div>
-                        </div>
-
-                        <div class="col-md-2 col-sm-6 text-center align-content-center my-1  justify-items-center">
-                            <div class="sponsors-img-container">
-                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/15.jpg"
-                                    alt="">
-                            </div>
-                        </div>
-
-                        <div class="col-md-2 col-sm-6 text-center align-content-center my-1  justify-items-center">
-                            <div class="sponsors-img-container">
-                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/16.jpg"
-                                    alt="">
-                            </div>
-                        </div>
-
-                        <div class="col-md-2 col-sm-6 text-center align-content-center my-1  justify-items-center">
-                            <div class="sponsors-img-container">
-                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/17.jpg"
-                                    alt="">
-                            </div>
-                        </div>
-
-                        <div class="col-md-2 col-sm-6 text-center align-content-center my-1  justify-items-center">
-                            <div class="sponsors-img-container">
-                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/18.jpg"
-                                    alt="">
-                            </div>
-                        </div>
-
-                        <div class="col-md-2 col-sm-6 text-center align-content-center my-1  justify-items-center">
-                            <div class="sponsors-img-container">
-                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/19.jpg"
-                                    alt="">
-                            </div>
-                        </div>
-
-                        <div class="col-md-2 col-sm-6 text-center align-content-center my-1  justify-items-center">
-                            <div class="sponsors-img-container">
-                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/20.jpg"
-                                    alt="">
-                            </div>
-                        </div>
-
-                        <div class="col-md-2 col-sm-6 text-center align-content-center my-1  justify-items-center">
-                            <div class="sponsors-img-container">
-                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/21.jpg"
-                                    alt="">
-                            </div>
-                        </div>
-
-                        <div class="col-md-2 col-sm-6 text-center align-content-center my-1  justify-items-center">
-                            <div class="sponsors-img-container">
-                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/22.jpg"
-                                    alt="">
-                            </div>
-                        </div>
-
-                        <div class="col-md-2 col-sm-6 text-center align-content-center my-1  justify-items-center">
-                            <div class="sponsors-img-container">
-                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/23.jpg"
-                                    alt="">
-                            </div>
-                        </div>
-
-                        <div class="col-md-2 col-sm-6 text-center align-content-center my-1  justify-items-center">
-                            <div class="sponsors-img-container">
-                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/24.jpg"
-                                    alt="">
-                            </div>
-                        </div>
-
-                        <div class="col-md-2 col-sm-6 text-center align-content-center my-1  justify-items-center">
-                            <div class="sponsors-img-container">
-                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/25.jpg"
-                                    alt="">
-                            </div>
-                        </div>
-
-                        <div class="col-md-2 col-sm-6 text-center align-content-center my-1  justify-items-center">
-                            <div class="sponsors-img-container">
-                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/26.jpg"
-                                    alt="">
-                            </div>
-                        </div>
-
-                        <div class="col-md-2 col-sm-6 text-center align-content-center my-1  justify-items-center">
-                            <div class="sponsors-img-container">
-                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/27.jpg"
-                                    alt="">
+                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/11.jpg" alt="">
                             </div>
                         </div>
 
 
-                        <div class="col-md-2 col-sm-6 text-center align-content-center my-1  justify-items-center">
+                        <div class="col-12 col-md-1 col-lg-1 text-center my-1">
                             <div class="sponsors-img-container">
-                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/28.jpg"
-                                    alt="">
+                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/12.jpg" alt="">
                             </div>
                         </div>
 
-                        <div class="col-md-2 col-sm-6 text-center align-content-center my-1  justify-items-center">
+                        <div class="col-12 col-md-1 col-lg-1 text-center my-1">
                             <div class="sponsors-img-container">
-                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/29.jpg"
-                                    alt="">
+                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/13.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-1 col-lg-1 text-center my-1">
+                            <div class="sponsors-img-container">
+                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/14.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-1 col-lg-1 text-center my-1">
+                            <div class="sponsors-img-container">
+                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/15.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-1 col-lg-1 text-center my-1">
+                            <div class="sponsors-img-container">
+                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/16.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-1 col-lg-1 text-center my-1">
+                            <div class="sponsors-img-container">
+                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/17.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-1 col-lg-1 text-center my-1">
+                            <div class="sponsors-img-container">
+                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/18.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-1 col-lg-1 text-center my-1">
+                            <div class="sponsors-img-container">
+                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/19.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-1 col-lg-1 text-center my-1">
+                            <div class="sponsors-img-container">
+                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/20.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-1 col-lg-1 text-center my-1">
+                            <div class="sponsors-img-container">
+                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/21.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-1 col-lg-1 text-center my-1">
+                            <div class="sponsors-img-container">
+                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/22.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-1 col-lg-1 text-center my-1">
+                            <div class="sponsors-img-container">
+                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/23.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-1 col-lg-1 text-center my-1">
+                            <div class="sponsors-img-container">
+                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/24.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-1 col-lg-1 text-center my-1">
+                            <div class="sponsors-img-container">
+                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/25.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-1 col-lg-1 text-center my-1">
+                            <div class="sponsors-img-container">
+                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/26.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-1 col-lg-1 text-center my-1">
+                            <div class="sponsors-img-container">
+                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/27.jpg" alt="">
+                            </div>
+                        </div>
+
+
+                        <div class="col-12 col-md-1 col-lg-1 text-center my-1">
+                            <div class="sponsors-img-container">
+                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/28.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-1 col-lg-1 text-center my-1">
+                            <div class="sponsors-img-container">
+                                <img loading="lazy" class="w-100" src="../../assets/images/pre-partners/29.jpg" alt="">
                             </div>
                         </div>
 
