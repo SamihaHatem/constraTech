@@ -270,7 +270,7 @@ iframe {
 
 .item4 {
     grid-area: item4;
-    background-image: url("../../assets/images/why4.JPG");
+    background-image: url("../../assets/images/why4.jpg");
     background-size: cover;
     background-position-x: center;
     border-radius: 5px;
