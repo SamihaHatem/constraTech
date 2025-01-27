@@ -260,22 +260,6 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
 
   }
 
-  isImageOrVideo(path: string): string {
-    const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.webp'];
-    const videoExtensions = ['.mp4', '.webm', '.ogg', '.avi', '.mov', '.mkv'];
-
-    const ext = path.toLowerCase().slice(((path.lastIndexOf('.') - 1) >>> 0) + 2); // Get the file extension
-
-    if (imageExtensions.includes(`.${ext}`)) {
-      return 'image';
-    } else if (videoExtensions.includes(`.${ext}`)) {
-      return 'video';
-    } else {
-      return 'unknown';
-    }
-  }
-
-
   listOfGallery: any[] = []
   getHighightsImages() {
     this.contentServices.getHighightsImages().subscribe((response: any) => {
@@ -334,7 +318,6 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
     this.contentServices.getConfirmedExhibitors().subscribe((response: any) => {
       console.log("getActiveExhibitors response: ", response)
       this.listOfExhibitors = response.result
-
       this.groupedExhibitors = this.listOfExhibitors.reduce((acc, exhibitor) => {
         if (!acc[exhibitor.classification]) {
           acc[exhibitor.classification] = [];
@@ -349,6 +332,7 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
       console.log(err)
     })
   }
+
   ngOnInit(): void {
     this.getHighightsImages();
     this.getActiveWorkshops();
