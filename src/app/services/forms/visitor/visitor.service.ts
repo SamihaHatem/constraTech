@@ -64,7 +64,7 @@ export class VisitorService {
 
   shareTextAndPhoto(message: string, photoUrl: string): void {
     FB.ui({
-      method: 'feed',
+      method: 'share',
       // hashtag: '#constratech25',
       // href: 'https://new.constratech.org/',
       // quote: message,
