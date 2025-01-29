@@ -255,8 +255,10 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
 
   }
 
-  constructor(private modalServices: NgbModal, private observer: BreakpointObserver, private sanitizer: DomSanitizer,
+  bannerVideoUrl:any
+  constructor(private modalServices: NgbModal, private observer: BreakpointObserver, private sanitizer: DomSanitizer, 
     private userServices: UserService, private contentServices: CmsService) {
+      this.bannerVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/attgsABiEqg');
 
   }
 
