@@ -14,6 +14,7 @@ export class VisitorComponent {
   isMobile = true;
   isScrolled = false;
   ploicy!: boolean
+  isLoading: boolean = false
   constructor(private observer: BreakpointObserver, private modalServices: NgbModal, private visitorService: VisitorService) { }
 
   @HostListener('window:scroll', [])
@@ -101,9 +102,11 @@ See you there 25-26-27 May 2025
   }
 
   addVisitor(form: any, stepper: MatStepper) {
+    this.isLoading = true;
     console.log(form.value)
     this.visitorService.addVisitor(form.value).subscribe((response: any) => {
       console.log("addVisitor response : ", response)
+      this.isLoading = false;
       Swal.fire({
         title: response.message,
         icon: 'success'
@@ -113,6 +116,17 @@ See you there 25-26-27 May 2025
       })
     }, (err: any) => {
       console.log("addVisitor err : ", err)
+      this.isLoading = false;
+    })
+  }
+
+  newPayNowApi() {
+    this.visitorService.paymentUrl().subscribe((response: any) => {
+      console.log("newPayNowApi response: ", response)
+      const url = response.link
+      window.open(url, '_blank');
+    }, (err: any) => {
+      console.log("newPayNowApi err: ", err)
     })
   }
 

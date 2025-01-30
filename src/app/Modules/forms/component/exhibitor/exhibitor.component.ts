@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class ExhibitorComponent {
   isMobile = true;
-
+  isLoading: boolean = false;
   isScrolled = false;
 
   ploicy!: boolean
@@ -70,30 +70,33 @@ export class ExhibitorComponent {
   }
 
   async addNewExhibitor(form: any) {
+    this.isLoading = true;
     console.log(form.value)
-       console.log(this.file, this.convertToBase64(this.file))
-       const base64Image = await this.convertToBase64(this.file);
-       const reqBody = { ...form.value, logo: base64Image };
-       console.log(reqBody)
-       this.exhibitorServices.addExhibitor(reqBody).subscribe((response: any) => {
-         console.log("addExhibitor response: ", response)
-         Swal.fire({
-           title: response.message,
-           icon: 'success'
-         }).then(() => {
-           form.reset()
-           this.file = null
-         })
-       }, (err: any) => {
-         console.log("addExhibitor err: ", err)
-         Swal.fire({
-           title: 'Error',
-           icon: 'error'
-         }).then(() => {
-           form.reset()
-           this.file = null
-         })
-       })
+    console.log(this.file, this.convertToBase64(this.file))
+    const base64Image = await this.convertToBase64(this.file);
+    const reqBody = { ...form.value, logo: base64Image };
+    console.log(reqBody)
+    this.exhibitorServices.addExhibitor(reqBody).subscribe((response: any) => {
+      console.log("addExhibitor response: ", response)
+      this.isLoading = false;
+      Swal.fire({
+        title: response.message,
+        icon: 'success'
+      }).then(() => {
+        form.reset()
+        this.file = null
+      })
+    }, (err: any) => {
+      console.log("addExhibitor err: ", err)
+      this.isLoading = false;
+      Swal.fire({
+        title: 'Error',
+        icon: 'error'
+      }).then(() => {
+        form.reset()
+        this.file = null
+      })
+    })
   }
 
   ngOnInit(): void {

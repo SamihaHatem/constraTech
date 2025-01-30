@@ -28,28 +28,17 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
   selectedVideo!: SafeHtml
   numberOfCols: number = 2;
 
-  tiles: Tile[] = [];
+  tiles: Tile[] = [
+    { img: '' },
+    { img: '' },
+    { img: '' },
+    { img: '' },
+    { img: '' },
+    { img: '' },
+    { img: '' },
+  ];
   apiUrl: string = baseUrl.apiUrl
 
-  originalTiles: Tile[] = [
-    { img: '', cols: 1, rows: 6 },
-    { img: '', cols: 1, rows: 2 },
-    { img: '', cols: 1, rows: 2 },
-    { img: '', cols: 1, rows: 2 },
-    { img: '', cols: 1, rows: 2 },
-    { img: '', cols: 1, rows: 2 },
-    { img: '', cols: 1, rows: 2 },
-  ]
-
-  MobileTiles: Tile[] = [
-    { img: '', cols: 2, rows: 1 },
-    { img: '', cols: 1, rows: 1 },
-    { img: '', cols: 1, rows: 1 },
-    { img: '', cols: 1, rows: 1 },
-    { img: '', cols: 1, rows: 1 },
-    { img: '', cols: 1, rows: 1 },
-    { img: '', cols: 1, rows: 1 },
-  ]
 
   videoList: any[] = [
     {
@@ -255,10 +244,10 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
 
   }
 
-  bannerVideoUrl:any
-  constructor(private modalServices: NgbModal, private observer: BreakpointObserver, private sanitizer: DomSanitizer, 
+  bannerVideoUrl: any
+  constructor(private modalServices: NgbModal, private observer: BreakpointObserver, private sanitizer: DomSanitizer,
     private userServices: UserService, private contentServices: CmsService) {
-      this.bannerVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/attgsABiEqg');
+    this.bannerVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/attgsABiEqg');
 
   }
 
@@ -269,13 +258,12 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
       this.listOfGallery = response.result
       let count = 0
       for (let i = 0; i < this.listOfGallery.length; i++) {
-        if (count >= 7){
+        if (count >= 7) {
           break;
         }
         if (this.listOfGallery[i]) {
-          this.originalTiles[i].img = baseUrl.apiUrl + this.listOfGallery[i];
-          this.MobileTiles[i].img = baseUrl.apiUrl + this.listOfGallery[i];
-          console.log(i ,  this.listOfGallery[i])
+          this.tiles[i].img = baseUrl.apiUrl + this.listOfGallery[i];
+          console.log(i, this.listOfGallery[i])
           count++;
         }
       }
@@ -344,11 +332,9 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
     this.observer.observe(['(max-width: 800px)']).subscribe((screenSize) => {
       if (screenSize.matches) {
         this.isMobile = true;
-        this.tiles = this.MobileTiles;
         this.numberOfCols = 2;
       } else {
         this.isMobile = false;
-        this.tiles = this.originalTiles;
         this.numberOfCols = 3;
       }
     });

@@ -62,6 +62,10 @@ export class VisitorService {
     });
   }
 
+  paymentUrl() {
+    return this.http.get(baseUrl.apiUrl + 'payment-webhook/payment_link')
+  }
+
   shareTextAndPhoto(message: string, photoUrl: string): void {
     FB.ui({
       method: 'share',

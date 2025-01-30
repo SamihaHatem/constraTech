@@ -41,10 +41,9 @@
           <div class="col-md-3 col-sm-12 my-3">
             <div class="w-75 mx-auto">
               <p class="title">Quick links</p>
-              <p class="text-white">Register for free entry</p>
-              <p class="text-white">Why visit?</p>
-              <p class="text-white">Sponsor</p>
-              <p class="text-white">Venue Map</p>
+              <p class="text-white cursor-pointer"  routerLink="/forms/visitor/registration">Register</p>
+              <p class="text-white cursor-pointer" (click)="scrollToId('why_exhibit')">Why Exhibit?</p>
+              <p class="text-white cursor-pointer" routerLink="/forms/exhibitor">Partner Registration</p>
             </div>
           </div>
 
@@ -80,8 +79,8 @@
             </div>
             <div class="text-center">
               <a class="text-white" routerLink="/admin/home">
-                <span *ngIf="!currentUser || !currentUser.isLoggedIn">login</span>
-                <span *ngIf="currentUser && currentUser.isLoggedIn">admin view</span>
+                <!-- <span *ngIf="!currentUser || !currentUser.isLoggedIn">login</span>
+                <span *ngIf="currentUser && currentUser.isLoggedIn">admin view</span> -->
               </a>
             </div>
           </div>

@@ -157,7 +157,12 @@
             </div>
 
             <div class="py-2 text-center">
-                <button class="btn btn-primary" [disabled]="form['invalid'] || !ploicy" type="submit">Submit</button>
+                <button class="btn btn-primary" *ngIf="!isLoading" [disabled]="form['invalid'] || !ploicy" type="submit">Submit</button>
+                <button class="btn btn-primary" *ngIf="isLoading" disabled>
+                    <div class="spinner-border text-white" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </button>
             </div>
 
         </form>

@@ -13,6 +13,8 @@ export class SpeakerComponent implements OnInit {
   isMobile = true;
   isScrolled = false;
 
+  isLoading: boolean = false;
+
   constructor(private observer: BreakpointObserver, private speakerServices: SpeakerService) { }
 
   @HostListener('window:scroll', [])
@@ -47,6 +49,7 @@ export class SpeakerComponent implements OnInit {
   }
 
   async addSpeaker(form: any) {
+    this.isLoading = true;
     console.log(form.value)
     // const formData = new FormData();
     // formData.append('photo', this.file, this.file.name)
@@ -64,7 +67,7 @@ export class SpeakerComponent implements OnInit {
     // formData.append('top_five', form.value.top_five)
 
     let reqBody = { ...form.value }
-    reqBody.status ='Pending'
+    reqBody.status = 'Pending'
     if (this.file) {
       const base64Image = await this.convertToBase64(this.file);
       reqBody.photo_path = base64Image
@@ -72,6 +75,7 @@ export class SpeakerComponent implements OnInit {
     console.log("addSpeaker: ", reqBody)
     this.speakerServices.addSpeaker(reqBody).subscribe((response: any) => {
       console.log("addSpeaker response : ", response)
+      this.isLoading = false;
       Swal.fire({
         title: response.message,
         icon: 'success'
@@ -80,6 +84,7 @@ export class SpeakerComponent implements OnInit {
       })
     }, (err: any) => {
       console.log("addSpeaker err : ", err)
+      this.isLoading = false;
     })
   }
 

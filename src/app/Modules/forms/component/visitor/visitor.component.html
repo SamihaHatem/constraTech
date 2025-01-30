@@ -241,8 +241,13 @@
                             </div>
 
                             <div class="py-2 text-center">
-                                <button type="submit" class="btn btn-primary"
+                                <button type="submit" class="btn btn-primary" *ngIf="!isLoading"
                                     [disabled]="form['invalid'] || !ploicy">Submit</button>
+                                <button class="btn btn-primary" *ngIf="isLoading" disabled>
+                                    <div class="spinner-border text-white" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                </button>
                             </div>
 
                         </form>
@@ -250,8 +255,7 @@
                     <mat-step [editable]="false">
                         <ng-template matStepLabel>Payment</ng-template>
                         <div class="text-center">
-                            <a class="mx-2 btn btn-primary" href="https://portal.myfatoorah.com/EGY/le/0505260752188152"
-                                target="_blank" (click)="cancel(stepper , shareOnSocialMediaContent)">Pay Now</a>
+                            <a class="mx-2 btn btn-primary" (click)="newPayNowApi(); cancel(stepper , shareOnSocialMediaContent)" target="_blank">Pay Now</a>
                             <button class="mx-2 btn btn-primary "
                                 (click)="cancel(stepper , shareOnSocialMediaContent)">Pay Later</button>
                         </div>
@@ -304,7 +308,8 @@
             <button class="text-center linkedin m-2 px-2 py-1" (click)="linkedinAuth()">
                 LinkenIn <i class="fa-brands fa-linkedin-in"></i></button>
 
-            <button class="text-center linkedin m-2 px-2 py-1" (click)="shareOnFacebook()">Facebook <i class="fa-brands fa-facebook"></i></button>
+            <button class="text-center linkedin m-2 px-2 py-1" (click)="shareOnFacebook()">Facebook <i
+                    class="fa-brands fa-facebook"></i></button>
 
         </div>
     </div>

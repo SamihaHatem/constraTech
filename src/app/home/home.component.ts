@@ -10,8 +10,6 @@ import { baseUrl } from 'src/baseUrl';
 import { Router } from '@angular/router';
 
 export interface Tile {
-  cols: number;
-  rows: number;
   img: string;
 }
 
@@ -121,6 +119,41 @@ export class HomeComponent implements OnInit {
 
   scroll_Top() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  isNavOpen = false;
+
+  closeNav() {
+    this.isNavOpen = false;
+  }
+  
+  scrollToId(id: string) {
+    if (!this.router.url.includes('home/content'))
+      this.router.navigateByUrl('/home/content')
+    this.closeNav()
+    console.log("element id : ", id, window.pageYOffset);
+    if (window.pageYOffset == 0) window.scrollTo({
+      top: 155,
+      behavior: "instant",
+    });
+    setTimeout(() => {
+      const element = document.getElementById(id);
+      const fixednavHeight = document.getElementById('fixed-nav-id')?.offsetHeight || 300;
+      console.log("nav fixednavHeight: ", fixednavHeight);
+
+      if (element) {
+        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - fixednavHeight;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+
+        // Get the element after the first scroll
+        console.log("Element after scroll: ", element);
+      }
+    }, 300); // Adjust delay time (300ms is just an example)
   }
 
   ngOnInit(): void {
