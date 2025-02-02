@@ -14,10 +14,10 @@ export class NavbarComponent implements OnInit {
   constructor(private observer: BreakpointObserver, private router: Router) { }
 
   scrollToId(id: string) {
-    console.log(this.router.url)
+    // console.log(this.router.url)
     if (!this.router.url.includes('home/content'))
       this.router.navigateByUrl('/home/content')
-    console.log("element id : ", id, window.pageYOffset);
+    // console.log("element id : ", id, window.pageYOffset);
     if (window.pageYOffset == 0) window.scrollTo({
       top: 155,
       behavior: "instant",
@@ -25,7 +25,7 @@ export class NavbarComponent implements OnInit {
     setTimeout(() => {
       const element = document.getElementById(id);
       const fixednavHeight = document.getElementById('fixed-nav-id')?.offsetHeight || 300;
-      console.log("nav fixednavHeight: ", fixednavHeight);
+      // console.log("nav fixednavHeight: ", fixednavHeight);
 
       if (element) {
         const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
@@ -37,7 +37,7 @@ export class NavbarComponent implements OnInit {
         });
 
         // Get the element after the first scroll
-        console.log("Element after scroll: ", element);
+        // console.log("Element after scroll: ", element);
       }
     }, 300); // Adjust delay time (300ms is just an example)
   }

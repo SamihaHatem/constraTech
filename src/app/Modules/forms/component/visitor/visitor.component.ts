@@ -53,7 +53,7 @@ export class VisitorComponent {
   shareOnLinkedIn(modalTitle: string, modalImage: string): void {
     const postUrl =
       `http://192.168.137.1:4200/share/${encodeURIComponent(modalTitle)}/${encodeURIComponent(modalImage)}`
-    console.log("postUrl-> ", postUrl)
+    // console.log("postUrl-> ", postUrl)
     const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${postUrl}`;
     window.open(linkedInUrl, '_blank');
   }
@@ -92,7 +92,7 @@ Register to get your badge now (registration Link)
 See you there 25-26-27 May 2025
 #constratech25 - #constratech`, imageBinary: img, access_token: "AQU3-53dgV20XxVV6ZmxITKEYbEur7-p1dxLz19GyaV8AzlUXNSqlbPLiC6jeBuIWWYu3LaBY5gOIg1OTNJqOX_tcuIeeNdBN6dg_g2YJi7wFAgHkHp6w0Vq2bZEgZR1QoTJxYw164KXuAuq0FYw7ZFkmgq1w-_H5lrMnNrBZT0lKx0MIRpP8dFxZ3spU3HVQ2V5UXQGqucEMOkzrVPUpWcQ_wty07rA45N-xSSoqT1Lb563e4tUmJXChxySk2rtKEyow7MpDlpT5cQHU0z0XfU24XZB4yLoOYuyVCDQ3JJC3RNMieZpIX1edjUgWFXK0jw9JMavO0uGNuwzjvIL1ytSDz4dJw"
     }
-    console.log(reqBody)
+    // console.log(reqBody)
     this.visitorService.shareToLinkedIn(reqBody).subscribe((response: any) => {
       console.log(response)
       this.shareLinkedin();
@@ -106,7 +106,7 @@ See you there 25-26-27 May 2025
     form.value.mobile_no = '+2' + form.value.mobile_no;
 
     this.visitorService.addVisitor(form.value).subscribe((response: any) => {
-      console.log("addVisitor response : ", response)
+      // console.log("addVisitor response : ", response)
       this.isLoading = false;
       Swal.fire({
         title: response.message,
@@ -123,7 +123,7 @@ See you there 25-26-27 May 2025
 
   newPayNowApi() {
     this.visitorService.paymentUrl().subscribe((response: any) => {
-      console.log("newPayNowApi response: ", response)
+      // console.log("newPayNowApi response: ", response)
       const url = response.link
       window.open(url, '_blank');
     }, (err: any) => {
@@ -150,7 +150,7 @@ See you there 25-26-27 May 2025
 Register to get your badge now (registration Link)
 See you there 25-26-27 May 2025
 #constratech25 - #constratech`;
-    const photoUrl = 'https://constratech.org/assets/images/Linkedin%20post.jpg';  // Replace with the URL of the photo
+    const photoUrl = 'https://constratech.org/assets/images/Linkedin_post.jpg';  // Replace with the URL of the photo
     this.visitorService.shareTextAndPhoto(message, photoUrl);
   }
 

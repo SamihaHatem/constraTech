@@ -34,7 +34,7 @@ export class SpeakersComponent implements OnInit {
 
   async uploadImage(event: any) {
     this.file = event.target.files[0];
-    console.log(this.file);
+    // console.log(this.file);
 
     this.convertToBase64(this.file)
     this.selectedSpeakerPhoto = await this.convertToBase64(this.file)
@@ -73,7 +73,7 @@ export class SpeakersComponent implements OnInit {
   }
 
   onChangeFilter() {
-    console.log(this.FilterStatus)
+    // console.log(this.FilterStatus)
     if (this.FilterStatus || this.FilterTopFive) {
       this.listOfspeakers = this.tempListOfspeakers.filter((speaker) => {
         const statusMatch = (this.FilterStatus) ? speaker.status == this.FilterStatus : true
@@ -92,7 +92,7 @@ export class SpeakersComponent implements OnInit {
     this.listOfspeakers = [];
     this.tempListOfspeakers = [];
     this.speakersServices.getAllSpeakers().subscribe((response: any) => {
-      console.log("getAllSpeakers response: ", response)
+      // console.log("getAllSpeakers response: ", response)
       this.listOfspeakers = response.result;
       this.tempListOfspeakers = response.result;
       this.isLoading = false;
@@ -107,7 +107,7 @@ export class SpeakersComponent implements OnInit {
   }
 
   async addSpeaker(form: any) {
-    console.log(form.value)
+    // console.log(form.value)
     // const formData = new FormData();
     // formData.append('photo', this.file, this.file.name)
     // formData.append('email', form.value.email)
@@ -128,9 +128,9 @@ export class SpeakersComponent implements OnInit {
       const base64Image = await this.convertToBase64(this.file);
       reqBody.photo_path = base64Image
     }
-    console.log("addSpeaker: ", reqBody)
+    // console.log("addSpeaker: ", reqBody)
     this.speakersServices.addSpeaker(reqBody).subscribe((response: any) => {
-      console.log("addSpeaker response : ", response)
+      // console.log("addSpeaker response : ", response)
       Swal.fire({
         title: response.message,
         icon: 'success'
@@ -158,9 +158,9 @@ export class SpeakersComponent implements OnInit {
     }
     else delete reqBody.photo_path
 
-    console.log("updateSpeaker : ", reqBody)
+    // console.log("updateSpeaker : ", reqBody)
     this.speakersServices.updateSpeaker(reqBody).subscribe((response: any) => {
-      console.log("updateExhibitor response: ", response)
+      // console.log("updateExhibitor response: ", response)
       Swal.fire({
         title: response.message,
         icon: 'success'

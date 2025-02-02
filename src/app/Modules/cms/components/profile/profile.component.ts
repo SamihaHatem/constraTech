@@ -16,7 +16,7 @@ export class ProfileComponent implements OnInit {
   constructor(private usersServices: UserService, private modalServices: NgbModal) {
     usersServices.user$.subscribe((user) => {
       this.currentuser = user;
-      console.log(this.currentuser)
+      // console.log(this.currentuser)
     })
   }
 
@@ -29,7 +29,7 @@ export class ProfileComponent implements OnInit {
 
   resetPasswordFn() {
     this.usersServices.resetPassword({ userId: this.currentuser._id, newPassword: this.newPassword }).subscribe((response: any) => {
-      console.log(response)
+      // console.log(response)
       Swal.fire({
         title: response.message,
         icon: 'success'

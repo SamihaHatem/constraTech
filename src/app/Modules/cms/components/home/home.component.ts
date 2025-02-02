@@ -37,7 +37,7 @@ export class HomeComponent {
   }
 
   navigate(path: string) {
-    console.log(path)
+    // console.log(path)
     this.currentUrl = path;
     this.router.navigateByUrl('/' + path)
   }

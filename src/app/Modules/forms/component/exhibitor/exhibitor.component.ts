@@ -52,7 +52,7 @@ export class ExhibitorComponent {
   file: any;
   uploadImage(event: any) {
     this.file = event.target.files[0];
-    console.log(this.file);
+    // console.log(this.file);
   }
   base64Image!: string;
   base64String!: string;
@@ -78,13 +78,13 @@ export class ExhibitorComponent {
 
   async addNewExhibitor(form: any) {
     this.isLoading = true;
-    console.log(form.value)
-    console.log(this.file, this.convertToBase64(this.file))
+    // console.log(form.value)
+    // console.log(this.file, this.convertToBase64(this.file))
     const base64Image = await this.convertToBase64(this.file);
     const reqBody = { ...form.value, logo: base64Image };
-    console.log(reqBody)
+    // console.log(reqBody)
     this.exhibitorServices.addExhibitor(reqBody).subscribe((response: any) => {
-      console.log("addExhibitor response: ", response)
+      // console.log("addExhibitor response: ", response)
       this.isLoading = false;
       Swal.fire({
         title: response.message,

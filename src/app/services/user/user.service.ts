@@ -24,9 +24,9 @@ export class UserService {
   }
 
   login(user: { username: string, password: string }) {
-    console.log('api login')
+    // console.log('api login')
     this.http.post(baseUrl.apiUrl + 'users/login', user).subscribe((response: any) => {
-      console.log(response)
+      // console.log(response)
       let loggedin_user: UserI = { username: response.username, _id: response.user_id, email: response.email, isLoggedIn: true, token: response.token }
       this.store.dispatch(loginAction({ user: loggedin_user }));
       this.setIsLoggedIn()

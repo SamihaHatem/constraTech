@@ -45,7 +45,7 @@ export class GalleryComponent implements OnInit {
   listOfGallery: any[] = []
   getActiveImages() {
     this.contentServices.getActiveImages().subscribe((response: any) => {
-      console.log(response)
+      // console.log(response)
       this.listOfGallery = response.result
     }, (err: any) => {
       console.log(err)

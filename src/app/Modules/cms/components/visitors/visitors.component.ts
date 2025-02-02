@@ -31,7 +31,7 @@ export class VisitorsComponent implements OnInit {
   }
 
   onChangeFilter() {
-    console.log(this.FilterStatus)
+    // console.log(this.FilterStatus)
     if (this.FilterStatus) {
       this.listOfvisitors = this.tempListOfvisitors.filter((visitor) => {
         return visitor.status == this.FilterStatus
@@ -44,7 +44,7 @@ export class VisitorsComponent implements OnInit {
 
   getAllVisitors() {
     this.visitorsServicers.getAllVisitors().subscribe((response: any) => {
-      console.log("getAllVisitors response: ", response)
+      // console.log("getAllVisitors response: ", response)
       this.listOfvisitors = response.result;
       this.tempListOfvisitors = response.result;
       this.isLoading = false;
@@ -63,10 +63,10 @@ export class VisitorsComponent implements OnInit {
   confirmVisitor(status: any, visitor_id: any) {
     const reqBody: { visitor_id: any, status?: any, payment?: any } = { visitor_id, status }
     // if (this.selectedVisitor.payment) reqBody.payment = this.selectedVisitor.payment
-    console.log(reqBody)
+    // console.log(reqBody)
 
     this.visitorsServicers.confirmVisitor(reqBody).subscribe((response: any) => {
-      console.log("confirmVisitor response: ", response)
+      // console.log("confirmVisitor response: ", response)
       Swal.fire({
         title: response.message,
         icon: 'success'

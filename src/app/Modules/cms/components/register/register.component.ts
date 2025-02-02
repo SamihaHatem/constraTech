@@ -14,9 +14,9 @@ export class RegisterComponent implements OnInit {
 
 
   onRegister(form: any) {
-    console.log(form.value)
+    // console.log(form.value)
     this.usersServices.register(form.value).subscribe((response: any) => {
-      console.log(response)
+      // console.log(response)
       Swal.fire({
         title: response.message,
         icon: 'success'

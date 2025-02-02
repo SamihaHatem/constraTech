@@ -28,7 +28,7 @@ export class WorkshopsComponent implements OnInit {
   listOfWorkShops: any[] = []
   getActiveWorkshops() {
     this.contentServices.getActiveWorkshops().subscribe((response: any) => {
-      console.log(response)
+      // console.log(response)
       this.listOfWorkShops = response.result
     }, (err: any) => {
       console.log(err)

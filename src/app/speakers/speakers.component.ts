@@ -19,7 +19,7 @@ export class SpeakersComponent implements OnInit {
   listOfSpeakers: any[] = []
   getActiveSpeakers() {
     this.contentServices.getActiveSpeakers().subscribe((response: any) => {
-      console.log(response)
+      // console.log(response)
       this.listOfSpeakers = response.result;
 
     }, (err: any) => {

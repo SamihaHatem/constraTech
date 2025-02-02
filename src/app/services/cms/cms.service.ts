@@ -82,7 +82,6 @@ export class CmsService {
   }
 
   addSpeaker(reqBody: any) {
-    console.log(baseUrl.apiUrl + 'speakers/newSpeaker')
     return this.http.post(baseUrl.apiUrl + 'speakers/newSpeaker', reqBody)
   }
 

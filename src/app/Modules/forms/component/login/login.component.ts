@@ -10,7 +10,7 @@ export class LoginComponent {
   constructor(private userServices: UserService) { }
 
   login(formValue: any) {
-    console.log(formValue)
+    // console.log(formValue)
     this.userServices.login(formValue);
   }
 }

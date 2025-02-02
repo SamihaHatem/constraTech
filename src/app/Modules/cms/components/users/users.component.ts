@@ -19,7 +19,7 @@ export class UsersComponent implements OnInit {
 
   getAllUsers() {
     this.userServices.getAllUsers().subscribe((response: any) => {
-      console.log(response)
+      // console.log(response)
       this.listOfUsers = response.result
       this.isLoading = false
       this.isError = false

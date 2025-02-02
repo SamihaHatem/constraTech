@@ -32,7 +32,7 @@ export class WorkshopsComponent {
   file: any
   uploadImage(event: any) {
     this.file = event.target.files[0];
-    console.log(this.file);
+    // console.log(this.file);
   }
   newWorshop(form: any) {
     const formData = new FormData()
@@ -41,7 +41,7 @@ export class WorkshopsComponent {
     formData.append("description", form.value.description)
 
     this.workshopsServices.addNewWorkshop(formData).subscribe((response: any) => {
-      console.log(response)
+      // console.log(response)
       Swal.fire({
         title: response.message,
         icon: 'success'
@@ -68,7 +68,7 @@ export class WorkshopsComponent {
     this.isError = false;
     this.listOfworkshops = [];
     this.workshopsServices.getAllworkshops().subscribe((response: any) => {
-      console.log("getAllworkshops response: ", response)
+      // console.log("getAllworkshops response: ", response)
       this.listOfworkshops = response.result;
       this.tempListOfworkshops = response.result;
       this.isLoading = false;
@@ -89,7 +89,7 @@ export class WorkshopsComponent {
       description: this.selectedworkshop.description,
     }
     this.workshopsServices.updateworkshop(reqBody).subscribe((response: any) => {
-      console.log("updateExhibitor response: ", response)
+      // console.log("updateExhibitor response: ", response)
       Swal.fire({
         title: response.message,
         icon: 'success'
@@ -111,7 +111,7 @@ export class WorkshopsComponent {
 
   FilterStatus: any
   onChangeFilter() {
-    console.log(this.FilterStatus)
+    // console.log(this.FilterStatus)
     if (this.FilterStatus) {
       this.listOfworkshops = this.tempListOfworkshops.filter((speaker) => {
         return speaker.status == this.FilterStatus

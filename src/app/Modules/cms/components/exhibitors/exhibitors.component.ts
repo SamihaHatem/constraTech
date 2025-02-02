@@ -52,7 +52,7 @@ export class ExhibitorsComponent implements OnInit {
     this.listOfExhibitors = [];
     this.tempListOfExhibitors = [];
     this.exhibitoServices.getAllExhibitors().subscribe((response: any) => {
-      console.log("getAllExhibitors response: ", response)
+      // console.log("getAllExhibitors response: ", response)
       this.listOfExhibitors = response.result;
       this.tempListOfExhibitors = response.result;
       this.isLoading = false;
@@ -68,7 +68,7 @@ export class ExhibitorsComponent implements OnInit {
   file: any;
   async uploadImage(event: any) {
     this.file = event.target.files[0];
-    console.log(this.file);
+    // console.log(this.file);
 
     this.convertToBase64(this.file)
     this.selectedExhibitorLogo = await this.convertToBase64(this.file)
@@ -85,9 +85,9 @@ export class ExhibitorsComponent implements OnInit {
       reqBody.logo = base64Image
     }
     else delete reqBody.logo
-    console.log(reqBody)
+    // console.log(reqBody)
     this.exhibitoServices.updateExhibitor(reqBody).subscribe((response: any) => {
-      console.log("updateExhibitor response: ", response)
+      // console.log("updateExhibitor response: ", response)
       Swal.fire({
         title: response.message,
         icon: 'success'
@@ -144,13 +144,13 @@ export class ExhibitorsComponent implements OnInit {
     // formData.append('position', form.value.position)
     // formData.append('status', form.value.status)
     // formData.append('website', form.value.website)
-    console.log(form.value)
-    console.log(this.file, this.convertToBase64(this.file))
+    // console.log(form.value)
+    // console.log(this.file, this.convertToBase64(this.file))
     const base64Image = await this.convertToBase64(this.file);
     const reqBody = { ...form.value, logo: base64Image };
-    console.log(reqBody)
+    // console.log(reqBody)
     this.exhibitoServices.addExhibitor(reqBody).subscribe((response: any) => {
-      console.log("addExhibitor response: ", response)
+      // console.log("addExhibitor response: ", response)
       Swal.fire({
         title: response.message,
         icon: 'success'

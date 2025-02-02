@@ -30,7 +30,7 @@ export class GalleryComponent implements OnInit {
 
   uploadImage(event: any) {
     this.file = event.target.files[0];
-    console.log(this.file);
+    // console.log(this.file);
   }
 
   onChangeFilter() {
@@ -62,7 +62,7 @@ export class GalleryComponent implements OnInit {
     const formData = new FormData();
     formData.append('file', this.file, this.file.name)
     this.galleryServices.addNewPhoto(formData).subscribe((response: any) => {
-      console.log('addPhoto response: ', response)
+      // console.log('addPhoto response: ', response)
       Swal.fire({
         title: response.message,
         icon: 'success'
@@ -90,7 +90,7 @@ export class GalleryComponent implements OnInit {
     this.ImagesList = [];
     this.tempImagesList = [];
     this.galleryServices.getAllImages().subscribe((response: any) => {
-      console.log("getAllImages response: ", response)
+      // console.log("getAllImages response: ", response)
       this.ImagesList = response.result;
       this.tempImagesList = response.result;
       this.onChangeFilter();
@@ -105,7 +105,7 @@ export class GalleryComponent implements OnInit {
 
   updateImageStatus(status: string, _id: string) {
     this.galleryServices.updateImageStatus({ _id, status }).subscribe((response: any) => {
-      console.log(response)
+      // console.log(response)
       Swal.fire({
         title: response.message,
         icon: 'success'
@@ -126,9 +126,9 @@ export class GalleryComponent implements OnInit {
   }
 
   updateImageHighlight(highlight: any, _id: any) {
-    console.log({ _id, highlights:highlight })
+    // console.log({ _id, highlights:highlight })
     this.galleryServices.updateImageStatus({ _id, highlights:highlight }).subscribe((response: any) => {
-      console.log(response)
+      // console.log(response)
       Swal.fire({
         title: response.message,
         icon: 'success'

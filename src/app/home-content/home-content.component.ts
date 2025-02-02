@@ -254,7 +254,7 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
   listOfGallery: any[] = []
   getHighightsImages() {
     this.contentServices.getHighightsImages().subscribe((response: any) => {
-      console.log("getHighightsImages: ", response)
+      // console.log("getHighightsImages: ", response)
       this.listOfGallery = response.result
       let count = 0
       for (let i = 0; i < this.listOfGallery.length; i++) {
@@ -263,7 +263,7 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
         }
         if (this.listOfGallery[i]) {
           this.tiles[i].img = baseUrl.apiUrl + this.listOfGallery[i];
-          console.log(i, this.listOfGallery[i])
+          // console.log(i, this.listOfGallery[i])
           count++;
         }
       }
@@ -275,7 +275,7 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
   listOfSpeakers: any[] = []
   getActiveSpeakers() {
     this.contentServices.getActiveSpeakers().subscribe((response: any) => {
-      console.log("getActiveSpeakers: ", response)
+      // console.log("getActiveSpeakers: ", response)
       this.listOfSpeakers = response.result;
     }, (err: any) => {
       console.log(err)
@@ -296,7 +296,7 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
   listOfWorkShops: any[] = []
   getActiveWorkshops() {
     this.contentServices.getActiveWorkshops().subscribe((response: any) => {
-      console.log(response)
+      // console.log(response)
       this.listOfWorkShops = response.result
     }, (err: any) => {
       console.log(err)
@@ -308,7 +308,7 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
 
   getActiveExhibitors() {
     this.contentServices.getConfirmedExhibitors().subscribe((response: any) => {
-      console.log("getActiveExhibitors response: ", response)
+      // console.log("getActiveExhibitors response: ", response)
       this.listOfExhibitors = response.result
       this.groupedExhibitors = this.listOfExhibitors.reduce((acc, exhibitor) => {
         if (!acc[exhibitor.classification]) {
@@ -318,7 +318,7 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
         return acc;
       }, {});
 
-      console.log("groupedExhibitors: ", this.groupedExhibitors)
+      // console.log("groupedExhibitors: ", this.groupedExhibitors)
 
     }, (err: any) => {
       console.log(err)

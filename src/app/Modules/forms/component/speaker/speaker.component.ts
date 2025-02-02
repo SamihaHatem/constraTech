@@ -26,7 +26,7 @@ export class SpeakerComponent implements OnInit {
   file: any;
   uploadImage(event: any) {
     this.file = event.target.files[0];
-    console.log(this.file);
+    // console.log(this.file);
   }
 
   convertToBase64(file: any): Promise<string> {
@@ -54,10 +54,10 @@ export class SpeakerComponent implements OnInit {
     event.target.value = value.replace(/[^0-9]/g, '');
   }
 
-  
+
   async addSpeaker(form: any) {
     this.isLoading = true;
-    console.log(form.value)
+    // console.log(form.value)
     // const formData = new FormData();
     // formData.append('photo', this.file, this.file.name)
     // formData.append('email', form.value.email)
@@ -79,9 +79,9 @@ export class SpeakerComponent implements OnInit {
       const base64Image = await this.convertToBase64(this.file);
       reqBody.photo_path = base64Image
     }
-    console.log("addSpeaker: ", reqBody)
+    // console.log("addSpeaker: ", reqBody)
     this.speakerServices.addSpeaker(reqBody).subscribe((response: any) => {
-      console.log("addSpeaker response : ", response)
+      // console.log("addSpeaker response : ", response)
       this.isLoading = false;
       Swal.fire({
         title: response.message,
