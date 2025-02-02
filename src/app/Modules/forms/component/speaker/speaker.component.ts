@@ -48,6 +48,13 @@ export class SpeakerComponent implements OnInit {
     });
   }
 
+  onInputChange(event: any): void {
+    const value = event.target.value;
+    // Remove any non-numeric characters
+    event.target.value = value.replace(/[^0-9]/g, '');
+  }
+
+  
   async addSpeaker(form: any) {
     this.isLoading = true;
     console.log(form.value)

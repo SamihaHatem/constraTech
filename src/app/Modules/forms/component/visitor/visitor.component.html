@@ -65,13 +65,17 @@
                                 <div class="p-3">
                                     <label for="email">Email <span class="text-danger">*</span></label>
                                     <input id="email" name="email" ngModel #email='ngModel' type="email"
-                                        class="form-control" required>
+                                        class="form-control" required
+                                        pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
 
                                     <div class="errors" *ngIf="email.touched && email.invalid">
                                         <p class="text-center m-0" *ngIf="email.errors?.['required']">* Please enter
                                             your
                                             email
                                             *</p>
+                                        <p class="text-center m-0" *ngIf="email.errors?.['pattern']">* Please enter a
+                                            valid email address (e.g., example@domain.com) *</p>
+
                                     </div>
                                 </div>
                             </div>
@@ -99,15 +103,15 @@
                                 <div class="p-3">
                                     <label for="mobile_no">Your mobile number <span class="text-danger">*</span></label>
                                     <input id="mobile_no" name="mobile_no" ngModel #mobile_no="ngModel" type="text"
-                                        class="form-control" required>
+                                        class="form-control" required minlength="11" maxlength="11"
+                                        pattern="^(010|011|012|015)[0-9]{8}$" (input)="onInputChange($event)">
 
                                     <div class="errors" *ngIf="mobile_no.touched && mobile_no.invalid">
                                         <p class="text-center m-0" *ngIf="mobile_no.errors?.['required']">* Please enter
-                                            your
-                                            mobile
-                                            number
-                                            *
-                                        </p>
+                                            your mobile number *</p>
+
+                                        <p class="text-center m-0" *ngIf="mobile_no.errors?.['pattern']">* Please enter
+                                            a valid mobile number *</p>
                                     </div>
                                 </div>
                             </div>
@@ -255,7 +259,9 @@
                     <mat-step [editable]="false">
                         <ng-template matStepLabel>Payment</ng-template>
                         <div class="text-center">
-                            <a class="mx-2 btn btn-primary" (click)="newPayNowApi(); cancel(stepper , shareOnSocialMediaContent)" target="_blank">Pay Now</a>
+                            <a class="mx-2 btn btn-primary"
+                                (click)="newPayNowApi(); cancel(stepper , shareOnSocialMediaContent)"
+                                target="_blank">Pay Now</a>
                             <button class="mx-2 btn btn-primary "
                                 (click)="cancel(stepper , shareOnSocialMediaContent)">Pay Later</button>
                         </div>

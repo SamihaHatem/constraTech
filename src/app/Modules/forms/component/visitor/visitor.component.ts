@@ -103,7 +103,8 @@ See you there 25-26-27 May 2025
 
   addVisitor(form: any, stepper: MatStepper) {
     this.isLoading = true;
-    console.log(form.value)
+    form.value.mobile_no = '+2' + form.value.mobile_no;
+
     this.visitorService.addVisitor(form.value).subscribe((response: any) => {
       console.log("addVisitor response : ", response)
       this.isLoading = false;
@@ -138,12 +139,18 @@ See you there 25-26-27 May 2025
       }, 100);
   }
 
+  onInputChange(event: any): void {
+    const value = event.target.value;
+    // Remove any non-numeric characters
+    event.target.value = value.replace(/[^0-9]/g, '');
+  }
+
   shareOnFacebook() {
     const message = `Join me for four three of exclusive networking and discovery with global construction & design community at ConstraTech 2025. This year, enjoy new experiences, Conference, Exhibtions, workshops & talks. 
 Register to get your badge now (registration Link)
 See you there 25-26-27 May 2025
 #constratech25 - #constratech`;
-    const photoUrl = 'https://new.constratech.org/assets/images/Linkedin%20post.jpg';  // Replace with the URL of the photo
+    const photoUrl = 'https://constratech.org/assets/images/Linkedin%20post.jpg';  // Replace with the URL of the photo
     this.visitorService.shareTextAndPhoto(message, photoUrl);
   }
 

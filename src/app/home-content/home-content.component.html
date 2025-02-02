@@ -677,7 +677,7 @@
                         <img loading="lazy" class="w-100" src="{{slide.img}}" alt="" width="100">
 
                         <div class="child text-center align-content-center">
-                            <i class="fa-solid fa-play" (click)="openVideoModal(videoContent , slide.embed)"></i>
+                            <i class="fa-solid fa-play" (click)="openVideoModal(videoContent , slide)"></i>
                             <p [ngClass]="{'h-25': !isMobile}"
                                 class="video-img-text px-1 w-100 text-white m-0 py-2 fs-13 text-center">{{slide.title}}
                             </p>
@@ -953,7 +953,11 @@
 
 <ng-template #videoContent>
     <div class="justify-items-center">
-        <pre [innerHtml]="selectedVideo"> </pre>
+        <!-- <pre [innerHtml]="selectedVideo"> </pre> -->
+
+        <iframe [src]="selectedVideo" width="702" height="395" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
     </div>
 </ng-template>
 

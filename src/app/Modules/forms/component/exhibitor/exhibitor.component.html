@@ -37,10 +37,13 @@
             <div class="bb-gray py-2">
                 <div class="p-3">
                     <label for="email">Email <span class="text-danger">*</span></label>
-                    <input id="email" name="email" ngModel #email='ngModel' type="email" class="form-control" required>
+                    <input id="email" name="email" ngModel #email='ngModel' type="email" class="form-control" required
+                        pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
 
                     <div class="errors" *ngIf="email.touched && email.invalid">
                         <p class="text-center m-0" *ngIf="email.errors?.['required']">* Please enter your email *</p>
+                        <p class="text-center m-0" *ngIf="email.errors?.['pattern']">* Please enter a
+                            valid email address (e.g., example@domain.com) *</p>
                     </div>
                 </div>
             </div>
@@ -64,13 +67,17 @@
                 <div class="p-3">
                     <label for="mobile_no">Your mobile number <span class="text-danger">*</span></label>
                     <input id="mobile_no" name="mobile_no" ngModel #mobile_no="ngModel" type="text" class="form-control"
-                        required>
+                        required pattern="^(010|011|012|015)[0-9]{8}$" (input)="onInputChange($event)" maxlength="11">
 
                     <div class="errors" *ngIf="mobile_no.touched && mobile_no.invalid">
                         <p class="text-center m-0" *ngIf="mobile_no.errors?.['required']">* Please enter your mobile
                             number
                             *
                         </p>
+
+
+                        <p class="text-center m-0" *ngIf="mobile_no.errors?.['pattern']">* Please enter
+                            a valid mobile number *</p>
                     </div>
                 </div>
             </div>
@@ -157,7 +164,8 @@
             </div>
 
             <div class="py-2 text-center">
-                <button class="btn btn-primary" *ngIf="!isLoading" [disabled]="form['invalid'] || !ploicy" type="submit">Submit</button>
+                <button class="btn btn-primary" *ngIf="!isLoading" [disabled]="form['invalid'] || !ploicy"
+                    type="submit">Submit</button>
                 <button class="btn btn-primary" *ngIf="isLoading" disabled>
                     <div class="spinner-border text-white" role="status">
                         <span class="visually-hidden">Loading...</span>

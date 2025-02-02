@@ -284,7 +284,9 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
 
 
   openVideoModal(content: TemplateRef<any>, video: any) {
-    this.selectedVideo = this.sanitizer.bypassSecurityTrustHtml(video)
+    // this.selectedVideo = this.sanitizer.bypassSecurityTrustHtml(video)
+    const videoUrl = video.embed.match(/src="([^"]*)"/)[1]; // Extract the video URL
+    this.selectedVideo = this.sanitizer.bypassSecurityTrustResourceUrl(videoUrl);
     this.modalServices.open(content, {
       centered: true
     })

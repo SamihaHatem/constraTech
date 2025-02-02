@@ -74,8 +74,8 @@ export class VisitorService {
       // quote: message,
       // picture: "https://new.constratech.org/assets/images/Linkedin%20post.jpg"
 
-      link: 'https://new.constratech.org/',
-      picture: "https://new.constratech.org/assets/images/Linkedin%20post.jpg",
+      link: 'https://constratech.org/',
+      picture: "https://constratech.org/assets/images/Linkedin%20post.jpg",
       name: 'ConstraTech 2025',  // Title of the post
       caption: 'Join me at ConstraTech 2025!',  // This is the caption text below the image
       description: message,  // This is the message text you want to share
