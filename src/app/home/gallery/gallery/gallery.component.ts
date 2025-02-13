@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CmsService } from '../../../services/cms/cms.service';
 import { baseUrl } from 'src/baseUrl';
 import { BreakpointObserver } from '@angular/cdk/layout';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.css']
 })
-export class GalleryComponent implements OnInit {
+export class GalleryComponent implements OnInit, OnDestroy {
   isMobile: boolean = true;
   apiUrl: string = baseUrl.apiUrl
 
@@ -41,13 +42,23 @@ export class GalleryComponent implements OnInit {
   }
 
 
+  private activeImagesSubscription!: Subscription;
   listOfGallery: any[] = []
   getActiveImages() {
-    this.contentServices.getActiveImages().subscribe((response: any) => {
-      // console.log(response)
-      this.listOfGallery = response.result
-    }, (err: any) => {
-      console.log(err)
-    })
+    this.activeImagesSubscription = this.contentServices.getActiveImages().subscribe(
+      (response: any) => {
+        this.listOfGallery = response.result;
+      },
+      (err: any) => {
+        console.log(err);
+      }
+    );
   }
+
+  ngOnDestroy(): void {
+    if (this.activeImagesSubscription) {
+      this.activeImagesSubscription.unsubscribe();
+    }
+  }
+
 }

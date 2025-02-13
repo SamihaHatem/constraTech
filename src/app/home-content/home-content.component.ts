@@ -1,5 +1,5 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { AfterViewInit, Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CmsService } from '../services/cms/cms.service';
@@ -7,13 +7,14 @@ import { UserService } from '../services/user/user.service';
 import { Tile } from '../home/home.component';
 import { baseUrl } from 'src/baseUrl';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home-content',
   templateUrl: './home-content.component.html',
   styleUrls: ['./home-content.component.css']
 })
-export class HomeContentComponent implements OnInit, AfterViewInit {
+export class HomeContentComponent implements OnInit, AfterViewInit, OnDestroy {
   isMobile = true;
   autoPlayFlag = true;
 
@@ -251,9 +252,12 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
 
   }
 
+
   listOfGallery: any[] = []
+
+  private HighightsImagesSubscription!: Subscription
   getHighightsImages() {
-    this.contentServices.getHighightsImages().subscribe((response: any) => {
+    this.HighightsImagesSubscription = this.contentServices.getHighightsImages().subscribe((response: any) => {
       // console.log("getHighightsImages: ", response)
       this.listOfGallery = response.result
       let count = 0
@@ -273,8 +277,9 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
   }
 
   listOfSpeakers: any[] = []
+  activeSpeakersSubscription !: Subscription
   getActiveSpeakers() {
-    this.contentServices.getActiveSpeakers().subscribe((response: any) => {
+    this.activeSpeakersSubscription = this.contentServices.getActiveSpeakers().subscribe((response: any) => {
       // console.log("getActiveSpeakers: ", response)
       this.listOfSpeakers = response.result;
     }, (err: any) => {
@@ -294,8 +299,9 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
 
 
   listOfWorkShops: any[] = []
+  activeWorkershopsSubscription !: Subscription
   getActiveWorkshops() {
-    this.contentServices.getActiveWorkshops().subscribe((response: any) => {
+    this.activeWorkershopsSubscription = this.contentServices.getActiveWorkshops().subscribe((response: any) => {
       // console.log(response)
       this.listOfWorkShops = response.result
     }, (err: any) => {
@@ -305,9 +311,9 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
 
   listOfExhibitors: any[] = []
   groupedExhibitors: { [key: string]: any[] } = {};
-
+  activeExhibitorsSubscription !: Subscription
   getActiveExhibitors() {
-    this.contentServices.getConfirmedExhibitors().subscribe((response: any) => {
+    this.activeExhibitorsSubscription = this.contentServices.getConfirmedExhibitors().subscribe((response: any) => {
       // console.log("getActiveExhibitors response: ", response)
       this.listOfExhibitors = response.result
       this.groupedExhibitors = this.listOfExhibitors.reduce((acc, exhibitor) => {
@@ -346,5 +352,12 @@ export class HomeContentComponent implements OnInit, AfterViewInit {
     const videoElement = this.videoPlayer.nativeElement;
     videoElement.muted = true;
     videoElement.play();
+  }
+
+  ngOnDestroy(): void {
+    if (this.HighightsImagesSubscription) this.HighightsImagesSubscription.unsubscribe();
+    if (this.activeSpeakersSubscription) this.activeSpeakersSubscription.unsubscribe();
+    if (this.activeWorkershopsSubscription) this.activeWorkershopsSubscription.unsubscribe();
+    if (this.activeExhibitorsSubscription) this.activeExhibitorsSubscription.unsubscribe();
   }
 }
