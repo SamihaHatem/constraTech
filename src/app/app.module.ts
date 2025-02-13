@@ -17,21 +17,13 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
 import { loginUserReducer } from './store/reducers/user.reduer';
-import { SpeakersComponent } from './speakers/speakers.component';
 import { HomeContentComponent } from './home-content/home-content.component';
-import { WorkshopsComponent } from './workshops/workshops.component';
-import { GalleryComponent } from './gallery/gallery.component';
-import { MainTopicsComponent } from './main-topics/main-topics.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    SpeakersComponent,
     HomeContentComponent,
-    WorkshopsComponent,
-    GalleryComponent,
-    MainTopicsComponent,
   ],
   imports: [
     BrowserModule,

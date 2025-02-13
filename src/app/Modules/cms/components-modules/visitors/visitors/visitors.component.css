@@ -17,6 +17,9 @@
     border-radius: 5px;
 }
 
+th , td{
+    font-size: 13px;
+}
 
 .mat-mdc-icon-button .mat-mdc-button-touch-target {
     top: 0% !important;

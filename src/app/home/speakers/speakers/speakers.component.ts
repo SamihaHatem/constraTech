@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CmsService } from '../services/cms/cms.service';
+import { CmsService } from '../../../services/cms/cms.service';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { baseUrl } from 'src/baseUrl';
 

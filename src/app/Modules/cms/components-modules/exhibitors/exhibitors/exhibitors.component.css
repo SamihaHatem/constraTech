@@ -44,8 +44,12 @@ img{
 
 td{
     align-content: center !important;
+    font-size: 13px;
 }
 
+th{
+    font-size: 13px;
+}
 
 
 

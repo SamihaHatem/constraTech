@@ -1,11 +1,7 @@
 import { NgModule } from '@angular/core';
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { SpeakersComponent } from './speakers/speakers.component';
 import { HomeContentComponent } from './home-content/home-content.component';
-import { WorkshopsComponent } from './workshops/workshops.component';
-import { GalleryComponent } from './gallery/gallery.component';
-import { MainTopicsComponent } from './main-topics/main-topics.component';
 
 
 const routerOptions: ExtraOptions = {
@@ -18,11 +14,11 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent,
     children: [
-      { path: 'speakers', component: SpeakersComponent },
       { path: 'content', component: HomeContentComponent },
-      { path: 'workshops', component: WorkshopsComponent },
-      { path: 'gallery', component: GalleryComponent },
-      { path: 'main-topics', component: MainTopicsComponent },
+      { path: 'speakers', loadChildren: () => import('./home/speakers/speakers.module').then(m => m.SpeakersModule) },
+      { path: 'workshops', loadChildren: () => import('./home/workshops/workshops.module').then(m => m.WorkshopsModule) },
+      { path: 'gallery', loadChildren: () => import('./home/gallery/gallery.module').then(m => m.GalleryModule) },
+      { path: 'main-topics', loadChildren: () => import('./home/main-topics/main-topics.module').then(m => m.MainTopicsModule) },
       { path: '', redirectTo: 'content', pathMatch: 'full' },
     ],
   },

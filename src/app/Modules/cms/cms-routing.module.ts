@@ -2,31 +2,25 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { authGuard } from 'src/app/guards/auth/auth.guard';
-import { GalleryComponent } from './components/gallery/gallery.component';
-import { SpeakersComponent } from './components/speakers/speakers.component';
 import { AdminComponent } from './components/admin/admin.component';
-import { UsersComponent } from './components/users/users.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { ExhibitorsComponent } from './components/exhibitors/exhibitors.component';
-import { WorkshopsComponent } from './components/workshops/workshops.component';
 import { RegisterComponent } from './components/register/register.component';
-import { VisitorsComponent } from './components/visitors/visitors.component';
 
 const routes: Routes = [
   {
     path: 'admin',
     component: HomeComponent, canActivate: [authGuard],// Admin layout component
     children: [
-      { path: 'home', component: AdminComponent, canActivate: [authGuard] },
-      { path: 'gallery', component: GalleryComponent, canActivate: [authGuard] },
-      { path: 'exhibitors', component: ExhibitorsComponent, canActivate: [authGuard] },
-      { path: 'speakers', component: SpeakersComponent, canActivate: [authGuard] },
-      { path: 'users', component: UsersComponent, canActivate: [authGuard] },
-      { path: 'profile', component: ProfileComponent, canActivate: [authGuard] },
-      { path: 'workshops', component: WorkshopsComponent, canActivate: [authGuard] },
       { path: 'register', component: RegisterComponent, canActivate: [authGuard] },
-      { path: 'visitors', component: VisitorsComponent, canActivate: [authGuard] },
-      { path: '', redirectTo: 'admin', pathMatch: 'full' }, // Default child route
+      { path: 'profile', component: ProfileComponent, canActivate: [authGuard] },
+      { path: 'home', component: AdminComponent, canActivate: [authGuard] },
+      { path: 'gallery', loadChildren: () => import('./components-modules/gallery/gallery.module').then(m => m.GalleryModule), canActivate: [authGuard] },
+      { path: 'exhibitors', loadChildren: () => import('./components-modules/exhibitors/exhibitors.module').then(m => m.ExhibitorsModule), canActivate: [authGuard] },
+      { path: 'speakers', loadChildren: () => import('./components-modules/speakers/speakers.module').then((c) => c.SpeakersModule), canActivate: [authGuard] },
+      { path: 'users', loadChildren: () => import('./components-modules/users/users.module').then((c) => c.UsersModule), canActivate: [authGuard] },
+      { path: 'workshops', loadChildren: () => import('./components-modules/workshops/workshops.module').then((c) => c.WorkshopsModule), canActivate: [authGuard] },
+      { path: 'visitors', loadChildren: () => import('./components-modules/visitors/visitors.module').then((c) => c.VisitorsModule), canActivate: [authGuard] },
+      { path: '', redirectTo: 'admin', pathMatch: 'full' },
     ],
   },
 ];
