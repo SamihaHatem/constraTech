@@ -1,5 +1,6 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnDestroy, OnInit, TemplateRef } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Subscription } from 'rxjs';
 import { CmsService } from 'src/app/services/cms/cms.service';
 import { baseUrl } from 'src/baseUrl';
 import Swal from 'sweetalert2';
@@ -9,7 +10,7 @@ import Swal from 'sweetalert2';
   templateUrl: './visitors.component.html',
   styleUrls: ['./visitors.component.css']
 })
-export class VisitorsComponent implements OnInit {
+export class VisitorsComponent implements OnInit, OnDestroy {
 
   isLoading: boolean = true;
   isError: boolean = false;
@@ -22,6 +23,11 @@ export class VisitorsComponent implements OnInit {
 
   constructor(private modalServices: NgbModal, private visitorsServicers: CmsService) { }
 
+  ngOnDestroy(): void {
+    this.getAllVisitorsSubscription.unsubscribe();
+    this.confirmVisitorSubscription.unsubscribe();
+  }
+
   openModal(content: TemplateRef<any>, visitor?: any) {
     this.selectedVisitor = visitor;
     this.modalServices.open(content, {
@@ -31,7 +37,6 @@ export class VisitorsComponent implements OnInit {
   }
 
   onChangeFilter() {
-    // console.log(this.FilterStatus)
     if (this.FilterStatus) {
       this.listOfvisitors = this.tempListOfvisitors.filter((visitor) => {
         return visitor.status == this.FilterStatus
@@ -42,9 +47,9 @@ export class VisitorsComponent implements OnInit {
     }
   }
 
+  getAllVisitorsSubscription: Subscription = new Subscription()
   getAllVisitors() {
-    this.visitorsServicers.getAllVisitors().subscribe((response: any) => {
-      // console.log("getAllVisitors response: ", response)
+    this.getAllVisitorsSubscription = this.visitorsServicers.getAllVisitors().subscribe((response: any) => {
       this.listOfvisitors = response.result;
       this.tempListOfvisitors = response.result;
       this.isLoading = false;
@@ -60,12 +65,13 @@ export class VisitorsComponent implements OnInit {
     this.statusList = this.visitorsServicers.getVisitorsStatusList();
   }
 
+  confirmVisitorSubscription: Subscription = new Subscription()
   confirmVisitor(status: any, visitor_id: any) {
     const reqBody: { visitor_id: any, status?: any, payment?: any } = { visitor_id, status }
     // if (this.selectedVisitor.payment) reqBody.payment = this.selectedVisitor.payment
     // console.log(reqBody)
 
-    this.visitorsServicers.confirmVisitor(reqBody).subscribe((response: any) => {
+    this.confirmVisitorSubscription = this.visitorsServicers.confirmVisitor(reqBody).subscribe((response: any) => {
       // console.log("confirmVisitor response: ", response)
       Swal.fire({
         title: response.message,

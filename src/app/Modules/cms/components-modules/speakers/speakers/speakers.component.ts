@@ -1,5 +1,6 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnDestroy, OnInit, TemplateRef } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Subscription } from 'rxjs';
 import { CmsService } from 'src/app/services/cms/cms.service';
 import { baseUrl } from 'src/baseUrl';
 import Swal from 'sweetalert2';
@@ -9,7 +10,7 @@ import Swal from 'sweetalert2';
   templateUrl: './speakers.component.html',
   styleUrls: ['./speakers.component.css']
 })
-export class SpeakersComponent implements OnInit {
+export class SpeakersComponent implements OnInit, OnDestroy {
   isLoading: boolean = true
   isError: boolean = false
   listOfspeakers: any[] = []
@@ -41,6 +42,11 @@ export class SpeakersComponent implements OnInit {
   }
 
   constructor(private speakersServices: CmsService, private modalService: NgbModal) { }
+  ngOnDestroy(): void {
+    this.getAllSpeakersSubscription.unsubscribe();
+    this.newSpeakerSubscription.unsubscribe();
+    this.updateSpeakerSubscription.unsubscribe();
+  }
 
   openModal(content: TemplateRef<any>, speaker?: any) {
     if (speaker) {
@@ -86,12 +92,13 @@ export class SpeakersComponent implements OnInit {
     }
   }
 
+  getAllSpeakersSubscription: Subscription = new Subscription()
   getAllSpeakers() {
     this.isLoading = true;
     this.isError = false;
     this.listOfspeakers = [];
     this.tempListOfspeakers = [];
-    this.speakersServices.getAllSpeakers().subscribe((response: any) => {
+    this.getAllSpeakersSubscription = this.speakersServices.getAllSpeakers().subscribe((response: any) => {
       // console.log("getAllSpeakers response: ", response)
       this.listOfspeakers = response.result;
       this.tempListOfspeakers = response.result;
@@ -106,6 +113,7 @@ export class SpeakersComponent implements OnInit {
     })
   }
 
+  newSpeakerSubscription: Subscription = new Subscription()
   async addSpeaker(form: any) {
     // console.log(form.value)
     // const formData = new FormData();
@@ -129,7 +137,7 @@ export class SpeakersComponent implements OnInit {
       reqBody.photo_path = base64Image
     }
     // console.log("addSpeaker: ", reqBody)
-    this.speakersServices.addSpeaker(reqBody).subscribe((response: any) => {
+    this.newSpeakerSubscription = this.speakersServices.addSpeaker(reqBody).subscribe((response: any) => {
       // console.log("addSpeaker response : ", response)
       Swal.fire({
         title: response.message,
@@ -146,6 +154,7 @@ export class SpeakersComponent implements OnInit {
     })
   }
 
+  updateSpeakerSubscription: Subscription = new Subscription()
   async updateSpeaker() {
     let reqBody = {
       ...this.selectedSpeaker,
@@ -159,7 +168,7 @@ export class SpeakersComponent implements OnInit {
     else delete reqBody.photo_path
 
     // console.log("updateSpeaker : ", reqBody)
-    this.speakersServices.updateSpeaker(reqBody).subscribe((response: any) => {
+    this.updateSpeakerSubscription = this.speakersServices.updateSpeaker(reqBody).subscribe((response: any) => {
       // console.log("updateExhibitor response: ", response)
       Swal.fire({
         title: response.message,

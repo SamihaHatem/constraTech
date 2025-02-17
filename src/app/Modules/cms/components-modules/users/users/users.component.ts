@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
@@ -6,7 +7,7 @@ import { UserService } from 'src/app/services/user/user.service';
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css']
 })
-export class UsersComponent implements OnInit {
+export class UsersComponent implements OnInit, OnDestroy {
 
   FilterStatus: any
   listOfUsers: any[] = [];
@@ -14,12 +15,16 @@ export class UsersComponent implements OnInit {
   isError: boolean = false;
   isLoading: boolean = true;
   constructor(private userServices: UserService) { }
+  
+  ngOnDestroy(): void {
+    this.getAllUsersSubscription.unsubscribe();
+  }
 
   onChangeFilter() { }
 
+  getAllUsersSubscription: Subscription = new Subscription()
   getAllUsers() {
-    this.userServices.getAllUsers().subscribe((response: any) => {
-      // console.log(response)
+    this.getAllUsersSubscription = this.userServices.getAllUsers().subscribe((response: any) => {
       this.listOfUsers = response.result
       this.isLoading = false
       this.isError = false

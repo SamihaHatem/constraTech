@@ -1,5 +1,6 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnDestroy, OnInit, TemplateRef } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Subscription } from 'rxjs';
 import { CmsService } from 'src/app/services/cms/cms.service';
 import { baseUrl } from 'src/baseUrl';
 import Swal from 'sweetalert2';
@@ -9,7 +10,7 @@ import Swal from 'sweetalert2';
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.css']
 })
-export class GalleryComponent implements OnInit {
+export class GalleryComponent implements OnInit, OnDestroy {
 
   isLoading: boolean = true
   isError: boolean = false
@@ -20,6 +21,7 @@ export class GalleryComponent implements OnInit {
   file: any
   statusList: any[] = ['Inactive', 'Active']
   constructor(private modalServices: NgbModal, private galleryServices: CmsService) { }
+
 
   openModal(content: TemplateRef<any>) {
     this.modalServices.open(content, {
@@ -58,10 +60,11 @@ export class GalleryComponent implements OnInit {
     }
   }
 
+  newPhotoSubscription: Subscription = new Subscription()
   addPhoto() {
     const formData = new FormData();
     formData.append('file', this.file, this.file.name)
-    this.galleryServices.addNewPhoto(formData).subscribe((response: any) => {
+    this.newPhotoSubscription = this.galleryServices.addNewPhoto(formData).subscribe((response: any) => {
       // console.log('addPhoto response: ', response)
       Swal.fire({
         title: response.message,
@@ -84,12 +87,13 @@ export class GalleryComponent implements OnInit {
     })
   }
 
+  allImagesSubscription: Subscription = new Subscription()
   getAllImages() {
     this.isLoading = true;
     this.isError = false;
     this.ImagesList = [];
     this.tempImagesList = [];
-    this.galleryServices.getAllImages().subscribe((response: any) => {
+    this.allImagesSubscription = this.galleryServices.getAllImages().subscribe((response: any) => {
       // console.log("getAllImages response: ", response)
       this.ImagesList = response.result;
       this.tempImagesList = response.result;
@@ -103,8 +107,9 @@ export class GalleryComponent implements OnInit {
     })
   }
 
+  updateImageSubscription: Subscription = new Subscription()
   updateImageStatus(status: string, _id: string) {
-    this.galleryServices.updateImageStatus({ _id, status }).subscribe((response: any) => {
+    this.updateImageSubscription = this.galleryServices.updateImageStatus({ _id, status }).subscribe((response: any) => {
       // console.log(response)
       Swal.fire({
         title: response.message,
@@ -125,9 +130,11 @@ export class GalleryComponent implements OnInit {
     })
   }
 
+  updateImageStatusSubscription: Subscription = new Subscription()
+
   updateImageHighlight(highlight: any, _id: any) {
     // console.log({ _id, highlights:highlight })
-    this.galleryServices.updateImageStatus({ _id, highlights:highlight }).subscribe((response: any) => {
+    this.updateImageStatusSubscription = this.galleryServices.updateImageStatus({ _id, highlights: highlight }).subscribe((response: any) => {
       // console.log(response)
       Swal.fire({
         title: response.message,
@@ -150,5 +157,12 @@ export class GalleryComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllImages();
+  }
+
+  ngOnDestroy(): void {
+    this.newPhotoSubscription.unsubscribe();
+    this.allImagesSubscription.unsubscribe();
+    this.updateImageSubscription.unsubscribe();
+    this.updateImageStatusSubscription.unsubscribe();
   }
 }

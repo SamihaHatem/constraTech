@@ -1,5 +1,6 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnDestroy, OnInit, TemplateRef } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Subscription } from 'rxjs';
 import { CmsService } from 'src/app/services/cms/cms.service';
 import { baseUrl } from 'src/baseUrl';
 import Swal from 'sweetalert2';
@@ -9,7 +10,7 @@ import Swal from 'sweetalert2';
   templateUrl: './exhibitors.component.html',
   styleUrls: ['./exhibitors.component.css']
 })
-export class ExhibitorsComponent implements OnInit {
+export class ExhibitorsComponent implements OnInit, OnDestroy {
 
   isLoading: boolean = true
   isError: boolean = false
@@ -23,6 +24,7 @@ export class ExhibitorsComponent implements OnInit {
   apiUrl: string = baseUrl.apiUrl
 
   constructor(private exhibitoServices: CmsService, private modalService: NgbModal) { }
+
 
   openModal(content: TemplateRef<any>, exhibitor?: any) {
     if (exhibitor) {
@@ -46,12 +48,13 @@ export class ExhibitorsComponent implements OnInit {
     }
   }
 
+  AllExhibitorsSubscription: Subscription = new Subscription()
   getAllExhibitors() {
     this.isLoading = true;
     this.isError = false;
     this.listOfExhibitors = [];
     this.tempListOfExhibitors = [];
-    this.exhibitoServices.getAllExhibitors().subscribe((response: any) => {
+    this.AllExhibitorsSubscription = this.exhibitoServices.getAllExhibitors().subscribe((response: any) => {
       // console.log("getAllExhibitors response: ", response)
       this.listOfExhibitors = response.result;
       this.tempListOfExhibitors = response.result;
@@ -74,6 +77,9 @@ export class ExhibitorsComponent implements OnInit {
     this.selectedExhibitorLogo = await this.convertToBase64(this.file)
   }
 
+  updateExhibitorSubscription: Subscription = new Subscription()
+
+
   async updateExhibitor() {
     let reqBody = {
       ...this.selectedExhibitor,
@@ -86,7 +92,7 @@ export class ExhibitorsComponent implements OnInit {
     }
     else delete reqBody.logo
     // console.log(reqBody)
-    this.exhibitoServices.updateExhibitor(reqBody).subscribe((response: any) => {
+    this.updateExhibitorSubscription = this.exhibitoServices.updateExhibitor(reqBody).subscribe((response: any) => {
       // console.log("updateExhibitor response: ", response)
       Swal.fire({
         title: response.message,
@@ -133,6 +139,8 @@ export class ExhibitorsComponent implements OnInit {
   }
 
 
+  newExhibitorSubscription: Subscription = new Subscription()
+
   async addNewExhibitor(form: any) {
     // const formData = new FormData();
     // formData.append('logo', this.file, this.file.name)
@@ -149,7 +157,7 @@ export class ExhibitorsComponent implements OnInit {
     const base64Image = await this.convertToBase64(this.file);
     const reqBody = { ...form.value, logo: base64Image };
     // console.log(reqBody)
-    this.exhibitoServices.addExhibitor(reqBody).subscribe((response: any) => {
+    this.newExhibitorSubscription =  this.exhibitoServices.addExhibitor(reqBody).subscribe((response: any) => {
       // console.log("addExhibitor response: ", response)
       Swal.fire({
         title: response.message,
@@ -178,5 +186,11 @@ export class ExhibitorsComponent implements OnInit {
     this.getAllExhibitors();
     this.statusList = this.exhibitoServices.getExhibitorStatus();
     this.classificationList = this.exhibitoServices.getExhibitorClassifications();
+  }
+
+  ngOnDestroy(): void {
+    this.AllExhibitorsSubscription.unsubscribe();
+    this.updateExhibitorSubscription.unsubscribe();
+    this.newExhibitorSubscription.unsubscribe();
   }
 }
