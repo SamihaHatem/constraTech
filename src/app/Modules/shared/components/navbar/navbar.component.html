@@ -1,6 +1,6 @@
 <nav class="bg-gray" *ngIf="!isMobile">
   <div class="w-90 mx-auto py-2">
-    <ul class="m-0 d-flex justify-content-between w-75">
+    <ul class="m-0 d-flex justify-content-between w-100">
       <li class="align-content-center">
         <a class="text-black upper-case" routerLink="/home"><i class="fa-solid fa-house fs-13"></i></a>
       </li>
@@ -69,6 +69,16 @@
       <li class="align-content-center">
         <a class="cursor-pointer dropdown-item upper-case fs-13" (click)="scrollToId('gallery')">Gallery</a>
       </li>
+
+      <li class="align-content-center">
+        <a class="cursor-pointer dropdown-item upper-case fs-13" routerLink="/home/panelsdiscussion">Panels
+          Discussion</a>
+      </li>
+
+      <li class="align-content-center">
+        <a class="cursor-pointer dropdown-item upper-case fs-13" routerLink="/home/Wallofhonor">Wall of honor</a>
+      </li>
+
     </ul>
   </div>
 </nav>

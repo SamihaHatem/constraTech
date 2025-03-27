@@ -20,6 +20,8 @@ const routes: Routes = [
       { path: 'users', loadChildren: () => import('./components-modules/users/users.module').then((c) => c.UsersModule), canActivate: [authGuard] },
       { path: 'workshops', loadChildren: () => import('./components-modules/workshops/workshops.module').then((c) => c.WorkshopsModule), canActivate: [authGuard] },
       { path: 'visitors', loadChildren: () => import('./components-modules/visitors/visitors.module').then((c) => c.VisitorsModule), canActivate: [authGuard] },
+      { path: 'wallofhonor', loadChildren: () => import('./components-modules/wallofhonor/wallofhonor.module').then((c) => c.WallofhonorModule), canActivate: [authGuard] },
+      { path: 'panelsdiscussion', loadChildren: () => import('./components-modules/panelsdiscussion/panelsdiscussion.module').then((c) => c.PanelsdiscussionModule), canActivate: [authGuard] },
       { path: '', redirectTo: 'admin', pathMatch: 'full' },
     ],
   },

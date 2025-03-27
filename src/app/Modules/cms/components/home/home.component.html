@@ -103,6 +103,24 @@
                     </span>
                 </a>
 
+                <!-- wall of honor -->
+                <a [ngClass]="currentUrl.includes('admin/wallofhonor') ? 'selectedItem' : ''" mat-list-item
+                    (click)="navigate('admin/wallofhonor')">
+                    <span class="entry">
+                        <div class="w-25"> <i class="fa-solid fa-award"></i></div>
+                        <span class="w-75 pe-2" *ngIf="!isCollapsed">Wall of Honor</span>
+                    </span>
+                </a>
+
+                <!-- panelsdiscussion -->
+                <a [ngClass]="currentUrl.includes('admin/panelsdiscussion') ? 'selectedItem' : ''" mat-list-item
+                    (click)="navigate('admin/panelsdiscussion')">
+                    <span class="entry">
+                        <div class="w-25"> <i class="fa-solid fa-comment"></i></div>
+                        <span class="w-75 pe-2" *ngIf="!isCollapsed">Panels Discussion</span>
+                    </span>
+                </a>
+
                 <!-- Website -->
                 <a [ngClass]="currentUrl.includes('home') ? 'selectedItem' : ''" mat-list-item
                     (click)="navigate('home')">

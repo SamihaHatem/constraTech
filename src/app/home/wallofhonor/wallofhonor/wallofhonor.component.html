@@ -1,0 +1,35 @@
+<div class="my-5 py-2" id="panelsdiscussion">
+
+    <div class="w-90 mx-auto">
+        <p class="h2">Wall of Honor</p>
+        <div>
+            <p class="my-4">The Wall Of Honor is a special initiative within ConstraTech, dedicated to recognizing Egyptian firms and
+                engineers who have received international or regional awards.
+                This initiative celebrates their outstanding achievements, highlighting their excellence and
+                contributions to the industry.
+                By honoring
+                these distinguished professionals, we aim to inspire and encourage others, fostering a spirit of
+                optimism and motivation within the engineering community.
+            </p>
+
+            <div class="my-3">
+                <div class="row gap-5 my-2">
+                    <div class="col-5 col-md-1 col-lg-1 text-center my-1" *ngFor="let honor of honorsList">
+                        <div class="sponsors-img-container">
+                            <a [href]="honor.url" target="_blank">
+                                <ng-container>
+                                    <img *ngIf="isImageOrVideo(apiUrl+honor.file_name) == 'image'" class="card-img-top"
+                                        [src]="apiUrl+'img/uploads/honors/'+honor.file_name" alt="">
+                                    <video class="card-img-top"
+                                        *ngIf="isImageOrVideo(apiUrl+'img/uploads/honors/'+honor.file_name) == 'video'"
+                                        [src]="apiUrl+honor.file_name" alt="" style="max-width: 100%;" controls
+                                        preload="none"></video>
+                                </ng-container>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

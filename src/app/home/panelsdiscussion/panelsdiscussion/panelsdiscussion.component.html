@@ -1,0 +1,20 @@
+<div class="my-5 py-2" id="panelsdiscussion">
+
+    <div class="w-90 mx-auto">
+        <p class="h2">Panels Discussion</p>
+        <div>
+            <div class="panel my-2 py-2" *ngFor="let panel of list">
+                <p class="h4 my-color2">{{panel.title}}</p>
+                <div class="row gap-1 justify-content-center my-2">
+                    <div class="col-5 col-md-2 text-center col-lg-2  my-1" *ngFor="let perosn of panel.panelists">
+                        <div class="sponsors-img-container">
+                            <p class="my-0 my-color">{{perosn.name}}</p>
+                            <img [src]='apiURL+perosn.photo.slice(1)' alt="constratech">
+                            <p class="my-0 my-color">{{perosn.title}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

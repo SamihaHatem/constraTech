@@ -57,7 +57,7 @@
                         <li><a class="p-0 text-white fs-small py-1 upper-case"
                             (click)="scrollToId('exhibitors-list-2025')">2025
                             Patners
-                            </a></li>
+                          </a></li>
                         <li><a class="p-0 text-white fs-small py-1 upper-case"
                             (click)="scrollToId('exhibitors-list-2024')">Pervious
                             Partners</a></li>
@@ -99,22 +99,27 @@
                         </mat-panel-title>
                       </mat-expansion-panel-header>
                       <ul class="list-style-none p-0 m-0">
-                        <li><a class="p-0 text-white fs-small py-1"
-                            (click)="scrollToId('conference')">conference</a></li>
-                        <li><a class="p-0 text-white fs-small py-1"
-                            (click)="scrollToId('why_exhibit')">Exhibition</a></li>
-                        <li><a class="p-0 text-white fs-small py-1"
-                            (click)="scrollToId('workshop')">Workshop</a></li>
-                        <li><a class="p-0 text-white fs-small py-1"
-                            (click)="scrollToId('speakers-list')">Speakers</a></li>
+                        <li><a class="p-0 text-white fs-small py-1" (click)="scrollToId('conference')">conference</a>
+                        </li>
+                        <li><a class="p-0 text-white fs-small py-1" (click)="scrollToId('why_exhibit')">Exhibition</a>
+                        </li>
+                        <li><a class="p-0 text-white fs-small py-1" (click)="scrollToId('workshop')">Workshop</a></li>
+                        <li><a class="p-0 text-white fs-small py-1" (click)="scrollToId('speakers-list')">Speakers</a>
+                        </li>
                       </ul>
                     </mat-expansion-panel>
                   </mat-accordion>
                 </a>
 
-                <a class="text-white upper-case" (click)="scrollToId('exhibitors-list-2025')">2025 Partners</a>
+                <a class="text-white upper-case cursor-pointer" (click)="scrollToId('exhibitors-list-2025')">2025 Partners</a>
 
-                <a class="text-white upper-case" (click)="scrollToId('gallery')">Gallery</a>
+                <a class="text-white upper-case cursor-pointer" (click)="scrollToId('gallery')">Gallery</a>
+
+                <a class="text-white upper-case cursor-pointer" routerLink="/home/panelsdiscussion">Panels
+                  Discussion</a>
+
+                <a class="text-white upper-case cursor-pointer" routerLink="/home/Wallofhonor">Wall of
+                  honor</a>
 
                 <div class=" social-media w-100">
                   <div class="text-center">

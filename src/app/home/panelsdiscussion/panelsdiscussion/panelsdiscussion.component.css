@@ -1,0 +1,16 @@
+.panel{
+    border-bottom: 1px solid rgb(200, 200, 200);
+}
+
+img{
+    width: 150px;
+    height: 150px;
+}
+
+.my-color{
+    color: var(--constraTech-dark-blue);
+}
+
+.my-color2{
+    color: rgb(4, 88, 83);
+}

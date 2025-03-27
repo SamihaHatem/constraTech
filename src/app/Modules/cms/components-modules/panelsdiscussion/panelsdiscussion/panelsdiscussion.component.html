@@ -1,0 +1,147 @@
+<div class="p-3">
+    <div class="d-flex justify-content-between">
+        <p class="h2">panels discussion</p>
+        <div class="align-content-center">
+            <button (click)="openModal(newPanel)" class="px-2 py-1 my-btn">New <i
+                    class="fa-regular fa-honor"></i></button>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div>
+        <!-- Loading -->
+        <div class="d-flex justify-content-center" *ngIf="isLoading">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+        <!-- Error -->
+        <div class="text-center text-danger fs-small" *ngIf="isError">
+            We encountered an issue while fetching the requested data. Please try again later. If the issue persists,
+            contact support.
+        </div>
+
+        <div *ngIf="!isLoading && !isError">
+            <div>
+                <!-- <div class="w-50">
+                    <label for="">
+                        Filter by status:
+                    </label>
+                    <ng-select name="status" [(ngModel)]="FilterStatus" (change)="onChangeFilter()">
+                        <ng-option *ngFor="let status of statusList" [value]="status">
+                            {{status}}
+                        </ng-option>
+                    </ng-select>
+                </div> -->
+
+                <div *ngIf="honorsList.length == 0">
+                    <p class="text-secondary text-center fs-small py-3">Currently, there is no information to show.</p>
+                </div>
+            </div>
+
+            <table class="table table-bordered table-hover" *ngIf="honorsList.length > 0">
+                <thead>
+                    <tr>
+                        <th class="col-3">Name</th>
+                        <th class="col-3">Tilte</th>
+                        <th class="col-1"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let honor of honorsList">
+                        <td>{{honor.title}}</td>
+                        <td
+                            [ngClass]="{'text-success' : honor.status == 'Active' , 'text-secondary' :honor.status == 'Inactive' }">
+                            {{honor.status}}</td>
+
+
+                        <td style="text-align: center; align-content: center;">
+                            <button class="fs-small m-0 p-0" mat-icon-button [matMenuTriggerFor]="menu"
+                                aria-label="Example icon-button with a menu">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                            <mat-menu #menu="matMenu">
+
+                                <a id="item1" class=" p-0 m-0 h-100 d-block px-1" mat-menu-item
+                                    *ngIf="honor.status == 'Inactive'" (click)="updateDis(honor._id , 'Active')">
+                                    <p style="font-weight: 500;" class="px-1 p-0 m-0" id="mat-item-cutom">Activate
+                                    </p>
+                                </a>
+
+                                <a id="item1" class=" p-0 m-0 h-100 d-block px-1" mat-menu-item
+                                    *ngIf="honor.status == 'Active'" (click)="updateDis(honor._id , 'Inactive')">
+                                    <p style="font-weight: 500;" class="px-1 p-0 m-0" id="mat-item-cutom">Deactivate</p>
+                                </a>
+                            </mat-menu>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<ng-template #newPanel>
+    <div class="p-3 bg-white">
+        <p class="h3">New</p>
+        <form #newPhotForm="ngForm">
+
+            <div class="my-3">
+                <label for="h_name" class="label-form text-secondary">Tilte</label>
+                <input type="text" name="h_name" id="h_name" class="form-control" ngModel #h_name="ngModel" required
+                    [(ngModel)]="panelTitle">
+            </div>
+
+            <button class="px-2 py-1 my-btn" *ngIf="!personsNo" (click)="addCount()">new person</button>
+
+
+            <div class="border border-1 p-2" *ngIf="personsNo">
+                <p>New Person</p>
+                <div class="my-3">
+                    <label for="h_name" class="label-form text-secondary">Name</label>
+                    <input type="text" name="h_name" id="h_name" class="form-control" ngModel #h_name="ngModel"
+                        [(ngModel)]="newPersonName" required>
+                </div>
+
+                <div class="my-3">
+                    <label for="h_name" class="label-form text-secondary">Tilte</label>
+                    <input type="text" name="h_name" id="h_name" class="form-control" ngModel #h_name="ngModel"
+                        [(ngModel)]="newPersonTitle" required>
+                </div>
+
+                <div class="my-3">
+                    <label for="photo" class="label-form text-secondary">Photo</label>
+                    <input type="file" name="photo" id="photo" class="form-control" accept="image/*"
+                        (change)="uploadImage($event)" required>
+                </div>
+
+                <button class="px-2 py-1 my-btn" (click)="addPersonToList()"
+                    [disabled]="!newPersonName || !newPersonTitle || !newPersonImage">Add</button>
+
+            </div>
+
+            <div *ngIf="newPersonsList.length > 0 ">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>tilte</th>
+                            <th>name</th>
+                            <th>photo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let person of newPersonsList">
+                            <td>{{person.title}}</td>
+                            <td>{{person.name}}</td>
+                            <td> <img src="{{person.photo}}" height="50px" alt=""></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="text-center my-3">
+                <button (click)="newPanelDis(newPhotForm)" [disabled]="!panelTitle" class="my-btn">submit</button>
+            </div>
+        </form>
+
+    </div>
+</ng-template>

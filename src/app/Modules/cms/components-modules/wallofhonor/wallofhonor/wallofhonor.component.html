@@ -1,0 +1,135 @@
+<div class="p-3">
+    <div class="d-flex justify-content-between">
+        <p class="h2">Wall of Honor</p>
+        <div class="align-content-center">
+            <button (click)="openModal(newPhotoContent)" class="px-2 py-1 my-btn">New <i
+                    class="fa-regular fa-honor"></i></button>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div>
+        <!-- Loading -->
+        <div class="d-flex justify-content-center" *ngIf="isLoading">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+        <!-- Error -->
+        <div class="text-center text-danger fs-small" *ngIf="isError">
+            We encountered an issue while fetching the requested data. Please try again later. If the issue persists,
+            contact support.
+        </div>
+
+        <div *ngIf="!isLoading && !isError">
+            <div>
+                <!-- <div class="w-50">
+                    <label for="">
+                        Filter by status:
+                    </label>
+                    <ng-select name="status" [(ngModel)]="FilterStatus" (change)="onChangeFilter()">
+                        <ng-option *ngFor="let status of statusList" [value]="status">
+                            {{status}}
+                        </ng-option>
+                    </ng-select>
+                </div> -->
+
+                <div *ngIf="honorsList.length == 0">
+                    <p class="text-secondary text-center fs-small py-3">Currently, there is no information to show.</p>
+                </div>
+            </div>
+
+            <table class="table table-bordered table-hover" *ngIf="honorsList.length > 0">
+                <thead>
+                    <tr>
+                        <th class="col-3">Name</th>
+                        <th class="col-3">URL</th>
+                        <th class="col-3">Status</th>
+                        <th class="col-3">File</th>
+                        <th class="col-1"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let honor of honorsList">
+                        <td>{{honor.name}}</td>
+                        <td>{{honor.url}}</td>
+                        <td
+                            [ngClass]="{'text-success' : honor.status == 'Active' , 'text-secondary' :honor.status == 'Inactive' }">
+                            {{honor.status}}</td>
+
+                        <td>
+                            <img *ngIf="isImageOrVideo(apiUrl+honor.file_name) == 'image'"
+                                [src]="apiUrl+'img/uploads/honors/'+honor.file_name" alt="">
+                            <video *ngIf="isImageOrVideo(apiUrl+'img/uploads/honors/'+honor.file_name) == 'video'"
+                                [src]="apiUrl+honor.file_name" alt="" style="max-width: 100%;" controls
+                                preload="none"></video>
+                        </td>
+                        <td style="text-align: center; align-content: center;">
+                            <button class="fs-small m-0 p-0" mat-icon-button [matMenuTriggerFor]="menu"
+                                aria-label="Example icon-button with a menu">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                            <mat-menu #menu="matMenu">
+
+                                <a id="item1" class=" p-0 m-0 h-100 d-block px-1" mat-menu-item
+                                    *ngIf="honor.status == 'Inactive'" (click)="updateHonor(honor._id , 'Active')">
+                                    <p style="font-weight: 500;" class="px-1 p-0 m-0" id="mat-item-cutom">Activate
+                                    </p>
+                                </a>
+
+                                <a id="item1" class=" p-0 m-0 h-100 d-block px-1" mat-menu-item
+                                    *ngIf="honor.status == 'Active'" (click)="updateHonor(honor._id , 'Inactive')">
+                                    <p style="font-weight: 500;" class="px-1 p-0 m-0" id="mat-item-cutom">Deactivate</p>
+                                </a>
+                            </mat-menu>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<ng-template #newPhotoContent>
+    <div class="p-3 bg-white">
+        <p class="h3">New</p>
+        <form #newPhotForm="ngForm" (ngSubmit)="newHonor(newPhotForm)">
+
+            <div class="my-3">
+                <label for="h_name" class="label-form text-secondary">Name</label>
+                <input type="text" name="h_name" id="h_name" class="form-control" ngModel #h_name="ngModel" required>
+            </div>
+
+            <div class="my-3">
+                <label for="url" class="label-form text-secondary">URL</label>
+                <input type="text" name="url" id="url" class="form-control" ngModel #url="ngModel" required>
+            </div>
+
+            <div class="my-3">
+                <label for="">
+                  status:
+                </label>
+                <ng-select name="status" ngModel #status="ngModel">
+                    <ng-option value="Active">
+                        Active
+                    </ng-option>
+
+                    <ng-option value="Inactive">
+                        Inactive
+                    </ng-option>
+                </ng-select>
+            </div>
+
+
+            <div class="my-3">
+                <label for="photo" class="label-form text-secondary">Select media</label>
+                <input type="file" name="photo" id="photo" class="form-control" accept="image/*|video/*"
+                    (change)="uploadImage($event)" required>
+            </div>
+            <div class="text-center my-3">
+                <button [disabled]="newPhotForm.invalid || !file" type="submit" class="my-btn">submit</button>
+            </div>
+        </form>
+
+    </div>
+</ng-template>

@@ -29,7 +29,7 @@ export class CmsService {
     return this.http.get(baseUrl.apiUrl + 'gallery/allActive')
   }
 
-  getHighightsImages(){
+  getHighightsImages() {
     // highlights
     return this.http.get(baseUrl.apiUrl + 'gallery/highlights')
 
@@ -134,6 +134,46 @@ export class CmsService {
 
   confirmVisitor(reqBody: any) {
     return this.http.post(baseUrl.apiUrl + 'visitors/confirmVisitor', reqBody)
+  }
+
+
+  // -------------------------------------------------------------------
+  // -----------------------------  Honors  ----------------------------
+  // -------------------------------------------------------------------
+  newHonor(reqBody: any) {
+    return this.http.post(baseUrl.apiUrl + 'honors/newHonor', reqBody)
+  }
+
+  getAllHonors() {
+    return this.http.get(baseUrl.apiUrl + 'honors/allHonors')
+  }
+
+  getActiveHonors() {
+    return this.http.get(baseUrl.apiUrl + 'honors/allActive')
+  }
+
+  updateHonor(id: any, reqBody: any) {
+    return this.http.patch(baseUrl.apiUrl + 'honors/update/' + id, reqBody)
+  }
+
+
+  // -------------------------------------------------------------------
+  // ---------------------------  Discussion  --------------------------
+  // -------------------------------------------------------------------
+  newDiscussion(reqBody: any) {
+    return this.http.post(baseUrl.apiUrl + 'discussions/newDiscussion', reqBody)
+  }
+
+  allDiscussion() {
+    return this.http.get(baseUrl.apiUrl + 'discussions/allDiscussions')
+  }
+
+  updateDisStatus(id: any, reqBody: any) {
+    return this.http.patch(baseUrl.apiUrl + 'discussions/update/' + id, reqBody)
+  }
+
+  getActiveDiscussion() {
+    return this.http.get(baseUrl.apiUrl + 'discussions/allActive')
   }
 
 }

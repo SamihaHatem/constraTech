@@ -16,6 +16,8 @@ const routes: Routes = [
     children: [
       { path: 'content', component: HomeContentComponent },
       { path: 'speakers', loadChildren: () => import('./home/speakers/speakers.module').then(m => m.SpeakersModule) },
+      { path: 'Wallofhonor', loadChildren: () => import('./home/wallofhonor/wallofhonor.module').then(m => m.WallofhonorModule) },
+      { path: 'panelsdiscussion', loadChildren: () => import('./home/panelsdiscussion/panelsdiscussion.module').then(m => m.PanelsdiscussionModule) },
       { path: 'workshops', loadChildren: () => import('./home/workshops/workshops.module').then(m => m.WorkshopsModule) },
       { path: 'gallery', loadChildren: () => import('./home/gallery/gallery.module').then(m => m.GalleryModule) },
       { path: 'main-topics', loadChildren: () => import('./home/main-topics/main-topics.module').then(m => m.MainTopicsModule) },

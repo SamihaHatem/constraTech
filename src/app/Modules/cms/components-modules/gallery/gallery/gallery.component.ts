@@ -32,7 +32,6 @@ export class GalleryComponent implements OnInit, OnDestroy {
 
   uploadImage(event: any) {
     this.file = event.target.files[0];
-    // console.log(this.file);
   }
 
   onChangeFilter() {
