@@ -1,3 +1,3 @@
 export const baseUrl = {
-    apiUrl: 'http://localhost:3000/',
+    apiUrl: 'https://api.constratech.org/',
 }
